@@ -7,7 +7,7 @@
 
    <display-name>Spring MVC Application</display-name>
    <welcome-file-list>
-   <welcome-file>hello.jsp</welcome-file>
+   <welcome-file>index.html</welcome-file>
    </welcome-file-list>
 
 
@@ -20,6 +20,11 @@
     <servlet-name>Register</servlet-name>
     <servlet-class>com.example.web.Register</servlet-class>
   </servlet>
+  
+   <servlet>
+    <servlet-name>googleplus</servlet-name>
+    <servlet-class>google.GooglePlusServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>Coffee</servlet-name>
@@ -30,6 +35,11 @@
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>googleplus</servlet-name>
+    <url-pattern>/googleplus</url-pattern>
   </servlet-mapping>
 
 </web-app>
