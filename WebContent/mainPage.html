@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CS3213Assignment3</title>
 <style>
 #header {
 	height: 70px;
@@ -12,35 +12,45 @@
 	text-align: center;
 	color: white;
 }
-#editor {
+#coordEditor {
 	height: 400px;
-	width: 400px;
+	width: 125px;
 	float: left;
 	padding: 5px;
+}
+#editor {
+	height: 400px;
+	width: 350px;
+	float: right;
 }
 #player {
 	height: 400px;
-	width: 600px;
+	width: 500px;
 	float: right;
-	padding: 5px;
 }
 #source {
 	height: 200px;
-	width: 500px;
+	width: 1000px;
 	float: left;
+	padding: 5px;
 }
-#coordEditor {
-	height: 200px;
-	width: 500px;
-	float: right;
+#divName {
+	border-radius: 10px;
+	border: none;
+	float: top;
+}
 </style>
-<style>  
+<style> 
+div {
+	border: none;
+    border-radius: 25px;
+    background-color: lightGrey;
+    margin: 5px;
+} 
 p {
 	color: white;
-	background-color: #66CCCC;
 }
 th {
-	background-color: #66CCCC;
 	color: white;
     text-align: left;
 }
@@ -48,37 +58,28 @@ th {
 </head>
 <body>
 <div id="header"><h2>CS3213 Assignment3</h2></div>
- <div id="editor">
- 	<table>
- 		<tr><th>Editor</th></tr>
- 	</table>
+ <div id="coordEditor">
+ 	<div id="divName"><p>Set Coordinates</p></div>	
  </div>
- <div id="player">
- 	<table>
- 		<tr><th>Player</th></tr>
- 	</table>
+ 
+  <div id="player">
+ 	<div id="divName"><p>Player</p></div>
  	<input type="submit" value="Play!">
  </div>
+ 
+ <div id="editor">
+ 	<div id="divName"><p>Editor</p></div>
+ </div>
+ 
  <div id="source">
  	<table>
  		<tr><th>Float</th></tr>
  		<tr>
- 			<td><img src="image3.jpeg" height="50px"></td>
- 			<td><img src="image4.jpeg" height="50px"></td>
- 			<td><img src="image5.jpeg" height="50px"></td>
- 		</tr>
- 		<tr><th>Character</th></tr>
- 		<tr>
- 			<td></td>
- 			<td></td>
- 			<td></td>
+ 			<td><img draggable="true" src="image3.jpeg" height="50px"></td>
+ 			<td><img draggable="true" src="image4.jpeg" height="50px"></td>
+ 			<td><img draggable="true" src="image5.jpeg" height="50px"></td>
  		</tr>
  	</table>	
- </div>
- <div id="coordEditor">
- 	<table>
- 		<tr><th>Set Coordinates</th></tr>
- 	</table>
  </div>
 </body>
 </html>
