@@ -7,7 +7,7 @@
 
    <display-name>Spring MVC Application</display-name>
    <welcome-file-list>
-   <welcome-file>hello.jsp</welcome-file>
+   <welcome-file>index.html</welcome-file>
    </welcome-file-list>
 
 
