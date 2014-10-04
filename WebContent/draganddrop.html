@@ -28,9 +28,17 @@
   </style>
   <script>
   $(function() {
-    $( "#sortable1, #sortable2" ).sortable({
-      connectWith: ".connectedSortable"
-    }).disableSelection();
+      $( "#sortable1" ).sortable({
+          connectWith: ".connectedSortable",
+          remove: function(event, ui) {
+              ui.item.clone().appendTo('#sortable2');
+              $(this).sortable('cancel');
+          }
+      }).disableSelection();
+
+  $( "#sortable2" ).sortable({
+          connectWith: ".connectedSortable"
+      }).disableSelection();
   });
   </script>
 </head>
