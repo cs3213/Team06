@@ -22,10 +22,14 @@ public class Register extends HttpServlet {
     
 
     List result = new ArrayList();
+    
+//    FacesContext context = FacesContext.getCurrentInstance();
     HttpSession session = request.getSession();
     //System.out.println(session.getAttribute("firstname").toString());
-    result.add(request.getParameterValues("firstname"));
-    result.add(request.getParameterValues("lastname"));
+    String[] firstname = request.getParameterValues("firstname");
+    String[] lastname = request.getParameterValues("lastname");
+    result.add(firstname[0]);
+    result.add(lastname[0]);
 
     // Use the below code to debug the program if you get problems 
     //response.setContentType("text/html"):
