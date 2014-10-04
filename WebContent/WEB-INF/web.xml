@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version = "1.0"?>
 <web-app id="WebApp_ID" version="2.4"
    xmlns="http://java.sun.com/xml/ns/j2ee" 
@@ -9,18 +10,22 @@
    <welcome-file-list>
    <welcome-file>hello.jsp</welcome-file>
    </welcome-file-list>
+=======
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         Version="2.4">
 
-   <servlet>
-      <servlet-name>HelloWeb</servlet-name>
-      <servlet-class>
-         org.springframework.web.servlet.DispatcherServlet
-      </servlet-class>
-      <load-on-startup>1</load-on-startup>
-   </servlet>
+  <servlet>
+    <servlet-name>Coffee</servlet-name>
+    <servlet-class>com.example.web.CoffeeSelect</servlet-class>
+  </servlet>
+>>>>>>> f73cee918ac6293994e1f8deda4a19cde0b1f297
 
-   <servlet-mapping>
-      <servlet-name>HelloWeb</servlet-name>
-      <url-pattern>/</url-pattern>
-   </servlet-mapping>
- 
+  <servlet-mapping>
+    <servlet-name>Coffee</servlet-name>
+    <url-pattern>/SelectCoffee.do</url-pattern>
+  </servlet-mapping>
+
 </web-app>
