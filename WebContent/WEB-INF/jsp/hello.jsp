@@ -13,5 +13,12 @@
  <div id="player"><p>Player</p></div>
  <div id="source"><p>source</p></div>
  <div id="coordEditor"><p>coordEditor</p></div>
+ 
+ <form action="testServlet">
+First name: <input type="text" name="firstname"><br>
+Last name: <input type="text" name="lastname"><br><br>
+<input type="button" value="Submit">
+</form>
+ 
 </body>
 </html>
