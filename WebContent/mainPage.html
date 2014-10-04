@@ -13,19 +13,23 @@
 	color: white;
 }
 #coordEditor {
-	height: 400px;
-	width: 125px;
+	height: 100px;
+	width: 340px;
 	float: left;
-	padding: 5px;
 }
 #editor {
-	height: 400px;
-	width: 350px;
-	float: right;
+	height: 290px;
+	width: 340px;
+	float: left;
 }
 #player {
 	height: 400px;
 	width: 500px;
+	float: right;
+}
+#storage{
+	height: 400px;
+	width: 150px;
 	float: right;
 }
 #source {
@@ -54,30 +58,52 @@ th {
 	color: white;
     text-align: left;
 }
+button {
+	border: none;
+	background-color: lightGrey;
+}
 </style> 
 </head>
 <body>
 <div id="header"><h2>CS3213 Assignment3</h2></div>
+
  <div id="coordEditor">
- 	<div id="divName"><p>Set Coordinates</p></div>	
+ 	<div id="divName"><p>Setting</p></div>	
  </div>
  
-  <div id="player">
+ <div id="storage">
+ 	<div id="divName"><p>Old Project</p></div>
+ 	<input type="submit" value="Load">
+ </div>
+ 
+ <div id="player">
  	<div id="divName"><p>Player</p></div>
- 	<input type="submit" value="Play!">
+ 	<input type="submit" value="Start a new program">
+ 	<input type="submit" value="Save">
  </div>
  
  <div id="editor">
  	<div id="divName"><p>Editor</p></div>
+ 	<input type="submit" value="Play!">
  </div>
  
  <div id="source">
  	<table>
  		<tr><th>Float</th></tr>
  		<tr>
- 			<td><img draggable="true" src="image3.jpeg" height="50px"></td>
- 			<td><img draggable="true" src="image4.jpeg" height="50px"></td>
- 			<td><img draggable="true" src="image5.jpeg" height="50px"></td>
+ 			<td><button onclick="myFunction()"><img src="arrow_left.gif" height="15px"></button><img draggable="true" src="image3.jpeg" height="50px"><button onclick="myfunction()"><img src="arrow_right.gif" height="15px"></button>
+ 		</tr>
+ 	</table>
+ 	<table>
+ 		<tr><th>Character</th></tr>
+ 		<tr>
+ 			<td><button onclick="myFunction()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img draggable="true" src="image1.jpeg" height="50px">
+ 			<button onclick="myfunction()"><img src="arrow_right.gif" height="15px"></button>
+ 			
+ 			<td><button onclick="myFunction()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img draggable="true" src="image2.jpg" height="50px">
+ 			<button onclick="myfunction()"><img src="arrow_right.gif" height="15px"></button>
  		</tr>
  	</table>	
  </div>
