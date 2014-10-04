@@ -22,7 +22,7 @@ public class Register extends HttpServlet {
     
 
     List result = new ArrayList();
-    //HttpSession session = request.getSession();
+    HttpSession session = request.getSession();
     //System.out.println(session.getAttribute("firstname").toString());
     result.add(request.getParameterValues("firstname"));
     result.add(request.getParameterValues("lastname"));
