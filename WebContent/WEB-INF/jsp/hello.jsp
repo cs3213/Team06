@@ -8,5 +8,8 @@
 </head>
 <body>
  <h2>${message}</h2>
+ <div id="editor"><p>Editor</p></div>
+ <div id="player"><p>Player</p></div>
+ <div id="source"><p>source</p></div>
 </body>
 </html>
