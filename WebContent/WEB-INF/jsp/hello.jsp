@@ -5,13 +5,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="CSS/page.css">
+<style>
+#header {
+	height: 70px;
+	width: 1000px;
+	padding: 5px;
+	Background-color: Black;
+	text-align: center;
+	color: white;
+}
+#editor {
+	height: 300px;
+	width: 400px;
+	float: left;
+	padding: 5px;
+}
+#player {
+	height: 300px;
+	width: 600px;
+	float: right;
+	padding: 5px;
+}
+#source {
+	height: 200px;
+	width: 500px;
+	float: left;
+}
+#coordEditor {
+	height: 200px;
+	width: 500px;
+	float: right;
+}
+</style>
 </head>
 <body>
- <h2>${message}</h2>
- <div id="editor"><p>Editor</p></div>
- <div id="player"><p>Player</p></div>
- <div id="source"><p>source</p></div>
- <div id="coordEditor"><p>coordEditor</p></div>
+ <div id="header"><h2>CS3213 Assignment3</h2></div>
+ <div id="editor" style="color:#0000FF">
+ 	<p>Editor</p>
+ </div>
+ <div id="player">
+ 	<p>Player</p>
+ </div>
+ <div id="source">
+ 	<p>Source</p>
+ 	<img src="image1.jpeg" />
+ </div>
+ <div id="coordEditor">
+ 	<p>coordEditor</p>
+ </div>
 </body>
 </html>
