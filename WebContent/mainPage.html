@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CS3213Assignment3</title>
 <style>
 #header {
 	height: 70px;
@@ -12,73 +12,100 @@
 	text-align: center;
 	color: white;
 }
-#editor {
-	height: 400px;
-	width: 400px;
+#coordEditor {
+	height: 100px;
+	width: 340px;
 	float: left;
-	padding: 5px;
+}
+#editor {
+	height: 290px;
+	width: 340px;
+	float: left;
 }
 #player {
 	height: 400px;
-	width: 600px;
+	width: 500px;
 	float: right;
-	padding: 5px;
+}
+#storage{
+	height: 400px;
+	width: 150px;
+	float: right;
 }
 #source {
 	height: 200px;
-	width: 500px;
+	width: 1000px;
 	float: left;
+	padding: 5px;
 }
-#coordEditor {
-	height: 200px;
-	width: 500px;
-	float: right;
+#divName {
+	border-radius: 10px;
+	border: none;
+	float: top;
+}
 </style>
-<style>  
+<style> 
+div {
+	border: none;
+    border-radius: 25px;
+    background-color: lightGrey;
+    margin: 5px;
+} 
 p {
 	color: white;
-	background-color: #66CCCC;
 }
 th {
-	background-color: #66CCCC;
 	color: white;
     text-align: left;
+}
+button {
+	border: none;
+	background-color: lightGrey;
 }
 </style> 
 </head>
 <body>
 <div id="header"><h2>CS3213 Assignment3</h2></div>
- <div id="editor">
- 	<table>
- 		<tr><th>Editor</th></tr>
- 	</table>
+
+ <div id="coordEditor">
+ 	<div id="divName"><p>Setting</p></div>	
  </div>
+ 
+ <div id="storage">
+ 	<div id="divName"><p>Old Project</p></div>
+ 	<input type="submit" value="Load">
+ </div>
+ 
  <div id="player">
- 	<table>
- 		<tr><th>Player</th></tr>
- 	</table>
+ 	<div id="divName"><p>Player</p></div>
+ 	<input type="submit" value="Start a new program">
+ 	<input type="submit" value="Save">
+ </div>
+ 
+ <div id="editor">
+ 	<div id="divName"><p>Editor</p></div>
  	<input type="submit" value="Play!">
  </div>
+ 
  <div id="source">
  	<table>
  		<tr><th>Float</th></tr>
  		<tr>
- 			<td><img src="image3.jpeg" height="50px"></td>
- 			<td><img src="image4.jpeg" height="50px"></td>
- 			<td><img src="image5.jpeg" height="50px"></td>
+ 			<td><button onclick="myFunction()"><img src="arrow_left.gif" height="15px"></button><img draggable="true" src="image3.jpeg" height="50px"><button onclick="myfunction()"><img src="arrow_right.gif" height="15px"></button>
  		</tr>
+ 	</table>
+ 	<table>
  		<tr><th>Character</th></tr>
  		<tr>
- 			<td></td>
- 			<td></td>
- 			<td></td>
+ 			<td><button onclick="myFunction()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img draggable="true" src="image1.jpeg" height="50px">
+ 			<button onclick="myfunction()"><img src="arrow_right.gif" height="15px"></button>
+ 			
+ 			<td><button onclick="myFunction()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img draggable="true" src="image2.jpg" height="50px">
+ 			<button onclick="myfunction()"><img src="arrow_right.gif" height="15px"></button>
  		</tr>
  	</table>	
- </div>
- <div id="coordEditor">
- 	<table>
- 		<tr><th>Set Coordinates</th></tr>
- 	</table>
  </div>
 </body>
 </html>
