@@ -6,6 +6,7 @@ Hello
 </title>
 <script type="text/javascript" src="Selection.js" ></script>
 <style>
+#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
 div {
 position: absolute;
 left: 100px;
@@ -22,18 +23,10 @@ display: none;
 </head>
 <body>
 
-<p>Please input a number between 1 and 10:</p>
-
-<input id="numb" type="text">
-
-<button type="button" onclick="myFunction()">Submit</button>
-
-<p id="demo"></p>
-
 <!--onclick display editor window-->
 
 
-<input type=button name=type id="Select" value='Select' onclick="show('EditButton')">
+<input type=button name=type id="Select" value='Select' onclick="Select('EditButton')">
 
 <input type=button name=type id="EditButton" value='Edit' style="display:none" onclick="setVisibility('EditWindow', 'inline');"> 
 
@@ -43,5 +36,18 @@ display: none;
 <!-- Hide EditorWindow -->
 <input type=button name=type value='Hide Layer' onclick="setVisibility('EditWindow', 'none');"> 
 
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="test.jpg" draggable="true"
+ondragstart="drag(event)" width="336" height="69">
+
+<table width="500" border="0" cellpadding="5">
+<tr>
+<td align="center" valign="center">
+<img src="image1.jpeg" width="100%" height="100%" style="display: block"></td>
+<td align="center" valign="center">
+<img src="image2.jpg" width="100%" height="100%" style="display: block"></td>
+</tr>
+</table>
 </body>
 </html>
