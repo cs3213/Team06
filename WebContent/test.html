@@ -1,27 +1,52 @@
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>JavaScript Animation</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="Selection.js" ></script>
+  <title>jQuery UI Sortable - Connect lists</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <style>
+ #sortable {width:50%;height:300px;background:#ccc;overflow:auto;list-style-type: none;}
+ #draggable{list-style-type: none;}
+ li {
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 130px;
+    background-color:#4679bd;
+  }
+</style>
 <script type="text/javascript">
-<!--
-var imgObj = null;
-function init(){
-   imgObj = document.getElementById('myImage');
-   imgObj.style.position= 'relative'; 
-   imgObj.style.left = '50px'; 
-}
-function moveRight(){
-   imgObj.style.left = parseInt(imgObj.style.left) - 10 + 'px';
-}
-window.onload =init;
-//-->
+$(function() {
+    $( "#draggable li" ).draggable({
+        connectToSortable: "#sortable",
+        helper: "clone",
+        revert: "invalid"
+    });
+    $("#draggable").droppable({
+    	 drop: function(event, ui) {
+            ui.draggable.remove();
+         }
+    });
+    $( "#sortable" ).sortable({
+        revert: true,
+        receive: function(event, ui) {
+        }
+    });
+});
 </script>
 </head>
 <body>
-<form>
-<img id="myImage" src="image2.jpg" />
-<p>Click button below to move the image to right</p>
-<input type="button" value="Click Me" onclick="moveRight();" />
-</form>
+
+<ul id="draggable">
+    <li> <form> Moveright:<input type="text" name="usr_name" size="2"></form></li>
+    <li><form> setx:<input type="text" name="usr_name" size="2"></form></li>
+    <li><form> sety:<input type="text" name="usr_name" size="2"></form></li>    
+</ul>
+<div id="sortable"></div>
 </body>
 </html>
