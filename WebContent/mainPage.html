@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>CS3213Assignment3</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="Selection.js" ></script>
 <style>
 #header {
 	height: 70px;
@@ -62,13 +66,58 @@ button {
 	border: none;
 	background-color: lightGrey;
 }
-</style> 
+#sortable li,#draggable li {
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 150px;
+    background-color:#4679bd;
+  }
+   #sortable {
+   width:70%;
+   height:210px;
+   overflow:auto;
+   list-style-type: none;
+   padding-left:10px;
+   }
+   
+ #draggable{list-style-type: none;}
+</style>
+<script type="text/javascript">
+$(function() {
+    $( "#draggable li" ).draggable({
+        connectToSortable: "#sortable",
+        helper: "clone",
+        revert: "invalid"
+    });
+    $("#draggable").droppable({
+    	 drop: function(event, ui) {
+            ui.draggable.remove();
+         }
+    });
+    $( "#sortable" ).sortable({
+        revert: true,
+        receive: function(event, ui) {
+        }
+    });
+});
+</script>
 </head>
 <body>
 <div id="header"><h2>CS3213 Assignment3</h2></div>
 
  <div id="coordEditor">
- 	<div id="divName"><p>Setting</p></div>	
+ 	<div id="divName">Setting</div>
+ 	<form>
+  <ul id="draggable">
+    <li id='right'>  Moveright<input type="text" name="right" size="2">steps</li>
+    <li id='left'>  Moveleft<input type="text" name="left" size="2">steps</li>
+    <li id='x'> setx:<input type="text" name="x_pos" size="2"></li>
+    <li id='y'> sety:<input type="text" name="y_pos" size="2"></li>    
+</ul>
+</form>
  </div>
  
  <div id="storage">
@@ -77,14 +126,15 @@ button {
  </div>
  
  <div id="player">
- 	<div id="divName"><p>Player</p></div>
+ 	<div id="divName"><h4>Player</h4></div>
  	<input type="submit" value="Start a new program">
  	<input type="submit" value="Save">
  </div>
  
  <div id="editor">
- 	<div id="divName"><p>Editor</p></div>
- 	<input type="submit" value="Play!">
+ 	<div id="divName">Editor</div>
+ 	<div id="sortable"></div>
+ 	<input type="submit" value="Play!" onclick="submit()">
  </div>
  
  <div id="source">

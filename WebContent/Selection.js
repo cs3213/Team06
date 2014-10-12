@@ -68,3 +68,8 @@ function Select(target) {
 function play() {
 	
 }
+
+function submit(){
+	   var idsInOrder = $("#sortable").sortable("toArray");
+	console.log(idsInOrder);
+	}
