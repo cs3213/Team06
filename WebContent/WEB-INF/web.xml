@@ -5,41 +5,30 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-   <display-name>Spring MVC Application</display-name>
-   <welcome-file-list>
-   <welcome-file>index.html</welcome-file>
-   </welcome-file-list>
+
+<!-- Spring Setting -->
+<!-- ====================================== -->
+<servlet>
+    <servlet-name>spring</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-servlet.xml</param-value> 
+    </init-param>
+    
+    <load-on-startup>1</load-on-startup>
+</servlet>
 
 
-  <servlet>
-    <servlet-name>Coffee</servlet-name>
-    <servlet-class>com.example.web.CoffeeSelect</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>Register</servlet-name>
-    <servlet-class>com.example.web.Register</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>googleplus</servlet-name>
-    <servlet-class>google.GooglePlusServlet</servlet-class>
-  </servlet>
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
 
-  <servlet-mapping>
-    <servlet-name>Coffee</servlet-name>
-    <url-pattern>/SelectCoffee.do</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet-mapping>
-    <servlet-name>Register</servlet-name>
-    <url-pattern>/Register.do</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>googleplus</servlet-name>
-    <url-pattern>/googleplus</url-pattern>
-  </servlet-mapping>
+ 
+<servlet-mapping>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+
 
 </web-app>
