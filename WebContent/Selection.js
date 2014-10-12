@@ -70,6 +70,7 @@ function play() {
 }
 
 function submit(){
-	   var idsInOrder = $("#sortable").sortable("toArray");
-	console.log(idsInOrder);
+	var idsInOrder = [];
+    $("ul#sortable li").each(function() { idsInOrder.push($(this).text()) });
+    alert(idsInOrder.join('\n'));
 	}
