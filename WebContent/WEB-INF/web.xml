@@ -4,6 +4,7 @@
     xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     id="WebApp_ID" version="2.5">
+    
     <display-name>SpringMVC</display-name>
 
 
@@ -19,5 +20,16 @@
       <servlet-name>Spring</servlet-name>
       <url-pattern>/</url-pattern>
    </servlet-mapping>
+   
+    <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/Spring-servlet.xml
+		</param-value>
+	</context-param>
  
 </web-app>
