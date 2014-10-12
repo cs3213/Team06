@@ -21,7 +21,7 @@
 	float: left;
 }
 #editor {
-	height: 290px;
+	height: 340px;
 	width: 440px;
 	float: left;
 }
@@ -46,21 +46,45 @@
 	border: none;
 	float: top;
 }
-#sortable li,#draggable li {
+#draggable li
+{
     border-radius: 10px;
     margin: 3px 3px 3px 3px;
     padding: 3px 3px;
     font-size: 0.8em;
     color:white;
-    width: 150px;
-    background-color:#6699CC;
+    width: 145px;
+    background-color:#4679bd;
+    text-align:center;
+ }
+ 
+#sortable li {
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 180px;
+    background-color:#4679bd;
+    text-align:center;
+ }
+ 
+.closeButton {
+	margin: 8px;
+	float:right;
+}
+
+.closeButton:hover {
+ 	background-color: yellow;
+ 	cursor: pointer;
 }
 #sortable {
-   width:70%;
-   height:210px;
+   width:180px;
+   height:110px;
    overflow:auto;
    list-style-type: none;
-   padding-left:10px;
+   float: right;
+   border: dotted;
 }   
 #draggable {
 	list-style-type: none;
@@ -86,24 +110,45 @@ button {
 }
 </style>
 <script type="text/javascript">
+var countElement = 0;
 $(function() {
     $( "#draggable li" ).draggable({
-        connectToSortable: "#sortable",
-        helper: "clone",
-        revert: "invalid"
+         connectToSortable: "#sortable1",
+         helper: "clone",
+         revert: "invalid"
     });
-    $("#draggable").droppable({
-    	 drop: function(event, ui) {
-            ui.draggable.remove();
-         }
-    });
+
     $( "#sortable" ).sortable({
         revert: true,
         receive: function(event, ui) {
         }
     });
 });
-
+function dragIt(theEvent) {
+	//tell the browser what to drag
+	theEvent.dataTransfer.setData("Text", theEvent.target.id);
+}
+function dropIt(theEvent) {
+	countElement++;
+	//get a reference to the element being dragged
+	var theData = theEvent.dataTransfer.getData("Text");
+	//get the element
+	var theDraggedElement = document.getElementById(theData);
+	var eleSrc = theDraggedElement.getAttribute("src");
+	var div = document.createElement("div");
+	div.style.cssText = "height: 100px; width: 100px; float: left";
+	div.id = "div" + countElement.toString();
+	var element = document.createElement("img");
+	element.id = "element" + countElement.toString();
+	element.setAttribute('src', eleSrc);
+	element.setAttribute('height', '100px');
+	element.setAttribute('dragable', 'false');
+	div.appendChild(element);
+	//add it to the drop element
+	theEvent.target.appendChild(div);
+	//instruct the browser to allow the drop
+	theEvent.preventDefault();
+}
 function changeFloatLeft() {
 	var curFloat = document.getElementById("curFloat").src;
 	var indexOfDot = curFloat.indexOf(".");
@@ -152,11 +197,31 @@ function changeCharacterRight() {
 	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
 	document.getElementById("curCharacter").src = nextCharacter;
 }
+function dropOver() {
+	var element = document.createElement("div");
+	element.id = "sortable" + countElement.toString();
+	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
+	document.getElementById('divtest').appendChild(element);
+/* 	var cur = element.class;
+ *//* 	element.class = cur + countElement.toString();
+ */	
+	   $(element).sortable({
+	        revert: true,
+	    	stop: function(event, ui){
+	            var text = ui.item.html();
+	            if (text.indexOf("<span class=\"closeButton\">X</span>")==-1) ui.item.html(text+'<span class="closeButton">X</span>');
+	         }
+	    });
+	    
+	    $(element).delegate(".closeButton", "click", function() {
+	        $(this).parent().remove();
+	    });
+}
 </script>
 </head>
 <body>
 <div id="header"><h2>CS3213 Assignment3</h2></div>
- 
+ <p id="test" style="color: red">Here</p>
  <div id="storage">
  	<div id="divName"><p>Old Project</p></div>
  	<input type="submit" value="Load">
@@ -170,7 +235,10 @@ function changeCharacterRight() {
  
 <div id="editor">
  	<div id="divName">Editor</div>
- 	<div id="sortable"></div>
+ 	<!-- "<div id="sortable"></div>" -->
+ 	<div id="divtest" style="overflow: scroll; height: 300px; width: 350px; float: left; border: dotted" 
+ 		ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
+	</div>
  	<input type="submit" value="Play!" onclick="submit()">
 </div>
  
@@ -178,33 +246,28 @@ function changeCharacterRight() {
  	<div id="divName">Setting</div>
  	<form>
     	<ul id="draggable">
-    	<li id='right'>  Moveright<input type="text" name="right" size="2">steps</li>
-    	<li id='left'>  Moveleft<input type="text" name="left" size="2">steps</li>
-    	<li id='x'> setx:<input type="text" name="x_pos" size="2"></li>
-    	<li id='y'> sety:<input type="text" name="y_pos" size="2"></li>    
+    		<li id="right">Move Right<input type="text" name="right" size="2">steps</li>
+    		<li id="left">Move Left<input type="text" name="left" size="2">steps</li>
+    		<li id="x">Set X:<input type="text" name="x_pos" size="2">  </li>
+    		<li id="y">Set Y:<input type="text" name="y_pos" size="2">  </li>        
 		</ul>
 	</form>
 </div>
  
  <div id="source">
- 	<table>
- 		<tr><th>Float</th></tr>
- 		<tr>
- 			<td><button onclick="changeFloatLeft()"><img src="arrow_left.gif" height="15px"></button>
- 			<img id="curFloat" draggable="true" src="float1.jpeg" height="70px">
+ 	<div id="floatArea" ondragover="event.preventDefault();">
+ 		<h4>Float</h4>
+ 			<button onclick="changeFloatLeft()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img id="curFloat"  src="float1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
  			<button onclick="changeFloatRight()"><img src="arrow_right.gif" height="15px"></button>
- 		</tr>
- 	</table>
+ 	</div>
  	
- 	<table>
- 		<tr><th>Character</th></tr>
- 		<tr>
- 			<td><button onclick="changeCharacterLeft()"><img src="arrow_left.gif" height="15px"></button>
- 			<img id="curCharacter" draggable="true" src="char1.jpeg" height="70px">
- 			<button onclick="changeCharacterRight()"><img src="arrow_right.gif" height="15px"></button>
- 		</tr>
- 	</table>
- 	<p id="demo"></p>	
- </div>
+ 	<div id="floatArea" ondragover="event.preventDefault();">
+ 		<h4>Character</h4>
+ 		<button onclick="changeCharacterLeft()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img id="curCharacter" src="char1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
+ 		<button onclick="changeCharacterRight()"><img src="arrow_right.gif" height="15px"></button>
+ 	</div>
+</div>
 </body>
 </html>
