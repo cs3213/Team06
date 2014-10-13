@@ -8,8 +8,8 @@
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
-<!-- <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
- -->
+<script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
+
 
 </head>
 
@@ -39,7 +39,7 @@ Type game- content
 	<div class="overlay-inner">
 	 
 	 game-name<textarea id= "game-name"></textarea>
-        
+     <button id="save" value="save"> save</button>
 	</div>
 </div>
 
