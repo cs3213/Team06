@@ -7,7 +7,7 @@ var client = new Dropbox.Client({ key: APP_KEY });
 
 // Use a pop-up for auth.
 client.authDriver(new Dropbox.AuthDriver.Popup({ 
-	receiverUrl: 'localhost:8080/CS3213_assignment3/hello'
+	receiverUrl: 'http://localhost:8080/CS3213_assignment3/hello'
 }));
 
 // First check if we're already authenticated.
@@ -16,6 +16,8 @@ client.authenticate({ interactive: false });
 if (client.isAuthenticated()) {
 	// If we're authenticated, update the UI to reflect the logged in status.
 	loggedIn();
+	
+	
 } else {
 	// Otherwise show the login button.
 	$('#dropbox_login').show();
@@ -39,6 +41,8 @@ function loggedIn() {
 		table.setResolutionRule('name', 'local');
 		table.setResolutionRule('context', 'local');
 
+		loadGameList();
+		
 		function getRecord() {
 			var results = table.query();
 			var list = [];
@@ -50,8 +54,25 @@ function loggedIn() {
 			return list;
 		}
 		
+		function loadGameList(){
+			var gamelist = document.getElementById('gamelist');
+			var filelist = getRecord();
+			var prefix = "<option>";
+			var suffix = "</option>";
+			var fillInContent = "";
+			
+			for(var i = 0; i < filelist.length ; i++ ){
+				fillInContent = fillInContent + prefix + filelist[i] + suffix;
+			}
+			
+			console.log (fillInContent);
+			
+			gamelist.innerHTML = fillInContent;
+			gamelist.setAttribute("style","");
+		}
+		
 		function saveRecord(fileName, fileContent) {
-			var firstTask = taskTable.insert({
+			var firstTask = table.insert({
 			    name: fileName,
 			    content: fileContent
 			});
@@ -61,19 +82,19 @@ function loggedIn() {
 		    console.log('records changed:', event.affectedRecordsForTable('VisualIDE'));
 		});
 		
-//		function updateRecord(fileName, fileContent) {
-//			var record = getRecord(fileName);
-//			record.set('content', fileContent);
-//		}
 		
 		$('#save').click(function (e) {
 			e.preventDefault();
 
-			var fileName;
-			var fileContent;
+			var fileName = document.getElementById('game-name').value;
+			var fileContent = document.getElementById('game-content').value;
 			
+			console.log(fileName);
+			console.log(fileContent);
+
 			saveRecord(fileName, fileContent);
 		});
 	});
 }
+
 
