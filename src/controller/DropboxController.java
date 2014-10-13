@@ -38,31 +38,9 @@ public class DropboxController extends HttpServlet{
 	     String authorizeUrl = webAuth.start();
 	     System.out.println(authorizeUrl);
 	     
-	     String code="ddICkX558lQAAAAAAAADaSLsLGud-dI1nu7-4R13SKM";
-	     code =code.trim();
 	     
-	     DbxAuthFinish authFinish = webAuth.finish(code);
-	     String accessToken = authFinish.accessToken;
-
-	     DbxClient client = new DbxClient(config, accessToken);
-
-	     System.out.println("Linked account: " + client.getAccountInfo().displayName);
-
-
-	        DbxEntry.WithChildren listing = client.getMetadataWithChildren("/");
-	        System.out.println("Files in the root path:");
-	        for (DbxEntry child : listing.children) {
-	            System.out.println("	" + child.name + ": " + child.toString());
-	        }
-
-	        FileOutputStream outputStream = new FileOutputStream("magnum-opus.txt");
-	        try {
-	            DbxEntry.File downloadedFile = client.getFile("/magnum-opus.txt", null,
-	                outputStream);
-	            System.out.println("Metadata: " + downloadedFile.toString());
-	        } finally {
-	            outputStream.close();
-	        }
+	     
+	     
 	     
 	     return new ModelAndView("dropbox", "message", "hello");
 	         
