@@ -17,6 +17,7 @@ function initiateSignIn() {
 function onSignInCallback(authResult) {
     
 	if (authResult['status']['signed_in']) {
+		
 	    document.getElementById('overlay-hello').setAttribute('style', 'display: none');
 	    
 	    gapi.client.load('oauth2', 'v2', function() {
