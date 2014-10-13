@@ -25,13 +25,19 @@
 
 <div id="section-1">
 <button id="dropbox_login" style=""> Dropbox-Login</button>
-<select id="gamelist" style="display:none">
-</select>
+
+<div id ="gamelist">
+
+</div>
+<button id="load" value ="load"> load </button>
+loaded game content
+<textarea id="load-game-content"></textarea>
 </div>
 
 <div id="section-2">
 Type game- content
 <textarea id= "game-content"></textarea>
+
 
 <a href class="overlay-trigger" data-overlay="save-game">Save</a>
 

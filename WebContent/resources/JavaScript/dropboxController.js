@@ -5,6 +5,8 @@ var APP_KEY = '9mtyvo8jbhcwxn3';
 
 var client = new Dropbox.Client({ key: APP_KEY });
 
+var chosenFile = "";
+
 // Use a pop-up for auth.
 client.authDriver(new Dropbox.AuthDriver.Popup({ 
 	receiverUrl: 'http://localhost:8080/CS3213_assignment3/hello'
@@ -30,6 +32,11 @@ $('#dropbox_login').click(function () {
 	});
 });
 
+function changeFunc(){
+	chosenFile = selectBox.options[selectBox.selectedIndex].value;
+}
+
+
 function loggedIn() {
 	$('#dropbox_login').hide();
 	var datastoreManager = new Dropbox.Datastore.DatastoreManager(client);
@@ -54,22 +61,29 @@ function loggedIn() {
 			return list;
 		}
 		
+		
+		
 		function loadGameList(){
 			var gamelist = document.getElementById('gamelist');
 			var filelist = getRecord();
-			var prefix = "<option>";
+			var prefix = "<option value ='";
+			var midfix = "'>";
 			var suffix = "</option>";
-			var fillInContent = "";
+			var fillInContent = prefix+midfix+suffix;
 			
 			for(var i = 0; i < filelist.length ; i++ ){
-				fillInContent = fillInContent + prefix + filelist[i] + suffix;
+				fillInContent = fillInContent + prefix + filelist[i] + midfix + filelist[i] + suffix;
 			}
 			
+			fillInContent = "<select id='selectBox' onchange='changeFunc();'>" + fillInContent + "</select>";
 			console.log (fillInContent);
 			
+			
 			gamelist.innerHTML = fillInContent;
-			gamelist.setAttribute("style","");
+			
 		}
+		
+		
 		
 		function saveRecord(fileName, fileContent) {
 			var firstTask = table.insert({
@@ -94,7 +108,24 @@ function loggedIn() {
 
 			saveRecord(fileName, fileContent);
 		});
+		
+		
+		$('#load').click(function (e){
+			e.preventDefault();
+			var results = table.query({name: chosenFile});
+			console.log(results);
+			if (results.length != 0) {
+				var fileContent=results[0].get('content');
+				document.getElementById('load-game-content').innerText = fileContent;
+			} else {
+				document.getElementById('load-game-content').innerText = "";
+				alert("no such file");
+			}
+		});
+		
 	});
 }
+
+
 
 
