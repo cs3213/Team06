@@ -5,6 +5,7 @@
 	 * attribute (data-overlay) to adentify the overlay to open.
 	*/
 	$( '.overlay-trigger' ).on( 'click', function( event ) {
+		document.getElementById('overlay-hello').setAttribute('style', '');
 		event.preventDefault();
 
 		/**
