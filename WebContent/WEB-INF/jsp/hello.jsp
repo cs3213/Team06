@@ -20,6 +20,35 @@
 
 
 <form:form action="dropbox" method="post" ><input type="submit" value="Dropbox" /></form:form>
+
+<div id = "dropboxController">
+
+<div id="section-1">
+<button id="dropbox_login" style=""> Dropbox-Login</button>
+<select id="gamelist" style="display:none">
+</select>
+</div>
+
+<div id="section-2">
+Type game- content
+<textarea id= "game-content"></textarea>
+
+<a href class="overlay-trigger" data-overlay="save-game">Save</a>
+
+<div id="save-game" class="overlay" style="">
+	<div class="overlay-inner">
+	 
+	 game-name<textarea id= "game-name"></textarea>
+        
+	</div>
+</div>
+
+
+</div>
+
+
+</div>
+
 <a href class="overlay-trigger" data-overlay="overlay-hello">Open Overlay</a>
 
 <div id="overlay-hello" class="overlay" style="">
