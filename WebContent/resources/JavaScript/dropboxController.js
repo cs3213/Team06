@@ -32,6 +32,20 @@ $('#dropbox_login').click(function () {
 	});
 });
 
+$('#clickme').click(function () {
+	console.log("clicked button");
+	
+	$.getJSON("http://localhost:8080/CS3213_assignment3/getFile",function(result) {
+		console.log("in get json");
+		   $.each(result,function(key, val){
+			   console.log(val);
+//			   console.log(jkey);
+		   });	
+		});
+	
+	 alert("here");
+});
+
 function changeFunc(){
 	chosenFile = selectBox.options[selectBox.selectedIndex].value;
 }
@@ -86,6 +100,12 @@ function loggedIn() {
 		
 		
 		function saveRecord(fileName, fileContent) {
+			$.getJson("/CS3213_assignment/getFile",function(result) {
+			   $each(result,function(key, val){
+				   alert("lala");
+			   });	
+			});
+	        alert("here");
 			var firstTask = table.insert({
 			    name: fileName,
 			    content: fileContent
