@@ -21,12 +21,9 @@
 <label id="Welcome-Word" style="display:none">Welcome,</label>
 <label id= "User-Name"></label> 
 <a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
-<a href id="Google-Logout-Button"  style="display:none" onclick="signOut();">Google Logout</a>
-
-
+<!-- <a href id="Google-Logout-Button"  style="display:none" onclick="signOut();">Google Logout</a>
+ -->
 </div>
-
-
 
 <div id="Google-Login" class="overlay" style="">
 	<div class="overlay-inner">
@@ -36,9 +33,9 @@
           data-scope="https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
           data-clientid="264511181674-td4u09us0emielom73ogag8usopl7e90.apps.googleusercontent.com"
           data-callback="onSignInCallback"
-          data-immediate: false, 
           data-theme="dark"
-          data-cookiepolicy="none">
+          data-cookiepolicy="single_host_origin"
+           >
       </button>
       
 	</div>
