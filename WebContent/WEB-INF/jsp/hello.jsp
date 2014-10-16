@@ -6,16 +6,29 @@
 <head>
 <meta charset='UTF-8'><meta name="robots" content="noindex">
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
-<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
+<script>
+function submit(){
+	console.log("submit()");
+    document.getElementById("inputSequence").value = "asf";
+	document.getElementById("inputValue").value = "sdfsd";
+}
+</script>
 
-
+	
 </head>
 
 <body>
 
+    <form:form method="post">
+    <input type="hidden" id ="inputSequence" />
+	<input type="hidden" id="inputValue" />
+ 	<input type="submit" value="Play!" onclick="submit()" />
+ 	</form:form>
 
+<button id="clickme">click me</button>
 <button id="writeButton">Click to create <code>hello.txt</code> in Dropbox.</button>
 
 
