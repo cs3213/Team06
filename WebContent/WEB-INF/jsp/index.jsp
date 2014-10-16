@@ -16,7 +16,7 @@
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
-<%-- <script src="<c:url value="/resources/JavaScript/selection.js" />"></script> --%>
+<script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 
 
 
@@ -112,7 +112,6 @@
 
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
-
 <script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 
 <script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
