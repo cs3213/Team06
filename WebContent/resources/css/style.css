@@ -1,24 +1,99 @@
-<style>
-#editor {
-	height: 300px;
-	width: 400px;
-	float: left;
+#header {
+	height: 70px;
+	width: 1000px;
 	padding: 5px;
-}
-#player {
-	height: 300px;
-	width: 600px;
-	float: right;
-	padding: 5px;
-}
-#source {
-	height: 200px;
-	width: 500px;
-	float: left;
+	Background-color: #6699CC;
+	text-align: center;
+	color: white;
 }
 #coordEditor {
-	height: 200px;
-	width: 500px;
-	float: right;
+	height: 290px;
+	width: 240px;
+	float: left;
 }
-</style>
+#editor {
+	height: 340px;
+	width: 440px;
+	float: left;
+}
+#player {
+	height: 400px;
+	width: 650px;
+	float: left;
+}
+#storage{
+	height: 400px;
+	width: 350px;
+	float: left;
+}
+#source {
+	height: 320px;
+	width: 300px;
+	padding: 5px;
+	float: left;
+}
+#divName {
+	border-radius: 10px;
+	border: none;
+	float: top;
+}
+#draggable li
+{
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 145px;
+    background-color:#4679bd;
+    text-align:center;
+ }
+ 
+#sortable li {
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 180px;
+    background-color:#4679bd;
+    text-align:center;
+ }
+ 
+.closeButton {
+	margin: 8px;
+	float:right;
+}
+
+.closeButton:hover {
+ 	background-color: yellow;
+ 	cursor: pointer;
+}
+#sortable {
+   width:180px;
+   height:110px;
+   overflow:auto;
+   list-style-type: none;
+   float: right;
+   border: dotted;
+}   
+#draggable {
+	list-style-type: none;
+}
+div {
+	border: none;
+    border-radius: 25px;
+    background-color: lightGrey;
+    margin: 5px;
+} 
+p {
+	color: white;
+}
+th {
+	color: white;
+    text-align: left;
+}
+button {
+	border: none;
+	background-color: lightGrey;
+}

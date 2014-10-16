@@ -6,218 +6,14 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-<style>
-#header {
-	height: 70px;
-	width: 1000px;
-	padding: 5px;
-	Background-color: #6699CC;
-	text-align: center;
-	color: white;
-}
-#coordEditor {
-	height: 290px;
-	width: 240px;
-	float: left;
-}
-#editor {
-	height: 340px;
-	width: 440px;
-	float: left;
-}
-#player {
-	height: 400px;
-	width: 650px;
-	float: left;
-}
-#storage{
-	height: 400px;
-	width: 350px;
-	float: left;
-}
-#source {
-	height: 320px;
-	width: 300px;
-	padding: 5px;
-	float: left;
-}
-#divName {
-	border-radius: 10px;
-	border: none;
-	float: top;
-}
-#draggable li
-{
-    border-radius: 10px;
-    margin: 3px 3px 3px 3px;
-    padding: 3px 3px;
-    font-size: 0.8em;
-    color:white;
-    width: 145px;
-    background-color:#4679bd;
-    text-align:center;
- }
- 
-#sortable li {
-    border-radius: 10px;
-    margin: 3px 3px 3px 3px;
-    padding: 3px 3px;
-    font-size: 0.8em;
-    color:white;
-    width: 180px;
-    background-color:#4679bd;
-    text-align:center;
- }
- 
-.closeButton {
-	margin: 8px;
-	float:right;
-}
 
-.closeButton:hover {
- 	background-color: yellow;
- 	cursor: pointer;
-}
-#sortable {
-   width:180px;
-   height:110px;
-   overflow:auto;
-   list-style-type: none;
-   float: right;
-   border: dotted;
-}   
-#draggable {
-	list-style-type: none;
-}
-</style>
-<style> 
-div {
-	border: none;
-    border-radius: 25px;
-    background-color: lightGrey;
-    margin: 5px;
-} 
-p {
-	color: white;
-}
-th {
-	color: white;
-    text-align: left;
-}
-button {
-	border: none;
-	background-color: lightGrey;
-}
-</style>
 <script type="text/javascript">
-var countElement = 0;
-$(function() {
-    $( "#draggable li" ).draggable({
-         connectToSortable: "#sortable1",
-         helper: "clone",
-         revert: "invalid"
-    });
 
-    $( "#sortable" ).sortable({
-        revert: true,
-        receive: function(event, ui) {
-        }
-    });
-});
-function dragIt(theEvent) {
-	//tell the browser what to drag
-	theEvent.dataTransfer.setData("Text", theEvent.target.id);
-}
-function dropIt(theEvent) {
-	countElement++;
-	//get a reference to the element being dragged
-	var theData = theEvent.dataTransfer.getData("Text");
-	//get the element
-	var theDraggedElement = document.getElementById(theData);
-	var eleSrc = theDraggedElement.getAttribute("src");
-	var div = document.createElement("div");
-	div.style.cssText = "height: 100px; width: 100px; float: left";
-	div.id = "div" + countElement.toString();
-	var element = document.createElement("img");
-	element.id = "element" + countElement.toString();
-	element.setAttribute('src', eleSrc);
-	element.setAttribute('height', '100px');
-	element.setAttribute('dragable', 'false');
-	div.appendChild(element);
-	//add it to the drop element
-	theEvent.target.appendChild(div);
-	//instruct the browser to allow the drop
-	theEvent.preventDefault();
-}
-function changeFloatLeft() {
-	var curFloat = document.getElementById("curFloat").src;
-	var indexOfDot = curFloat.indexOf(".");
-	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
-	indexOfFloat--;
-	if(indexOfFloat == 0) {
-		indexOfFloat = 3;//= total number of float
-	}
-	indexOfFloat = indexOfFloat % 4;//= total number of float + 1
-	var nextFloat = "float" + indexOfFloat.toString() + ".jpeg";
-	document.getElementById("curFloat").src = nextFloat;	
-}
-function changeFloatRight() {
-	var curFloat = document.getElementById("curFloat").src;
-	var indexOfDot = curFloat.indexOf(".");
-	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
-	indexOfFloat++;
-	indexOfFloat = indexOfFloat % 4;
-	if(indexOfFloat == 0) {
-		indexOfFloat++;
-	}
-	var nextFloat = "float" + indexOfFloat.toString() + ".jpeg";
-	document.getElementById("curFloat").src = nextFloat;
-}
-function changeCharacterLeft() {
-	var curCharacter = document.getElementById("curCharacter").src;
-	var indexOfDot = curCharacter.indexOf(".");
-	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
-	indexOfCharacter--;
-	if(indexOfCharacter == 0) {
-		indexOfCharacter = 2;
-	}
-	indexOfCharacter = indexOfCharacter % 3;
-	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
-	document.getElementById("curCharacter").src = nextCharacter;
-}
-function changeCharacterRight() {
-	var curCharacter = document.getElementById("curCharacter").src;
-	var indexOfDot = curCharacter.indexOf(".");
-	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
-	indexOfCharacter++;
-	indexOfCharacter = indexOfCharacter % 3;
-	if(indexOfCharacter == 0) {
-		indexOfCharacter++;
-	}
-	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
-	document.getElementById("curCharacter").src = nextCharacter;
-}
-function dropOver() {
-	var element = document.createElement("div");
-	element.id = "sortable" + countElement.toString();
-	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
-	document.getElementById('divtest').appendChild(element);
-
-	   $(element).sortable({
-	        revert: true,
-	    	stop: function(event, ui){
-	            var text = ui.item.html();
-	            if (text.indexOf("<span class=\"closeButton\">X</span>")==-1) ui.item.html(text+'<span class="closeButton">X</span>');
-	         }
-	    });
-	    
-	    $(element).delegate(".closeButton", "click", function() {
-	        $(this).parent().remove();
-	    });
-}
 </script>
 </head>
 <body>
+
+<div id="panel">
 <div id="header"><h2>CS3213 Assignment3</h2></div>
  <p id="test" style="color: red">Here</p>
  <div id="storage">
@@ -267,5 +63,7 @@ function dropOver() {
  		<button onclick="changeCharacterRight()"><img src="arrow_right.gif" height="15px"></button>
  	</div>
 </div>
+</div>
+
 </body>
 </html>

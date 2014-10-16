@@ -24,16 +24,11 @@
       <url-pattern>/</url-pattern>
    </servlet-mapping>
    
-<<<<<<< HEAD
-     <context-param>
-	<param-name>contextConfigLocation</param-name>
-	<param-value>/WEB-INF/Spring-servlet.xml</param-value>
-=======
    
   <context-param>
 	    <param-name>contextConfigLocation</param-name>
 	    <param-value>/WEB-INF/spring-servlet.xml</param-value>
->>>>>>> c7c93e0154690589426307651e8264edcad42041
+
   </context-param>
  
   <listener>
