@@ -202,9 +202,7 @@ function dropOver() {
 	element.id = "sortable" + countElement.toString();
 	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
 	document.getElementById('divtest').appendChild(element);
-/* 	var cur = element.class;
- *//* 	element.class = cur + countElement.toString();
- */	
+
 	   $(element).sortable({
 	        revert: true,
 	    	stop: function(event, ui){
