@@ -23,7 +23,10 @@
 <a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
 <!-- <a href id="Google-Logout-Button"  style="display:none" onclick="signOut();">Google Logout</a>
  -->
+
 </div>
+
+
 
 <div id="Google-Login" class="overlay" style="">
 	<div class="overlay-inner">
