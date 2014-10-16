@@ -22,6 +22,7 @@ import org.springframework.web.servlet.view.RedirectView;
  * A user must be log-in first he can access these pages. Only the admin can see
  * the adminpage, however.
  */
+/*
 @Controller
 @SessionAttributes("user")
 public class Login {
@@ -71,6 +72,7 @@ public class Login {
 	/**
 	 * @param response
 	 */
+/*
 	@RequestMapping("/Logout")
 	public static ModelAndView Logout(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -79,6 +81,6 @@ public class Login {
 		return showNewLogin(request);
 	}
 
-}
+}*/
 
 
