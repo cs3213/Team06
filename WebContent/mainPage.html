@@ -3,19 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <title>CS3213Assignment3</title>
+<<<<<<< HEAD
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<style>
+body {
+	background-image: url("background14.jpg");
+	background-size: 100% 100%;
+}
+#header {
+	height: 70px;
+	width: 1000px;
+	padding: 5px;
+	background-color: rgba(102, 153, 204, 0.8);
+	text-align: center;
+	color: white;
+}
+#coordEditor {
+	height: 290px;
+	width: 240px;
+	float: left;
+}
+#editor {
+	height: 340px;
+	width: 440px;
+	float: left;
+}
+#player {
+	height: 400px;
+	width: 650px;
+	float: left;
+}
+#storage{
+	height: 400px;
+	width: 350px;
+	float: left;
+}
+#right {
+	background-color: rgb(135,10,8);
+}
+#left {
+	background-color: rgb(222,148,41);
+}
+#x {
+	background-color: rgb(96,127,15);
+}
+#y {
+	background-color: rgb(104,153,199);
+}
+#repeat {
+	background-color: rgb(62,69,127);
+}
+#source {
+	height: 320px;
+	width: 300px;
+	padding: 5px;
+	float: left;
+}
+#divName {
+	border-radius: 10px;
+	border: none;
+	float: top;
+}
+#draggable li
+{
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 145px;
+    text-align:center;
+ }
+ 
+#sortable li {
+    border-radius: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px;
+    font-size: 0.8em;
+    color:white;
+    width: 170px;
+    background-color:#4679bd;
+    text-align:center;
+ }
+ 
+.closeButton {
+	margin: 8px;
+	float:right;
+}
+
+.closeButton:hover {
+ 	background-color: yellow;
+ 	cursor: pointer;
+}
+#sortable {
+   width:300px;
+   height:110px;
+   overflow:auto;
+   list-style-type: none;
+   float: right;
+   border: dotted;
+}   
+#draggable {
+	list-style-type: none;
+}
+</style>
+<style> 
+div {
+	border: none;
+    border-radius: 25px;
+    background-color: rgba(190, 190, 190, 0.5);
+    margin: 5px;
+} 
+p {
+	color: white;
+}
+th {
+	color: white;
+    text-align: left;
+}
+button {
+	border: none;
+	background-color: rgba(190, 190, 190, 0.5);
+}
+</style>
+<script type="text/javascript">
+var countElement = 0;
+
+function dragIt(theEvent) {
+	//tell the browser what to drag
+	theEvent.dataTransfer.setData("Text", theEvent.target.id);
+}
+function dropIt(theEvent) {
+	countElement++;
+	//get a reference to the element being dragged
+	var theData = theEvent.dataTransfer.getData("Text");
+	//get the element
+	var theDraggedElement = document.getElementById(theData);
+	var eleSrc = theDraggedElement.getAttribute("src");
+	var div = document.createElement("div");
+	div.style.cssText = "height: 100px; width: 100px; float: left";
+	div.id = "div" + countElement.toString();
+	var element = document.createElement("img");
+	element.id = "element" + countElement.toString();
+	element.setAttribute('src', eleSrc);
+	element.setAttribute('height', '100px');
+	element.setAttribute('dragable', 'false');
+	div.appendChild(element);
+	//add it to the drop element
+	theEvent.target.appendChild(div);
+	//instruct the browser to allow the drop
+	theEvent.preventDefault();
+}
+function changeFloatLeft() {
+	var curFloat = document.getElementById("curFloat").src;
+	var indexOfDot = curFloat.indexOf(".");
+	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
+	indexOfFloat--;
+	if(indexOfFloat == 0) {
+		indexOfFloat = 3;//= total number of float
+	}
+	indexOfFloat = indexOfFloat % 4;//= total number of float + 1
+	var nextFloat = "float" + indexOfFloat.toString() + ".jpeg";
+	document.getElementById("curFloat").src = nextFloat;	
+}
+function changeFloatRight() {
+	var curFloat = document.getElementById("curFloat").src;
+	var indexOfDot = curFloat.indexOf(".");
+	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
+	indexOfFloat++;
+	indexOfFloat = indexOfFloat % 4;
+	if(indexOfFloat == 0) {
+		indexOfFloat++;
+	}
+	var nextFloat = "float" + indexOfFloat.toString() + ".jpeg";
+	document.getElementById("curFloat").src = nextFloat;
+}
+function changeCharacterLeft() {
+	var curCharacter = document.getElementById("curCharacter").src;
+	var indexOfDot = curCharacter.indexOf(".");
+	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
+	indexOfCharacter--;
+	if(indexOfCharacter == 0) {
+		indexOfCharacter = 2;
+	}
+	indexOfCharacter = indexOfCharacter % 3;
+	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
+	document.getElementById("curCharacter").src = nextCharacter;
+}
+function changeCharacterRight() {
+	var curCharacter = document.getElementById("curCharacter").src;
+	var indexOfDot = curCharacter.indexOf(".");
+	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
+	indexOfCharacter++;
+	indexOfCharacter = indexOfCharacter % 3;
+	if(indexOfCharacter == 0) {
+		indexOfCharacter++;
+	}
+	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
+	document.getElementById("curCharacter").src = nextCharacter;
+}
+function dropOver() {
+	var element = document.createElement("div");
+	element.id = "sortable" + countElement.toString();
+	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
+	document.getElementById('divtest').appendChild(element);
+	
+	var editButton = document.createElement("input");
+	editButton.type = "button";
+	editButton.value = "Edit";
+	editButton.id = "edit" + countElement.toString();
+	editButton.setAttribute("onclick", "changeConnect(this)");
+	document.getElementById(element.id).appendChild(editButton);
+
+	
+	var sortNode = "#"+element.id;
+    $( "#draggable li" ).draggable({
+         connectToSortable: sortNode,
+         helper: "clone",
+         revert: "invalid"
+    });
+
+    $( sortNode ).sortable({
+        revert: true,
+        
+        stop: function(event, ui){
+	        var text = ui.item.html();
+	        console.log(ui.item);
+	        ui.item.css("border-radius", "10px");
+	        ui.item.css("margin", "3px 3px 3px 3px");
+	        ui.item.css("padding", "3px 3px");
+	        ui.item.css("font-size", "0.8em");
+	        ui.item.css("color", "white");
+	        ui.item.css("width", "150px");
+	        ui.item.css("background-color", "rgb(74,89,164)");
+	        ui.item.css("text-align", "center");
+	        ui.item.css("list-style-type", "none");
+  
+	    	document.getElementById("demo").innerHTML = ui.item.context.id;
+	    }
+
+    });
+	    
+	    $(element).delegate(".closeButton", "click", function() {
+	        $(this).parent().remove();
+	    });
+}
+function changeConnect(el) {
+	var thisID = $(el).attr('id');
+	var indexOfEdit = thisID.substring(4).toString(); 
+	document.getElementById("demo").innerHTML = indexOfEdit;
+	var sortNodeID = "#sortable"+indexOfEdit.toString();
+	$( "#draggable li" ).draggable({
+         connectToSortable: sortNodeID,
+         helper: "clone",
+         revert: "invalid"
+    });
+
+    $( sortNodeID ).sortable({
+        revert: true,
+    });
+}
+=======
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 
 <script type="text/javascript">
 
+>>>>>>> b4936f1753466f03f84917ca388a19d81a73833c
 </script>
 </head>
 <body>
 
 <div id="panel">
 <div id="header"><h2>CS3213 Assignment3</h2></div>
- <p id="test" style="color: red">Here</p>
+<p id = "demo" style="color: black"></p>
  <div id="storage">
  	<div id="divName"><p>Old Project</p></div>
  	<input type="submit" value="Load">
@@ -29,7 +296,6 @@
  
 <div id="editor">
  	<div id="divName">Editor</div>
- 	<!-- "<div id="sortable"></div>" -->
  	<div id="divtest" style="overflow: scroll; height: 300px; width: 350px; float: left; border: dotted" 
  		ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
 	</div>
@@ -40,10 +306,11 @@
  	<div id="divName">Setting</div>
  	<form>
     	<ul id="draggable">
-    		<li id="right">Move Right<input type="text" name="right" size="2">steps</li>
-    		<li id="left">Move Left<input type="text" name="left" size="2">steps</li>
-    		<li id="x">Set X:<input type="text" name="x_pos" size="2">  </li>
-    		<li id="y">Set Y:<input type="text" name="y_pos" size="2">  </li>        
+    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
+    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
+    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
+    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
+    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>     
 		</ul>
 	</form>
 </div>
