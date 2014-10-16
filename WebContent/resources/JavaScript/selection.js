@@ -176,6 +176,7 @@ function dropOver() {
 
 	
 	var sortNode = "#"+element.id;
+	console.log(element.id);
     $( "#draggable li" ).draggable({
          connectToSortable: sortNode,
          helper: "clone",

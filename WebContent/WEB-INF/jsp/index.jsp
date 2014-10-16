@@ -18,10 +18,6 @@
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 
-
-
-
-
 </head>
 
 <body>
@@ -31,7 +27,11 @@
   <label id="Welcome-Word" style="display:none">Welcome,</label>
   <label id= "User-Name"></label> 
 </div>
+
+<div>
 <a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
+</div>
+
 </div>
 
 
