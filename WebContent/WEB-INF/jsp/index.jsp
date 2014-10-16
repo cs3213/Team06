@@ -5,22 +5,30 @@
 <html class=''>
 <head>
 <meta charset='UTF-8'><meta name="robots" content="noindex">
+<META HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<META HTTP-EQUIV="Expires" CONTENT="-1">
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/style.css" />" rel="stylesheet">
+
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 
-
 </head>
 
 <body>
+<div id="header">
+<label id="Welcome-Word" style="display:none">Welcome,</label>
+<label id= "User-Name"></label> 
+<a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
+<a href id="Google-Logout-Button"  style="display:none" onclick="signOut();">Google Logout</a>
 
-<div id="project_Header">
 
-<a href class="overlay-trigger" data-overlay="overlay-hello">Google Login</a>
+</div>
 
-<div id="overlay-hello" class="overlay" style="">
+
+
+<div id="Google-Login" class="overlay" style="">
 	<div class="overlay-inner">
 	 
 	 
@@ -28,14 +36,27 @@
           data-scope="https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
           data-clientid="264511181674-td4u09us0emielom73ogag8usopl7e90.apps.googleusercontent.com"
           data-callback="onSignInCallback"
+          data-immediate: false, 
           data-theme="dark"
-          data-cookiepolicy="single_host_origin">
+          data-cookiepolicy="none">
       </button>
-    
+      
 	</div>
 </div>
 
-</div>
+
+
+
+
+<!-- <a href class="overlay-trigger" data-overlay="Google-Login">Google Login</a>
+<button id ="Google-Login-Info"  style="display:none"></button>
+<button id ="Google-Logout-Button"  style="display:none" onclick="signOut();">Google Logout</button>
+
+<p id="Google-Login-Info"></p>
+
+
+
+</div> -->
 
 <%-- <button id="writeButton">Click to create <code>hello.txt</code> in Dropbox.</button>
 
@@ -78,23 +99,7 @@ Type game- content
 
 
 
-<div id="overlay-hello" class="overlay" style="">
-	<div class="overlay-inner">
-	 
-	 
-	 <button class="g-signin"
-          data-scope="https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
-          data-clientid="264511181674-td4u09us0emielom73ogag8usopl7e90.apps.googleusercontent.com"
-          data-callback="onSignInCallback"
-          data-theme="dark"
-          data-cookiepolicy="single_host_origin">
-      </button>
-      
-      <button type="button" id="pick" onclick="hideOverlay()">Pick File</button>
-      
-      
-	</div>
-</div> --%>
+--%>
 
 <!-- <div id="gConnect" class="button">
       Textarea for outputting data
@@ -106,11 +111,10 @@ Type game- content
 
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
-<%-- <script src="<c:url value="/resources/JavaScript/filepicker.js" />"></script> --%>
+<script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 
 <script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
-<script src="https://apis.google.com/js/client.js?onload=initPicker"></script>
 
 
 

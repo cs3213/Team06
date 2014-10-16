@@ -4,8 +4,7 @@
 	 * should exist on the overlay trigger, as well as an
 	 * attribute (data-overlay) to adentify the overlay to open.
 	*/
-	$( '.overlay-trigger' ).on( 'click', function( event ) {
-		document.getElementById('overlay-hello').setAttribute('style', '');
+	$( '#Google-Login-Button' ).on( 'click', function( event ) {
 		event.preventDefault();
 
 		/**

@@ -1,11 +1,11 @@
 .overlay {
   overflow: scroll;
+  position: fixed;
   top: 0;
   bottom: 110%;
   left: 0;
   right: 0;
   width: 100%;
-  hight: 100%;
   z-index: 10000;
   opacity: 0;
   background: #4D4D4D;
