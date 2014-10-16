@@ -85,19 +85,7 @@ function submit(){
 
 
 var countElement = 0;
-$(function() {
-    $( "#draggable li" ).draggable({
-         connectToSortable: "#sortable1",
-         helper: "clone",
-         revert: "invalid"
-    });
 
-    $( "#sortable" ).sortable({
-        revert: true,
-        receive: function(event, ui) {
-        }
-    });
-});
 function dragIt(theEvent) {
 	//tell the browser what to drag
 	theEvent.dataTransfer.setData("Text", theEvent.target.id);
@@ -132,7 +120,7 @@ function changeFloatLeft() {
 		indexOfFloat = 3;//= total number of float
 	}
 	indexOfFloat = indexOfFloat % 4;//= total number of float + 1
-	var nextFloat = "float" + indexOfFloat.toString() + ".jpeg";
+	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
 	document.getElementById("curFloat").src = nextFloat;	
 }
 function changeFloatRight() {
@@ -144,7 +132,9 @@ function changeFloatRight() {
 	if(indexOfFloat == 0) {
 		indexOfFloat++;
 	}
-	var nextFloat = "float" + indexOfFloat.toString() + ".jpeg";
+	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
+		
+	alert(nextFloat);
 	document.getElementById("curFloat").src = nextFloat;
 }
 function changeCharacterLeft() {
@@ -176,16 +166,59 @@ function dropOver() {
 	element.id = "sortable" + countElement.toString();
 	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
 	document.getElementById('divtest').appendChild(element);
+	
+	var editButton = document.createElement("input");
+	editButton.type = "button";
+	editButton.value = "Edit";
+	editButton.id = "edit" + countElement.toString();
+	editButton.setAttribute("onclick", "changeConnect(this)");
+	document.getElementById(element.id).appendChild(editButton);
 
-	   $(element).sortable({
-	        revert: true,
-	    	stop: function(event, ui){
-	            var text = ui.item.html();
-	            if (text.indexOf("<span class=\"closeButton\">X</span>")==-1) ui.item.html(text+'<span class="closeButton">X</span>');
-	         }
-	    });
+	
+	var sortNode = "#"+element.id;
+    $( "#draggable li" ).draggable({
+         connectToSortable: sortNode,
+         helper: "clone",
+         revert: "invalid"
+    });
+
+    $( sortNode ).sortable({
+        revert: true,
+        
+        stop: function(event, ui){
+	        var text = ui.item.html();
+	        console.log(ui.item);
+	        ui.item.css("border-radius", "10px");
+	        ui.item.css("margin", "3px 3px 3px 3px");
+	        ui.item.css("padding", "3px 3px");
+	        ui.item.css("font-size", "0.8em");
+	        ui.item.css("color", "white");
+	        ui.item.css("width", "150px");
+	        ui.item.css("background-color", "rgb(74,89,164)");
+	        ui.item.css("text-align", "center");
+	        ui.item.css("list-style-type", "none");
+  
+	    	document.getElementById("demo").innerHTML = ui.item.context.id;
+	    }
+
+    });
 	    
 	    $(element).delegate(".closeButton", "click", function() {
 	        $(this).parent().remove();
 	    });
+}
+function changeConnect(el) {
+	var thisID = $(el).attr('id');
+	var indexOfEdit = thisID.substring(4).toString(); 
+	document.getElementById("demo").innerHTML = indexOfEdit;
+	var sortNodeID = "#sortable"+indexOfEdit.toString();
+	$( "#draggable li" ).draggable({
+         connectToSortable: sortNodeID,
+         helper: "clone",
+         revert: "invalid"
+    });
+
+    $( sortNodeID ).sortable({
+        revert: true,
+    });
 }
