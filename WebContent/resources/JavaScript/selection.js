@@ -2,6 +2,38 @@ var countElement = 0;
 var charactersSrc=[];
 var characters=[];
 
+//If it is not IE, we assume that the browser is NS.
+var IE = document.all?true:false;
+
+// If NS -- that is, !IE -- then set up for mouse capture
+if (!IE) document.captureEvents(Event.MOUSEMOVE);
+
+// Set-up to use getMouseXY function onMouseMove
+document.onmousemove = displayCoord;
+
+// Temporary variables to hold mouse x-y pos.s
+var tempX = 0;
+var tempY = 0;
+
+// Main function to retrieve mouse x-y pos.s
+
+function displayCoord(e) {
+	if (IE) { // grab the x-y pos.s if browser is IE
+	    tempX = event.clientX + document.body.scrollLeft;
+	    tempY = event.clientY + document.body.scrollTop;
+	  } else {  // grab the x-y pos.s if browser is NS
+	    tempX = e.pageX;
+	    tempY = e.pageY;
+	  }  
+	  // catch possible negative values in NS4
+	  if (tempX < 0) tempX = 0;
+	  if (tempY < 0) tempY = 0; 
+	  // show the position values in the form named Show
+	  // in the text fields named MouseX and MouseY
+	console.log(tempX);
+	console.log(tempY);
+	return true;
+}
 function myFunction() {
     var x, text;
 
@@ -227,8 +259,11 @@ function changeCharacterRight() {
 function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
-	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
+	element.class ="scene";
+	element.style.cssText = "height: 110px; width: 55%; float: right; border: dotted; overflow: scroll; ";
+	
 	document.getElementById('divtest').appendChild(element);
+	
 	
 	var editButton = document.createElement("input");
 	editButton.type = "button";
@@ -236,7 +271,12 @@ function dropOver() {
 	editButton.id = "edit" + countElement.toString();
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
-
+	
+	
+	
+	
+	
+	
 	
 	var sortNode = "#"+element.id;
 	console.log(element.id);
@@ -258,7 +298,7 @@ function dropOver() {
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
-		        ui.item.css("width", "150px");
+		        ui.item.css("width", "200px");
 		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
