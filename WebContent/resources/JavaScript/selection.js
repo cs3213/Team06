@@ -1,6 +1,39 @@
 var countElement = 0;
+var charactersSrc=[];
 var characters=[];
 
+//If it is not IE, we assume that the browser is NS.
+var IE = document.all?true:false;
+
+// If NS -- that is, !IE -- then set up for mouse capture
+if (!IE) document.captureEvents(Event.MOUSEMOVE);
+
+// Set-up to use getMouseXY function onMouseMove
+document.onmousemove = displayCoord;
+
+// Temporary variables to hold mouse x-y pos.s
+var tempX = 0;
+var tempY = 0;
+
+// Main function to retrieve mouse x-y pos.s
+
+function displayCoord(e) {
+	if (IE) { // grab the x-y pos.s if browser is IE
+	    tempX = event.clientX + document.body.scrollLeft;
+	    tempY = event.clientY + document.body.scrollTop;
+	  } else {  // grab the x-y pos.s if browser is NS
+	    tempX = e.pageX;
+	    tempY = e.pageY;
+	  }  
+	  // catch possible negative values in NS4
+	  if (tempX < 0) tempX = 0;
+	  if (tempY < 0) tempY = 0; 
+	  // show the position values in the form named Show
+	  // in the text fields named MouseX and MouseY
+	console.log(tempX);
+	console.log(tempY);
+	return true;
+}
 function myFunction() {
     var x, text;
 
@@ -93,13 +126,16 @@ function addCharacters(number){
 	var div = document.getElementById("divtest");
 	
 	for (var i=0; i<number; i++) {
-		eleSrc = characters[i];
+		eleSrc = charactersSrc[i];
 		var element = document.createElement("img");
-		element.id = "img" + (i+1).toString;
+		element.id = "image" + (i+1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
 		div.appendChild(element);
+		characters.push(element);
 	}
+	
+	console.log(characters);
 }
 
 function submit(){
@@ -116,7 +152,7 @@ function submit(){
 			inputSequence[i].push($(this).text());
 		});
 	}
-	console.log(characters);
+	console.log(charactersSrc);
 	console.log(inputSequence);
 	console.log(inputValue);
 	play(inputSequence,inputValue);
@@ -134,7 +170,7 @@ function dropIt(theEvent) {
 	//get the element
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
-	characters[countElement-1]=eleSrc;
+	charactersSrc[countElement-1]=eleSrc;
 	var div = document.createElement("div");
 	div.style.cssText = "height: 100px; width: 100px; float: left";
 	div.id = "div" + countElement.toString();
