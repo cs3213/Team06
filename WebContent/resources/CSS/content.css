@@ -147,3 +147,8 @@ button {
 	float: left; 
 	border: dotted
 }
+.form-control-inline {
+    min-width: 0;
+    width: 100;
+    display: inline;
+}
