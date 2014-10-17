@@ -90,6 +90,7 @@ function dragIt(theEvent) {
 	//tell the browser what to drag
 	theEvent.dataTransfer.setData("Text", theEvent.target.id);
 }
+
 function dropIt(theEvent) {
 	countElement++;
 	//get a reference to the element being dragged
@@ -111,6 +112,7 @@ function dropIt(theEvent) {
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
 }
+
 function changeFloatLeft() {
 	var curFloat = document.getElementById("curFloat").src;
 	var indexOfDot = curFloat.indexOf(".");
@@ -123,6 +125,7 @@ function changeFloatLeft() {
 	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
 	document.getElementById("curFloat").src = nextFloat;	
 }
+
 function changeFloatRight() {
 	var curFloat = document.getElementById("curFloat").src;
 	var indexOfDot = curFloat.indexOf(".");
@@ -134,9 +137,9 @@ function changeFloatRight() {
 	}
 	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
 		
-	alert(nextFloat);
 	document.getElementById("curFloat").src = nextFloat;
 }
+
 function changeCharacterLeft() {
 	var curCharacter = document.getElementById("curCharacter").src;
 	var indexOfDot = curCharacter.indexOf(".");
@@ -146,9 +149,10 @@ function changeCharacterLeft() {
 		indexOfCharacter = 2;
 	}
 	indexOfCharacter = indexOfCharacter % 3;
-	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
+	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".jpeg";
 	document.getElementById("curCharacter").src = nextCharacter;
 }
+
 function changeCharacterRight() {
 	var curCharacter = document.getElementById("curCharacter").src;
 	var indexOfDot = curCharacter.indexOf(".");
@@ -158,9 +162,10 @@ function changeCharacterRight() {
 	if(indexOfCharacter == 0) {
 		indexOfCharacter++;
 	}
-	var nextCharacter = "char" + indexOfCharacter.toString() + ".jpeg";
+	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".jpeg";
 	document.getElementById("curCharacter").src = nextCharacter;
 }
+
 function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
@@ -212,6 +217,7 @@ function dropOver() {
         $(this).parent().remove();
     });
 }
+
 function changeConnect(el) {
 	var thisID = $(el).attr('id');
 	var indexOfEdit = thisID.substring(4).toString(); 
