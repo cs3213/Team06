@@ -187,26 +187,30 @@ function dropOver() {
         revert: true,
         
         stop: function(event, ui){
-	        var text = ui.item.html();
-	        console.log(ui.item);
-	        ui.item.css("border-radius", "10px");
-	        ui.item.css("margin", "3px 3px 3px 3px");
-	        ui.item.css("padding", "3px 3px");
-	        ui.item.css("font-size", "0.8em");
-	        ui.item.css("color", "white");
-	        ui.item.css("width", "150px");
-	        ui.item.css("background-color", "rgb(74,89,164)");
-	        ui.item.css("text-align", "center");
-	        ui.item.css("list-style-type", "none");
-  
-	    	document.getElementById("demo").innerHTML = ui.item.context.id;
+	        var html = ui.item.html();
+	        if (html.indexOf("span") == -1) {
+		        console.log(ui.item);
+		        ui.item.css("border-radius", "10px");
+		        ui.item.css("margin", "3px 3px 3px 3px");
+		        ui.item.css("padding", "3px 3px");
+		        ui.item.css("font-size", "0.8em");
+		        ui.item.css("color", "white");
+		        ui.item.css("width", "150px");
+		        ui.item.css("background-color", "rgb(74,89,164)");
+		        ui.item.css("text-align", "center");
+		        ui.item.css("list-style-type", "none");
+		        
+		        ui.item.append('<span id=closeButton class="closeButton">X</span>');
+		        console.log(ui.item.html());
+		        
+		        document.getElementById("demo").innerHTML = ui.item.context.id;
+	        }
 	    }
-
     });
-	    
-	    $(element).delegate(".closeButton", "click", function() {
-	        $(this).parent().remove();
-	    });
+    
+    $(element).delegate(".closeButton", "click", function() {
+        $(this).parent().remove();
+    });
 }
 function changeConnect(el) {
 	var thisID = $(el).attr('id');
