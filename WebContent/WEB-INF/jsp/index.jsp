@@ -64,6 +64,12 @@
 
  <div class= transparent id="player">
  	<div id="divName" class="container"><h4> Player</h4></div>
+ 	
+ 	<div class="container content-div">
+ 	<div id="divtest" class="scene_play" >
+ 	</div>
+ 	</div>
+ 	
  	<div id="control-panel" class = "container">
      <button type="button" class="btn btn-primary"> Reset </button>
      <button type="button" class="btn btn-primary"> Save </button>
@@ -102,8 +108,9 @@
  
 <div class= transparent id="editor">
  	<div id="divName" class="container"> <h4> Editor</h4></div>
- 	<div id="divtest" class="container" style="overflow: scroll; height: 300px; width: 350px; float: left; border: dotted" 
- 		ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
+ 	<div class="container">
+ 	<div id="divtest" class="scene container" ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
+ 	</div>
  	</div>
  	
 </div>
