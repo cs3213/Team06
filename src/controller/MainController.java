@@ -11,7 +11,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-//@RequestMapping("/index")
+@RequestMapping("*")
 public class MainController{
  
 	private List<String> FileContent=new ArrayList<String>();

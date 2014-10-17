@@ -1,11 +1,11 @@
 .overlay {
   overflow: scroll;
+  position: fixed;
   top: 0;
   bottom: 110%;
   left: 0;
   right: 0;
   width: 100%;
-  hight: 100%;
   z-index: 10000;
   opacity: 0;
   background: #4D4D4D;
@@ -42,9 +42,9 @@ body {
   padding-bottom: 80em;
 }
 .overlay-trigger {
-  display: block;
+  display:block;
   max-width: 14rem;
-  margin: 6.25rem auto;
+  margin: 0.5rem 2.5rem auto;
   padding: 2rem;
   background: #F0787C;
   border-radius: 2px;
@@ -63,6 +63,10 @@ body {
   margin: 5rem;
   padding: 2rem;
   background: #FFF;
+}
+
+.overlay-word{
+	margin: 0.5rem 2.5rem auto;
 }
 @media screen and (min-width: 52rem) {
   .overlay-inner {

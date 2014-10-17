@@ -102,7 +102,7 @@ Type game- content
 <script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 
 <script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
-<script src="https://apis.google.com/js/client.js?onload=initPicker"></script>
+
 
 
 
