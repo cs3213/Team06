@@ -29,14 +29,6 @@ public class MainController{
 		      FileContent.add(request.getParameter("inputValue"));
 		      return "index";
 		   } 
-   @RequestMapping(value="/getFile", method = {RequestMethod.POST, RequestMethod.GET})
-   public @ResponseBody
-   List<String> filecontent(HttpServletRequest request)
-   {
-     FileContent.add("file1");
-     System.out.println("controller");
-     return FileContent;
-   }
    
 
 }
