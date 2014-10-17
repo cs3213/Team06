@@ -11,8 +11,15 @@ body {
 	color: white;
 }
 #coordEditor {
-	height: 290px;
+	height: 340px;
 	width: 240px;
+	float: left;
+}
+
+#source {
+	height: 340px;
+	width: 250px;
+	padding: 5px;
 	float: left;
 }
 #editor {
@@ -20,6 +27,7 @@ body {
 	width: 400px;
 	float: left;
 }
+
 #player {
 	height: 400px;
 	width: 1080px;
@@ -30,12 +38,7 @@ body {
 	width: 150px;
 	float: left;
 }
-#source {
-	height: 320px;
-	width: 250px;
-	padding: 5px;
-	float: left;
-}
+
 #right {
 	background-color: rgb(135,10,8);
 }
@@ -151,4 +154,8 @@ button {
     min-width: 0;
     width: 100;
     display: inline;
+}
+.nav-tabs-container{
+	width:400px;
+	float:left;
 }

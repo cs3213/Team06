@@ -21,8 +21,7 @@
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="<c:url value="/resources/JavaScript/bootstrap-select.js" />"></script>
-
-
+<script src="<c:url value="/resources/JavaScript/bootstrap.min.js" />"></script>
 
 </head>
 
@@ -65,7 +64,7 @@
  	<div id="divName" class="container"><h4> Player</h4></div>
  	
  	<div class="container content-div">
- 	<div id="divtest" class="scene_play" >
+ 	<div id="divtest-player" class="scene_play" >
  	</div>
  	</div>
  	
@@ -116,22 +115,19 @@
  	</div>
  	
 </div>
+
+ <!-- Nav tabs -->
+
+<ul class="nav nav-tabs nav-tabs-container" role="tablist">
+<li class="active"><a href="#source-pane" role="tab" data-toggle="tab"><h4>Characters</h4></a></li>
+  <li ><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h4>Actions</h4></a></li>
+  
+</ul>
  
-<div class= transparent id="coordEditor">
- 	<div id="divName" class="container"><h4>Setting</h4></div>
- 	<form>
-    	<ul id="draggable">
-    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
-    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
-    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
-    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
-    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>
-    		<li id='end_repeat'>End_Repeat </li>     
-		</ul>
-	</form>
-</div>
+<div class="tab-content container">
  
- <div class= transparent id="source">
+  <div class="tab-pane active" id="source-pane">
+   <div class= transparent id="source">
  	<div id="floatArea" ondragover="event.preventDefault();">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
@@ -145,7 +141,65 @@
  			<img id="curCharacter" src="<c:url value="/resources/img/char1.jpeg" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
  		<button onclick="changeCharacterRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
+  </div> 
+ </div>
+ 
+ <div class="tab-pane" id="coordEditor-pane">
+  <div class= "transparent" id="coordEditor">
+ 	<div id="divName" class="container"><h4>Setting</h4></div>
+ 	<form>
+    	<ul id="draggable">
+    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
+    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
+    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
+    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
+    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>
+    		<li id='end_repeat'>End_Repeat </li>     
+		</ul>
+	</form>
+  </div>
 </div>
+  
+
+
+
+
+</div>
+
+
+
+
+<!-- Tab panes -->
+<%-- <div class="tab-content" style="width: 300px">
+  	<div class="tab-pane active" id="source">
+ 	<div class="divName"><h4>Float</h4></div>
+ 	<div class="floatArea" ondragover="event.preventDefault();">
+ 			<button onclick="changeFloatLeft()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img id="curFloat"  src="float1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
+ 			<button onclick="changeFloatRight()"><img src="arrow_right.gif" height="15px"></button>
+ 	</div>
+ 	
+ 	<div class="divName"><h4>Character</h4></div>
+ 	<div class="floatArea" ondragover="event.preventDefault();">
+ 		<button onclick="changeCharacterLeft()"><img src="arrow_left.gif" height="15px"></button>
+ 			<img id="curCharacter" src="char1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
+ 		<button onclick="changeCharacterRight()"><img src="arrow_right.gif" height="15px"></button>
+ 	</div>
+    </div>
+
+    <div class="tab-pane" id="coordEditor">
+ 	<div class="divName"><h4>Setting</h4></div>
+ 	<form>
+    	<ul id="draggable">
+    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
+    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
+    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
+    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
+    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>     
+		</ul>
+	</form>
+	</div>
+  </div> --%> 
 
 </div>
 
