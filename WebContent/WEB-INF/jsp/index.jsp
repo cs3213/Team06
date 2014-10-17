@@ -11,8 +11,8 @@
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/scrollable.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/CSS/bootstrap-select.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/CSS/bootstrap-select.min.css" />" rel="stylesheet">
+<%-- <link href="<c:url value="/resources/CSS/bootstrap-select.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/CSS/bootstrap-select.min.css" />" rel="stylesheet"> --%>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -22,6 +22,8 @@
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="<c:url value="/resources/JavaScript/bootstrap-select.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
+
 
 </head>
 
@@ -72,6 +74,14 @@
 <div class= transparent id="storage">
  	<div id="divName" class = "container content-div"><h4> Old Project</h4></div>
  	
+ 	<div id ="dropbox-login-panel" class ="container content-div">
+ 	
+ 	<button id="dropbox-login-btn" type=button class="btn btn-primary" >Login Dropbox</button>
+ 	
+ 	</div>
+ 	
+ 	<div id ="file-list-panel" style="display:none">
+ 	
  	<div class="container content-div">
       <select class="selectpicker" data-width="100px" data-size="5">
                     <option>a</option>
@@ -90,6 +100,8 @@
      <button type="button" id="deleting-btn" data-loading-text="Deleting..." class="btn btn-primary">
         Delete 
       </button>
+    </div>
+    
     </div>
  	
 </div>
@@ -145,7 +157,6 @@
 
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 
 <script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
 

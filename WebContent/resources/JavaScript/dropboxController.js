@@ -22,10 +22,11 @@ if (client.isAuthenticated()) {
 	
 } else {
 	// Otherwise show the login button.
-	$('#dropbox_login').show();
+	$('#dropbox-login-panel').show();
 }
 
-$('#dropbox_login').click(function () {
+$('#dropbox-login-btn').click(function () {
+	alert("login");
 	client.authenticate(function (err) {
 		if (err) { alert('Error: ' + err); return; }
 		loggedIn();
@@ -39,7 +40,6 @@ $('#clickme').click(function () {
 		console.log("in get json");
 		   $.each(result,function(key, val){
 			   console.log(val);
-//			   console.log(jkey);
 		   });	
 		});
 	
@@ -52,7 +52,8 @@ function changeFunc(){
 
 
 function loggedIn() {
-	$('#dropbox_login').hide();
+	$('#dropbox-login-panel').hide();
+	$('#file-list-panel').show();
 	var datastoreManager = new Dropbox.Datastore.DatastoreManager(client);
 
 	datastoreManager.openDefaultDatastore(function (err, datastore) {
