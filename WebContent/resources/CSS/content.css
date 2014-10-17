@@ -22,7 +22,7 @@ body {
 }
 #player {
 	height: 400px;
-	width: 1000px;
+	width: 1080px;
 	float: left;
 }
 #storage{
@@ -113,7 +113,7 @@ body {
 
 .transparent{
 	border: none;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: rgba(190, 190, 190, 0.5);
     margin: 5px;
 }
@@ -130,8 +130,20 @@ button {
 }
 
 .content-div{
-    border-radius: 10px;
 	border: none;
 	float: top;
 	margin-bottom: 10px;
+}
+.scene{
+	overflow: scroll; 
+	height: 300px; 
+	width: 350px; 
+	float: left; 
+	border: dotted
+}
+.scene_play{ 
+	height: 300px; 
+	width: 1000px; 
+	float: left; 
+	border: dotted
 }
