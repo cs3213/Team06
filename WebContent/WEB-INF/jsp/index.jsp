@@ -68,11 +68,10 @@
  	<div id="divName" class="container"><h4> Player</h4></div>
  	
  	<div class="container content-div">
-<<<<<<< HEAD
- 	<div id="divtest" class="scene_play" onmouseover="displayCoord">
-=======
- 	<div id="divtest-player" class="scene_play" >
->>>>>>> accec7d87c0221c384c51418980305e6cca95a9a
+
+
+ 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" >
+
  	</div>
  	</div>
  	

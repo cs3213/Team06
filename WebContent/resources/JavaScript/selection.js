@@ -242,8 +242,11 @@ function changeCharacterRight() {
 function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
-	element.style.cssText = "height: 110px; width: 170px; float: right; border: dotted";
+	element.class ="scene";
+	element.style.cssText = "height: 110px; width: 55%; float: right; border: dotted; overflow: scroll; ";
+	
 	document.getElementById('divtest').appendChild(element);
+	
 	
 	var editButton = document.createElement("input");
 	editButton.type = "button";
@@ -251,7 +254,12 @@ function dropOver() {
 	editButton.id = "edit" + countElement.toString();
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
-
+	
+	
+	
+	
+	
+	
 	
 	var sortNode = "#"+element.id;
 	console.log(element.id);
@@ -273,7 +281,7 @@ function dropOver() {
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
-		        ui.item.css("width", "150px");
+		        ui.item.css("width", "70%");
 		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
