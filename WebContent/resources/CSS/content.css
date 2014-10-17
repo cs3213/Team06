@@ -48,7 +48,7 @@ body {
 #y {
 	background-color: rgb(104,153,199);
 }
-#repeat {
+#repeat, #end_repeat {
 	background-color: rgb(62,69,127);
 }
 
