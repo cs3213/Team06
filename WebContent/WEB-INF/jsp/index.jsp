@@ -12,14 +12,12 @@
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/scrollable.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/bootstrap-select.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/CSS/bootstrap-select.min.css" />" rel="stylesheet">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
- --><script src="https://apis.google.com/js/client:platform.js" async defer></script>
+<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -75,12 +73,11 @@
  	<div id="divName" class = "container content-div"><h4> Old Project</h4></div>
  	
  	<div class="container">
- 	<div class="btn-group">
-<!--                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Saved Program <span class="caret"></span></button>
- -->                <select class="selectpicker" data-size="5">
+ 	
+                <select class="selectpicker"  data-witdth ="50px">
                     <option>a</option>
                 </select>
-    </div>
+
     </div>
     
  	<div id="control-panel" class = "container">
