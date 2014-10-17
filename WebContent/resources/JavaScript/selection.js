@@ -96,12 +96,18 @@ function moveUp(index, steps) {
 
 function show(index){
 	imgObj = characters[index];
-	document.getElementById(target).style.display = 'block';
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("show");
+	$(id).animate({height: '100px'},'slow');
 }
 
 function hide(index){
 	imgObj = characters[index];
-	document.getElementById(target).style.display = 'none';
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("hide");
+	$(id).animate({height: '0px'},'slow');
 }
 
 //function sleep(millis, sequence, value, callback) {
@@ -162,9 +168,14 @@ function submit(){
 		inputSequence[i]=[];
 		inputValue[i]=[];
 		var sortable = "#sortable"+(i+1).toString()+" li";
+		var hasInput = 0;
 		$(sortable).find('input').each(function(){
+			hasInput=1;
 			inputValue[i].push($(this).val());
 		});
+		if (hasInput == 0) {
+			inputValue[i].push(hasInput);
+		}
 		$(sortable).each(function(){
 			inputSequence[i].push($(this).text());
 		});
