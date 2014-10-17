@@ -65,8 +65,9 @@
  <div class= transparent id="player">
  	<div id="divName" class="container"><h4> Player</h4></div>
  	<div id="control-panel" class = "container">
-     <button type="button" class="btn btn-primary"> Start A New Program </button>
+     <button type="button" class="btn btn-primary"> Reset </button>
      <button type="button" class="btn btn-primary"> Save </button>
+     <button type="button" class="btn btn-primary"> Play</button>
     </div>
  </div>
  
@@ -76,7 +77,7 @@
  	
  	<div id ="dropbox-login-panel" class ="container content-div">
  	
- 	<button id="dropbox-login-btn" type=button class="btn btn-primary" >Login Dropbox</button>
+ 	<button id="dropbox-login-btn" type = "button" class="btn btn-primary" >Login Dropbox</button>
  	
  	</div>
  	
@@ -112,10 +113,10 @@
  
 <div class= transparent id="editor">
  	<div id="divName" class="container"> <h4> Editor</h4></div>
- 	<div id="divtest" style="overflow: scroll; height: 300px; width: 350px; float: left; border: dotted" 
+ 	<div id="divtest" class="container" style="overflow: scroll; height: 300px; width: 350px; float: left; border: dotted" 
  		ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
  	</div>
- 	<button type="button" class="btn btn-primary"> Play</button>
+ 	
 </div>
  
 <div class= transparent id="coordEditor">
