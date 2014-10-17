@@ -72,18 +72,21 @@
 <div class= transparent id="storage">
  	<div id="divName" class = "container content-div"><h4> Old Project</h4></div>
  	
- 	<div class="container">
- 	
-                <select class="selectpicker"  data-witdth ="50px">
+ 	<div class="container content-div">
+      <select class="selectpicker" data-width="100px" data-size="5">
                     <option>a</option>
                 </select>
 
     </div>
     
- 	<div id="control-panel" class = "container">
+ 	<div id="control-panel-load" class = "container content-div">
      <button type="button" id="loading-btn" data-loading-text="Loading..." class="btn btn-primary">
         Load 
      </button>
+     
+    </div>
+    
+    <div id="control-panel-delete" class = "container content-div">
      <button type="button" id="deleting-btn" data-loading-text="Deleting..." class="btn btn-primary">
         Delete 
       </button>
