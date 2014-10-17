@@ -29,7 +29,6 @@
 
 <body>
 
-
 <div class="transparent" id="">
 <div class= "overlay-word" id = "header-words">
   <label id="Welcome-Word" style="display:none">Welcome,</label>
@@ -66,7 +65,7 @@
  	<div id="divName" class="container"><h4> Player</h4></div>
  	
  	<div class="container content-div">
- 	<div id="divtest" class="scene_play" >
+ 	<div id="divtest" class="scene_play" onmouseover="displayCoord">
  	</div>
  	</div>
  	
