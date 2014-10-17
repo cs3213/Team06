@@ -1,3 +1,6 @@
+var countElement = 0;
+var characters=[];
+
 function myFunction() {
     var x, text;
 
@@ -15,76 +18,109 @@ function myFunction() {
     document.getElementById("demo").innerHTML = text;
 }
 
-function show(target){
-	document.getElementById(target).style.display = 'block';
-}
+//var imgObj = null;
+//function init(){
+//   imgObj = document.getElementById('myImage');
+//   imgObj.style.position= 'relative'; 
+//   imgObj.style.left = '0px'; 
+//}
 
-function hide(target){
-	document.getElementById(target).style.display = 'none';
-}
-
-
-function setVisibility(id, visibility) {
-	document.getElementById(id).style.display = visibility;
-}
-
-function moveDown(steps) {
-	imgObj.style.top = parseInt(imgObj.style.top) + 10*steps + 'px';
-}
-
-function moveUp(steps) {
-	imgObj.style.top = parseInt(imgObj.style.top) - 10*steps + 'px';
-}
-
-function setx(posx) {
+function setx(index, posx) {
 	imObj.style.position.left=pos + 'px';
 }
 
-function sety(posy) {
+function sety(index, posy) {
 	imObj.style.position.top=posy + 'px';
 }
 
-var imgObj = null;
-function init(){
-   imgObj = document.getElementById('myImage');
-   imgObj.style.position= 'relative'; 
-   imgObj.style.left = '0px'; 
-}
-function moveRight(steps){
+function moveRight(index, steps){
 	imgObj.style.left = parseInt(imgObj.style.left) + 10*steps + 'px';
 }
 
-function moveLeft(steps){
+function moveLeft(index, steps){
 	imgObj.style.left = parseInt(imgObj.style.left) - 10*steps + 'px';
 }
-window.onload =init;
+
+function moveDown(index, steps) {
+	imgObj.style.top = parseInt(imgObj.style.top) + 10*steps + 'px';
+}
+
+function moveUp(index, steps) {
+	imgObj.style.top = parseInt(imgObj.style.top) - 10*steps + 'px';
+}
+
+function show(index){
+	document.getElementById(target).style.display = 'block';
+}
+
+function hide(index){
+	document.getElementById(target).style.display = 'none';
+}
 
 function play(sequence,value) {
 	var arrayLength = sequence.length;
+	
+	// put images in player
+	addCharacters(arrayLength);
+	
+	// execute command
 	for (var i = 0; i < arrayLength; i++) {
-	    if (sequence[i].equals("set x")) setx(value[i]);
-	    else if (sequence[i].equals("set y")) sety(value[i]);
-	    else if (sequence[i].equals("moveright")) moveRight(value[i]);
-	    else if (sequence[i].equals("moveleft")) moveLeft(value[i]);
+		var thisSequence = sequence[i];
+		var thisValue = value[i];
+		for (var j = 0; j < thisSequence.length; j++) {
+			if (thisSequence[j].indexOf("Set X") > -1) {
+				setx(i, value[j]);
+			} else if (sequence[j].indexOf("Set Y") > -1) {
+				sety(i, value[j]);
+			} else if (sequence[j].indexOf("Move Right") > -1) {
+				moveRight(i, value[i]);
+			} else if (sequence[j].indexOf("Move Left") > -1) {
+				moveLeft(i, value[i]);
+			} else if (sequence[j].indexOf("Move Up") > -1) {
+				moveUp(i, value[i]);
+			} else if (sequence[j].indexOf("Move Down") > -1) {
+				moveDown(i, value[i]);
+			}else if (sequence[j].indexOf("Show") > -1) {
+				show(i);
+			} else if (sequence[j].indexOf("Hide") > -1) {
+				hide(i);
+			}
+		}
+	}
+}
+
+function addCharacters(number){
+	var div = document.getElementById("divtest");
+	
+	for (var i=0; i<number; i++) {
+		eleSrc = characters[i];
+		var element = document.createElement("img");
+		element.id = "img" + (i+1).toString;
+		element.setAttribute('src', eleSrc);
+		element.setAttribute('height', '100px');
+		div.appendChild(element);
 	}
 }
 
 function submit(){
 	var inputSequence = [];
 	var inputValue = [];
-	$('#sortable1 li').find('input').each(function(){
-		inputValue.push($(this).val());
-	})
-	$('#sortable1 li').each(function(){
-		inputSequence.push($(this).text());
-	})
+	for (var i = 0; i<countElement; i++) {
+		inputSequence[i]=[];
+		inputValue[i]=[];
+		var sortable = "#sortable"+(i+1).toString()+" li";
+		$(sortable).find('input').each(function(){
+			inputValue[i].push($(this).val());
+		});
+		$(sortable).each(function(){
+			inputSequence[i].push($(this).text());
+		});
+	}
+	console.log(characters);
 	console.log(inputSequence);
 	console.log(inputValue);
-	Play(inputSequence,inputValue)
+	play(inputSequence,inputValue);
 }
-
-
-var countElement = 0;
 
 function dragIt(theEvent) {
 	//tell the browser what to drag
@@ -98,6 +134,7 @@ function dropIt(theEvent) {
 	//get the element
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
+	characters[countElement-1]=eleSrc;
 	var div = document.createElement("div");
 	div.style.cssText = "height: 100px; width: 100px; float: left";
 	div.id = "div" + countElement.toString();

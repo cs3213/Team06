@@ -71,7 +71,7 @@
  	<div id="control-panel" class = "container">
      <button type="button" class="btn btn-primary"> Reset </button>
      <button type="button" class="btn btn-primary"> Save </button>
-     <button type="button" class="btn btn-primary"> Play</button>
+     <button type="button" class="btn btn-primary" onClick="submit()"> Play</button>
     </div>
  </div>
  
