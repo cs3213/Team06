@@ -11,16 +11,22 @@
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
-<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+ --><script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 
 </head>
 
 <body>
+
 
 <div class="transparent" id="">
 <div class= "overlay-word" id = "header-words">
@@ -55,26 +61,35 @@
 <div id="Main-Panel">
 
 <div class= transparent id="storage">
- 	<div id="divName"><p>Old Project</p></div>
- 	<input type="submit" value="Load">
- </div>
+ 	<div id="divName"><h4> Old Project</h4></div>
+ 	
+ 	<button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary">
+  Loading 
+</button>
+<script>
+  
+</script>
+ 	
+</div>
+ 
+ 
  
  <div class= transparent id="player">
- 	<div id="divName"><h4>Player</h4></div>
- 	<input type="submit" value="Start a new program">
- 	<input type="submit" value="Save">
+ 	<div id="divName"><h4> Player</h4></div>
+     <button type="button" class="btn btn-primary"> Start A New Program </button>
+     <button type="button" class="btn btn-primary"> Save </button>
  </div>
  
 <div class= transparent id="editor">
- 	<div id="divName">Editor</div>
+ 	<div id="divName"> <h4> Editor</h4></div>
  	<div id="divtest" style="overflow: scroll; height: 300px; width: 350px; float: left; border: dotted" 
  		ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
-	</div>
- 	<input type="submit" value="Play!" onclick="submit()">
+ 	</div>
+ 	<button type="button" class="btn btn-primary"> Play</button>
 </div>
  
 <div class= transparent id="coordEditor">
- 	<div id="divName">Setting</div>
+ 	<div id="divName"><h4>Setting</h4></div>
  	<form>
     	<ul id="draggable">
     		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
