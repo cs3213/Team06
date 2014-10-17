@@ -67,6 +67,7 @@ body {
 
 .overlay-word{
 	margin: 0.5rem 2.5rem auto;
+	float:right;
 }
 @media screen and (min-width: 52rem) {
   .overlay-inner {

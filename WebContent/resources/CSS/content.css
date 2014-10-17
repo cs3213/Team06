@@ -12,30 +12,30 @@ body {
 }
 #coordEditor {
 	height: 340px;
-	width: 240px;
+	width: 30%;
 	float: left;
 }
 
 #source {
 	height: 340px;
-	width: 250px;
+	width: 30%;
 	padding: 5px;
 	float: left;
 }
 #editor {
 	height: 400px;
-	width: 400px;
+	width: 45%;
 	float: left;
 }
 
 #player {
 	height: 400px;
-	width: 1080px;
+	width: 100%;
 	float: left;
 }
 #storage{
 	height: 400px;
-	width: 150px;
+	width: 15%;
 	float: left;
 }
 
@@ -140,7 +140,7 @@ button {
 .scene{
 	overflow: scroll; 
 	height: 300px; 
-	width: 350px; 
+	width: 50%; 
 	float: left; 
 	border: dotted
 }
@@ -156,6 +156,9 @@ button {
     display: inline;
 }
 .nav-tabs-container{
-	width:400px;
+	width:27%;
 	float:left;
+}
+.header-word{
+	float:center;
 }

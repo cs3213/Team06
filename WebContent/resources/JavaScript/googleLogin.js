@@ -31,7 +31,7 @@ function onSignInCallback(authResult) {
                 var id=resp.id;
                 document.getElementById('Welcome-Word').setAttribute('style', 'display: block');
                 document.getElementById('Google-Login').setAttribute('style', 'display: none');
-                document.getElementById('User-Name').innerText = given_name;
+                document.getElementById('User-Name').innerHTML = "<h4>"+given_name+"</h4>";
                 console.log(email);
                 console.log(given_name);
                 

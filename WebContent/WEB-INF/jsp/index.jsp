@@ -29,9 +29,14 @@
 
 
 <div class="transparent" id="">
+<div class="row">
+
+
 <div class= "overlay-word" id = "header-words">
-  <label id="Welcome-Word" style="display:none">Welcome,</label>
+  <label id="Welcome-Word" style="display:none"><h4>Welcome,</h4></label>
   <label id= "User-Name"></label> 
+</div>
+
 </div>
 
 <div>
@@ -60,7 +65,7 @@
 
 <div id="Main-Panel">
 
- <div class= transparent id="player">
+ <div class= "transparent" id="player">
  	<div id="divName" class="container"><h4> Player</h4></div>
  	
  	<div class="container content-div">
@@ -68,7 +73,7 @@
  	</div>
  	</div>
  	
- 	<div id="control-panel" class = "container">
+ 	<div id="control-panel" class = "container content-div">
      <button type="button" class="btn btn-primary"> Reset </button>
      <button type="button" class="btn btn-primary"> Save </button>
      <button type="button" class="btn btn-primary" onClick="submit()"> Play</button>
