@@ -68,9 +68,13 @@
 }) (jQuery);
 
 
-$('#loading-example-btn').click(function () {
+$('#loading-btn').click(function () {
     var btn = $(this)
     btn.button('loading')
   });
 
+$('#deleting-btn').click(function () {
+    var btn = $(this)
+    btn.button('loading')
+  });
 
