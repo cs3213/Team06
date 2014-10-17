@@ -9,7 +9,7 @@ var chosenFile = "";
 
 // Use a pop-up for auth.
 client.authDriver(new Dropbox.AuthDriver.Popup({ 
-	receiverUrl: 'http://localhost:8080/CS3213_assignment3/hello'
+	receiverUrl: 'http://localhost:8080/CS3213_assignment3/index'
 }));
 
 // First check if we're already authenticated.
@@ -18,20 +18,18 @@ client.authenticate({ interactive: false });
 if (client.isAuthenticated()) {
 	// If we're authenticated, update the UI to reflect the logged in status.
 	loggedIn();
-	
-	
 } else {
 	// Otherwise show the login button.
-	$('#dropbox-login-panel').show();
+	console.log($('#dropbox-login-btn'));
+	$('dropbox-login-panel').show();
 }
 
-$('#dropbox-login-btn').click(function () {
-	alert("login");
+function dropboxLogin() {
 	client.authenticate(function (err) {
 		if (err) { alert('Error: ' + err); return; }
 		loggedIn();
 	});
-});
+}
 
 $('#clickme').click(function () {
 	console.log("clicked button");
@@ -90,7 +88,9 @@ function loggedIn() {
 				fillInContent = fillInContent + prefix + filelist[i] + midfix + filelist[i] + suffix;
 			}
 			
-			fillInContent = "<select id='selectBox' onchange='changeFunc();'>" + fillInContent + "</select>";
+			
+			
+			fillInContent = "<select id='selectBox' class='selectpicker' data-width='100px' data-size='6' onchange='changeFunc();'>" + fillInContent + "</select>";
 			console.log (fillInContent);
 			
 			

@@ -75,41 +75,30 @@
 <div class= transparent id="storage">
  	<div id="divName" class = "container content-div"><h4> Old Project</h4></div>
  	
- 	<div id ="dropbox-login-panel" class ="container content-div">
- 	
- 	<button id="dropbox-login-btn" type = "button" class="btn btn-primary" >Login Dropbox</button>
- 	
- 	</div>
+
+  	<div id ="dropbox-login-panel" class ="container content-div">
+ 		<button id="dropbox-login-btn" class="btn btn-primary" onclick="dropboxLogin()">Login Dropbox</button>
+  	</div>
+
  	
  	<div id ="file-list-panel" style="display:none">
- 	
- 	<div class="container content-div">
-      <select class="selectpicker" data-width="100px" data-size="5">
-                    <option>a</option>
-                </select>
-
-    </div>
+ 		<div id="game-file-list " class="container content-div">
+ 			
+ 		</div>
     
- 	<div id="control-panel-load" class = "container content-div">
-     <button type="button" id="loading-btn" data-loading-text="Loading..." class="btn btn-primary">
-        Load 
-     </button>
-     
-    </div>
+ 		<div id="control-panel-load" class = "container content-div">
+     		<button type="button" id="loading-btn" data-loading-text="Loading..." class="btn btn-primary">
+     		Load 
+     		</button>
+     	</div>
     
-    <div id="control-panel-delete" class = "container content-div">
-     <button type="button" id="deleting-btn" data-loading-text="Deleting..." class="btn btn-primary">
-        Delete 
-      </button>
+    	<div id="control-panel-delete" class = "container content-div">
+     		<button type="button" id="deleting-btn" data-loading-text="Deleting..." class="btn btn-primary">
+        	Delete 
+      		</button>
+    	</div>
     </div>
-    
-    </div>
- 	
 </div>
- 
- 
- 
-
  
 <div class= transparent id="editor">
  	<div id="divName" class="container"> <h4> Editor</h4></div>
