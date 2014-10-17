@@ -1,3 +1,6 @@
+var countElement = 0;
+var characters=[];
+
 function myFunction() {
     var x, text;
 
@@ -72,19 +75,23 @@ function play(sequence,value) {
 function submit(){
 	var inputSequence = [];
 	var inputValue = [];
-	$('#sortable1 li').find('input').each(function(){
-		inputValue.push($(this).val());
-	})
-	$('#sortable1 li').each(function(){
-		inputSequence.push($(this).text());
-	})
+	for (var i = 0; i<countElement; i++) {
+		inputSequence[i]=[];
+		inputValue[i]=[];
+		var sortable = "#sortable"+(i+1).toString()+" li";
+		$(sortable).find('input').each(function(){
+			inputValue[i].push($(this).val());
+		});
+		$(sortable).each(function(){
+			inputSequence[i].push($(this).text());
+		});
+	}
+	console.log(characters);
 	console.log(inputSequence);
 	console.log(inputValue);
-	Play(inputSequence,inputValue)
+	Play(inputSequence,inputValue);
 }
 
-
-var countElement = 0;
 
 function dragIt(theEvent) {
 	//tell the browser what to drag
@@ -98,6 +105,7 @@ function dropIt(theEvent) {
 	//get the element
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
+	characters[countElement]=eleSrc;
 	var div = document.createElement("div");
 	div.style.cssText = "height: 100px; width: 100px; float: left";
 	div.id = "div" + countElement.toString();
