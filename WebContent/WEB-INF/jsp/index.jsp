@@ -77,7 +77,7 @@
  	<div class="container">
  	<div class="btn-group">
 <!--                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Saved Program <span class="caret"></span></button>
- -->                <select class="selectpicker" data-size="5">
+ -->                <select class="selectpicker" data-width="50px" data-size="5">
                     <option>a</option>
                 </select>
     </div>
