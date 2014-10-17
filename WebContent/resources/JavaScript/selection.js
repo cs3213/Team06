@@ -1,4 +1,5 @@
 var countElement = 0;
+var charactersSrc=[];
 var characters=[];
 
 function myFunction() {
@@ -93,13 +94,16 @@ function addCharacters(number){
 	var div = document.getElementById("divtest");
 	
 	for (var i=0; i<number; i++) {
-		eleSrc = characters[i];
+		eleSrc = charactersSrc[i];
 		var element = document.createElement("img");
-		element.id = "img" + (i+1).toString;
+		element.id = "image" + (i+1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
 		div.appendChild(element);
+		characters.push(element);
 	}
+	
+	console.log(characters);
 }
 
 function submit(){
@@ -116,7 +120,7 @@ function submit(){
 			inputSequence[i].push($(this).text());
 		});
 	}
-	console.log(characters);
+	console.log(charactersSrc);
 	console.log(inputSequence);
 	console.log(inputValue);
 	play(inputSequence,inputValue);
@@ -134,7 +138,7 @@ function dropIt(theEvent) {
 	//get the element
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
-	characters[countElement-1]=eleSrc;
+	charactersSrc[countElement-1]=eleSrc;
 	var div = document.createElement("div");
 	div.style.cssText = "height: 100px; width: 100px; float: left";
 	div.id = "div" + countElement.toString();
