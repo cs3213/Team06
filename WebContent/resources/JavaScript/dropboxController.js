@@ -77,24 +77,30 @@ function loggedIn() {
 		
 		
 		function loadGameList(){
-			var gamelist = document.getElementById('gamelist');
+			var gamelist = document.getElementById('game-file-select');
 			var filelist = getRecord();
+			
 			var prefix = "<option value ='";
 			var midfix = "'>";
 			var suffix = "</option>";
-			var fillInContent = prefix+midfix+suffix;
+			var fillInContent = "";
+//			var selectPrefix = "<select id='game-file-select' class='selectpicker' data-width='100px' data-size='6' onchange='changeFunc();'>";
+//			var selectSuffix = "</select>"
+				
 			
 			for(var i = 0; i < filelist.length ; i++ ){
+			    
+			    gamelist.options.add(new Option(filelist[i],filelist[i]));
+			    
 				fillInContent = fillInContent + prefix + filelist[i] + midfix + filelist[i] + suffix;
 			}
 			
 			
 			
-			fillInContent = "<select id='selectBox' class='selectpicker' data-width='100px' data-size='6' onchange='changeFunc();'>" + fillInContent + "</select>";
 			console.log (fillInContent);
 			
 			
-			gamelist.innerHTML = fillInContent;
+			
 			
 		}
 		
