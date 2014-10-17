@@ -11,7 +11,7 @@
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/scrollable.css" />" rel="stylesheet">
-
+<link href="<c:url value="/resources/CSS/bootstrap-select.css" />" rel="stylesheet">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -23,7 +23,7 @@
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+<script src="<c:url value="/resources/JavaScript/bootstrap-select.js" />"></script>
 
 </head>
 
