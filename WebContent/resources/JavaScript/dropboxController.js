@@ -68,8 +68,12 @@ function loggedIn() {
 			var results = table.query();
 			var list = [];
 			
-			for (var i=0; i<results.length; i++) {
-				list.push(results[i].get('name'));
+			if (results.length != 0) {
+				console.log("there are file get record");
+				for (var i=0; i<results.length; i++) {
+					console.log(results[i]);
+					list.push(results[i].get('name'));
+				}
 			}
 			
 			return list;
@@ -83,7 +87,7 @@ function loggedIn() {
 			var midfix = "'>";
 			var suffix = "</option>";
 //			var fillInContent = "";
-			
+			gamelist.options.add(new Option("--Select--", "--Select--"));
 			for(var i = 0; i < filelist.length ; i++ ){
 			    gamelist.options.add(new Option(filelist[i],filelist[i]));
 //				fillInContent = fillInContent + prefix + filelist[i] + midfix + filelist[i] + suffix;
@@ -100,16 +104,22 @@ function loggedIn() {
 			console.log("insert filename = "+fileName);
 			console.log(results);
 			
+			var fileExist = 0;
 			if (results.length != 0) {
 				console.log(results[0].get('content'));
-				results[0].set('content', fileContent);
-			} else {
-				var firstTask = table.insert({
-				    name: fileName,
-				    content: fileContent,
-				    count: countElement
-				});
-				
+				for (var i=0; i<results.length; i++) {
+					results[i].deleteRecord();
+				}
+				fileExist = 1;
+			} 
+			
+			var firstTask = table.insert({
+			    name: fileName,
+			    content: fileContent,
+			    count: countElement
+			});
+			
+			if (fileExist==0) {
 				var gamelist = document.getElementById('game-file-select');
 				gamelist.options.add(new Option(fileName, fileName));
 			}
@@ -135,13 +145,17 @@ function loggedIn() {
 			var results = table.query({name: chosenFile});
 			console.log(results);
 			if (results.length != 0) {
+				console.log("come in !!!!!!!!!!!!!!!!!");
 				console.log("load file = "+chosenFile);
 				console.log(results[0].get('content'));
 				$('#divtest').html(results[0].get('content'));
 				setCountElement(results[0].get('count'));
 				console.log($('#divtest'));
 			} else {
-				document.getElementById('load-game-content').innerText = "";
+				var gamelist = document.getElementById('game-file-select');
+				if (gamelist.selectedIndex != 0) {
+					gamelist.remove(gamelist.selectedIndex);
+				}
 				alert("no such file");
 			}
 		});
@@ -152,9 +166,16 @@ function loggedIn() {
 			console.log(results);
 			
 			if (results.length != 0) {
-				results[0].deleteRecord();
+				for (var i=0; i<results.length; i++) {
+					results[i].deleteRecord();
+				}
 			} else {
 				alert("no such file");
+			}
+			
+			var gamelist = document.getElementById('game-file-select');
+			if (gamelist.selectedIndex != 0) {
+				gamelist.remove(gamelist.selectedIndex);
 			}
 		});
 	});
