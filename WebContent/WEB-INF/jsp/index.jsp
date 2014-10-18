@@ -29,11 +29,8 @@
 <p id="demo"></p>
   <div class="transparent" id="">
     <div class="row">
-=======
-
 <div class="transparent" id="">
   <div class="row">
->>>>>>> bb746de7c1cf61b9e0057b0a6e58c2075911dafe
 
 
   <div class= "overlay-word" id = "header-words">
@@ -159,7 +156,7 @@
  	<div id="floatArea">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/float1.jpeg" />" height="100px"/>
+ 			<img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg" />" height="100px"/>
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	
@@ -199,29 +196,7 @@
 
 </div>
 
-
-
-
-<<<<<<< HEAD
-  <div class="tab-pane active select-pane" id="source-pane">
-   <div class= transparent id="source">
-    <div id="floatArea">
-     <h4>Float</h4>
-     <button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
-     <img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg" />" height="100px" onclick="displayHouse(this)"/>
-     <button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
-   </div>
-
-   <div id="floatArea" ondragover="event.preventDefault();">
-    <h4>Character</h4>
-    <button onclick="changeCharacterLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
-    <img id="curCharacter" src="<c:url value="/resources/img/char1.jpeg" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
-    <button onclick="changeCharacterRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
-  </div>
-</div> 
-</div>
-=======
->>>>>>> bb746de7c1cf61b9e0057b0a6e58c2075911dafe
+  
 
 
 

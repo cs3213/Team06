@@ -306,7 +306,7 @@ function changeFloatLeft() {
 		indexOfFloat = 3;//= total number of float
 	}
 	indexOfFloat = indexOfFloat % 4;//= total number of float + 1
-	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".jpeg";
 	document.getElementById("curFloat").src = nextFloat;	
 }
 
@@ -319,7 +319,7 @@ function changeFloatRight() {
 	if(indexOfFloat == 0) {
 		indexOfFloat++;
 	}
-	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".jpeg";
 		
 	document.getElementById("curFloat").src = nextFloat;
 }
@@ -446,5 +446,8 @@ function displayHouse(el) {
 	var image = document.createElement("img");
 	image.setAttribute("src", path);
 	image.setAttribute("width", "200px");
-	document.getElementById("divtest-player").appendChild(image);
+	var player = document.getElementById("divtest-player");
+	var newStyle = "background-image:("+path+")";
+	console.log(newStyle);
+	player.setAttribute("style", newStyle);
 }
