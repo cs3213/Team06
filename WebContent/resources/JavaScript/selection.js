@@ -16,7 +16,6 @@ var tempX = 0;
 var tempY = 0;
 
 // Main function to retrieve mouse x-y pos.s
-
 function displayCoord(e) {
 	if (IE) { // grab the x-y pos.s if browser is IE
 	    tempX = event.clientX + document.body.scrollLeft;
@@ -34,15 +33,12 @@ function displayCoord(e) {
 	console.log(tempY);
 	return true;
 }
+
 function myFunction() {
     var x, text;
-
     // Get the value of input field with id="numb"
-
     x = document.getElementById("numb").value;
-
     // If x is Not a Number or less than one or greater than 10
-
     if (isNaN(x) || x < 1 || x > 10) {
         text = "Input not valid";
     } else {
@@ -138,7 +134,8 @@ function play(sequence,value) {
 	for (var i = 0; i < arrayLength; i++) {
 		var thisSequence = sequence[i];
 		var thisValue = value[i];
-		for (var j = 0; j < thisSequence.length; j++) {
+		var sequenceLength = thisSequence.length;
+		for (var j = 0; j < sequenceLength; j++) {
 			if (thisSequence[j].indexOf("Set X") > -1) {
 				setx(i, thisValue[j]);
 			} else if (thisSequence[j].indexOf("Set Y") > -1) {
@@ -155,6 +152,71 @@ function play(sequence,value) {
 				show(i);
 			} else if (thisSequence[j].indexOf("Hide") > -1) {
 				hide(i);
+			} else if (thisSequence[j].indexOf("Repeat") > -1) {
+				var repeatSequence = [];
+				var repeatValue = [];
+				var repeatTimes = thisValue[j];
+				//get repeat sequence
+				for (j=j+1; j< sequenceLength; j++) {
+					if (thisSequence[j].indexOf("End_Repeat") > -1) {
+						break;
+					}
+					repeatSequence.push(thisSequence[j]);
+					repeatValue.push(thisValue[j]);
+				}
+				console.log("repeat");
+				console.log(repeatSequence);
+				console.log(repeatValue);
+				
+				//run repeat sequence
+				for (var k=0; k<repeatTimes; k++) {
+					repeat(i, repeatSequence, repeatValue);
+				}
+			}
+		}
+	}
+}
+
+function repeat(index, sequence, value) {
+	var arrayLength = sequence.length;
+	
+	// execute command
+	for (var i = 0; i < arrayLength; i++) {
+		if (sequence[i].indexOf("Set X") > -1) {
+			setx(index, value[i]);
+		} else if (sequence[i].indexOf("Set Y") > -1) {
+			sety(index, value[i]);
+		} else if (sequence[i].indexOf("Move Right") > -1) {
+			moveRight(index, value[i]);
+		} else if (sequence[i].indexOf("Move Left") > -1) {
+			moveLeft(index, value[i]);
+		} else if (sequence[i].indexOf("Move Up") > -1) {
+			moveUp(index, value[i]);
+		} else if (sequence[i].indexOf("Move Down") > -1) {
+			moveDown(index, value[i]);
+		} else if (sequence[i].indexOf("Show") > -1) {
+			show(index);
+		} else if (sequence[i].indexOf("Hide") > -1) {
+			hide(index);
+		} else if (sequence[i].indexOf("Repeat") > -1) {
+			var repeatSequence = [];
+			var repeatValue = [];
+			var repeatTimes = value[i];
+			//get repeat sequence
+			for (i=i+1; i< arrayLength; i++) {
+				if (sequence[i].indexOf("End_Repeat") > -1) {
+					break;
+				}
+				repeatSequence.push(sequence[i]);
+				repeatValue.push(value[i]);
+			}
+			console.log("repeat");
+			console.log(repeatSequence);
+			console.log(repeatValue);
+			
+			//run repeat sequence
+			for (var k=0; k<repeatTimes; k++) {
+				repeat(index, repeatSequence, repeatValue);
 			}
 		}
 	}
@@ -175,6 +237,8 @@ function submit(){
 		});
 		if (hasInput == 0) {
 			inputValue[i].push(hasInput);
+		} else {
+			hasInput = 0;
 		}
 		$(sortable).each(function(){
 			inputSequence[i].push($(this).text());
@@ -282,12 +346,6 @@ function dropOver() {
 	editButton.id = "edit" + countElement.toString();
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
-	
-	
-	
-	
-	
-	
 	
 	var sortNode = "#"+element.id;
 	console.log(element.id);
