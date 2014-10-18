@@ -392,11 +392,8 @@ function dropOver() {
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
-<<<<<<< HEAD
-		        ui.item.css("width", "250px");
-=======
+
 		        ui.item.css("width", "200px");
->>>>>>> 4383ca7eb14b994f889dd5dba9ede9f186e8fed3
 		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
