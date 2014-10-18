@@ -12,17 +12,43 @@
 
 </head>
 <body>
-     <form:form method="post"> 
+  <%--    <form:form method="post">  --%>
     <button id="play">play</button>
-    <input type="hidden" name="inputSequence" id ="inputSequence" />
-	<input type="hidden" name="inputValue" id="inputValue" />
-  	</form:form>
+   <!--  <input type="hidden" name="inputSequence" id ="inputSequence" />
+	<input type="hidden" name="inputValue" id="inputValue" /> -->
+  	<%-- </form:form> --%>
 <button id="clickme">click me</button>
 <script>
 
 $('#play').click(function () {
-    document.getElementById("inputSequence").value = "asf";
-	document.getElementById("inputValue").value = "sdfsd";
+	 var curProject;
+	 var a = ["a","b"];
+	 var b = [];
+	 b[0] = [];
+	 b[0][0]="123";
+	 var c = [];
+	 c[0] = [];
+	 c[0][0]="123";
+	 curProject = { "Characters": a,
+			    "inputSequence": b,
+			    "inputValue": c};
+	 $.ajax({
+     type: 'POST',
+     url: '/CS3213_assignment3/test',
+     traditional: true,
+     dataType: "json",
+     cache: false,
+     data: curProject,
+/*success: function (data) {
+alert("Success, sent data to controller");
+}, 
+ error: function (data) {
+alert("Error: " + data.responseText);
+} */
+});
+ 
+ //   document.getElementById("inputSequence").value = "asf";
+//	document.getElementById("inputValue").value = "sdfsd";
 });
 
 $('#clickme').click(function () {
