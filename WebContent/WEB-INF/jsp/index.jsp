@@ -25,18 +25,18 @@
 
 </head>
 
-<body>
+<body class="body-class">
 
 <div class="transparent" id="">
-<div class="row">
+  <div class="row">
 
 
-<div class= "overlay-word" id = "header-words">
-  <label id="Welcome-Word" style="display:none"><h4>Welcome,</h4></label>
-  <label id= "User-Name"></label> 
-</div>
+  <div class= "overlay-word" id = "header-words">
+    <label id="Welcome-Word" style="display:none"><h4>Welcome,</h4></label>
+     <label id= "User-Name"></label> 
+  </div>
 
-</div>
+  </div>
 
 <div>
 <a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
@@ -83,12 +83,12 @@
  </div>
  
 
-<div class= transparent id="storage">
+<div class= "transparent storage-panel"  id="storage">
  	<div id="divName" class = "container content-div"><h4> Old Project</h4></div>
  	
 
   	<div id ="dropbox-login-panel" class ="container content-div">
- 		<button id="dropbox-login-btn" class="btn btn-primary" onclick="dropboxLogin()">Login Dropbox</button>
+ 		<button id="dropbox-login-btn" class="btn btn-primary" onclick="dropboxLogin()">Dropbox</button>
   	</div>
 
  	
@@ -114,26 +114,28 @@
     </div>
 </div>
  
-<div class= transparent id="editor">
- 	<div id="divName" class="container"> <h4> Editor</h4></div>
- 	<div class="container">
- 	<div id="divtest" class="scene container" ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
- 	</div>
+<div class= "transparent editor-panel" id="editor">
+ 	<div id="divName" class="container inner-container"> <h4> Editor</h4></div>
+ 	<!-- <div class="container inner-container"> -->
+ 	<div id="divtest" class="scene-inner-container" ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
+<!--     </div> -->
  	</div>
  	
 </div>
 
  <!-- Nav tabs -->
 
-<ul class="nav nav-tabs nav-tabs-container" role="tablist">
-<li class="active"><a href="#source-pane" role="tab" data-toggle="tab"><h4>Characters</h4></a></li>
-  <li ><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h4>Actions</h4></a></li>
+<div class="tab-panel">
+<div class="inner-tab">
+  <ul class="nav nav-tabs" role="tablist">
+   <li class="active"><a href="#source-pane" role="tab" data-toggle="tab"><h4>Characters</h4></a></li>
+    <li ><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h4>Actions</h4></a></li>
   
-</ul>
+  </ul>
+ </div>
+<div class="tab-content container tab-content-container">
  
-<div class="tab-content container">
- 
-  <div class="tab-pane active" id="source-pane">
+  <div class="tab-pane active select-pane" id="source-pane">
    <div class= transparent id="source">
  	<div id="floatArea" ondragover="event.preventDefault();">
  		<h4>Float</h4>
@@ -151,22 +153,22 @@
   </div> 
  </div>
  
- <div class="tab-pane" id="coordEditor-pane">
+ <div class="tab-pane select-pane" id="coordEditor-pane">
   <div class= "transparent" id="coordEditor">
  	<div id="divName" class="container"><h4>Setting</h4></div>
  	<form>
     	<ul id="draggable">
-    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
+    		<li id="right">Move Right <input type="text" name="right" size="2" class=>steps</li>
     		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
     		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
     		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
     		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>
     		<li id='end_repeat'>End_Repeat </li>     
 		</ul>
-	</form>
+	  </form>
+    </div>
   </div>
-</div>
-  
+ </div>
 
 
 

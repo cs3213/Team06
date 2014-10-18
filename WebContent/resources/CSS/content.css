@@ -1,6 +1,11 @@
 body {
 	background-image: url("../img/background14.jpg" );
 	background-size: 100% 100%;
+	
+	
+}
+.body-class{
+	min-width:100%;
 }
 #header {
 	height: 70px;
@@ -12,24 +17,23 @@ body {
 }
 #coordEditor {
 	height: 340px;
-	width: 30%;
+	width: 100%;
 	float: left;
 }
 
 #source {
 	height: 340px;
-	width: 30%;
+	width: 100%;
 	padding: 5px;
 	float: left;
 }
 #editor {
 	height: 400px;
-	width: 45%;
+	width: 50%;
 	float: left;
 }
 
 #player {
-	height: 400px;
 	width: 100%;
 	float: left;
 }
@@ -140,15 +144,19 @@ button {
 .scene{
 	overflow: scroll; 
 	height: 300px; 
-	width: 50%; 
+	width: 100%; 
 	float: left; 
 	border: dotted
 }
 .scene_play{ 
-	height: 300px; 
-	width: 1000px; 
+	height: 500px; 
+	width: 95%;
+    margin: 2rem;
 	float: left; 
-	border: dotted
+	border: dotted;
+	opacity:1;
+	background-color:white;
+	
 }
 .form-control-inline {
     min-width: 0;
@@ -156,12 +164,54 @@ button {
     display: inline;
 }
 .nav-tabs-container{
-	width:27%;
+	width:auto;
 	float:left;
 }
+.tab-content-container{
+	width:100%;
+	float:left;
+} 
 .header-word{
 	float:center;
 }
+<<<<<<< HEAD
 .onbtn {
 	float: right;
 }
+=======
+.input-word{
+	color:black;
+}
+.storage-panel{
+	width:15%;
+}
+.editor-panel{
+	width:45%;
+}
+.tab-panel{
+	width: 30%;
+	height: 400px;
+    float: left;
+}
+.dropbox-btn{
+	width:75%
+}
+.inner-container{
+	width:auto;
+}
+.scene-inner-container{
+	width:90%;
+	margin: 2rem;
+	overflow: scroll; 
+	height: 300px; 
+	float: left; 
+	border: dotted
+}
+.inner-tab{
+	height:auto;
+	width:auto;
+}
+.select-pane{
+	width:100%;
+}
+>>>>>>> edddae56ce4546c93fcf521fba82a7a89bff5b67
