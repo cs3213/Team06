@@ -82,10 +82,6 @@
  	
  	<div class="container content-div">
 
-
- 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
-
- 	</div>
  	</div>
  	
  	<div id="control-panel" class = "container content-div">
@@ -207,7 +203,7 @@
        		<li id='end_repeat'>End_Repeat </li>
        		<li id='show'>Show </li>
        		<li id='hide'>Hide </li>
-       		<li id='costume'>Change Constume</li>
+       		<li id='costume'>Change Costume</li>
        		<li id='background'>Change Background</li>
 		</ul>
 	  </form>
