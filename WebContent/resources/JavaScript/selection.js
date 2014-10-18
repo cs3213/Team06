@@ -16,7 +16,6 @@ var tempX = 0;
 var tempY = 0;
 
 // Main function to retrieve mouse x-y pos.s
-
 function displayCoord(e) {
 	if (IE) { // grab the x-y pos.s if browser is IE
 	    tempX = event.clientX + document.body.scrollLeft;
@@ -34,15 +33,12 @@ function displayCoord(e) {
 	console.log(tempY);
 	return true;
 }
+
 function myFunction() {
     var x, text;
-
     // Get the value of input field with id="numb"
-
     x = document.getElementById("numb").value;
-
     // If x is Not a Number or less than one or greater than 10
-
     if (isNaN(x) || x < 1 || x > 10) {
         text = "Input not valid";
     } else {
@@ -51,105 +47,200 @@ function myFunction() {
     document.getElementById("demo").innerHTML = text;
 }
 
-//var imgObj = null;
-//function init(){
-//   imgObj = document.getElementById('myImage');
-//   imgObj.style.position= 'relative'; 
-//   imgObj.style.left = '0px'; 
-//}
-
 function setx(index, posx) {
+	imgObj = characters[index];
 	imObj.style.position.left=pos + 'px';
 }
 
 function sety(index, posy) {
+	imgObj = characters[index];
 	imObj.style.position.top=posy + 'px';
 }
 
 function moveRight(index, steps){
-	imgObj.style.left = parseInt(imgObj.style.left) + 10*steps + 'px';
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '+='+(10*steps) + 'px';
+	console.log("move right");
+	$(id).animate({marginLeft: distance},'slow');
 }
 
 function moveLeft(index, steps){
-	imgObj.style.left = parseInt(imgObj.style.left) - 10*steps + 'px';
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("move left");
+	$(id).animate({marginLeft: distance},'slow');
 }
 
 function moveDown(index, steps) {
-	imgObj.style.top = parseInt(imgObj.style.top) + 10*steps + 'px';
+	imgObj = characters[index];
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '+='+(10*steps) + 'px';
+	console.log("move up");
+	$(id).animate({marignTop: distance},'slow');
 }
 
 function moveUp(index, steps) {
-	imgObj.style.top = parseInt(imgObj.style.top) - 10*steps + 'px';
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("move down");
+	$(id).animate({marginTop: distance},'slow');
 }
 
 function show(index){
-	document.getElementById(target).style.display = 'block';
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("show");
+	$(id).animate({height: '100px'},'slow');
 }
 
 function hide(index){
-	document.getElementById(target).style.display = 'none';
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("hide");
+	$(id).animate({height: '0px'},'slow');
 }
+
+//function sleep(millis, sequence, value, callback) {
+//	console.log("sleep");
+//    setTimeout(function()
+//            { callback(sequence, value); }
+//    , millis);
+//}
 
 function play(sequence,value) {
 	var arrayLength = sequence.length;
 	
 	// put images in player
-	addCharacters(arrayLength);
+	var div = document.getElementById("divtest-player");
 	
-	// execute command
-	for (var i = 0; i < arrayLength; i++) {
-		var thisSequence = sequence[i];
-		var thisValue = value[i];
-		for (var j = 0; j < thisSequence.length; j++) {
-			if (thisSequence[j].indexOf("Set X") > -1) {
-				setx(i, value[j]);
-			} else if (sequence[j].indexOf("Set Y") > -1) {
-				sety(i, value[j]);
-			} else if (sequence[j].indexOf("Move Right") > -1) {
-				moveRight(i, value[i]);
-			} else if (sequence[j].indexOf("Move Left") > -1) {
-				moveLeft(i, value[i]);
-			} else if (sequence[j].indexOf("Move Up") > -1) {
-				moveUp(i, value[i]);
-			} else if (sequence[j].indexOf("Move Down") > -1) {
-				moveDown(i, value[i]);
-			}else if (sequence[j].indexOf("Show") > -1) {
-				show(i);
-			} else if (sequence[j].indexOf("Hide") > -1) {
-				hide(i);
-			}
-		}
-	}
-}
-
-function addCharacters(number){
-	var div = document.getElementById("divtest");
-	
-	for (var i=0; i<number; i++) {
+	for (var i=0; i<arrayLength; i++) {
 		eleSrc = charactersSrc[i];
 		var element = document.createElement("img");
 		element.id = "image" + (i+1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
+		element.setAttribute('position', 'absolute');
 		div.appendChild(element);
 		characters.push(element);
 	}
 	
-	console.log(characters);
+	// execute command
+	for (var i = 0; i < arrayLength; i++) {
+		var thisSequence = sequence[i];
+		var thisValue = value[i];
+		var sequenceLength = thisSequence.length;
+		for (var j = 0; j < sequenceLength; j++) {
+			if (thisSequence[j].indexOf("Set X") > -1) {
+				setx(i, thisValue[j]);
+			} else if (thisSequence[j].indexOf("Set Y") > -1) {
+				sety(i, thisValue[j]);
+			} else if (thisSequence[j].indexOf("Move Right") > -1) {
+				moveRight(i, thisValue[j]);
+			} else if (thisSequence[j].indexOf("Move Left") > -1) {
+				moveLeft(i, thisValue[j]);
+			} else if (thisSequence[j].indexOf("Move Up") > -1) {
+				moveUp(i, thisValue[j]);
+			} else if (thisSequence[j].indexOf("Move Down") > -1) {
+				moveDown(i, thisValue[j]);
+			} else if (thisSequence[j].indexOf("Show") > -1) {
+				show(i);
+			} else if (thisSequence[j].indexOf("Hide") > -1) {
+				hide(i);
+			} else if (thisSequence[j].indexOf("Repeat") > -1) {
+				var repeatSequence = [];
+				var repeatValue = [];
+				var repeatTimes = thisValue[j];
+				//get repeat sequence
+				for (j=j+1; j< sequenceLength; j++) {
+					if (thisSequence[j].indexOf("End_Repeat") > -1) {
+						break;
+					}
+					repeatSequence.push(thisSequence[j]);
+					repeatValue.push(thisValue[j]);
+				}
+				console.log("repeat");
+				console.log(repeatSequence);
+				console.log(repeatValue);
+				
+				//run repeat sequence
+				for (var k=0; k<repeatTimes; k++) {
+					repeat(i, repeatSequence, repeatValue);
+				}
+			}
+		}
+	}
+}
+
+function repeat(index, sequence, value) {
+	var arrayLength = sequence.length;
+	
+	// execute command
+	for (var i = 0; i < arrayLength; i++) {
+		if (sequence[i].indexOf("Set X") > -1) {
+			setx(index, value[i]);
+		} else if (sequence[i].indexOf("Set Y") > -1) {
+			sety(index, value[i]);
+		} else if (sequence[i].indexOf("Move Right") > -1) {
+			moveRight(index, value[i]);
+		} else if (sequence[i].indexOf("Move Left") > -1) {
+			moveLeft(index, value[i]);
+		} else if (sequence[i].indexOf("Move Up") > -1) {
+			moveUp(index, value[i]);
+		} else if (sequence[i].indexOf("Move Down") > -1) {
+			moveDown(index, value[i]);
+		} else if (sequence[i].indexOf("Show") > -1) {
+			show(index);
+		} else if (sequence[i].indexOf("Hide") > -1) {
+			hide(index);
+		} else if (sequence[i].indexOf("Repeat") > -1) {
+			var repeatSequence = [];
+			var repeatValue = [];
+			var repeatTimes = value[i];
+			//get repeat sequence
+			for (i=i+1; i< arrayLength; i++) {
+				if (sequence[i].indexOf("End_Repeat") > -1) {
+					break;
+				}
+				repeatSequence.push(sequence[i]);
+				repeatValue.push(value[i]);
+			}
+			console.log("repeat");
+			console.log(repeatSequence);
+			console.log(repeatValue);
+			
+			//run repeat sequence
+			for (var k=0; k<repeatTimes; k++) {
+				repeat(index, repeatSequence, repeatValue);
+			}
+		}
+	}
 }
 
 function submit(){
 	var inputSequence = [];
 	var inputValue = [];
+	
 	for (var i = 0; i<countElement; i++) {
 		inputSequence[i]=[];
 		inputValue[i]=[];
 		var sortable = "#sortable"+(i+1).toString()+" li";
-		$(sortable).find('input').each(function(){
-			inputValue[i].push($(this).val());
-		});
+
 		$(sortable).each(function(){
-			inputSequence[i].push($(this).text());
+			var command = $(this).text();
+			inputSequence[i].push(command);
+			var input = $(this).find('input').val();
+			console.log("input = "+input);
+			if (input) {
+				inputValue[i].push(input);
+			} else {
+				inputValue[i].push(0);
+			}
 		});
 	}
 	console.log(charactersSrc);
@@ -254,12 +345,6 @@ function dropOver() {
 	editButton.id = "edit" + countElement.toString();
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
-	
-	
-	
-	
-	
-	
 	
 	var sortNode = "#"+element.id;
 	console.log(element.id);
