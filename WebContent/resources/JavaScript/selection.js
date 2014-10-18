@@ -343,6 +343,12 @@ function dropOver() {
 	editButton.type = "button";
 	editButton.value = "Edit";
 	editButton.id = "edit" + countElement.toString();
+	editButton.setAttribute("class", "btn btn-primary onbtn");
+	var i = 1;
+	for(i = 1; i < countElement; i++) {
+		var object = document.getElementById("edit"+i.toString());
+		object.setAttribute("class", "btn onbtn");
+	}
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
 	
@@ -386,8 +392,18 @@ function dropOver() {
 
 function changeConnect(el) {
 	var thisID = $(el).attr('id');
+	el.setAttribute("class", "btn btn-primary onbtn");
+	var i = 1;
+
 	var indexOfEdit = thisID.substring(4).toString(); 
-	document.getElementById("demo").innerHTML = indexOfEdit;
+	for(i = 1; i <= countElement; i++) {
+		if(i != parseInt(indexOfEdit)) {
+			var ID = "edit"+i.toString();
+			var object = document.getElementById(ID);
+			object.setAttribute("class", "btn onbtn");
+		}
+	}
+	
 	var sortNodeID = "#sortable"+indexOfEdit.toString();
 	$( "#draggable li" ).draggable({
          connectToSortable: sortNodeID,
