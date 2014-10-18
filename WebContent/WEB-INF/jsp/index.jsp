@@ -77,7 +77,21 @@
  	
  	<div id="control-panel" class = "container content-div">
      <button type="button" class="btn btn-primary"> Reset </button>
-     <button type="button" class="btn btn-primary"> Save </button>
+     <a href id="save-trigger" class="btn btn-primary" data-overlay="game-name-input" >save</a>
+  
+  <div id="game-name-input" class="overlay" style="">
+	<div class="overlay-inner">
+
+   <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
+
+	 <button id="save-btn" class="btn btn-primary">Confirm
+      </button>
+      <button id="cancel-btn" class="btn btn-primary">Cancel
+      </button>
+      
+	</div>
+</div>
+     
      <button type="button" class="btn btn-primary" onClick="submit()"> Play</button>
     </div>
  </div>
@@ -177,38 +191,6 @@
 
 
 
-
-<!-- Tab panes -->
-<%-- <div class="tab-content" style="width: 300px">
-  	<div class="tab-pane active" id="source">
- 	<div class="divName"><h4>Float</h4></div>
- 	<div class="floatArea" ondragover="event.preventDefault();">
- 			<button onclick="changeFloatLeft()"><img src="arrow_left.gif" height="15px"></button>
- 			<img id="curFloat"  src="float1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
- 			<button onclick="changeFloatRight()"><img src="arrow_right.gif" height="15px"></button>
- 	</div>
- 	
- 	<div class="divName"><h4>Character</h4></div>
- 	<div class="floatArea" ondragover="event.preventDefault();">
- 		<button onclick="changeCharacterLeft()"><img src="arrow_left.gif" height="15px"></button>
- 			<img id="curCharacter" src="char1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
- 		<button onclick="changeCharacterRight()"><img src="arrow_right.gif" height="15px"></button>
- 	</div>
-    </div>
-
-    <div class="tab-pane" id="coordEditor">
- 	<div class="divName"><h4>Setting</h4></div>
- 	<form>
-    	<ul id="draggable">
-    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
-    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
-    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
-    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
-    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>     
-		</ul>
-	</form>
-	</div>
-  </div> --%> 
 
 </div>
 
