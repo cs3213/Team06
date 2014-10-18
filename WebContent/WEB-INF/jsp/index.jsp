@@ -65,7 +65,7 @@
 <div id="Main-Panel">
 
  <div class= "transparent" id="player">
- 	<div id="divName" class="container"><h4> Player</h4></div>
+ 	<div id="divName" class="container content-div"><h4> Player</h4></div>
  	
  	<div class="container content-div">
 
