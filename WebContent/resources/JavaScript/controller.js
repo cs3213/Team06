@@ -75,7 +75,7 @@
 	 * should exist on the overlay trigger, as well as an
 	 * attribute (data-overlay) to adentify the overlay to open.
 	*/
-	$( '#save-trigger' ).on( 'click', function( event ) {
+	$( '#save-trigger-hello' ).on( 'click', function( event ) {
 		document.getElementById('game-name-input').setAttribute('style','');
 		event.preventDefault();
 
@@ -131,6 +131,24 @@
 				$( 'body' ).removeClass( 'overlay-view' );
 		});
 		
+		$( '#save-btn' ).click( function( event ) {
+			var fileName = document.getElementById('user-file-name').value;
+			alert(fileName);
+			// Verify that only the outer wrapper was clicked.
+			if(fileName){
+				$( id ).removeClass( 'overlay-open' );
+				$( 'body' ).removeClass( 'overlay-view' );
+			}
+			else{
+				alert("pop up");
+				
+				bootbox.alert("Hello world!", function() {
+//					  Example.show("Hello world callback");
+					});
+			}
+				
+		});
+		
 		
 
 		/**
@@ -149,6 +167,32 @@
 }) (jQuery);
 
 
+$(function() {
+    Example.init({
+        "selector": ".bb-alert"
+    });
+});
+
+
+$( '#save-trigger' ).on( 'click', function( event ) {
+	
+	bootbox.prompt("What is your file name?", function(result) {                
+		  if (result === null) {    
+			  
+		    Example.show("Cancel Save!");                              
+		  } else {
+			if(result){
+				document.getElementById('user-file-name').value="result";
+				document.getElementById('save-btn').click()
+				Example.show("Your File Is Saved Successfully"); 
+			}
+			else{
+				
+				Example.show("Your Filename Cannot Be Empty"); 
+			}
+		  }
+		});
+});
 
 $('#loading-btn').click(function () {
     var btn = $(this)

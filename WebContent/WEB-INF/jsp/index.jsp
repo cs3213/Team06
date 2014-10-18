@@ -11,6 +11,7 @@
 <link href="<c:url value="/resources/CSS/overlay.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/scrollable.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/CSS/alert.css" />" rel="stylesheet">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -21,11 +22,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="<c:url value="/resources/JavaScript/bootstrap-select.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/bootstrap.min.js" />"></script>
-
+<script src="<c:url value="/resources/JavaScript/bootbox.min.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/bootbox.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/example.js" />"></script>
 </head>
 
-<body class="body-class">
+<body data-twttr-rendered="true" class="body-class">
 <p id="demo"></p>
+<div id="message" class="bb-alert alert alert-info" style="display: none;">
+       <span>Hello world callback</span>
+</div>
   
 <div class="transparent" id="">
   <div class="row">
@@ -78,8 +84,10 @@
  	
  	<div id="control-panel" class = "container content-div">
      <button type="button" class="btn btn-primary"> Reset </button>
-     <a href id="save-trigger" class="btn btn-primary" data-overlay="game-name-input" >save</a>
-  
+<!--      <a href id="save-trigger" class="btn btn-primary" data-overlay="game-name-input" >Save</a>
+ -->  
+ 
+ <button type="button" id="save-trigger" class="btn btn-primary"> Save </button>
   <div id="game-name-input" class="overlay" style="">
 	<div class="overlay-inner">
 
@@ -87,6 +95,7 @@
 
 	 <button id="save-btn" class="btn btn-primary" onClick="save()">Confirm
       </button>
+      
       <button id="cancel-btn" class="btn btn-primary">Cancel
       </button>
       
@@ -185,8 +194,18 @@
   </div>
  </div>
 </div>
+
+
+
+
+
+
 </div>
 
+
+
+
+<script src="<c:url value="/resources/JavaScript/example.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
