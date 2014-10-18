@@ -277,3 +277,26 @@ $('#reset-character-btn').click(function(){
 		}); 
 });
 
+function checkXValue(xInput){
+	if(xInput.value>1000){
+		xInput.value = 0;
+		Popup.show("X value cannot exceed 1000! Reset x value to 0.");
+	}
+	if(xInput.value<0){
+		xInput.value = 0;
+		Popup.show("X value cannot be negative! Reset x value to 0.");
+	}
+}
+
+function checkYValue(yInput){
+	if(yInput.value>400){
+		yInput.value = 0;
+		Popup.show("Y value cannot exceed 400! Reset y value to 0.");
+	}
+	if(yInput.value<0){
+		yInput.value = 0;
+		Popup.show("Y value cannot be negative! Reset y value to 0.");
+	}
+}
+
+
