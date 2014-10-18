@@ -358,7 +358,7 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 110px; width: 75%; float: right; border: dotted; overflow: scroll; ";
+	element.style.cssText = "height: 110px; width: 300px; float: right; border: dotted; overflow: scroll; ";
 	
 	document.getElementById('divtest').appendChild(element);
 	
@@ -396,7 +396,8 @@ function dropOver() {
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
-		        ui.item.css("width", "75%");
+
+		        ui.item.css("width", "200px");
 		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");

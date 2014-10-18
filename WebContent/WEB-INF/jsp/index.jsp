@@ -27,7 +27,7 @@
 <script src="<c:url value="/resources/JavaScript/example.js" />"></script>
 </head>
 
-<body data-twttr-rendered="true" class="body-class">
+<body data-twttr-rendered="true" class="">
 <p id="demo"></p>
 <div id="message" class="bb-alert alert alert-info" style="display: none;">
        <span>Hello world callback</span>
