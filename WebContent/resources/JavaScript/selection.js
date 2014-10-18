@@ -106,14 +106,14 @@ function show(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	console.log("show");
-	$(id).animate({height: '100px'},'slow');
+	$(id).animate({height: '100px'},'fast');
 }
 
 function hide(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	console.log("hide");
-	$(id).animate({height: '0px'},'slow');
+	$(id).animate({height: '0px'},'fast');
 }
 
 function play(sequence,value) {
@@ -243,23 +243,25 @@ function submit(){
 
 		console.log("sortable = "+sortable);
 		console.log("div = "+div);
-		$(sortable).each(function(){
-			var command = $(this).text();
-			inputSequence[i].push(command);
-			var input = $(this).find('input').val();
-			console.log("input = "+input);
-			if (input) {
-				inputValue[i].push(input);
-			} else {
-				inputValue[i].push(0);
-			}
-		});
-		
-		charactersSrc.push(
-			$(div).children('img').map(function(){
-				return $(this).attr('src')
-			}).get()
-		);
+		if ($(sortable) && $(div)) {
+			$(sortable).each(function(){
+				var command = $(this).text();
+				inputSequence[i].push(command);
+				var input = $(this).find('input').val();
+				console.log("input = "+input);
+				if (input) {
+					inputValue[i].push(input);
+				} else {
+					inputValue[i].push(0);
+				}
+			});
+			
+			charactersSrc.push(
+				$(div).children('img').map(function(){
+					return $(this).attr('src')
+				}).get()
+			);
+		}
 	}
 	console.log("charactersSrc");
 	console.log(charactersSrc);
@@ -295,6 +297,14 @@ function dropIt(theEvent) {
 	theEvent.target.appendChild(div);
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
+	$(div).append('<span class="removeButton">X</span>');
+	
+    $(div).delegate(".removeButton", "click", function() {
+        $(this).parent().remove();
+        console.log(element.id.substring(7));
+        var index = element.id.substring(7);
+        $('#sortable'+index).remove();
+    });
 }
 
 function changeFloatLeft() {
@@ -367,7 +377,9 @@ function dropOver() {
 	var i = 1;
 	for(i = 1; i < countElement; i++) {
 		var object = document.getElementById("edit"+i.toString());
-		object.setAttribute("class", "btn onbtn");
+		if (object){
+			object.setAttribute("class", "btn onbtn");
+		}
 	}
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
@@ -392,12 +404,13 @@ function dropOver() {
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
+
 		        ui.item.css("width", "200px");
 		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
 		        
-		        ui.item.append('<span id=closeButton class="closeButton">X</span>');
+		        ui.item.append('<span class="closeButton">X</span>');
 		        console.log(ui.item.html());
 		        
 		        document.getElementById("demo").innerHTML = ui.item.context.id;
@@ -420,7 +433,9 @@ function changeConnect(el) {
 		if(i != parseInt(indexOfEdit)) {
 			var ID = "edit"+i.toString();
 			var object = document.getElementById(ID);
-			object.setAttribute("class", "btn onbtn");
+			if (object) {
+				object.setAttribute("class", "btn onbtn");
+			}
 		}
 	}
 	
@@ -447,23 +462,25 @@ function getFileContent() {
 		inputValue[i]=[];
 		var sortable = "#sortable"+(i+1).toString()+" li";
 		var div = "#div"+(i+1).toString();
-		$(sortable).each(function(){
-			var command = $(this).text();
-			inputSequence[i].push(command);
-			var input = $(this).find('input').val();
-			console.log("input = "+input);
-			if (input) {
-				inputValue[i].push(input);
-			} else {
-				inputValue[i].push(0);
-			}
-		});
-		
-		charactersSrc.push(
-			$(div).children('img').map(function(){
-				return $(this).attr('src');
-			}).get()
-		);
+		if ($(sortable) && $(div)) {
+			$(sortable).each(function(){
+				var command = $(this).text();
+				inputSequence[i].push(command);
+				var input = $(this).find('input').val();
+				console.log("input = "+input);
+				if (input) {
+					inputValue[i].push(input);
+				} else {
+					inputValue[i].push(0);
+				}
+			});
+			
+			charactersSrc.push(
+				$(div).children('img').map(function(){
+					return $(this).attr('src');
+				}).get()
+			);
+		}
 	}
 	var curProject = { "Characters": charactersSrc,
 		    "inputSequence": inputSequence,
