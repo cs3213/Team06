@@ -189,7 +189,7 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 		    Popup.show("Cancel Save!");                              
 		  } else {
 			if(result){
-				document.getElementById('user-file-name').value="result";
+				document.getElementById('user-file-name').value=result;
 				document.getElementById('save-btn').click()
 				Popup.show("Your File Is Saved Successfully"); 
 			}
@@ -202,13 +202,16 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 });
 
 $('#loading-btn').click(function () {
-    var btn = $(this)
-    btn.button('loading')
+    var btn = $(this);
+    btn.button('loading');
+    document.getElementById('load-file-btn').click();
+    btn.button('reset');
   });
 
 $('#deleting-btn').click(function () {
     var btn = $(this)
-    btn.button('loading')
+    btn.button('deleting')
+    
   });
 
 $('#reset-background-btn').click(function(){

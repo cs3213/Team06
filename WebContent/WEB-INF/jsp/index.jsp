@@ -127,6 +127,7 @@
      		<button type="button" id="loading-btn" data-loading-text="Loading..." class="btn btn-primary">
      		Load 
      		</button>
+     		<button id="load-file-btn" style="display:none"></button>
      	</div>
     
     	<div id="control-panel-delete" class = "container content-div">

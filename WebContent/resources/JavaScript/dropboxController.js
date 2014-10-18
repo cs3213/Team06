@@ -75,8 +75,6 @@ function loggedIn() {
 			return list;
 		}
 		
-		
-		
 		function loadGameList(){
 			var gamelist = document.getElementById('game-file-select');
 			var filelist = getRecord();
@@ -84,102 +82,77 @@ function loggedIn() {
 			var prefix = "<option value ='";
 			var midfix = "'>";
 			var suffix = "</option>";
-			var fillInContent = "";
-//			var selectPrefix = "<select id='game-file-select' class='selectpicker' data-width='100px' data-size='6' onchange='changeFunc();'>";
-//			var selectSuffix = "</select>"
-				
+//			var fillInContent = "";
 			
 			for(var i = 0; i < filelist.length ; i++ ){
-			    
 			    gamelist.options.add(new Option(filelist[i],filelist[i]));
-			    
-				fillInContent = fillInContent + prefix + filelist[i] + midfix + filelist[i] + suffix;
+//				fillInContent = fillInContent + prefix + filelist[i] + midfix + filelist[i] + suffix;
 			}
-			
-			
-			
-			console.log (fillInContent);
-			
-			
-			
-			
+//			console.log (fillInContent);
 		}
 		
 		
 		
 		function saveRecord(fileName, fileContent) {
-			/*$.getJson("/CS3213_assignment/getFile",function(result) {
-			   $each(result,function(key, val){
-				   alert("lala");
-			   });	
-			});
-	        alert("here");*/
-	        
-			var charString='';
-			var seqString='';
-			var valString='';
-			var char = fileContent.Characters;
-			var seq = fileContent.inputSequence;
-			var val = fileContent.inputValue;
-			for (var i=0; i<char.length; i++) {
-				charString = charString + char[i].toString()+'|';
-				seqString = seqString+seq[i].toString()+'|';
-				valString = valString + val[i].toString()+'|';
-			}
 			console.log("save record!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
-			var firstTask = table.insert({
-			    name: fileName,
-			    character: charString,
-			    sequence: seqString,
-			    value: valString
-			});
 			
-			var gamelist = document.getElementById('game-file-select');
-			gamelist.options.add(new Option(fileName, fileName));
+			var results = table.query({name: fileName});
+			console.log("insert filename = "+fileName);
+			console.log(results);
+			
+			if (results.length != 0) {
+				console.log(results[0].get('content'));
+				results[0].set('content', fileContent);
+			} else {
+				var firstTask = table.insert({
+				    name: fileName,
+				    content: fileContent
+				});
+				
+				var gamelist = document.getElementById('game-file-select');
+				gamelist.options.add(new Option(fileName, fileName));
+			}
 		}
 		
 		datastore.recordsChanged.addListener(function (event) {
 		    console.log('records changed:', event.affectedRecordsForTable('VisualIDE'));
 		});
 		
-		
 		$('#save-btn').click(function (e) {
 			e.preventDefault();
 
 			var fileName = document.getElementById('user-file-name').value;
-			var fileContent = getFileContent();
+			var fileContent = $('#divtest').html();
 			
-			console.log("save??????????");
-	//		console.log(fileName);
-	//		console.log(fileContent);
-
+			console.log($('#divtest').html());
 			saveRecord(fileName, fileContent);
-			
 		});
-		
 		
 		$('#loading-btn').click(function (e){
 			e.preventDefault();
 			var results = table.query({name: chosenFile});
 			console.log(results);
 			if (results.length != 0) {
-				var character=results[0].get('character');
-				var inputSequence=results[0].get('sequence');
-				var inputValue = results[0].get('value');
-				console.log(character);
-				console.log(inputSequence);
-				console.log(inputValue);
-				
-				//document.getElementById('load-game-content').innerText = fileContent;
+				console.log("load file = "+chosenFile);
+				console.log(results[0].get('content'));
+				$('#divtest').html(results[0].get('content'));
+				console.log($('#divtest'));
 			} else {
 				document.getElementById('load-game-content').innerText = "";
 				alert("no such file");
 			}
 		});
 		
+		$('#deleting-btn').click(function (e){
+			e.preventDefault();
+			var results = table.query({name: chosenFile});
+			console.log(results);
+			
+			if (results.length != 0) {
+				results[0].deleteRecord();
+			} else {
+				alert("no such file");
+			}
+		});
 	});
 }
-
-
-
-
