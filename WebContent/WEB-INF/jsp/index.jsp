@@ -77,6 +77,22 @@
 
 <div id="Main-Panel">
 
+ <div class= "transparent" id="player">
+ 	<div id="divName" class="container content-div"><h4> Player</h4></div>
+ 	
+ 	<div class="container content-div">
+
+ 	</div>
+ 	
+ 	<div id="control-panel" class = "container content-div">
+     <button type="button" id="reset-background-btn" class="btn btn-primary"> Reset Background </button>
+     <button type="button" id="reset-character-btn" class="btn btn-success"> Reset Character </button>
+ 
+ <button type="button" id="save-trigger" class="btn btn-info"> Save </button>
+  <div id="game-name-input" class="overlay" style="">
+	<div class="overlay-inner">
+
+   <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
 
  
 
@@ -175,7 +191,7 @@
        		<li id='end_repeat'>End_Repeat </li>
        		<li id='show'>Show </li>
        		<li id='hide'>Hide </li>
-       		<li id='costume'>Change Constume</li>
+       		<li id='costume'>Change Costume</li>
        		<li id='background'>Change Background</li>
 		</ul>
 	  </form>

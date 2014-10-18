@@ -160,7 +160,12 @@ function play(sequence,value) {
 				show(i);
 			} else if (thisSequence[j].indexOf("Hide") > -1) {
 				hide(i);
-			} else if (thisSequence[j].indexOf("Repeat") > -1) {
+			} else if (thisSequence[j].indexOf("Costume") > -1) {
+				changeCostume(i);
+			} else if (thisSequence[j].indexOf("Background") > -1) {
+				changeBackground(i);
+			} else if (thisSequence[j].indexOf("Repeat") > -1 
+					&& thisSequence[j].indexOf("End_Repeat") == -1) {
 				var repeatSequence = [];
 				var repeatValue = [];
 				var repeatTimes = thisValue[j];
@@ -185,6 +190,51 @@ function play(sequence,value) {
 	}
 }
 
+function changeCostume(index) {
+	console.log("change costume");
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	
+	$(id).animate({opacity: 1}, 'medium', function() {
+		imgObj = characters[index];
+    	var curCharacter = imgObj.src;
+    	var indexOfDot = curCharacter.indexOf(".");
+    	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
+    	indexOfCharacter++;
+    	indexOfCharacter = indexOfCharacter % 7;
+    	if(indexOfCharacter == 0) {
+    		indexOfCharacter++;
+    	}
+    	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".png";
+    	imgObj.setAttribute('src', nextCharacter);
+    });
+}
+
+function changeBackground() {
+	console.log("change background");
+	var curFloat = document.getElementById("curFloat").src;
+	var indexOfDot = curFloat.indexOf(".");
+	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
+	indexOfFloat++;
+	indexOfFloat = indexOfFloat % 7;
+	if(indexOfFloat == 0) {
+		indexOfFloat++;
+	}
+	
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".png";
+	document.getElementById("curFloat").src = nextFloat;
+	
+	var newId = "house" + indexOfFloat + "_1.png";
+	var path = "resources/img/" + newId;
+	var image = document.createElement("img");
+	image.setAttribute("src", path);
+	var player = document.getElementById("divtest-player");
+	
+	$(player).animate({opacity: 1}, 'slow', function() {
+        $(this).css({'background-image': 'url('+path+')','background-size': '100% 100%'})
+    });
+}
+
 function repeat(index, sequence, value) {
 	var arrayLength = sequence.length;
 	
@@ -206,7 +256,13 @@ function repeat(index, sequence, value) {
 			show(index);
 		} else if (sequence[i].indexOf("Hide") > -1) {
 			hide(index);
-		} else if (sequence[i].indexOf("Repeat") > -1) {
+		} else if (sequence[i].indexOf("Costume") > -1) {
+			changeCostume(index);
+		} else if (sequence[i].indexOf("Background") > -1) {
+			changeBackground();
+		} else if (sequence[i].indexOf("Repeat") > -1 
+				&& sequence[i].indexOf("End_Repeat") == -1) {
+
 			var repeatSequence = [];
 			var repeatValue = [];
 			var repeatTimes = value[i];
