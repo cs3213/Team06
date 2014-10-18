@@ -49,6 +49,34 @@ function changeFunc(){
 	chosenFile = selectBox.options[selectBox.selectedIndex].value;
 }
 
+function insertValue(value, countElement){
+	console.log("come in insert valuse ");
+	console.log(value);
+	
+	for (var i = 0; i<countElement; i++) {
+		var sortable = "#sortable"+(i+1).toString()+" li";
+		var div = "#div"+(i+1).toString();
+
+		console.log("sortable = "+sortable);
+		console.log("div = "+div);
+		var j=0;
+		if ($(sortable) && $(div)) {
+			$(sortable).each(function(){
+				$(this).find('input').val(value[i][j]);
+				j++;
+			});
+			
+		    $(sortable).delegate(".closeButton", "click", function() {
+		        $(this).parent().remove();
+		    });
+			
+			$(div).delegate(".removeImgButton", "click", function() {
+		        $(this).parent().remove();
+		        $('#sortable'+i).remove();
+		    });
+		}
+	}
+}
 
 function loggedIn() {
 	$('#dropbox-login-panel').hide();
@@ -97,7 +125,7 @@ function loggedIn() {
 		
 		
 		
-		function saveRecord(fileName, fileContent, countElement) {
+		function saveRecord(fileName, fileContent, countElement, inputValue) {
 			console.log("save record!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
 			
 			var results = table.query({name: fileName});
@@ -105,8 +133,11 @@ function loggedIn() {
 			console.log(results);
 			
 			var fileExist = 0;
+			var valString = '';
+			for (var i=0; i<inputValue.length; i++) {
+				valString = valString + inputValue.toString() + '|';
+			}
 			if (results.length != 0) {
-				console.log(results[0].get('content'));
 				for (var i=0; i<results.length; i++) {
 					results[i].deleteRecord();
 				}
@@ -116,7 +147,8 @@ function loggedIn() {
 			var firstTask = table.insert({
 			    name: fileName,
 			    content: fileContent,
-			    count: countElement
+			    count: countElement,
+			    value: valString
 			});
 			
 			if (fileExist==0) {
@@ -135,9 +167,28 @@ function loggedIn() {
 			var fileName = document.getElementById('user-file-name').value;
 			var fileContent = $('#divtest').html();
 			var countElement = getCountElement();
+			var inputValue = [];
 			
-			console.log($('#divtest').html());
-			saveRecord(fileName, fileContent, countElement);
+			for (var i = 0; i<countElement; i++) {
+				inputValue[i]=[];
+				var sortable = "#sortable"+(i+1).toString()+" li";
+
+				if ($(sortable)) {
+					$(sortable).each(function(){
+						var input = $(this).find('input').val();
+						console.log("input = "+input);
+						if (input) {
+							inputValue[i].push(input);
+						} else {
+							inputValue[i].push(0);
+						}
+					});
+				}
+			}
+			
+			console.log(fileContent);
+			console.log(inputValue);
+			saveRecord(fileName, fileContent, countElement, inputValue);
 		});
 		
 		$('#loading-btn').click(function (e){
@@ -145,11 +196,25 @@ function loggedIn() {
 			var results = table.query({name: chosenFile});
 			console.log(results);
 			if (results.length != 0) {
-				console.log("come in !!!!!!!!!!!!!!!!!");
 				console.log("load file = "+chosenFile);
 				console.log(results[0].get('content'));
+				
 				$('#divtest').html(results[0].get('content'));
 				setCountElement(results[0].get('count'));
+				var inputValue = results[0].get('value');
+				//console.log(results[0].get('value'));
+				console.log(inputValue);
+				var value = {"inputValue":inputValue};
+				$.ajax({
+					url:"http://localhost:8080/CS3213_assignment3/index",
+					type:"POST",
+					contentType:'application/json; charset=utf-8',
+					data:JSON.stringify(value),
+				    success:function(response) {
+				    	console.log(response);
+				    	insertValue(response, results[0].get('count'));
+				    }
+				});
 				console.log($('#divtest'));
 			} else {
 				var gamelist = document.getElementById('game-file-select');
