@@ -70,7 +70,6 @@
  	
  	<div class="container content-div">
 
-
  	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" >
 
  	</div>
@@ -155,7 +154,7 @@
  	<div id="floatArea">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg"/>" height="100px"/>
+ 			<img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg"/>" height="100px"/ onclick="displayHouse(this)">
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	

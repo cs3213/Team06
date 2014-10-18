@@ -450,7 +450,7 @@ function displayHouse(el) {
 	image.setAttribute("src", path);
 	image.setAttribute("width", "200px");
 	var player = document.getElementById("divtest-player");
-	var newStyle = "background-image:("+path+")";
+	var newStyle = "background-image:url("+path+")";
 	console.log(newStyle);
 	player.setAttribute("style", newStyle);
 }
