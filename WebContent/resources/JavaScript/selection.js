@@ -435,7 +435,6 @@ function changeConnect(el) {
         revert: true,
     });
 }
-<<<<<<< HEAD
 
 function getFileContent() {
 	inputSequence = [];
@@ -501,7 +500,8 @@ function getFileContent() {
   //  console.log(result);
   //  alert(result);
     return curProject;
-=======
+}
+
 function displayHouse(el) {
 	var src = $(el).attr('src');
 	var index = src.indexOf("house") + 5;//5=length of house
@@ -517,5 +517,5 @@ function displayHouse(el) {
 	var newStyle = "background-image:url("+path+")";
 	console.log(newStyle);
 	player.setAttribute("style", newStyle);
->>>>>>> 2c7092513d8d23b0506c82ca66b2030ff0f6d787
+
 }

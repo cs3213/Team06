@@ -169,6 +169,7 @@ function loggedIn() {
 				console.log(character);
 				console.log(inputSequence);
 				console.log(inputValue);
+				
 				//document.getElementById('load-game-content').innerText = fileContent;
 			} else {
 				document.getElementById('load-game-content').innerText = "";
