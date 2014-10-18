@@ -243,23 +243,25 @@ function submit(){
 
 		console.log("sortable = "+sortable);
 		console.log("div = "+div);
-		$(sortable).each(function(){
-			var command = $(this).text();
-			inputSequence[i].push(command);
-			var input = $(this).find('input').val();
-			console.log("input = "+input);
-			if (input) {
-				inputValue[i].push(input);
-			} else {
-				inputValue[i].push(0);
-			}
-		});
-		
-		charactersSrc.push(
-			$(div).children('img').map(function(){
-				return $(this).attr('src')
-			}).get()
-		);
+		if ($(sortable) && $(div)) {
+			$(sortable).each(function(){
+				var command = $(this).text();
+				inputSequence[i].push(command);
+				var input = $(this).find('input').val();
+				console.log("input = "+input);
+				if (input) {
+					inputValue[i].push(input);
+				} else {
+					inputValue[i].push(0);
+				}
+			});
+			
+			charactersSrc.push(
+				$(div).children('img').map(function(){
+					return $(this).attr('src')
+				}).get()
+			);
+		}
 	}
 	console.log("charactersSrc");
 	console.log(charactersSrc);
@@ -296,8 +298,12 @@ function dropIt(theEvent) {
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
 	$(div).append('<span class="removeButton">X</span>');
+	
     $(div).delegate(".removeButton", "click", function() {
         $(this).parent().remove();
+        console.log(element.id.substring(7));
+        var index = element.id.substring(7);
+        $('#sortable'+index).remove();
     });
 }
 
@@ -371,7 +377,9 @@ function dropOver() {
 	var i = 1;
 	for(i = 1; i < countElement; i++) {
 		var object = document.getElementById("edit"+i.toString());
-		object.setAttribute("class", "btn onbtn");
+		if (object){
+			object.setAttribute("class", "btn onbtn");
+		}
 	}
 	editButton.setAttribute("onclick", "changeConnect(this)");
 	document.getElementById(element.id).appendChild(editButton);
@@ -425,7 +433,9 @@ function changeConnect(el) {
 		if(i != parseInt(indexOfEdit)) {
 			var ID = "edit"+i.toString();
 			var object = document.getElementById(ID);
-			object.setAttribute("class", "btn onbtn");
+			if (object) {
+				object.setAttribute("class", "btn onbtn");
+			}
 		}
 	}
 	
@@ -452,23 +462,25 @@ function getFileContent() {
 		inputValue[i]=[];
 		var sortable = "#sortable"+(i+1).toString()+" li";
 		var div = "#div"+(i+1).toString();
-		$(sortable).each(function(){
-			var command = $(this).text();
-			inputSequence[i].push(command);
-			var input = $(this).find('input').val();
-			console.log("input = "+input);
-			if (input) {
-				inputValue[i].push(input);
-			} else {
-				inputValue[i].push(0);
-			}
-		});
-		
-		charactersSrc.push(
-			$(div).children('img').map(function(){
-				return $(this).attr('src');
-			}).get()
-		);
+		if ($(sortable) && $(div)) {
+			$(sortable).each(function(){
+				var command = $(this).text();
+				inputSequence[i].push(command);
+				var input = $(this).find('input').val();
+				console.log("input = "+input);
+				if (input) {
+					inputValue[i].push(input);
+				} else {
+					inputValue[i].push(0);
+				}
+			});
+			
+			charactersSrc.push(
+				$(div).children('img').map(function(){
+					return $(this).attr('src');
+				}).get()
+			);
+		}
 	}
 	var curProject = { "Characters": charactersSrc,
 		    "inputSequence": inputSequence,
