@@ -54,11 +54,9 @@ function setx(index, posx) {
 	var id = '#'+imgObj.id;
 	console.log("set x");
 	
-	
-	$(id).css({
-		position: 'relative',
-		'margin-left': posx+'px'
-	});
+	$(id).animate({
+		marginLeft: posx + 'px'
+	}, 'fast');
 }
 
 function sety(index, posy) {
@@ -66,10 +64,9 @@ function sety(index, posy) {
 	var id = '#'+imgObj.id;
 	console.log("set y");
 
-	$(id).css({
-		position: 'relative',
-		'margin-top': posy+'px'
-	});
+	$(id).animate({
+		marginTop: posy+'px'
+	}, 'fast');
 }
 
 function moveRight(index, steps){
