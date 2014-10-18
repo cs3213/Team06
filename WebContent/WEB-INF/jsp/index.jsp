@@ -181,7 +181,7 @@
   <div class= "transparent" id="coordEditor">
  	<div id="divName" class="container"><h4>Setting</h4></div>
  	<form>
-    	<ul id="draggable">
+    	<ul id="draggable" class="two-col-special">
     		<li id="right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
        		<li id="left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
        		<li id="up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
