@@ -448,6 +448,31 @@ function changeConnect(el) {
 
     $( sortNodeID ).sortable({
         revert: true,
+        stop: function(event, ui){
+	        var html = ui.item.html();
+	        if (html.indexOf("span") == -1) {
+		        console.log(ui.item);
+		        ui.item.css("border-radius", "10px");
+		        ui.item.css("margin", "3px 3px 3px 3px");
+		        ui.item.css("padding", "3px 3px");
+		        ui.item.css("font-size", "0.8em");
+		        ui.item.css("color", "white");
+
+		        ui.item.css("width", "200px");
+		        ui.item.css("background-color", "rgb(74,89,164)");
+		        ui.item.css("text-align", "center");
+		        ui.item.css("list-style-type", "none");
+		        
+		        ui.item.append('<span class="closeButton">X</span>');
+		        console.log(ui.item.html());
+		        
+		        document.getElementById("demo").innerHTML = ui.item.context.id;
+	        }
+	    }
+    });
+    
+    $(sortNodeID).delegate(".closeButton", "click", function() {
+        $(this).parent().remove();
     });
 }
 
