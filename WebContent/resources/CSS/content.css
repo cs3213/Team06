@@ -266,3 +266,8 @@ button {
     margin-right: 5px; /* you can tweak the gap */
     display: inline-block;
 }
+.progress-inner{
+	width:90%;
+	margin: 2rem;
+	
+}

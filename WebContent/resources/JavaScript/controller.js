@@ -202,11 +202,48 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 });
 
 $('#loading-btn').click(function () {
-    var btn = $(this);
-    btn.button('loading');
-    document.getElementById('load-file-btn').click();
-    btn.button('reset');
+//    var btn = $(this);
+//    btn.button('loading');
+//    
+//    
+//    setTimeout(function (){
+//    	//alert("called");
+//    	var btn = $('#loading-btn');    	
+//        btn.button('reset');
+//        setTimeout(function(){document.getElementById('load-file-btn').click();
+//},1000);
+//        
+//    },1500);
+    
+    
+	document.getElementById('load-file-btn').click();
+    
   });
+
+
+function update(){
+	//alert("called");
+	var btn = $('#loading-btn');
+	
+	showPorgrssBar();
+	document.getElementById('load-file-btn').click();
+    updateProgressBar(100);
+    btn.button('reset');
+}
+function showPorgrssBar(){
+	document.getElementById("loading-bar").setAttribute('style','');
+}
+
+
+function updateProgressBar(currentProgress){
+	document.getElementById("loading-bar").setAttribute('style','');
+	document.getElementById("loading-bar-content").setAttribute('aria-valuenow',currentProgress);
+	document.getElementById("loading-bar-content").setAttribute('style','width:'+currentProgress+'%');
+	document.getElementById("loading-bar-indicator").innerHTML = currentProgress + "%";
+}
+function hidePorgrssBar(){
+	document.getElementById("loading-bar").setAttribute('style','display:none');
+}
 
 $('#deleting-btn').click(function () {
     var btn = $(this)

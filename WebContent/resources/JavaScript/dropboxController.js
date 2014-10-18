@@ -137,9 +137,10 @@ function loggedIn() {
 				console.log(results[0].get('content'));
 				$('#divtest').html(results[0].get('content'));
 				console.log($('#divtest'));
+				Popup.show("Load File " +chosenFile+" Successfully!");
 			} else {
 				document.getElementById('load-game-content').innerText = "";
-				alert("no such file");
+				Popup.show("No Such File!");
 			}
 		});
 		
@@ -147,12 +148,12 @@ function loggedIn() {
 			e.preventDefault();
 			var results = table.query({name: chosenFile});
 			console.log(results);
-			
+			Popup.show("Delete File " +chosenFile+" Successfully!");
 			if (results.length != 0) {
 				results[0].deleteRecord();
 			} else {
-				alert("no such file");
-			}
+				Popup.show("No Such File!");
+				}
 		});
 	});
 }
