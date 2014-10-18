@@ -45,6 +45,7 @@ $('#clickme').click(function () {
 });
 
 function changeFunc(){
+	var selectBox = document.getElementById('game-file-select');
 	chosenFile = selectBox.options[selectBox.selectedIndex].value;
 }
 
@@ -114,10 +115,27 @@ function loggedIn() {
 			});
 	        alert("here");*/
 	        
+			var charString='';
+			var seqString='';
+			var valString='';
+			var char = fileContent.Characters;
+			var seq = fileContent.inputSequence;
+			var val = fileContent.inputValue;
+			for (var i=0; i<char.length; i++) {
+				charString = charString + char[i].toString()+'|';
+				seqString = seqString+seq[i].toString()+'|';
+				valString = valString + val[i].toString()+'|';
+			}
+			console.log("save record!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
 			var firstTask = table.insert({
 			    name: fileName,
-			    content: fileContent
+			    character: charString,
+			    sequence: seqString,
+			    value: valString
 			});
+			
+			var gamelist = document.getElementById('game-file-select');
+			gamelist.options.add(new Option(fileName, fileName));
 		}
 		
 		datastore.recordsChanged.addListener(function (event) {
@@ -125,26 +143,34 @@ function loggedIn() {
 		});
 		
 		
-		$('#save').click(function (e) {
+		$('#save-btn').click(function (e) {
 			e.preventDefault();
 
-			var fileName = document.getElementById('game-name').value;
-			var fileContent = document.getElementById('game-content').value;
+			var fileName = document.getElementById('user-file-name').value;
+			var fileContent = getFileContent();
 			
-			console.log(fileName);
-			console.log(fileContent);
+			console.log("save??????????");
+	//		console.log(fileName);
+	//		console.log(fileContent);
 
 			saveRecord(fileName, fileContent);
+			
 		});
 		
 		
-		$('#load').click(function (e){
+		$('#loading-btn').click(function (e){
 			e.preventDefault();
 			var results = table.query({name: chosenFile});
 			console.log(results);
 			if (results.length != 0) {
-				var fileContent=results[0].get('content');
-				document.getElementById('load-game-content').innerText = fileContent;
+				var character=results[0].get('character');
+				var inputSequence=results[0].get('sequence');
+				var inputValue = results[0].get('value');
+				console.log(character);
+				console.log(inputSequence);
+				console.log(inputValue);
+				
+				//document.getElementById('load-game-content').innerText = fileContent;
 			} else {
 				document.getElementById('load-game-content').innerText = "";
 				alert("no such file");
