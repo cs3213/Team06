@@ -12,7 +12,6 @@
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/scrollable.css" />" rel="stylesheet">
 
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
@@ -137,10 +136,10 @@
  
   <div class="tab-pane active select-pane" id="source-pane">
    <div class= transparent id="source">
- 	<div id="floatArea" ondragover="event.preventDefault();">
+ 	<div id="floatArea">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/float1.jpeg" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
+ 			<img id="curFloat"  src="<c:url value="/resources/img/float1.jpeg" />" height="100px"/>
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	
