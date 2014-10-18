@@ -34,8 +34,8 @@ function displayCoord(e) {
 	console.log(tempX);
 	console.log(tempY);
 	return true;
-}
-*/
+}*/
+
 function myFunction() {
     var x, text;
     // Get the value of input field with id="numb"
@@ -51,12 +51,25 @@ function myFunction() {
 
 function setx(index, posx) {
 	imgObj = characters[index];
-	imObj.style.position.left=pos + 'px';
+	var id = '#'+imgObj.id;
+	console.log("set x");
+	
+	
+	$(id).css({
+		position: 'relative',
+		'margin-left': posx+'px'
+	});
 }
 
 function sety(index, posy) {
 	imgObj = characters[index];
-	imObj.style.position.top=posy + 'px';
+	var id = '#'+imgObj.id;
+	console.log("set y");
+
+	$(id).css({
+		position: 'relative',
+		'margin-top': posy+'px'
+	});
 }
 
 function moveRight(index, steps){
@@ -80,22 +93,21 @@ function moveDown(index, steps) {
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	var distance = '+='+(10*steps) + 'px';
-	console.log("move up");
-	$(id).animate({marignTop: distance},'slow');
+	console.log("move down");
+	$(id).animate({marginTop: distance},'slow');
 }
 
 function moveUp(index, steps) {
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	var distance = '-='+(10*steps) + 'px';
-	console.log("move down");
+	console.log("move up");
 	$(id).animate({marginTop: distance},'slow');
 }
 
 function show(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
 	console.log("show");
 	$(id).animate({height: '100px'},'slow');
 }
@@ -103,17 +115,9 @@ function show(index){
 function hide(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
 	console.log("hide");
 	$(id).animate({height: '0px'},'slow');
 }
-
-//function sleep(millis, sequence, value, callback) {
-//	console.log("sleep");
-//    setTimeout(function()
-//            { callback(sequence, value); }
-//    , millis);
-//}
 
 function play(sequence,value) {
 	var arrayLength = sequence.length;
@@ -125,14 +129,13 @@ function play(sequence,value) {
 	for (var i=0; i<arrayLength; i++) {
 		eleSrc = charactersSrc[i];
 		var newdiv = document.createElement("div");
-		newdiv.style.cssText = "height: 100px; width: 100px; float: left";
+		newdiv.style.cssText = "height: 100px; width: 100px; position:absolute";
 		newdiv.id = "img_div" + (i+1);
 		
 		var element = document.createElement("img");
 		element.id = "image" + (i+1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
-		element.setAttribute('position', 'absolute');
 		newdiv.appendChild(element);
 		div.appendChild(newdiv);
 		characters.push(element);
@@ -306,7 +309,7 @@ function changeFloatLeft() {
 		indexOfFloat = 3;//= total number of float
 	}
 	indexOfFloat = indexOfFloat % 4;//= total number of float + 1
-	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".jpeg";
 	document.getElementById("curFloat").src = nextFloat;	
 }
 
@@ -319,7 +322,7 @@ function changeFloatRight() {
 	if(indexOfFloat == 0) {
 		indexOfFloat++;
 	}
-	var nextFloat = "resources/img/float"+indexOfFloat.toString()+".jpeg";
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".jpeg";
 		
 	document.getElementById("curFloat").src = nextFloat;
 }
@@ -435,46 +438,19 @@ function changeConnect(el) {
         revert: true,
     });
 }
-
-function save() {
-	inputSequence = [];
-	inputValue = [];
-	charactersSrc = [];
+function displayHouse(el) {
+	var src = $(el).attr('src');
+	var index = src.indexOf("house") + 5;//5=length of house
+	var houseId = src.substring(index, index+1);
 	
-	for (var i = 0; i<countElement; i++) {
-		inputSequence[i]=[];
-		inputValue[i]=[];
-		var sortable = "#sortable"+(i+1).toString()+" li";
-		var div = "#div"+(i+1).toString();
-
-		console.log("sortable = "+sortable);
-		console.log("div = "+div);
-		$(sortable).each(function(){
-			var command = $(this).text();
-			inputSequence[i].push(command);
-			var input = $(this).find('input').val();
-			console.log("input = "+input);
-			if (input) {
-				inputValue[i].push(input);
-			} else {
-				inputValue[i].push(0);
-			}
-		});
-		
-		charactersSrc.push(
-			$(div).children('img').map(function(){
-				return $(this).attr('src')
-			}).get()
-		);
-	}
-	var curProject = { "Characters": charactersSrc,
-		    "inputSequence": inputSequence,
-		    "inputValue": inputValue};
-    $.ajax({
-     type: 'POST',
-     url: '/CS3213_assignment3/index',
-     traditional: true,
-     dataType: "json",
-     cache: false,
-     data: curProject,});
+	var newId = "house" + houseId + "_1.jpeg";
+	var path = "resources/img/" + newId;
+	//console.log(path);
+	var image = document.createElement("img");
+	image.setAttribute("src", path);
+	image.setAttribute("width", "200px");
+	var player = document.getElementById("divtest-player");
+	var newStyle = "background-image:("+path+")";
+	console.log(newStyle);
+	player.setAttribute("style", newStyle);
 }
