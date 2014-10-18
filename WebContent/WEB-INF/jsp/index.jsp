@@ -168,7 +168,7 @@
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	
- 	<div id="floatArea" ondragover="event.preventDefault();">
+ 	<div id="characterArea" ondragover="event.preventDefault();">
  		<h4>Character</h4>
  		<button onclick="changeCharacterLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
  			<img id="curCharacter" src="<c:url value="/resources/img/char1.jpeg" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>

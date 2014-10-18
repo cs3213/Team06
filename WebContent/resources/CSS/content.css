@@ -113,6 +113,16 @@ body {
  	background-color: yellow;
  	cursor: pointer;
 }
+
+.removeButton {
+	margin:3.5px;
+	float:right;
+}
+
+.removeButton:hover {
+ 	background-color: yellow;
+ 	cursor: pointer;
+}
 #sortable {
    width:300px;
    height:30px;
