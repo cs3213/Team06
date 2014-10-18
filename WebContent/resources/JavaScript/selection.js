@@ -472,3 +472,7 @@ function displayHouse(el) {
 function getCountElement() {
 	return countElement;
 }
+
+function setCountElement(number) {
+	countElement = number;
+}
