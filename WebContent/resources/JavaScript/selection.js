@@ -106,14 +106,14 @@ function show(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	console.log("show");
-	$(id).animate({height: '100px'},'slow');
+	$(id).animate({height: '100px'},'fast');
 }
 
 function hide(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	console.log("hide");
-	$(id).animate({height: '0px'},'slow');
+	$(id).animate({height: '0px'},'fast');
 }
 
 function play(sequence,value) {
