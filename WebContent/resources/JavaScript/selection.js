@@ -56,7 +56,7 @@ function setx(index, posx) {
 	
 	$(id).animate({
 		marginLeft: posx + 'px'
-	}, 'slow');
+	}, 'fast');
 }
 
 function sety(index, posy) {
@@ -66,7 +66,7 @@ function sety(index, posy) {
 
 	$(id).animate({
 		marginTop: posy+'px'
-	}, 'slow');
+	}, 'fast');
 }
 
 function moveRight(index, steps){
