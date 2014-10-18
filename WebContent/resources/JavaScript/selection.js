@@ -285,7 +285,7 @@ function dropIt(theEvent) {
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
 	var div = document.createElement("div");
-	div.style.cssText = "height: 100px; width: 20%; float: left";
+	div.style.cssText = "height: 100px; width: 35%; float: left";
 	div.id = "div" + countElement.toString();
 	var element = document.createElement("img");
 	element.id = "element" + countElement.toString();
@@ -313,10 +313,10 @@ function changeFloatLeft() {
 	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
 	indexOfFloat--;
 	if(indexOfFloat == 0) {
-		indexOfFloat = 3;//= total number of float
+		indexOfFloat = 6;//= total number of float
 	}
-	indexOfFloat = indexOfFloat % 4;//= total number of float + 1
-	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".jpeg";
+	indexOfFloat = indexOfFloat % 7;//= total number of float + 1
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".png";
 	document.getElementById("curFloat").src = nextFloat;	
 }
 
@@ -325,11 +325,11 @@ function changeFloatRight() {
 	var indexOfDot = curFloat.indexOf(".");
 	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
 	indexOfFloat++;
-	indexOfFloat = indexOfFloat % 4;
+	indexOfFloat = indexOfFloat % 7;
 	if(indexOfFloat == 0) {
 		indexOfFloat++;
 	}
-	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".jpeg";
+	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".png";
 		
 	document.getElementById("curFloat").src = nextFloat;
 }
@@ -340,10 +340,10 @@ function changeCharacterLeft() {
 	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
 	indexOfCharacter--;
 	if(indexOfCharacter == 0) {
-		indexOfCharacter = 2;
+		indexOfCharacter = 6;
 	}
-	indexOfCharacter = indexOfCharacter % 3;
-	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".jpeg";
+	indexOfCharacter = indexOfCharacter % 7;
+	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".png";
 	document.getElementById("curCharacter").src = nextCharacter;
 }
 
@@ -352,11 +352,11 @@ function changeCharacterRight() {
 	var indexOfDot = curCharacter.indexOf(".");
 	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
 	indexOfCharacter++;
-	indexOfCharacter = indexOfCharacter % 3;
+	indexOfCharacter = indexOfCharacter % 7;
 	if(indexOfCharacter == 0) {
 		indexOfCharacter++;
 	}
-	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".jpeg";
+	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".png";
 	document.getElementById("curCharacter").src = nextCharacter;
 }
 
@@ -364,7 +364,7 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 110px; width: 75%; float: right; border: dotted; overflow: scroll; ";
+	element.style.cssText = "height: 110px; width: 60%; float: right; border: dotted; overflow: scroll; ";
 	
 	document.getElementById('divtest').appendChild(element);
 	
@@ -524,14 +524,14 @@ function displayHouse(el) {
 	var index = src.indexOf("house") + 5;//5=length of house
 	var houseId = src.substring(index, index+1);
 	
-	var newId = "house" + houseId + "_1.jpeg";
+	var newId = "house" + houseId + "_1.png";
 	var path = "resources/img/" + newId;
 	//console.log(path);
 	var image = document.createElement("img");
 	image.setAttribute("src", path);
-	image.setAttribute("width", "200px");
 	var player = document.getElementById("divtest-player");
-	var newStyle = "background-image:url("+path+")";
+	var newStyle = "background-image:url("+path+");" + "background-size: 100% 100%";
+	
 	console.log(newStyle);
 	player.setAttribute("style", newStyle);
 

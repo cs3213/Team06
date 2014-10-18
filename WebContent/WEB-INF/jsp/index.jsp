@@ -162,14 +162,14 @@
  	<div id="floatArea">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg"/>" height="100px"/ onclick="displayHouse(this)">
+ 			<img id="curFloat"  src="<c:url value="/resources/img/house1.png"/>" height="100px"/ onclick="displayHouse(this)">
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	
  	<div id="characterArea" ondragover="event.preventDefault();">
  		<h4>Character</h4>
  		<button onclick="changeCharacterLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curCharacter" src="<c:url value="/resources/img/char1.jpeg" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
+ 			<img id="curCharacter" src="<c:url value="/resources/img/char1.png" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
  		<button onclick="changeCharacterRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
   </div> 
