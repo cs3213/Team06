@@ -26,8 +26,7 @@
 
 <body class="body-class">
 <p id="demo"></p>
-  <div class="transparent" id="">
-    <div class="row">
+  
 <div class="transparent" id="">
   <div class="row">
 
@@ -38,10 +37,11 @@
   </div>
 
   </div>
+  
 
-<div>
-<a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
-</div>
+ <div>
+ <a href id="Google-Login-Button" class="overlay-trigger" data-overlay="Google-Login" style="display:none">Google Login</a>
+  </div>
 
 </div>
 
