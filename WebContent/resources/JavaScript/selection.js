@@ -358,7 +358,7 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 110px; width: 300px; float: right; border: dotted; overflow: scroll; ";
+	element.style.cssText = "height: 110px; width: 75%; float: right; border: dotted; overflow: scroll; ";
 	
 	document.getElementById('divtest').appendChild(element);
 	
