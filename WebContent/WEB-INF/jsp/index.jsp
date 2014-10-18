@@ -93,6 +93,18 @@
 	<div class="overlay-inner">
 
    <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
+	 <button id="save-btn" class="btn btn-primary">Confirm
+      </button>
+      
+      <button id="cancel-btn" class="btn btn-primary">Cancel
+      </button>
+      
+	</div>
+</div>
+     
+     <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
+    </div>
+ </div>
 
  
 
