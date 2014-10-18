@@ -175,8 +175,8 @@
        <li id="left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
        <li id="up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
        <li id="down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
-       <li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word">  </li>
-       <li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word">  </li>   
+       <li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word">px</li>
+       <li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word">px</li>   
        <li id='repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
        <li id='end_repeat'>End_Repeat </li>
        <li id='show'>Show </li>
