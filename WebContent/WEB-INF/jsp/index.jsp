@@ -93,7 +93,7 @@
 
    <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
 
-	 <button id="save-btn" class="btn btn-primary" onClick="save()">Confirm
+	 <button id="save-btn" class="btn btn-primary">Confirm
       </button>
       
       <button id="cancel-btn" class="btn btn-primary">Cancel
@@ -164,7 +164,7 @@
  	<div id="floatArea">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg"/>" height="100px"/>
+ 			<img id="curFloat"  src="<c:url value="/resources/img/house1.jpeg"/>" height="100px"/ onclick="displayHouse(this)">
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	
@@ -183,11 +183,17 @@
  	<form>
     	<ul id="draggable">
     		<li id="right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
-    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
-    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
-    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
-    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>
-    		<li id='end_repeat'>End_Repeat </li>     
+       		<li id="left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
+       		<li id="up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
+       		<li id="down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
+      		<li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word">px</li>
+       		<li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word">px</li>   
+       		<li id='repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
+       		<li id='end_repeat'>End_Repeat </li>
+       		<li id='show'>Show </li>
+       		<li id='hide'>Hide </li>
+       		<li id='costume'>Change Constume</li>
+       		<li id='background'>Change Background</li>
 		</ul>
 	  </form>
     </div>

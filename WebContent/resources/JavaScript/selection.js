@@ -54,11 +54,9 @@ function setx(index, posx) {
 	var id = '#'+imgObj.id;
 	console.log("set x");
 	
-	
-	$(id).css({
-		position: 'relative',
-		'margin-left': posx+'px'
-	});
+	$(id).animate({
+		marginLeft: posx + 'px'
+	}, 'fast');
 }
 
 function sety(index, posy) {
@@ -66,10 +64,9 @@ function sety(index, posy) {
 	var id = '#'+imgObj.id;
 	console.log("set y");
 
-	$(id).css({
-		position: 'relative',
-		'margin-top': posy+'px'
-	});
+	$(id).animate({
+		marginTop: posy+'px'
+	}, 'fast');
 }
 
 function moveRight(index, steps){
@@ -438,6 +435,73 @@ function changeConnect(el) {
         revert: true,
     });
 }
+
+function getFileContent() {
+	inputSequence = [];
+	inputValue = [];
+	charactersSrc = [];
+	//var filename = document.getElementById('user-file-name').value;
+	var data="";
+	for (var i = 0; i<countElement; i++) {
+		inputSequence[i]=[];
+		inputValue[i]=[];
+		var sortable = "#sortable"+(i+1).toString()+" li";
+		var div = "#div"+(i+1).toString();
+		$(sortable).each(function(){
+			var command = $(this).text();
+			inputSequence[i].push(command);
+			var input = $(this).find('input').val();
+			console.log("input = "+input);
+			if (input) {
+				inputValue[i].push(input);
+			} else {
+				inputValue[i].push(0);
+			}
+		});
+		
+		charactersSrc.push(
+			$(div).children('img').map(function(){
+				return $(this).attr('src');
+			}).get()
+		);
+	}
+	var curProject = { "Characters": charactersSrc,
+		    "inputSequence": inputSequence,
+		    "inputValue": inputValue};
+	
+    /* $.ajax({
+    	 type: 'POST',
+    	 url: 'http://localhost:8080/CS3213_assignment3/index',
+    	 traditional: true,
+    	 dataType: "json",
+    	 cache: false,
+    	 data: curProject,
+    	 error: function (response) {
+    		 alert("error");
+    		 alert(response.responseText);
+    	 },
+    	 success: function (response) {
+    		 alert("success");
+    		 alert(response);
+    	 }
+     });*/
+     
+    // result = result + "123";
+   /*  $.getJSON("http://localhost:8080/CS3213_assignment3/getFile",function(result) {
+    	 //alert(result);
+ 		//console.log("in get json");
+ 		   $.each(result,function(key, val){
+ 	//		   console.log(val);
+ 	//		   alert(val);
+ 	//		   data = data+val.toString();
+ 			  // consold.log(result);
+ 		   });	
+ 		});*/
+  //  console.log(result);
+  //  alert(result);
+    return curProject;
+}
+
 function displayHouse(el) {
 	var src = $(el).attr('src');
 	var index = src.indexOf("house") + 5;//5=length of house
@@ -450,7 +514,8 @@ function displayHouse(el) {
 	image.setAttribute("src", path);
 	image.setAttribute("width", "200px");
 	var player = document.getElementById("divtest-player");
-	var newStyle = "background-image:("+path+")";
+	var newStyle = "background-image:url("+path+")";
 	console.log(newStyle);
 	player.setAttribute("style", newStyle);
+
 }

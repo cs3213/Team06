@@ -26,16 +26,21 @@ public class MainController{
    }
 	
 	@RequestMapping(value="/index", method = RequestMethod.POST)
-	   public void saveFile(projectFile curProject) {
+	   public String saveFile(projectFile curProject) {
 		   this.curProject = curProject;
 		      System.out.println(curProject.getCharacters()[0]);
-		  //    return "test";
+		      return "success";
 		   } 
 	@RequestMapping(value="/getFile", method = {RequestMethod.POST, RequestMethod.GET})
 	   public @ResponseBody
-	   projectFile filecontent(HttpServletRequest request)
+	   List<String> filecontent(HttpServletRequest request)
 	   {
-	     return curProject;
+		 String result;
+		 result = curProject.getCharacters()[0];
+		 System.out.println(result);
+		 List<String> res = new ArrayList<String>();
+         res.add(result);
+		 return res;
 	   }
 
 }
