@@ -295,6 +295,10 @@ function dropIt(theEvent) {
 	theEvent.target.appendChild(div);
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
+	$(div).append('<span class="removeButton">X</span>');
+    $(div).delegate(".removeButton", "click", function() {
+        $(this).parent().remove();
+    });
 }
 
 function changeFloatLeft() {
@@ -397,7 +401,7 @@ function dropOver() {
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
 		        
-		        ui.item.append('<span id=closeButton class="closeButton">X</span>');
+		        ui.item.append('<span class="closeButton">X</span>');
 		        console.log(ui.item.html());
 		        
 		        document.getElementById("demo").innerHTML = ui.item.context.id;
