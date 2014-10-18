@@ -77,39 +77,7 @@
 
 <div id="Main-Panel">
 
- <div class= "transparent" id="player">
- 	<div id="divName" class="container content-div"><h4> Player</h4></div>
- 	
- 	<div class="container content-div">
 
-
- 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
-
- 	</div>
- 	</div>
- 	
- 	<div id="control-panel" class = "container content-div">
-     <button type="button" id="reset-background-btn" class="btn btn-primary"> Reset Background </button>
-     <button type="button" id="reset-character-btn" class="btn btn-success"> Reset Character </button>
- 
- <button type="button" id="save-trigger" class="btn btn-info"> Save </button>
-  <div id="game-name-input" class="overlay" style="">
-	<div class="overlay-inner">
-
-   <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
-
-	 <button id="save-btn" class="btn btn-primary">Confirm
-      </button>
-      
-      <button id="cancel-btn" class="btn btn-primary">Cancel
-      </button>
-      
-	</div>
-</div>
-     
-     <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
-    </div>
- </div>
  
 
 <div class= "transparent storage-panel"  id="storage">
@@ -201,8 +169,8 @@
        		<li id="left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
        		<li id="up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
        		<li id="down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
-      		<li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word">px</li>
-       		<li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word">px</li>   
+      		<li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word" onchange="checkXValue(this);">px</li>
+       		<li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word" onchange="checkYValue(this);">px</li>   
        		<li id='repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
        		<li id='end_repeat'>End_Repeat </li>
        		<li id='show'>Show </li>
@@ -216,7 +184,39 @@
  </div>
 </div>
 
+ <div class= "transparent" id="player">
+ 	<div id="divName" class="container content-div"><h4> Player</h4></div>
+ 	
+ 	<div class="container content-div">
 
+
+ 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
+
+ 	</div>
+ 	</div>
+ 	
+ 	<div id="control-panel" class = "container content-div">
+     <button type="button" id="reset-background-btn" class="btn btn-primary"> Reset Background </button>
+     <button type="button" id="reset-character-btn" class="btn btn-success"> Reset Character </button>
+ 
+ <button type="button" id="save-trigger" class="btn btn-info"> Save </button>
+  <div id="game-name-input" class="overlay" style="">
+	<div class="overlay-inner">
+
+   <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
+
+	 <button id="save-btn" class="btn btn-primary">Confirm
+      </button>
+      
+      <button id="cancel-btn" class="btn btn-primary">Cancel
+      </button>
+      
+	</div>
+</div>
+     
+     <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
+    </div>
+ </div>
 
 
 
