@@ -17,17 +17,21 @@ client.authenticate({ interactive: false });
 
 if (client.isAuthenticated()) {
 	// If we're authenticated, update the UI to reflect the logged in status.
+	localStorage.flag=1;
 	loggedIn();
 } else {
 	// Otherwise show the login button.
+	localStorage.flag=0;
 	console.log($('#dropbox-login-btn'));
 	$('dropbox-login-panel').show();
 }
 
 function dropboxLogin() {
 	client.authenticate(function (err) {
+		localStorage.flag=1;
 		if (err) { alert('Error: ' + err); return; }
 		loggedIn();
+		
 	});
 }
 
@@ -154,6 +158,7 @@ function loggedIn() {
 			if (fileExist==0) {
 				var gamelist = document.getElementById('game-file-select');
 				gamelist.options.add(new Option(fileName, fileName));
+				Popup.show("Your File"+ fileName+" Is Saved Successfully"); 
 			}
 		}
 		
@@ -163,6 +168,7 @@ function loggedIn() {
 		
 		$('#save-btn').click(function (e) {
 			e.preventDefault();
+			alert("login");
 
 			var fileName = document.getElementById('user-file-name').value;
 			var fileContent = $('#divtest').html();
@@ -189,6 +195,7 @@ function loggedIn() {
 			console.log(fileContent);
 			console.log(inputValue);
 			saveRecord(fileName, fileContent, countElement, inputValue);
+			
 		});
 		
 		$('#loading-btn').click(function (e){
