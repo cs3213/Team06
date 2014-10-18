@@ -183,7 +183,7 @@
        		<li id='end_repeat'>End_Repeat </li>
        		<li id='show'>Show </li>
        		<li id='hide'>Hide </li>
-       		<li id='constume'>Change Constume</li>
+       		<li id='costume'>Change Constume</li>
        		<li id='background'>Change Background</li>
 		</ul>
 	  </form>
