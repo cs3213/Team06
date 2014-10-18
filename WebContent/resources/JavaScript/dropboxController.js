@@ -153,16 +153,15 @@ function loggedIn() {
 				console.log($('#divtest'));
 				Popup.show("Load File " +chosenFile+" Successfully!");
 			} else {
-<<<<<<< HEAD
+
 				document.getElementById('load-game-content').innerText = "";
 				Popup.show("No Such File!");
-=======
+				
 				var gamelist = document.getElementById('game-file-select');
 				if (gamelist.selectedIndex != 0) {
 					gamelist.remove(gamelist.selectedIndex);
 				}
-				alert("no such file");
->>>>>>> 3921df945c4d81bc9675a3cbf84d411d27b97355
+
 			}
 		});
 		
@@ -176,18 +175,17 @@ function loggedIn() {
 					results[i].deleteRecord();
 				}
 			} else {
-<<<<<<< HEAD
+
 				Popup.show("No Such File!");
 				}
-=======
-				alert("no such file");
-			}
+
+			
 			
 			var gamelist = document.getElementById('game-file-select');
 			if (gamelist.selectedIndex != 0) {
 				gamelist.remove(gamelist.selectedIndex);
 			}
->>>>>>> 3921df945c4d81bc9675a3cbf84d411d27b97355
+
 		});
 	});
 }

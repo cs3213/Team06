@@ -43,9 +43,9 @@
   <div class="row">
 
 
-  <div class= "overlay-word" id = "header-words">
-    <label id="Welcome-Word" style="display:none"><h4>Welcome,</h4></label>
-     <label id= "User-Name"></label> 
+  <div class= "overlay-word" id = "header-words"> 
+    <label id="Welcome-Word" style="display:none; float:centre;"><h3>CS3216 Animation Player</h3> </label>
+     <label id= "User-Name" style="float:right;"></label> 
   </div>
 
   </div>
