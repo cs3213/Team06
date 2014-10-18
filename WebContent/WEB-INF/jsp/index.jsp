@@ -69,7 +69,7 @@
  	<div class="container content-div">
 
 
- 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" >
+ 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
 
  	</div>
  	</div>
