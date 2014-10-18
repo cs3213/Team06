@@ -5,7 +5,7 @@ var inputSequence = [];
 var inputValue = [];
 
 //If it is not IE, we assume that the browser is NS.
-var IE = document.all?true:false;
+/*var IE = document.all?true:false;
 
 // If NS -- that is, !IE -- then set up for mouse capture
 if (!IE) document.captureEvents(Event.MOUSEMOVE);
@@ -35,7 +35,7 @@ function displayCoord(e) {
 	console.log(tempY);
 	return true;
 }
-
+*/
 function myFunction() {
     var x, text;
     // Get the value of input field with id="numb"
@@ -435,6 +435,7 @@ function changeConnect(el) {
         revert: true,
     });
 }
+<<<<<<< HEAD
 function displayHouse(el) {
 	var src = $(el).attr('src');
 	var index = src.indexOf("house") + 5;//5=length of house
@@ -447,4 +448,48 @@ function displayHouse(el) {
 	image.setAttribute("src", path);
 	image.setAttribute("width", "200px");
 	document.getElementById("divtest-player").appendChild(image);
+=======
+
+function save() {
+	inputSequence = [];
+	inputValue = [];
+	charactersSrc = [];
+	
+	for (var i = 0; i<countElement; i++) {
+		inputSequence[i]=[];
+		inputValue[i]=[];
+		var sortable = "#sortable"+(i+1).toString()+" li";
+		var div = "#div"+(i+1).toString();
+
+		console.log("sortable = "+sortable);
+		console.log("div = "+div);
+		$(sortable).each(function(){
+			var command = $(this).text();
+			inputSequence[i].push(command);
+			var input = $(this).find('input').val();
+			console.log("input = "+input);
+			if (input) {
+				inputValue[i].push(input);
+			} else {
+				inputValue[i].push(0);
+			}
+		});
+		
+		charactersSrc.push(
+			$(div).children('img').map(function(){
+				return $(this).attr('src')
+			}).get()
+		);
+	}
+	var curProject = { "Characters": charactersSrc,
+		    "inputSequence": inputSequence,
+		    "inputValue": inputValue};
+    $.ajax({
+     type: 'POST',
+     url: '/CS3213_assignment3/index',
+     traditional: true,
+     dataType: "json",
+     cache: false,
+     data: curProject,});
+>>>>>>> bb746de7c1cf61b9e0057b0a6e58c2075911dafe
 }

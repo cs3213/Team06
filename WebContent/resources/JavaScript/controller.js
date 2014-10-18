@@ -123,6 +123,15 @@
 				$( 'body' ).removeClass( 'overlay-view' );
 			}
 		});
+		
+		$( '#cancel-btn' ).click( function( event ) {
+
+			// Verify that only the outer wrapper was clicked.
+				$( id ).removeClass( 'overlay-open' );
+				$( 'body' ).removeClass( 'overlay-view' );
+		});
+		
+		
 
 		/**
 		 * Closes the overlay when the esc key is pressed. See
@@ -139,9 +148,7 @@
 	});
 }) (jQuery);
 
-$('#cancel-btn').click(function(){
-	document.getElementById('game-name-input').setAttribute('style','display:none');
-});
+
 
 $('#loading-btn').click(function () {
     var btn = $(this)

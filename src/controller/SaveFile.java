@@ -36,13 +36,13 @@ public class SaveFile{
 	  //    return "test";
 	   } 
    
-   @RequestMapping(value="/getFile", method = {RequestMethod.POST, RequestMethod.GET})
+   /*@RequestMapping(value="/getFile", method = {RequestMethod.POST, RequestMethod.GET})
    public @ResponseBody
    projectFile filecontent(HttpServletRequest request)
    {
     // FileContent.add("file1");
    //  System.out.println("controller");
      return curProject;
-   }
+   }*/
 }
 
