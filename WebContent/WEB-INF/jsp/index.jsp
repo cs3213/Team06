@@ -83,9 +83,7 @@
  	</div>
  	
  	<div id="control-panel" class = "container content-div">
-     <button type="button" class="btn btn-primary"> Reset </button>
-<!--      <a href id="save-trigger" class="btn btn-primary" data-overlay="game-name-input" >Save</a>
- -->  
+     <button type="button" id="reset-btn" class="btn btn-primary"> Reset </button>
  
  <button type="button" id="save-trigger" class="btn btn-primary"> Save </button>
   <div id="game-name-input" class="overlay" style="">
@@ -211,7 +209,7 @@
 
 
 
-<script src="<c:url value="/resources/JavaScript/example.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>

@@ -1,9 +1,0 @@
-diff a/WebContent/resources/JavaScript/selection.js b/WebContent/resources/JavaScript/selection.js	(rejected hunks)
-@@ -435,6 +435,7 @@
-          revert: true,
-      });
-  }
-++<<<<<<< HEAD
- +
- +function getFileContent() {
- +	inputSequence = [];

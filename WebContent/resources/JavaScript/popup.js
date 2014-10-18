@@ -4,9 +4,9 @@
 
 /**
  * This tiny script just helps us demonstrate
- * what the various example callbacks are doing
+ * what the various Popup callbacks are doing
  */
-var Example = (function() {
+var Popup = (function() {
     "use strict";
 
     var elem,
@@ -21,7 +21,7 @@ var Example = (function() {
         clearTimeout(hideHandler);
 
         elem.find("span").html(text);
-        elem.delay(200).fadeIn().delay(4000).fadeOut();
+        elem.delay(200).fadeIn().delay(2000).fadeOut();
     };
 
     return that;

@@ -143,7 +143,7 @@
 				alert("pop up");
 				
 				bootbox.alert("Hello world!", function() {
-//					  Example.show("Hello world callback");
+//					  Popup.show("Hello world callback");
 					});
 			}
 				
@@ -168,7 +168,7 @@
 
 
 $(function() {
-    Example.init({
+    Popup.init({
         "selector": ".bb-alert"
     });
 });
@@ -179,16 +179,16 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 	bootbox.prompt("What is your file name?", function(result) {                
 		  if (result === null) {    
 			  
-		    Example.show("Cancel Save!");                              
+		    Popup.show("Cancel Save!");                              
 		  } else {
 			if(result){
 				document.getElementById('user-file-name').value="result";
 				document.getElementById('save-btn').click()
-				Example.show("Your File Is Saved Successfully"); 
+				Popup.show("Your File Is Saved Successfully"); 
 			}
 			else{
 				
-				Example.show("Your Filename Cannot Be Empty"); 
+				Popup.show("Your Filename Cannot Be Empty"); 
 			}
 		  }
 		});
@@ -203,4 +203,17 @@ $('#deleting-btn').click(function () {
     var btn = $(this)
     btn.button('loading')
   });
+
+$('#reset-btn').click(function(){
+	bootbox.confirm("Are you sure to reset the program?", function(result) {
+		if(!result){
+		  Popup.show("Cancel Reset!");
+		}
+		else{
+			document.getElementById("divtest-player").innerHTML="";
+			Popup.show("Reset Program Successfully!");
+		}
+		
+		}); 
+});
 
