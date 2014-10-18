@@ -83,7 +83,7 @@
 
    <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
 
-	 <button id="save-btn" class="btn btn-primary">Confirm
+	 <button id="save-btn" class="btn btn-primary" onClick="save()">Confirm
       </button>
       <button id="cancel-btn" class="btn btn-primary">Cancel
       </button>

@@ -107,12 +107,13 @@ function loggedIn() {
 		
 		
 		function saveRecord(fileName, fileContent) {
-			$.getJson("/CS3213_assignment/getFile",function(result) {
+			/*$.getJson("/CS3213_assignment/getFile",function(result) {
 			   $each(result,function(key, val){
 				   alert("lala");
 			   });	
 			});
-	        alert("here");
+	        alert("here");*/
+	        
 			var firstTask = table.insert({
 			    name: fileName,
 			    content: fileContent
