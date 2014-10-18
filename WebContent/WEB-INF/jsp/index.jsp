@@ -171,7 +171,7 @@
  	<div id="divName" class="container"><h4>Setting</h4></div>
  	<form>
     	<ul id="draggable">
-    		<li id="right">Move Right <input type="text" name="right" size="2" class=>steps</li>
+    		<li id="right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
     		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
     		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
     		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
