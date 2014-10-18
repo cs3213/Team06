@@ -83,9 +83,10 @@
  	</div>
  	
  	<div id="control-panel" class = "container content-div">
-     <button type="button" id="reset-btn" class="btn btn-primary"> Reset </button>
+     <button type="button" id="reset-background-btn" class="btn btn-primary"> Reset Background </button>
+     <button type="button" id="reset-character-btn" class="btn btn-success"> Reset Character </button>
  
- <button type="button" id="save-trigger" class="btn btn-primary"> Save </button>
+ <button type="button" id="save-trigger" class="btn btn-info"> Save </button>
   <div id="game-name-input" class="overlay" style="">
 	<div class="overlay-inner">
 
@@ -100,7 +101,7 @@
 	</div>
 </div>
      
-     <button type="button" class="btn btn-primary" onClick="submit()"> Play</button>
+     <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
     </div>
  </div>
  
@@ -160,7 +161,7 @@
   <div class="tab-pane active select-pane" id="source-pane">
    <div class= transparent id="source">
  	<div id="floatArea">
- 		<h4>Float</h4>
+ 		<h4>Scene</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
  			<img id="curFloat"  src="<c:url value="/resources/img/house1.png"/>" height="100px"/ onclick="displayHouse(this)">
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>

@@ -21,7 +21,8 @@ function onSignInCallback(authResult) {
 		
 	    document.getElementById('Google-Login-Button').setAttribute('style', 'display: none');
 
-	    
+		Popup.show("Login Successfully");
+
 	    
 	    gapi.client.load('oauth2', 'v2', function() {
             gapi.client.oauth2.userinfo.get().execute(function(resp){

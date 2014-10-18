@@ -52,6 +52,13 @@
 				$( 'body' ).removeClass( 'overlay-view' );
 			}
 		});
+		$( '#Google-Login' ).on( 'click', function( event ) {
+			// Verify that only the outer wrapper was clicked.
+				$( id ).removeClass( 'overlay-open' );
+				$( 'body' ).removeClass( 'overlay-view' );
+			
+		});
+		
 
 		/**
 		 * Closes the overlay when the esc key is pressed. See
@@ -204,14 +211,27 @@ $('#deleting-btn').click(function () {
     btn.button('loading')
   });
 
-$('#reset-btn').click(function(){
-	bootbox.confirm("Are you sure to reset the program?", function(result) {
+$('#reset-background-btn').click(function(){
+	bootbox.confirm("Are you sure to reset the background?", function(result) {
 		if(!result){
-		  Popup.show("Cancel Reset!");
+		  Popup.show("Cancel Reset Background!");
 		}
 		else{
+			document.getElementById("divtest-player").setAttribute("style","");
 			document.getElementById("divtest-player").innerHTML="";
-			Popup.show("Reset Program Successfully!");
+			Popup.show("Reset Background Successfully!");
+		}
+		
+		}); 
+});
+$('#reset-character-btn').click(function(){
+	bootbox.confirm("Are you sure to delete all characters?", function(result) {
+		if(!result){
+		  Popup.show("Cancel Reset Character!");
+		}
+		else{
+			document.getElementById("divtest").innerHTML="";
+			Popup.show("Reset Character Successfully!");
 		}
 		
 		}); 

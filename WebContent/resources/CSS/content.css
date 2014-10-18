@@ -118,9 +118,18 @@ body {
 	margin:3.5px;
 	float:right;
 }
+.removeImgButton {
+	margin:3px;
+	float:right;
+}
 
 .removeButton:hover {
- 	background-color: yellow;
+ 	background-color: #0077b3;
+ 	cursor: pointer;
+}
+
+.removeImgButton:hover {
+	background-color: #0077b3;
  	cursor: pointer;
 }
 #sortable {

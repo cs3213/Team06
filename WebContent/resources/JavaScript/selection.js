@@ -297,9 +297,9 @@ function dropIt(theEvent) {
 	theEvent.target.appendChild(div);
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
-	$(div).append('<span class="removeButton">X</span>');
+	$(div).append('<span class="removeImgButton">X</span>');
 	
-    $(div).delegate(".removeButton", "click", function() {
+    $(div).delegate(".removeImgButton", "click", function() {
         $(this).parent().remove();
         console.log(element.id.substring(7));
         var index = element.id.substring(7);
