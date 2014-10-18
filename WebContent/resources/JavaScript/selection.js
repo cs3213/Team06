@@ -435,3 +435,16 @@ function changeConnect(el) {
         revert: true,
     });
 }
+function displayHouse(el) {
+	var src = $(el).attr('src');
+	var index = src.indexOf("house") + 5;//5=length of house
+	var houseId = src.substring(index, index+1);
+	
+	var newId = "house" + houseId + "_1.jpeg";
+	var path = "resources/img/" + newId;
+	//console.log(path);
+	var image = document.createElement("img");
+	image.setAttribute("src", path);
+	image.setAttribute("width", "200px");
+	document.getElementById("divtest-player").appendChild(image);
+}
