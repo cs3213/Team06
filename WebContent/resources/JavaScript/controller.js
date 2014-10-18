@@ -182,7 +182,10 @@ $(function() {
 
 
 $( '#save-trigger' ).on( 'click', function( event ) {
-	
+	if(localStorage.flag == "0"){
+		Popup.show("Please Login in Dropbox First!"); 
+	}
+	else{
 	bootbox.prompt("What is your file name?", function(result) {                
 		  if (result === null) {    
 			  
@@ -190,8 +193,9 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 		  } else {
 			if(result){
 				document.getElementById('user-file-name').value=result;
-				document.getElementById('save-btn').click()
-				Popup.show("Your File Is Saved Successfully"); 
+				var result = document.getElementById('save-btn').click();
+				
+				
 			}
 			else{
 				
@@ -199,6 +203,7 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 			}
 		  }
 		});
+	}
 });
 
 $('#loading-btn').click(function () {
