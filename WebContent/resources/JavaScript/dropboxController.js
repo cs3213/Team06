@@ -216,12 +216,17 @@ function loggedIn() {
 				    }
 				});
 				console.log($('#divtest'));
+				Popup.show("Load File " +chosenFile+" Successfully!");
 			} else {
+
+				document.getElementById('load-game-content').innerText = "";
+				Popup.show("No Such File!");
+				
 				var gamelist = document.getElementById('game-file-select');
 				if (gamelist.selectedIndex != 0) {
 					gamelist.remove(gamelist.selectedIndex);
 				}
-				alert("no such file");
+
 			}
 		});
 		
@@ -229,19 +234,23 @@ function loggedIn() {
 			e.preventDefault();
 			var results = table.query({name: chosenFile});
 			console.log(results);
-			
+			Popup.show("Delete File " +chosenFile+" Successfully!");
 			if (results.length != 0) {
 				for (var i=0; i<results.length; i++) {
 					results[i].deleteRecord();
 				}
 			} else {
-				alert("no such file");
-			}
+
+				Popup.show("No Such File!");
+				}
+
+			
 			
 			var gamelist = document.getElementById('game-file-select');
 			if (gamelist.selectedIndex != 0) {
 				gamelist.remove(gamelist.selectedIndex);
 			}
+
 		});
 	});
 }

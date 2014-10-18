@@ -24,22 +24,28 @@
 <script src="<c:url value="/resources/JavaScript/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/bootbox.min.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/bootbox.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/example.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 </head>
 
 <body data-twttr-rendered="true" class="">
 <p id="demo"></p>
+
+
+
+
 <div id="message" class="bb-alert alert alert-info" style="display: none;">
        <span>Hello world callback</span>
 </div>
   
 <div class="transparent" id="">
+ 	
+
   <div class="row">
 
 
-  <div class= "overlay-word" id = "header-words">
-    <label id="Welcome-Word" style="display:none"><h4>Welcome,</h4></label>
-     <label id= "User-Name"></label> 
+  <div class= "overlay-word" id = "header-words"> 
+    <label id="Welcome-Word" style="display:none; float:centre;"><h3>CS3216 Animation Player</h3> </label>
+     <label id= "User-Name" style="float:right;"></label> 
   </div>
 
   </div>
@@ -142,10 +148,19 @@
  	<div id="divName" class="container inner-container"> <h4> Editor</h4></div>
  	<!-- <div class="container inner-container"> -->
  	<div id="divtest" class="scene-inner-container" ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
-<!--     </div> -->
+
  	</div>
  	
+ <div id="loading-bar" class="progress progress-inner" style="display:none">
+  <div id="loading-bar-content" class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    <span id="loading-bar-indicator">0% Complete</span>
+  </div>
 </div>
+
+ 	
+</div>
+
+
 
  <!-- Nav tabs -->
 

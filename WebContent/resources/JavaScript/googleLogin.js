@@ -21,7 +21,7 @@ function onSignInCallback(authResult) {
 		
 	    document.getElementById('Google-Login-Button').setAttribute('style', 'display: none');
 
-		Popup.show("Login Successfully");
+		
 
 	    
 	    gapi.client.load('oauth2', 'v2', function() {
@@ -32,8 +32,9 @@ function onSignInCallback(authResult) {
                 var id=resp.id;
                 document.getElementById('Welcome-Word').setAttribute('style', 'display: block');
                 document.getElementById('Google-Login').setAttribute('style', 'display: none');
-                document.getElementById('User-Name').innerHTML = "<h4>"+given_name+"</h4>";
+                document.getElementById('User-Name').innerHTML = "<h4> Welcome, "+given_name+"</h4>";
                 console.log(email);
+                Popup.show("Welcome Back! Dear, " + given_name );
                 console.log(given_name);
                 
                 
