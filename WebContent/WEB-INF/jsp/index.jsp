@@ -150,8 +150,8 @@
  <!-- Nav tabs -->
 
 <div class="tab-panel">
-<div class="inner-tab">
-  <ul class="nav nav-tabs" role="tablist">
+ <div class="inner-tab">
+  <ul class="nav nav-tabs inner-tab" role="tablist">
    <li class="active"><a href="#source-pane" role="tab" data-toggle="tab"><h4>Characters</h4></a></li>
     <li ><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h4>Actions</h4></a></li>
   

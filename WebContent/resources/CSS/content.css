@@ -1,7 +1,7 @@
 body {
 	background-image: url("../img/background14.jpg" );
 	background-size: 100% 100%;
-	
+	min-width:90%;
 	
 }
 .body-class{
@@ -158,7 +158,7 @@ body {
 .transparent{
 	border: none;
     border-radius: 10px;
-    background-color: rgba(190, 190, 190, 0.5);
+    background-color: rgba(190, 190, 190, 0.83);
     margin: 5px;
 }
 p {
