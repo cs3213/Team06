@@ -1,6 +1,8 @@
 var countElement = 0;
 var charactersSrc=[];
 var characters=[];
+var inputSequence = [];
+var inputValue = [];
 
 //If it is not IE, we assume that the browser is NS.
 var IE = document.all?true:false;
@@ -115,18 +117,24 @@ function hide(index){
 
 function play(sequence,value) {
 	var arrayLength = sequence.length;
-	
+	characters = [];
 	// put images in player
 	var div = document.getElementById("divtest-player");
+	div.innerHTML = '';
 	
 	for (var i=0; i<arrayLength; i++) {
 		eleSrc = charactersSrc[i];
+		var newdiv = document.createElement("div");
+		newdiv.style.cssText = "height: 100px; width: 100px; float: left";
+		newdiv.id = "img_div" + (i+1);
+		
 		var element = document.createElement("img");
 		element.id = "image" + (i+1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
 		element.setAttribute('position', 'absolute');
-		div.appendChild(element);
+		newdiv.appendChild(element);
+		div.appendChild(newdiv);
 		characters.push(element);
 	}
 	
@@ -223,14 +231,18 @@ function repeat(index, sequence, value) {
 }
 
 function submit(){
-	var inputSequence = [];
-	var inputValue = [];
+	inputSequence = [];
+	inputValue = [];
+	charactersSrc = [];
 	
 	for (var i = 0; i<countElement; i++) {
 		inputSequence[i]=[];
 		inputValue[i]=[];
 		var sortable = "#sortable"+(i+1).toString()+" li";
+		var div = "#div"+(i+1).toString();
 
+		console.log("sortable = "+sortable);
+		console.log("div = "+div);
 		$(sortable).each(function(){
 			var command = $(this).text();
 			inputSequence[i].push(command);
@@ -242,9 +254,18 @@ function submit(){
 				inputValue[i].push(0);
 			}
 		});
+		
+		charactersSrc.push(
+			$(div).children('img').map(function(){
+				return $(this).attr('src')
+			}).get()
+		);
 	}
+	console.log("charactersSrc");
 	console.log(charactersSrc);
+	console.log("inputSequence");
 	console.log(inputSequence);
+	console.log("inputValue");
 	console.log(inputValue);
 	play(inputSequence,inputValue);
 }
@@ -261,7 +282,6 @@ function dropIt(theEvent) {
 	//get the element
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
-	charactersSrc[countElement-1]=eleSrc;
 	var div = document.createElement("div");
 	div.style.cssText = "height: 100px; width: 100px; float: left";
 	div.id = "div" + countElement.toString();
