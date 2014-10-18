@@ -230,18 +230,17 @@ function submit(){
 		inputSequence[i]=[];
 		inputValue[i]=[];
 		var sortable = "#sortable"+(i+1).toString()+" li";
-		var hasInput = 0;
-		$(sortable).find('input').each(function(){
-			hasInput=1;
-			inputValue[i].push($(this).val());
-		});
-		if (hasInput == 0) {
-			inputValue[i].push(hasInput);
-		} else {
-			hasInput = 0;
-		}
+
 		$(sortable).each(function(){
-			inputSequence[i].push($(this).text());
+			var command = $(this).text();
+			inputSequence[i].push(command);
+			var input = $(this).find('input').val();
+			console.log("input = "+input);
+			if (input) {
+				inputValue[i].push(input);
+			} else {
+				inputValue[i].push(0);
+			}
 		});
 	}
 	console.log(charactersSrc);
