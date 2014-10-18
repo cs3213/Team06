@@ -231,3 +231,19 @@ button {
 .select-pane{
 	width:100%;
 }
+.two-col-special {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.two-col-special li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top; /* In case multi-word categories form two lines */
+}
+.two-col-special li:before {
+    margin-right: 5px; /* you can tweak the gap */
+    display: inline-block;
+}
