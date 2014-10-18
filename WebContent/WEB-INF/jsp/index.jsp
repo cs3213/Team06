@@ -199,6 +199,31 @@
   
 
 
+<<<<<<< HEAD
+<div class="tab-pane select-pane" id="coordEditor-pane">
+  <div class= "transparent" id="coordEditor">
+    <div id="divName" class="container"><h4>Setting</h4></div>
+    <form>
+     <ul id="draggable">
+       <li id="right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
+       <li id="left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
+       <li id="up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
+       <li id="down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
+       <li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word">px</li>
+       <li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word">px</li>   
+       <li id='repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
+       <li id='end_repeat'>End_Repeat </li>
+       <li id='show'>Show </li>
+       <li id='hide'>Hide </li>
+     </ul>
+   </form>
+ </div>
+</div>
+</div>
+</div>
+</div>
+=======
+>>>>>>> 34c12db18f119e1a266199d6ecb048e9cc6572f8
 
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>

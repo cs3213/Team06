@@ -34,8 +34,8 @@ function displayCoord(e) {
 	console.log(tempX);
 	console.log(tempY);
 	return true;
-}
-*/
+}*/
+
 function myFunction() {
     var x, text;
     // Get the value of input field with id="numb"
@@ -51,12 +51,25 @@ function myFunction() {
 
 function setx(index, posx) {
 	imgObj = characters[index];
-	imObj.style.position.left=pos + 'px';
+	var id = '#'+imgObj.id;
+	console.log("set x");
+	
+	
+	$(id).css({
+		position: 'relative',
+		'margin-left': posx+'px'
+	});
 }
 
 function sety(index, posy) {
 	imgObj = characters[index];
-	imObj.style.position.top=posy + 'px';
+	var id = '#'+imgObj.id;
+	console.log("set y");
+
+	$(id).css({
+		position: 'relative',
+		'margin-top': posy+'px'
+	});
 }
 
 function moveRight(index, steps){
@@ -80,22 +93,21 @@ function moveDown(index, steps) {
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	var distance = '+='+(10*steps) + 'px';
-	console.log("move up");
-	$(id).animate({marignTop: distance},'slow');
+	console.log("move down");
+	$(id).animate({marginTop: distance},'slow');
 }
 
 function moveUp(index, steps) {
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
 	var distance = '-='+(10*steps) + 'px';
-	console.log("move down");
+	console.log("move up");
 	$(id).animate({marginTop: distance},'slow');
 }
 
 function show(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
 	console.log("show");
 	$(id).animate({height: '100px'},'slow');
 }
@@ -103,17 +115,9 @@ function show(index){
 function hide(index){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
 	console.log("hide");
 	$(id).animate({height: '0px'},'slow');
 }
-
-//function sleep(millis, sequence, value, callback) {
-//	console.log("sleep");
-//    setTimeout(function()
-//            { callback(sequence, value); }
-//    , millis);
-//}
 
 function play(sequence,value) {
 	var arrayLength = sequence.length;
@@ -125,14 +129,13 @@ function play(sequence,value) {
 	for (var i=0; i<arrayLength; i++) {
 		eleSrc = charactersSrc[i];
 		var newdiv = document.createElement("div");
-		newdiv.style.cssText = "height: 100px; width: 100px; float: left";
+		newdiv.style.cssText = "height: 100px; width: 100px; position:absolute";
 		newdiv.id = "img_div" + (i+1);
 		
 		var element = document.createElement("img");
 		element.id = "image" + (i+1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
-		element.setAttribute('position', 'absolute');
 		newdiv.appendChild(element);
 		div.appendChild(newdiv);
 		characters.push(element);
