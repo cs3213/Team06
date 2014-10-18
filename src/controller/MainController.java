@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.ModelMap;
 
+import domain.projectFile;
+
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("*")
 public class MainController{
  
-	private List<String> FileContent=new ArrayList<String>();
+	private projectFile curProject = new projectFile();
 		
 	@RequestMapping(value="/index", method = RequestMethod.GET)
    public String printHello(ModelMap model) {
@@ -24,12 +26,17 @@ public class MainController{
    }
 	
 	@RequestMapping(value="/index", method = RequestMethod.POST)
-	   public String saveFile(HttpServletRequest request) {
-		      FileContent.add(request.getParameter("inputSequence"));
-		      FileContent.add(request.getParameter("inputValue"));
-		      return "index";
+	   public void saveFile(projectFile curProject) {
+		   this.curProject = curProject;
+		      System.out.println(curProject.getCharacters()[0]);
+		  //    return "test";
 		   } 
-   
+	@RequestMapping(value="/getFile", method = {RequestMethod.POST, RequestMethod.GET})
+	   public @ResponseBody
+	   projectFile filecontent(HttpServletRequest request)
+	   {
+	     return curProject;
+	   }
 
 }
 
