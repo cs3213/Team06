@@ -139,6 +139,7 @@ button {
 .content-div{
 	border: none;
 	float: top;
+	width:100%;
 	margin-bottom: 10px;
 }
 .scene{

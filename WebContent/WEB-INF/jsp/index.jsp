@@ -12,7 +12,6 @@
 <link href="<c:url value="/resources/CSS/content.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/CSS/scrollable.css" />" rel="stylesheet">
 
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
@@ -65,7 +64,7 @@
 <div id="Main-Panel">
 
  <div class= "transparent" id="player">
- 	<div id="divName" class="container"><h4> Player</h4></div>
+ 	<div id="divName" class="container content-div"><h4> Player</h4></div>
  	
  	<div class="container content-div">
 
@@ -77,7 +76,21 @@
  	
  	<div id="control-panel" class = "container content-div">
      <button type="button" class="btn btn-primary"> Reset </button>
-     <button type="button" class="btn btn-primary"> Save </button>
+     <a href id="save-trigger" class="btn btn-primary" data-overlay="game-name-input" >save</a>
+  
+  <div id="game-name-input" class="overlay" style="">
+	<div class="overlay-inner">
+
+   <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
+
+	 <button id="save-btn" class="btn btn-primary">Confirm
+      </button>
+      <button id="cancel-btn" class="btn btn-primary">Cancel
+      </button>
+      
+	</div>
+</div>
+     
      <button type="button" class="btn btn-primary" onClick="submit()"> Play</button>
     </div>
  </div>
@@ -137,10 +150,10 @@
  
   <div class="tab-pane active select-pane" id="source-pane">
    <div class= transparent id="source">
- 	<div id="floatArea" ondragover="event.preventDefault();">
+ 	<div id="floatArea">
  		<h4>Float</h4>
  			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/float1.jpeg" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
+ 			<img id="curFloat"  src="<c:url value="/resources/img/float1.jpeg" />" height="100px"/>
  			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
  	</div>
  	
@@ -177,38 +190,6 @@
 
 
 
-
-<!-- Tab panes -->
-<%-- <div class="tab-content" style="width: 300px">
-  	<div class="tab-pane active" id="source">
- 	<div class="divName"><h4>Float</h4></div>
- 	<div class="floatArea" ondragover="event.preventDefault();">
- 			<button onclick="changeFloatLeft()"><img src="arrow_left.gif" height="15px"></button>
- 			<img id="curFloat"  src="float1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
- 			<button onclick="changeFloatRight()"><img src="arrow_right.gif" height="15px"></button>
- 	</div>
- 	
- 	<div class="divName"><h4>Character</h4></div>
- 	<div class="floatArea" ondragover="event.preventDefault();">
- 		<button onclick="changeCharacterLeft()"><img src="arrow_left.gif" height="15px"></button>
- 			<img id="curCharacter" src="char1.jpeg" height="100px" draggable="true" ondragstart="dragIt(event);"/>
- 		<button onclick="changeCharacterRight()"><img src="arrow_right.gif" height="15px"></button>
- 	</div>
-    </div>
-
-    <div class="tab-pane" id="coordEditor">
- 	<div class="divName"><h4>Setting</h4></div>
- 	<form>
-    	<ul id="draggable">
-    		<li id="right">Move Right <input type="text" name="right" size="2">steps</li>
-    		<li id="left">Move Left <input type="text" name="left" size="2">steps</li>
-    		<li id="x">Set X <input type="text" name="x_pos" size="2">  </li>
-    		<li id="y">Set Y <input type="text" name="y_pos" size="2">  </li>   
-    		<li id='repeat'>Repeat <input type="text" name="repeat" size="2"> </li>     
-		</ul>
-	</form>
-	</div>
-  </div> --%> 
 
 </div>
 
