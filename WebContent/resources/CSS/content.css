@@ -47,18 +47,35 @@ body {
 	background-color: rgb(135,10,8);
 }
 #left {
+	background-color: rgb(175,33,12);
+}
+#up {
 	background-color: rgb(222,148,41);
 }
+#down {
+	background-color: rgb(207,185,28);
+}
 #x {
-	background-color: rgb(96,127,15);
+	background-color: rgb(124,180,28);
 }
 #y {
-	background-color: rgb(104,153,199);
+	background-color: rgb(96,127,15);
 }
 #repeat, #end_repeat {
+	background-color: rgb(104,153,199);
+}
+#show {
+	background-color: rgb(51,118,150);
+}
+#hide {
+	background-color: rgb(93,71,139);
+}
+#costume {
 	background-color: rgb(62,69,127);
 }
-
+#background {
+	background-color: rgb(8,42,71);
+}
 #divName {
 	border-radius: 10px;
 	border: none;
