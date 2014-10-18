@@ -93,7 +93,7 @@ function loggedIn() {
 		
 		
 		
-		function saveRecord(fileName, fileContent) {
+		function saveRecord(fileName, fileContent, countElement) {
 			console.log("save record!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
 			
 			var results = table.query({name: fileName});
@@ -106,7 +106,8 @@ function loggedIn() {
 			} else {
 				var firstTask = table.insert({
 				    name: fileName,
-				    content: fileContent
+				    content: fileContent,
+				    count: countElement
 				});
 				
 				var gamelist = document.getElementById('game-file-select');
@@ -123,9 +124,10 @@ function loggedIn() {
 
 			var fileName = document.getElementById('user-file-name').value;
 			var fileContent = $('#divtest').html();
+			var countElement = getCountElement();
 			
 			console.log($('#divtest').html());
-			saveRecord(fileName, fileContent);
+			saveRecord(fileName, fileContent, countElement);
 		});
 		
 		$('#loading-btn').click(function (e){
@@ -136,6 +138,7 @@ function loggedIn() {
 				console.log("load file = "+chosenFile);
 				console.log(results[0].get('content'));
 				$('#divtest').html(results[0].get('content'));
+				setCountElement(results[0].get('count'));
 				console.log($('#divtest'));
 			} else {
 				document.getElementById('load-game-content').innerText = "";
