@@ -70,7 +70,12 @@
  	
  	<div class="container content-div">
 
+<<<<<<< HEAD
  	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" >
+=======
+
+ 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
+>>>>>>> d67531dfce066304119d1b589b625d7e40ce1962
 
  	</div>
  	</div>
