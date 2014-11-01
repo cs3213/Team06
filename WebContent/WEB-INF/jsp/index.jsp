@@ -238,7 +238,7 @@
 							<h4>Setting</h4>
 						</div>
 						<div>
-							<ul class="nav nav-tabs" role="tablist">
+							<ul class="nav nav-tabs inner-tab" role="tablist">
 								<li class="active"><a href="#Motion" role="tab"
 									data-toggle="tab">Motion</a></li>
 								<li><a href="#Data" role="tab" data-toggle="tab">Data</a></li>
@@ -275,8 +275,8 @@
 									</ul>
 								</form>
 							</div>
-							<div role="tabpanel" class="tab-pane active" id="Data"></div>
-							<div role="tabpanel" class="tab-pane active" id="Control">
+							<div role="tabpanel" class="tab-pane" id="Data"></div>
+							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
 									<ul id="draggable" class="two-col-special">
 										<li class='command_repeat'>Repeat <input type="text"
@@ -291,7 +291,7 @@
 									</ul>
 								</form>
 							</div>
-							<div class="tab-pane active select-pane" id="Operator"></div>
+							<div class="tab-pane select-pane" id="Operator"></div>
 						</div>
 					</div>
 				</div>
