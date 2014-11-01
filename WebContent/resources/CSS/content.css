@@ -17,20 +17,20 @@ body {
 	color: white;
 }
 #coordEditor {
-	height: 380px;
+	height: 506px;
 	width: 100%;
 	float: left;
 }
 
 #source {
-	height: 380px;
+	height: 506px;
 	width: 100%;
 	padding: 5px;
 	float: left;
 }
 #editor {
-	height: 643px; 
-	width: 26%;
+	height: 549px; 
+	width: 32%;
 	float: left;
 }
 
@@ -199,7 +199,7 @@ button {
 	border: dotted
 }
 .scene_play{ 
-	height: 500px; 
+	height: 400px; 
 	width: 95%;
     margin: 2rem;
 	float: left; 
@@ -238,7 +238,7 @@ button {
 }
 .tab-panel{
 	width: 20%;
-	height: 400px;
+	height: 549px;
     float: left;
 }
 .dropbox-btn{
@@ -251,7 +251,7 @@ button {
 	width:90%;
 	margin: 2rem;
 	overflow: scroll; 
-	height: 570px; 
+	height: 440px; 
 	float: left; 
 	border: dotted
 }

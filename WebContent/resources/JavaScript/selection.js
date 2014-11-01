@@ -356,12 +356,13 @@ function dropIt(theEvent) {
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
 	var div = document.createElement("div");
-	div.style.cssText = "height: 100px; width: 35%; float: left";
+	div.style.cssText = "height: 230px; width: 28%; float: left";
 	div.id = "div" + countElement.toString();
 	var element = document.createElement("img");
 	element.id = "element" + countElement.toString();
 	element.setAttribute('src', eleSrc);
-	element.setAttribute('height', '100px');
+	element.setAttribute('height', '80px');
+	element.setAttribute('width','100px');
 	element.setAttribute('dragable', 'false');
 	div.appendChild(element);
 	//add it to the drop element
@@ -435,7 +436,7 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 110px; width: 60%; float: right; border: dotted; overflow: scroll; ";
+	element.style.cssText = "height: 230px; width: 72%; float: right; border: dotted; overflow: scroll; ";
 	
 	document.getElementById('divtest').appendChild(element);
 	
