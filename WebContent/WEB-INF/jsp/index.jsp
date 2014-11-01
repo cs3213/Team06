@@ -291,7 +291,40 @@
 									</ul>
 								</form>
 							</div>
-							<div class="tab-pane select-pane" id="Operator"></div>
+							<div class="tab-pane select-pane" id="Operator">
+									<ul id="draggable" text-align = "left">
+										<li class='addOperation'>
+											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> + 
+  											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> <button>New</button>
+  										</li>
+  										<li class='substractOperation'>
+											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> - 
+  											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> <button>New</button>
+  										</li>
+  										<li class='multiplyOperation'>
+											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> * 
+  											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> <button>New</button>
+  										</li>
+  										<li class='divideOperation'>
+											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> / 
+  											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> <button>New</button>
+  										</li>
+  										<li class='modOperation'>
+											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> mod 
+  											<select><option value="X">X</option>
+  											<option value="Y">Y</option></select> <button>New</button>
+  										</li>
+									</ul>
+							</div>
 						</div>
 					</div>
 				</div>
