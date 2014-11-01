@@ -241,10 +241,12 @@
 							<ul class="nav nav-tabs inner-tab" role="tablist">
 								<li class="active"><a href="#Motion" role="tab"
 									data-toggle="tab">Motion</a></li>
-								<li><a href="#Data" role="tab" data-toggle="tab">Data</a></li>
+								<li><a href="#Data" role="tab" data-toggle="tab">Variable</a></li>
 								<li><a href="#Control" role="tab" data-toggle="tab">Control</a>
 								</li>
 								<li><a href="#Operator" role="tab" data-toggle="tab">Operator</a>
+								</li>
+								<li><a href="#Sensing" role="tab" data-toggle="tab">Sensing</a>
 								</li>
 							</ul>
 						</div>
@@ -275,7 +277,40 @@
 									</ul>
 								</form>
 							</div>
-							<div role="tabpanel" class="tab-pane" id="Data"></div>
+							<div role="tabpanel" class="tab-pane" id="Data">
+							<div class="create_variable">
+							<button type="button" class="btn btn-danger" onClick="new_variable()">
+					        New a variable</button>
+					        </div>
+					        <div id="variable">
+							<ul id="draggable" class="two-col-special">
+										<li class='command_repeat'> Sprite postion
+										</li>
+										<li class='command_repeat'> Mouse postion
+										</li>
+										<li class='command_repeat'> Canvas left
+										</li>
+										<li class='command_repeat'> Canvas right
+										</li>
+										<li class='command_repeat'> Canvas top
+										</li>
+										<li class='command_repeat'> Canvas bottom
+										</li>
+										<li class='command_repeat'> Width
+										</li>
+										<li class='command_repeat'> Height
+										</li>
+									</ul>
+									</div>
+									<ul id="draggable" class="two-col-special">
+									<li class='command_repeat'>Set <select class="selectItem" id = "selectSet"><option>--Select--</option>
+  											</select> to <input type="text"
+											name="setVariable" size="2" class="input-word"></li>
+  											<li class='command_repeat'>Change <select class="selectItem" id = "selectChange"><option>--Select--</option>
+  											</select> by <input type="text"
+											name="changeVariable" size="2" class="input-word"></li>
+  											</ul>
+							</div>
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
 									<ul id="draggable" class="two-col-special">
@@ -323,6 +358,12 @@
   											<select><option value="X">X</option>
   											<option value="Y">Y</option></select> <button>New</button>
   										</li>
+									</ul>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="Sensing">
+							<ul id="draggable" class="two-col-special">
+										<li class='command_repeat'> Touch edge?
+										</li>
 									</ul>
 							</div>
 						</div>

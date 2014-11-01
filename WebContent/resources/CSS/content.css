@@ -295,3 +295,7 @@ padding: 2px 2px;
     background-color: rgba(190, 190, 190, 0.83);
     margin-top:5px;
 }
+
+.create_variable{
+	text-align: center;
+}

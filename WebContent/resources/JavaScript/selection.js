@@ -641,9 +641,44 @@ function setCountElement(number) {
 	countElement = number;
 }
 
-$('#myTab a').click(function (e) {
-	  e.preventDefault();
-	  $(this).tab('show');
-	});
+function new_variable(){
+	var variable = prompt("Please enter the name of new variable");
+	var div = document.getElementById("variable");
+	if (variable != null) {
+		
+			var newdiv = document.createElement("ul");
+			newdiv.id = "draggable";
+			newdiv.className = "two-col-special";
+			var element1 = document.createElement("li");
+			element1.className = "command_repeat";
+			element1.innerHTML = variable;
+			newdiv.appendChild(element1);
+			div.appendChild(newdiv);
+	/*		var element2 = document.createElement("li");
+			element2.className = "command_repeat";
+			element2.innerHTML = "Set " + variable + " to ";
+			var inputText = document.createElement("input");
+			inputText.setAttribute('name', variable + 'setVariable');
+			inputText.setAttribute('size', 2);
+			inputText.className = "input-word";
+			element2.appendChild(inputText);
+			newdiv.appendChild(element2);
+			var element3 = document.createElement("li");
+			element3.className = "command_repeat";
+			element3.innerHTML = "Change " + variable + " by ";
+			var inputText2 = document.createElement("input");
+			inputText2.setAttribute('name', variable + 'changeVariable');
+			inputText2.setAttribute('size', 2);
+			inputText2.className = "input-word";
+			element3.appendChild(inputText2);
+			newdiv.appendChild(element3);
+			div.appendChild(newdiv);
+		*/
+			var select1 = document.getElementById("selectSet");
+			select1.options.add(new Option(variable, variable));
+			var select2 = document.getElementById("selectChange");
+			select2.options.add(new Option(variable, variable));
+	}
+}
 	
 	
