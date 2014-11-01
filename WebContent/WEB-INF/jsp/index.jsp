@@ -137,7 +137,7 @@
   <ul class="nav nav-tabs inner-tab" role="tablist">
    <li class="active"><a href="#source-pane" role="tab" data-toggle="tab"><h4>Characters</h4></a></li>
     <li ><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h4>Actions</h4></a></li>
-  
+  	<li><a href="#music-pane" role="tab" data-toggle="tab"><h4>Musics</h4></a></li>
   </ul>
  </div>
 <div class="tab-content container tab-content-container">
@@ -164,7 +164,7 @@
   <div class= "transparent" id="coordEditor">
  	<div id="divName" class="container"><h4>Setting</h4></div>
  	<form>
-    	<ul id="draggable" class="two-col-special">
+    	<ul id="draggable">
     		<li class="command_right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
        		<li class="command_left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
        		<li class="command_up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
@@ -181,6 +181,19 @@
 	  </form>
     </div>
   </div>
+  <div class="tab-pane select-pane" id="music-pane">
+  	<div class= "transparent" id="musicList">
+ 	  <form>
+    	<ul id="draggable">
+    		<li class="music1">Music1</li>
+       		<li class="music2">Music2</li>
+       		<li class="music3">Music3</li>
+       		<li class="music4">Music4</li>
+		</ul>
+	  </form>
+    </div>
+  </div>
+  
  </div>
 </div>
 
@@ -216,10 +229,10 @@
     </div>
  </div>
 </div>
-<audio controls autoplay>
+<!-- <audio controls autoplay>
     <source src="<c:url value="/resources/music/Mydestiny.mp3" />" type="audio/mp3" />
     <source src="<c:url value="/resources/music/Mydestiny.ogg" />" type="audio/ogg" />
-</audio>
+</audio> -->
 
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
