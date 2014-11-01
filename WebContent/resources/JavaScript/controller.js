@@ -362,9 +362,9 @@ $('#reset-character-btn').click(function(){
 });
 
 function checkXValue(xInput){
-	if(xInput.value>1000){
+	if(xInput.value>379){
 		xInput.value = 0;
-		Popup.show("X value cannot exceed 1000! Reset x value to 0.");
+		Popup.show("X value cannot exceed 379! Reset x value to 0.");
 	}
 	if(xInput.value<0){
 		xInput.value = 0;
@@ -373,9 +373,9 @@ function checkXValue(xInput){
 }
 
 function checkYValue(yInput){
-	if(yInput.value>400){
+	if(yInput.value>294){
 		yInput.value = 0;
-		Popup.show("Y value cannot exceed 400! Reset y value to 0.");
+		Popup.show("Y value cannot exceed 294! Reset y value to 0.");
 	}
 	if(yInput.value<0){
 		yInput.value = 0;

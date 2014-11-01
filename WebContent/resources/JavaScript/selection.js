@@ -3,6 +3,8 @@ var charactersSrc=[];
 var characters=[];
 var leftMargin=[];
 var topMargin=[];
+var leftMarginLimit = [];
+var topMarginLimit = [];
 var inputSequence = [];
 var inputValue = [];
 var timer;
@@ -63,34 +65,62 @@ function checkKey(e) {
 function keyboardRight(index, steps){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '+='+(10*steps) + 'px';
+	var length = 10 * steps;
+
+	if (leftMarginLimit[index] < leftMargin[index] + length) {
+		Popup.show("keyboard right out of bound");
+		length = leftMarginLimit[index] - leftMargin[index];
+	}
+	
+	var distance = '+='+ length + 'px';
 	console.log("keyboard right");
 	$(id).animate({marginLeft: distance},'fast');
+	leftMargin[index] += length;
 }
 
 function keyboardLeft(index, steps){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
+	var length = 10 * steps;
+	if (leftMargin[index]-length < 0) {
+		Popup.show("keyboard left out of bound");
+		length = leftMargin[index];
+	}
+	
+	var distance = '-='+ length + 'px';
 	console.log("keyboard left");
 	$(id).animate({marginLeft: distance},'fast');
+	leftMargin[index] -= length;
 }
 
 function keyboardDown(index, steps) {
 	imgObj = characters[index];
-	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '+='+(10*steps) + 'px';
+	var length = 10 * steps;
+	if (topMarginLimit[index] < topMargin[index] + length ) {
+		Popup.show("keyboard down out of bound");
+		length = topMarginLimit[index] - topMargin[index];
+	}
+	
+	var distance = '+='+ length + 'px';
 	console.log("keyboard down");
 	$(id).animate({marginTop: distance},'fast');
+	topMargin[index] += length;
 }
 
 function keyboardUp(index, steps) {
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
+	var length = 10 * steps;
+	if (topMargin[index] - length < 0) {
+		Popup.show("keyboard up out of bound");
+		length = topMargin[index];
+	}
+	
+	var distance = '-='+ length + 'px';
 	console.log("keyboard up");
 	$(id).animate({marginTop: distance},'fast');
+	topMargin[index] -= length;
 }
 
 function setx(index, posx) {
@@ -98,9 +128,14 @@ function setx(index, posx) {
 	var id = '#'+imgObj.id;
 	console.log("set x");
 	
-	$(id).animate({
-		marginLeft: posx + 'px'
-	}, 'fast');
+	if (posx >= 0 && posx <= leftMarginLimit[index]) {
+		$(id).animate({
+			marginLeft: posx + 'px'
+		}, 'fast');
+		leftMargin[index] = posx;
+	} else {
+		Popup.show("set x out of bound");
+	}
 }
 
 function sety(index, posy) {
@@ -108,42 +143,75 @@ function sety(index, posy) {
 	var id = '#'+imgObj.id;
 	console.log("set y");
 
-	$(id).animate({
-		marginTop: posy+'px'
-	}, 'fast');
+	if (posy >= 0 && posy <= topMarginLimit[index]) {
+		$(id).animate({
+			marginTop: posy + 'px'
+		}, 'fast');
+		topMargin[index] = posy;
+	} else {
+		Popup.show("set y out of bound");
+	}
 }
 
 function moveRight(index, steps){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '+='+(10*steps) + 'px';
+	var length = 10 * steps;
+
+	if (leftMarginLimit[index] < leftMargin[index] + length) {
+		Popup.show("right out of bound");
+		length = leftMarginLimit[index] - leftMargin[index];
+	}
+	
+	var distance = '+='+ length + 'px';
 	console.log("move right");
 	$(id).animate({marginLeft: distance},'slow');
+	leftMargin[index] += length;
 }
 
 function moveLeft(index, steps){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
+	var length = 10 * steps;
+	if (leftMargin[index]-length < 0) {
+		Popup.show("left out of bound");
+		length = leftMargin[index];
+	}
+	
+	var distance = '-='+ length + 'px';
 	console.log("move left");
 	$(id).animate({marginLeft: distance},'slow');
+	leftMargin[index] -= length;
 }
 
 function moveDown(index, steps) {
 	imgObj = characters[index];
-	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '+='+(10*steps) + 'px';
+	var length = 10 * steps;
+	if (topMarginLimit[index] < topMargin[index] + length ) {
+		Popup.show("down out of bound");
+		length = topMarginLimit[index] - topMargin[index];
+	}
+	
+	var distance = '+='+ length + 'px';
 	console.log("move down");
 	$(id).animate({marginTop: distance},'slow');
+	topMargin[index] += length;
 }
 
 function moveUp(index, steps) {
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
+	var length = 10 * steps;
+	if (topMargin[index] - length < 0) {
+		Popup.show("up out of bound");
+		length = topMargin[index];
+	}
+	
+	var distance = '-='+ length + 'px';
 	console.log("move up");
 	$(id).animate({marginTop: distance},'slow');
+	topMargin[index] -= length;
 }
 
 function show(index){
@@ -163,6 +231,10 @@ function hide(index){
 function play(sequence,value) {
 	var arrayLength = sequence.length;
 	characters = [];
+	leftMargin = [];
+	topMargin = [];
+	leftMarginLimit = [];
+	topMarginLimit = [];
 	// put images in player
 	var div = document.getElementById("divtest-player");
 	div.innerHTML = '';
@@ -181,8 +253,16 @@ function play(sequence,value) {
 		div.appendChild(newdiv);
 		characters.push(element);
 		
+		leftMargin.push(parseInt($(element).css('margin-left')));
+		topMargin.push(parseInt($(element).css('margin-top')));
+		leftMarginLimit.push($(newdiv).parent().width() - $(element).width());
+		topMarginLimit.push($(newdiv).parent().height() - $(element).height());
 	}
 	
+	console.log(leftMargin);
+	console.log(topMargin);
+	console.log(leftMarginLimit);
+	console.log(topMarginLimit);
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
 		var thisSequence = sequence[i];
@@ -400,17 +480,22 @@ function dropIt(theEvent) {
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
 	var div = document.createElement("div");
-	div.style.cssText = "height: 230px; width: 28%; float: left";
+	div.style.cssText = "height: 100px; width: 28%; float: left";
 	div.id = "div" + countElement.toString();
 	var element = document.createElement("img");
 	element.id = "element" + countElement.toString();
 	element.setAttribute('src', eleSrc);
 	element.setAttribute('height', '80px');
 	element.setAttribute('width','100px');
-	element.setAttribute('dragable', 'false');
+	element.setAttribute('draggable', 'false');
 	div.appendChild(element);
 	//add it to the drop element
-	theEvent.target.appendChild(div);
+	var parent = theEvent.target;
+    while (parent && parent.id !== 'divtest') {
+        parent = parent.parentElement;
+    }
+	parent.appendChild(div);
+
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
 	$(div).append('<span class="removeImgButton">X</span>');
@@ -480,8 +565,8 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 230px; width: 72%; float: right; border: dotted; overflow: scroll; ";
-	
+	element.style.cssText = "height: 100px; width: 72%; float: left; border: dotted; overflow: scroll; ";
+
 	document.getElementById('divtest').appendChild(element);
 	
 	
