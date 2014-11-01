@@ -110,9 +110,7 @@
 
 		</div>
 	</div>
-
-
-
+	
 	<div id="Main-Panel">
 		<div class="transparent" id="player">
 			<div id="divName" class="container content-div">
@@ -265,47 +263,24 @@
 				</div>
 
 				<div class="tab-pane select-pane" id="music-pane">
-					<div class=transparent id="source">
-						<div id="floatArea">
-							<h4>Scene</h4>
-							<button onclick="changeFloatLeft()">
-								<img src="<c:url value="/resources/img/arrow_left.gif" />"
-									height="15px">
-							</button>
-							<img id="curFloat"
-								src="<c:url value="/resources/img/house1.png"/>" height="100px"
-								/ onclick="displayHouse(this)">
-							<button onclick="changeFloatRight()">
-								<img src="<c:url value="/resources/img/arrow_right.gif" />"
-									height="15px">
-							</button>
-						</div>
-
-						<div id="characterArea" ondragover="event.preventDefault();">
-							<h4>Character</h4>
-							<button onclick="changeCharacterLeft()">
-								<img src="<c:url value="/resources/img/arrow_left.gif" />"
-									height="15px">
-							</button>
-							<img id="curCharacter"
-								src="<c:url value="/resources/img/char1.png" />" height="100px"
-								draggable="true" ondragstart="dragIt(event);" />
-							<button onclick="changeCharacterRight()">
-								<img src="<c:url value="/resources/img/arrow_right.gif" />"
-									height="15px">
-							</button>
-						</div>
-					</div>
-				</div>
+  				<div class= "transparent" id="musicList">
+ 	  			<form>
+    				<ul id="draggable">
+    				<li class="music1">Music1</li>
+       				<li class="music2">Music2</li>
+       				<li class="music3">Music3</li>
+       				<li class="music4">Music4</li>
+					</ul>
+	 		 	</form>
+    			</div>
+  				</div>
 
 
 
 			</div>
 		</div>
-
-
-
 	</div>
+
 
 
 

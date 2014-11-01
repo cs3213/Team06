@@ -37,17 +37,58 @@ function displayCoord(e) {
 	return true;
 }*/
 
-function myFunction() {
-    var x, text;
-    // Get the value of input field with id="numb"
-    x = document.getElementById("numb").value;
-    // If x is Not a Number or less than one or greater than 10
-    if (isNaN(x) || x < 1 || x > 10) {
-        text = "Input not valid";
-    } else {
-        text = "Input OK";
-    }
-    document.getElementById("demo").innerHTML = text;
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+	if (characters[0]) {
+	    switch (e.keyCode) {
+    		case 37:
+    			keyboardLeft(0, 1);//left
+    			break;
+    		case 38:
+    			keyboardUp(0, 1);//up
+    			break;
+    		case 39:
+    			keyboardRight(0, 1);//right
+    			break;
+    		case 40:
+    			keyboardDown(0, 1);//down
+    			break;
+	    }
+	}
+}
+
+function keyboardRight(index, steps){
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '+='+(10*steps) + 'px';
+	console.log("keyboard right");
+	$(id).animate({marginLeft: distance},'fast');
+}
+
+function keyboardLeft(index, steps){
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("keyboard left");
+	$(id).animate({marginLeft: distance},'fast');
+}
+
+function keyboardDown(index, steps) {
+	imgObj = characters[index];
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '+='+(10*steps) + 'px';
+	console.log("keyboard down");
+	$(id).animate({marginTop: distance},'fast');
+}
+
+function keyboardUp(index, steps) {
+	imgObj = characters[index];
+	var id = '#'+imgObj.id;
+	var distance = '-='+(10*steps) + 'px';
+	console.log("keyboard up");
+	$(id).animate({marginTop: distance},'fast');
 }
 
 function setx(index, posx) {
