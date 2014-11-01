@@ -190,9 +190,7 @@
  	<div class="container content-div">
 
 
- 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
-
- 	</div>
+ 	<!--<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style=""></div>-->
  	</div>
  	
  	<div id="control-panel" class = "container content-div">
@@ -217,14 +215,11 @@
      <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
     </div>
  </div>
-
-
-
-
 </div>
-
-
-
+<audio controls autoplay>
+    <source src="<c:url value="/resources/music/Mydestiny.mp3" />" type="audio/mp3" />
+    <source src="<c:url value="/resources/music/Mydestiny.ogg" />" type="audio/ogg" />
+</audio>
 
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
