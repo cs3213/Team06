@@ -172,6 +172,7 @@
       		<li class="command_x">Set X <input type="text" name="x_pos" size="2" class="input-word" onchange="checkXValue(this);">px</li>
        		<li class="command_y">Set Y <input type="text" name="y_pos" size="2" class="input-word" onchange="checkYValue(this);">px</li>   
        		<li class='command_repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
+       		<li class='command_forever_loop'>Forever Loop </li>
        		<li class='command_end_repeat'>End_Repeat </li>
        		<li class='command_show'>Show </li>
        		<li class='command_hide'>Hide </li>
