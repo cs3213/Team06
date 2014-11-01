@@ -3,6 +3,7 @@ var charactersSrc=[];
 var characters=[];
 var inputSequence = [];
 var inputValue = [];
+var timer;
 
 //If it is not IE, we assume that the browser is NS.
 /*var IE = document.all?true:false;
@@ -164,8 +165,10 @@ function play(sequence,value) {
 				changeCostume(i);
 			} else if (thisSequence[j].indexOf("Background") > -1) {
 				changeBackground(i);
-			} else if (thisSequence[j].indexOf("Repeat") > -1 
+			} else if ((thisSequence[j].indexOf("Repeat") > -1 
+					|| thisSequence[j].indexOf("Forever Loop") > -1) 
 					&& thisSequence[j].indexOf("End_Repeat") == -1) {
+				var command = thisSequence[j];
 				var repeatSequence = [];
 				var repeatValue = [];
 				var repeatTimes = thisValue[j];
@@ -182,8 +185,17 @@ function play(sequence,value) {
 				console.log(repeatValue);
 				
 				//run repeat sequence
-				for (var k=0; k<repeatTimes; k++) {
-					repeat(i, repeatSequence, repeatValue);
+				if (command.indexOf("Repeat") > -1) {
+					for (var k=0; k<repeatTimes; k++) {
+						repeat(i, repeatSequence, repeatValue);
+					}
+				} else {
+					clearTimeout(timer);
+					timer = setInterval(
+							function(){
+								repeat(i, repeatSequence, repeatValue);
+							}, 1000);
+					return;
 				}
 			}
 		}
@@ -260,9 +272,11 @@ function repeat(index, sequence, value) {
 			changeCostume(index);
 		} else if (sequence[i].indexOf("Background") > -1) {
 			changeBackground();
-		} else if (sequence[i].indexOf("Repeat") > -1 
+		} else if ((sequence[i].indexOf("Repeat") > -1 
+				|| sequence[i].indexOf("Forever Loop") > -1)
 				&& sequence[i].indexOf("End_Repeat") == -1) {
-
+			
+			var command = sequence[i];
 			var repeatSequence = [];
 			var repeatValue = [];
 			var repeatTimes = value[i];
@@ -279,8 +293,17 @@ function repeat(index, sequence, value) {
 			console.log(repeatValue);
 			
 			//run repeat sequence
-			for (var k=0; k<repeatTimes; k++) {
-				repeat(index, repeatSequence, repeatValue);
+			if (command.indexOf("Repeat") > -1) {
+				for (var k=0; k<repeatTimes; k++) {
+					repeat(index, repeatSequence, repeatValue);
+				}
+			} else {
+				clearTimeout(timer);
+				timer = setInterval(
+						function(){
+							repeat(index, repeatSequence, repeatValue);
+						}, 1000);
+				return;
 			}
 		}
 	}
@@ -437,9 +460,9 @@ function dropOver() {
     $( "#draggable li" ).draggable({
          connectToSortable: sortNode,
          helper: "clone",
-         revert: "invalid"
+         revert: "invalid",
     });
-
+    
     $( sortNode ).sortable({
         revert: true,
         stop: function(event, ui){

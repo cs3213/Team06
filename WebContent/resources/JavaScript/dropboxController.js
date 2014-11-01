@@ -9,7 +9,7 @@ var chosenFile = "";
 
 // Use a pop-up for auth.
 client.authDriver(new Dropbox.AuthDriver.Popup({ 
-	receiverUrl: 'http://localhost:8080/CS3213_assignment3/index'
+	receiverUrl: 'http://localhost:8080/CS3213_assignment3/'
 }));
 
 // First check if we're already authenticated.
@@ -18,20 +18,24 @@ client.authenticate({ interactive: false });
 if (client.isAuthenticated()) {
 	// If we're authenticated, update the UI to reflect the logged in status.
 	localStorage.flag=1;
+	console.log("authenticated");
 	loggedIn();
 } else {
 	// Otherwise show the login button.
 	localStorage.flag=0;
+	console.log("not authenticated");
 	console.log($('#dropbox-login-btn'));
 	$('dropbox-login-panel').show();
+	$('#Drop-boxLogin').show();
+	hideLoadAndDeleteBtn();
 }
 
 function dropboxLogin() {
 	client.authenticate(function (err) {
 		localStorage.flag=1;
 		if (err) { alert('Error: ' + err); return; }
+		console.log("dropbox login");
 		loggedIn();
-		
 	});
 }
 
@@ -83,8 +87,10 @@ function insertValue(value, countElement){
 }
 
 function loggedIn() {
+	console.log("login");
 	$('#dropbox-login-panel').hide();
-	$('#file-list-panel').show();
+	$('#Drop-boxLogin').hide();
+	showLoadAndDeleteBtn();
 	var datastoreManager = new Dropbox.Datastore.DatastoreManager(client);
 
 	datastoreManager.openDefaultDatastore(function (err, datastore) {
@@ -260,4 +266,18 @@ function loggedIn() {
 
 		});
 	});
+}
+
+function showLoadAndDeleteBtn(){
+	$('#game-file-select').show();
+	$('#loading-btn').show();
+	$('#deleting-btn').show();
+
+
+
+}
+function hideLoadAndDeleteBtn(){
+	$('#game-file-select').hide();
+	$('#loading-btn').hide();
+	$('#deleting-btn').hide();
 }

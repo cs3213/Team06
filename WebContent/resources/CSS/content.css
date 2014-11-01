@@ -29,13 +29,13 @@ body {
 	float: left;
 }
 #editor {
-	height: 440px;
-	width: 50%;
+	height: 643px; 
+	width: 26%;
 	float: left;
 }
 
 #player {
-	width: 100%;
+	width: 46%;
 	float: left;
 }
 #storage{
@@ -62,7 +62,7 @@ body {
 .command_y {
 	background-color: rgb(96,127,15);
 }
-.command_repeat, .command_end_repeat {
+.command_repeat, .command_forever_loop, .command_end_repeat {
 	background-color: rgb(104,153,199);
 }
 .command_show {
@@ -91,7 +91,19 @@ body {
     color:white;
     width: 145px;
     text-align:center;
- }
+}
+    
+#draggable li:hover {
+    cursor: pointer;
+}
+
+#sortable li.ui-sortable-helper{
+    cursor: move;
+}
+
+#sortable li:hover {
+    cursor: pointer;
+}
  
 #sortable li {
     border-radius: 10px;
@@ -225,7 +237,7 @@ button {
 	width:45%;
 }
 .tab-panel{
-	width: 30%;
+	width: 20%;
 	height: 400px;
     float: left;
 }
@@ -239,7 +251,7 @@ button {
 	width:90%;
 	margin: 2rem;
 	overflow: scroll; 
-	height: 300px; 
+	height: 570px; 
 	float: left; 
 	border: dotted
 }
@@ -247,6 +259,13 @@ button {
 	height:auto;
 	width:auto;
 }
+
+.inner-tab>li>a {
+position: relative;
+display: block;
+padding: 2px 2px;
+}
+
 .select-pane{
 	width:100%;
 }
@@ -255,4 +274,18 @@ button {
 	width:90%;
 	margin: 2rem;
 	
+}
+
+.btn-primary-customize{
+	 display:block;
+  max-width: 14rem;
+  margin: 1.5rem 1.5rem auto;
+  padding: 1rem; 
+  border-radius: 2px;
+  font-size: 1.5rem; 
+  font-family: 'Oxygen', sans-serif;
+  text-align: center; 
+  text-decoration: none;
+  transition: all 200ms linear; 
+  float:left;
 }
