@@ -437,9 +437,9 @@ function dropOver() {
     $( "#draggable li" ).draggable({
          connectToSortable: sortNode,
          helper: "clone",
-         revert: "invalid"
+         revert: "invalid",
     });
-
+    
     $( sortNode ).sortable({
         revert: true,
         stop: function(event, ui){

@@ -91,7 +91,19 @@ body {
     color:white;
     width: 145px;
     text-align:center;
- }
+}
+    
+#draggable li:hover {
+    cursor: pointer;
+}
+
+#sortable li.ui-sortable-helper{
+    cursor: move;
+}
+
+#sortable li:hover {
+    cursor: pointer;
+}
  
 #sortable li {
     border-radius: 10px;
