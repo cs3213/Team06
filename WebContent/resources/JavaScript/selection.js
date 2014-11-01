@@ -1,6 +1,8 @@
 var countElement = 0;
 var charactersSrc=[];
 var characters=[];
+var leftMargin=[];
+var topMargin=[];
 var inputSequence = [];
 var inputValue = [];
 var timer;
@@ -178,6 +180,7 @@ function play(sequence,value) {
 		newdiv.appendChild(element);
 		div.appendChild(newdiv);
 		characters.push(element);
+		
 	}
 	
 	// execute command
