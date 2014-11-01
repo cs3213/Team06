@@ -236,7 +236,29 @@
 						<div id="divName" class="container">
 							<h4>Setting</h4>
 						</div>
-						<form>
+			<div>
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="active">
+					<a href="#Motion" role="tab"
+						data-toggle="tab">Motion</a>
+				</li>
+				<li>
+					<a href="#Data" role="tab"
+						data-toggle="tab">Data</a>
+				</li>
+				<li>
+					<a href="#Control" role="tab"
+						data-toggle="tab">Control</a>
+				</li>
+				<li>
+				    <a href="#Operator" role="tab"
+						data-toggle="tab">Operator</a>
+				    </li>
+			</ul>	
+			</div>
+			<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="Motion">
+		<form>
 							<ul id="draggable" class="two-col-special">
 								<li class="command_right">Move Right <input type="text"
 									name="right" size="2" class="input-word">steps
@@ -256,7 +278,15 @@
 								<li class="command_y">Set Y <input type="text" name="y_pos"
 									size="2" class="input-word" onchange="checkYValue(this);">px
 								</li>
-								<li class='command_repeat'>Repeat <input type="text"
+							</ul>
+						</form>
+		</div>
+		<div role="tabpanel" class="tab-pane active" id="Data">
+		</div>
+		<div role="tabpanel" class="tab-pane active" id="Control">
+		<form>
+		<ul id="draggable" class="two-col-special">
+		<li class='command_repeat'>Repeat <input type="text"
 									name="repeat" size="2" class="input-word">
 								</li>
 								<li class='command_forever_loop'>Forever Loop</li>
@@ -265,11 +295,14 @@
 								<li class='command_hide'>Hide</li>
 								<li class='command_costume'>Change Constume</li>
 								<li class='command_background'>Change Background</li>
-							</ul>
-						</form>
-					</div>
+		</ul>
+		</form>
+		</div>
+		<div class="tab-pane active select-pane" id="Operator">
+		</div>
 				</div>
-
+</div>
+</div>
 				<div class="tab-pane select-pane" id="music-pane">
   				<div class= "transparent" id="musicList">
  	  			<form>
