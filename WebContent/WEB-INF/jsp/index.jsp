@@ -77,13 +77,6 @@
 				</select>
 				
 				
-				<select id="game-file-select" style="display:"
-					class="form-control form-control-inline btn-primary-customize"
-					onchange='changeFunc();'>
-					<option><textarea>hello</textarea></option>
-										<option><textarea>hello</textarea></option>
-					
-				</select>
 
 				<button type="button" id="loading-btn" style="display:"
 					data-loading-text="Loading..."
@@ -327,36 +320,86 @@
 								</form>
 							</div>
 							<div class="tab-pane select-pane" id="Operator">
-									<ul id="draggable" text-align = "left">
+									<ul id="draggable" style = "text-align: left">
 										<li class='addOperation'>
-											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> + 
-  											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> <button>New</button>
+											<input id="input1" type="text" name="input" size="2" style = "display: none">
+											<select id="select1" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> + 
+  											<input id="input2" type="text" name="input" size="2" style = "display: none">
+  											<select id="select2" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
   										</li>
   										<li class='substractOperation'>
-											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> - 
-  											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> <button>New</button>
+  											<input id="input3" type="text" name="input" size="2" style = "display: none">
+											<select id="select3" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> - 
+  											<input id="input4" type="text" name="input" size="2" style = "display: none">
+  											<select id="select4" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
   										</li>
   										<li class='multiplyOperation'>
-											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> * 
-  											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> <button>New</button>
+  											<input id="input5" type="text" name="input" size="2" style = "display: none">
+											<select id="select5" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> * 
+  											<input id="input6" type="text" name="input" size="2" style = "display: none">
+  											<select id="select6" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
   										</li>
   										<li class='divideOperation'>
-											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> / 
-  											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> <button>New</button>
+  											<input id="input7" type="text" name="input" size="2" style = "display: none">
+											<select id="select7" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> / 
+  											<input id="input8" type="text" name="input" size="2" style = "display: none">
+  											<select id="select8" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
   										</li>
   										<li class='modOperation'>
-											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> mod 
-  											<select><option value="X">X</option>
-  											<option value="Y">Y</option></select> <button>New</button>
+  											<input id="input9" type="text" name="input" size="2" style = "display: none">
+											<select id="select9" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> mod 
+  											<input id="input10" type="text" name="input" size="2" style = "display: none">
+  											<select id="select10" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
+  										</li>
+  										<li class='equalOperation'>
+  											<input id="input11" type="text" name="input" size="2" style = "display: none">
+											<select id="select11" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> = 
+  											<input id="input12" type="text" name="input" size="2" style = "display: none">
+  											<select id="select12" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
+  										</li>
+  										<li class='greaterThanOperation'>
+  											<input id="input13" type="text" name="input" size="2" style = "display: none">
+											<select id="select13" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> >= 
+  											<input id="input14" type="text" name="input" size="2" style = "display: none">
+  											<select id="select14" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
+  										</li>
+  										<li class='lessThanOperation'>
+  											<input id="input15" type="text" name="input" size="2" style = "display: none">
+											<select id="select15" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <= 
+  											<input id="input16" type="text" name="input" size="2" style = "display: none">
+  											<select id="select16" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
+  											<option value="Y">Y</option>
+  											<option value="customer">Input</option></select> <button>New</button>
   										</li>
 									</ul>
 							</div>
