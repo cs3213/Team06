@@ -3,6 +3,7 @@ var charactersSrc=[];
 var characters=[];
 var inputSequence = [];
 var inputValue = [];
+var timer;
 
 //If it is not IE, we assume that the browser is NS.
 /*var IE = document.all?true:false;
@@ -164,8 +165,10 @@ function play(sequence,value) {
 				changeCostume(i);
 			} else if (thisSequence[j].indexOf("Background") > -1) {
 				changeBackground(i);
-			} else if (thisSequence[j].indexOf("Repeat") > -1 
+			} else if ((thisSequence[j].indexOf("Repeat") > -1 
+					|| thisSequence[j].indexOf("Forever Loop") > -1) 
 					&& thisSequence[j].indexOf("End_Repeat") == -1) {
+				var command = thisSequence[j];
 				var repeatSequence = [];
 				var repeatValue = [];
 				var repeatTimes = thisValue[j];
@@ -182,8 +185,17 @@ function play(sequence,value) {
 				console.log(repeatValue);
 				
 				//run repeat sequence
-				for (var k=0; k<repeatTimes; k++) {
-					repeat(i, repeatSequence, repeatValue);
+				if (command.indexOf("Repeat") > -1) {
+					for (var k=0; k<repeatTimes; k++) {
+						repeat(i, repeatSequence, repeatValue);
+					}
+				} else {
+					clearTimeout(timer);
+					timer = setInterval(
+							function(){
+								repeat(i, repeatSequence, repeatValue);
+							}, 1000);
+					return;
 				}
 			}
 		}
@@ -260,9 +272,11 @@ function repeat(index, sequence, value) {
 			changeCostume(index);
 		} else if (sequence[i].indexOf("Background") > -1) {
 			changeBackground();
-		} else if (sequence[i].indexOf("Repeat") > -1 
+		} else if ((sequence[i].indexOf("Repeat") > -1 
+				|| sequence[i].indexOf("Forever Loop") > -1)
 				&& sequence[i].indexOf("End_Repeat") == -1) {
-
+			
+			var command = sequence[i];
 			var repeatSequence = [];
 			var repeatValue = [];
 			var repeatTimes = value[i];
@@ -279,8 +293,17 @@ function repeat(index, sequence, value) {
 			console.log(repeatValue);
 			
 			//run repeat sequence
-			for (var k=0; k<repeatTimes; k++) {
-				repeat(index, repeatSequence, repeatValue);
+			if (command.indexOf("Repeat") > -1) {
+				for (var k=0; k<repeatTimes; k++) {
+					repeat(index, repeatSequence, repeatValue);
+				}
+			} else {
+				clearTimeout(timer);
+				timer = setInterval(
+						function(){
+							repeat(index, repeatSequence, repeatValue);
+						}, 1000);
+				return;
 			}
 		}
 	}
@@ -297,14 +320,11 @@ function submit(){
 		var sortable = "#sortable"+(i+1).toString()+" li";
 		var div = "#div"+(i+1).toString();
 
-		console.log("sortable = "+sortable);
-		console.log("div = "+div);
 		if ($(sortable) && $(div)) {
 			$(sortable).each(function(){
 				var command = $(this).text();
 				inputSequence[i].push(command);
 				var input = $(this).find('input').val();
-				console.log("input = "+input);
 				if (input) {
 					inputValue[i].push(input);
 				} else {
@@ -319,12 +339,7 @@ function submit(){
 			);
 		}
 	}
-	console.log("charactersSrc");
-	console.log(charactersSrc);
-	console.log("inputSequence");
-	console.log(inputSequence);
-	console.log("inputValue");
-	console.log(inputValue);
+
 	play(inputSequence,inputValue);
 }
 
@@ -357,7 +372,7 @@ function dropIt(theEvent) {
 	
     $(div).delegate(".removeImgButton", "click", function() {
         $(this).parent().remove();
-        console.log(element.id.substring(7));
+
         var index = element.id.substring(7);
         $('#sortable'+index).remove();
     });
@@ -441,34 +456,30 @@ function dropOver() {
 	document.getElementById(element.id).appendChild(editButton);
 	
 	var sortNode = "#"+element.id;
-	console.log(element.id);
+
     $( "#draggable li" ).draggable({
          connectToSortable: sortNode,
          helper: "clone",
-         revert: "invalid"
+         revert: "invalid",
     });
-
+    
     $( sortNode ).sortable({
         revert: true,
-        
         stop: function(event, ui){
 	        var html = ui.item.html();
+
 	        if (html.indexOf("span") == -1) {
-		        console.log(ui.item);
 		        ui.item.css("border-radius", "10px");
 		        ui.item.css("margin", "3px 3px 3px 3px");
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
-
 		        ui.item.css("width", "200px");
-		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
 		        
 		        ui.item.append('<span class="closeButton">X</span>');
-		        console.log(ui.item.html());
-		        
+
 		        document.getElementById("demo").innerHTML = ui.item.context.id;
 	        }
 	    }
@@ -506,21 +517,18 @@ function changeConnect(el) {
         revert: true,
         stop: function(event, ui){
 	        var html = ui.item.html();
+	        
 	        if (html.indexOf("span") == -1) {
-		        console.log(ui.item);
 		        ui.item.css("border-radius", "10px");
 		        ui.item.css("margin", "3px 3px 3px 3px");
 		        ui.item.css("padding", "3px 3px");
 		        ui.item.css("font-size", "0.8em");
 		        ui.item.css("color", "white");
-
 		        ui.item.css("width", "200px");
-		        ui.item.css("background-color", "rgb(74,89,164)");
 		        ui.item.css("text-align", "center");
 		        ui.item.css("list-style-type", "none");
 		        
 		        ui.item.append('<span class="closeButton">X</span>');
-		        console.log(ui.item.html());
 		        
 		        document.getElementById("demo").innerHTML = ui.item.context.id;
 	        }
@@ -539,13 +547,12 @@ function displayHouse(el) {
 	
 	var newId = "house" + houseId + "_1.png";
 	var path = "resources/img/" + newId;
-	//console.log(path);
+
 	var image = document.createElement("img");
 	image.setAttribute("src", path);
 	var player = document.getElementById("divtest-player");
 	var newStyle = "background-image:url("+path+");" + "background-size: 100% 100%";
 	
-	console.log(newStyle);
 	player.setAttribute("style", newStyle);
 
 }

@@ -44,37 +44,37 @@ body {
 	float: left;
 }
 
-#right {
+.command_right {
 	background-color: rgb(135,10,8);
 }
-#left {
+.command_left {
 	background-color: rgb(175,33,12);
 }
-#up {
+.command_up {
 	background-color: rgb(222,148,41);
 }
-#down {
+.command_down {
 	background-color: rgb(207,185,28);
 }
-#x {
+.command_x {
 	background-color: rgb(124,180,28);
 }
-#y {
+.command_y {
 	background-color: rgb(96,127,15);
 }
-#repeat, #end_repeat {
+.command_repeat, .command_forever_loop, .command_end_repeat {
 	background-color: rgb(104,153,199);
 }
-#show {
+.command_show {
 	background-color: rgb(51,118,150);
 }
-#hide {
+.command_hide {
 	background-color: rgb(93,71,139);
 }
-#costume {
+.command_costume {
 	background-color: rgb(62,69,127);
 }
-#background {
+.command_background {
 	background-color: rgb(8,42,71);
 }
 #divName {
@@ -91,7 +91,19 @@ body {
     color:white;
     width: 145px;
     text-align:center;
- }
+}
+    
+#draggable li:hover {
+    cursor: pointer;
+}
+
+#sortable li.ui-sortable-helper{
+    cursor: move;
+}
+
+#sortable li:hover {
+    cursor: pointer;
+}
  
 #sortable li {
     border-radius: 10px;
@@ -99,7 +111,7 @@ body {
     padding: 3px 3px;
     font-size: 0.8em;
     color:white;
-    width: 170px;
+    width: 145px;
     background-color:#4679bd;
     text-align:center;
  }
