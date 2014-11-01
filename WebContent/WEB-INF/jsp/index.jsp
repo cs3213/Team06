@@ -165,18 +165,18 @@
  	<div id="divName" class="container"><h4>Setting</h4></div>
  	<form>
     	<ul id="draggable" class="two-col-special">
-    		<li id="right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
-       		<li id="left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
-       		<li id="up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
-       		<li id="down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
-      		<li id="x">Set X <input type="text" name="x_pos" size="2" class="input-word" onchange="checkXValue(this);">px</li>
-       		<li id="y">Set Y <input type="text" name="y_pos" size="2" class="input-word" onchange="checkYValue(this);">px</li>   
-       		<li id='repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
-       		<li id='end_repeat'>End_Repeat </li>
-       		<li id='show'>Show </li>
-       		<li id='hide'>Hide </li>
-       		<li id='costume'>Change Constume</li>
-       		<li id='background'>Change Background</li>
+    		<li class="command_right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
+       		<li class="command_left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
+       		<li class="command_up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
+       		<li class="command_down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
+      		<li class="command_x">Set X <input type="text" name="x_pos" size="2" class="input-word" onchange="checkXValue(this);">px</li>
+       		<li class="command_y">Set Y <input type="text" name="y_pos" size="2" class="input-word" onchange="checkYValue(this);">px</li>   
+       		<li class='command_repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
+       		<li class='command_end_repeat'>End_Repeat </li>
+       		<li class='command_show'>Show </li>
+       		<li class='command_hide'>Hide </li>
+       		<li class='command_costume'>Change Constume</li>
+       		<li class='command_background'>Change Background</li>
 		</ul>
 	  </form>
     </div>
