@@ -434,6 +434,7 @@ function repeat(index, sequence, value) {
 }
 
 function submit(){
+	clearTimeout(timer);
 	inputSequence = [];
 	inputValue = [];
 	charactersSrc = [];
