@@ -110,171 +110,7 @@
 
 		</div>
 	</div>
-<<<<<<< HEAD
-</div>
-
-<div id="Main-Panel">
-
-
- 
-
-<div class= "transparent storage-panel"  id="storage">
- 	<div id="divName" class = "container content-div"><h4> Old Project</h4></div>
- 	
-
-  	<div id ="dropbox-login-panel" class ="container content-div">
- 		<button id="dropbox-login-btn" class="btn btn-primary" onclick="dropboxLogin()">Dropbox</button>
-  	</div>
-
- 	
- 	<div id ="file-list-panel" style="display:none">
- 		
- 		<div id="game-file-list" class="container content-div">
- 			<select id="game-file-select" class="form-control form-control-inline"  onchange='changeFunc();'>
-
- 			</select>
- 		</div>
-    
- 		<div id="control-panel-load" class = "container content-div">
-     		<button type="button" id="loading-btn" data-loading-text="Loading..." class="btn btn-primary">
-     		Load 
-     		</button>
-     		<button id="load-file-btn" style="display:none"></button>
-     	</div>
-    
-    	<div id="control-panel-delete" class = "container content-div">
-     		<button type="button" id="deleting-btn" data-loading-text="Deleting..." class="btn btn-primary">
-        	Delete 
-      		</button>
-    	</div>
-    </div>
-</div>
- 
-<div class= "transparent editor-panel" id="editor">
- 	<div id="divName" class="container inner-container"> <h4> Editor</h4></div>
- 	<!-- <div class="container inner-container"> -->
- 	<div id="divtest" class="scene-inner-container" ondrop="dropIt(event); dropOver();" ondragover="event.preventDefault();">
-
- 	</div>
- 	
- <div id="loading-bar" class="progress progress-inner" style="display:none">
-  <div id="loading-bar-content" class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-    <span id="loading-bar-indicator">0% Complete</span>
-  </div>
-</div>
-
- 	
-</div>
-
-
-
- <!-- Nav tabs -->
-
-<div class="tab-panel">
- <div class="inner-tab">
-  <ul class="nav nav-tabs inner-tab" role="tablist">
-   <li class="active"><a href="#source-pane" role="tab" data-toggle="tab"><h4>Characters</h4></a></li>
-    <li ><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h4>Actions</h4></a></li>
-  	<li><a href="#music-pane" role="tab" data-toggle="tab"><h4>Musics</h4></a></li>
-  </ul>
- </div>
-<div class="tab-content container tab-content-container">
- 
-  <div class="tab-pane active select-pane" id="source-pane">
-   <div class= transparent id="source">
- 	<div id="floatArea">
- 		<h4>Scene</h4>
- 			<button onclick="changeFloatLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curFloat"  src="<c:url value="/resources/img/house1.png"/>" height="100px"/ onclick="displayHouse(this)">
- 			<button onclick="changeFloatRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
- 	</div>
- 	
- 	<div id="characterArea" ondragover="event.preventDefault();">
- 		<h4>Character</h4>
- 		<button onclick="changeCharacterLeft()"><img src="<c:url value="/resources/img/arrow_left.gif" />" height="15px"></button>
- 			<img id="curCharacter" src="<c:url value="/resources/img/char1.png" />" height="100px" draggable="true" ondragstart="dragIt(event);"/>
- 		<button onclick="changeCharacterRight()"><img src="<c:url value="/resources/img/arrow_right.gif" />" height="15px"></button>
- 	</div>
-  </div> 
- </div>
- 
- <div class="tab-pane select-pane" id="coordEditor-pane">
-  <div class= "transparent" id="coordEditor">
- 	<div id="divName" class="container"><h4>Setting</h4></div>
- 	<form>
-    	<ul id="draggable">
-    		<li class="command_right">Move Right <input type="text" name="right" size="2" class="input-word">steps</li>
-       		<li class="command_left">Move Left <input type="text" name="left" size="2" class="input-word">steps</li>
-       		<li class="command_up">Move Up <input type="text" name="right" size="2" class="input-word">steps</li>
-       		<li class="command_down">Move Down <input type="text" name="left" size="2" class="input-word">steps</li>
-      		<li class="command_x">Set X <input type="text" name="x_pos" size="2" class="input-word" onchange="checkXValue(this);">px</li>
-       		<li class="command_y">Set Y <input type="text" name="y_pos" size="2" class="input-word" onchange="checkYValue(this);">px</li>   
-       		<li class='command_repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
-       		<li class='command_end_repeat'>End_Repeat </li>
-       		<li class='command_show'>Show </li>
-       		<li class='command_hide'>Hide </li>
-       		<li class='command_costume'>Change Constume</li>
-       		<li class='command_background'>Change Background</li>
-		</ul>
-	  </form>
-    </div>
-  </div>
-  <div class="tab-pane select-pane" id="music-pane">
-  	<div class= "transparent" id="musicList">
- 	  <form>
-    	<ul id="draggable">
-    		<li class="music1">Music1</li>
-       		<li class="music2">Music2</li>
-       		<li class="music3">Music3</li>
-       		<li class="music4">Music4</li>
-		</ul>
-	  </form>
-    </div>
-  </div>
-  
- </div>
-</div>
-
- <div class= "transparent" id="player">
- 	<div id="divName" class="container content-div"><h4> Player</h4></div>
- 	
- 	<div class="container content-div">
-
-
- 	<!--<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style=""></div>-->
- 	</div>
- 	
- 	<div id="control-panel" class = "container content-div">
-     <button type="button" id="reset-background-btn" class="btn btn-primary"> Reset Background </button>
-     <button type="button" id="reset-character-btn" class="btn btn-success"> Reset Character </button>
- 
- <button type="button" id="save-trigger" class="btn btn-info"> Save </button>
-  <div id="game-name-input" class="overlay" style="">
-	<div class="overlay-inner">
-
-   <input type="input" class="form-control" id="user-file-name" placeholder="File Name">
-
-	 <button id="save-btn" class="btn btn-primary">Confirm
-      </button>
-      
-      <button id="cancel-btn" class="btn btn-primary">Cancel
-      </button>
-      
-	</div>
-</div>
-     
-     <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
-    </div>
- </div>
-</div>
-<!-- <audio controls autoplay>
-    <source src="<c:url value="/resources/music/Mydestiny.mp3" />" type="audio/mp3" />
-    <source src="<c:url value="/resources/music/Mydestiny.ogg" />" type="audio/ogg" />
-</audio> -->
-=======
-
-
-
+	
 	<div id="Main-Panel">
 		<div class="transparent" id="player">
 			<div id="divName" class="container content-div">
@@ -427,48 +263,24 @@
 				</div>
 
 				<div class="tab-pane select-pane" id="music-pane">
-					<div class=transparent id="source">
-						<div id="floatArea">
-							<h4>Scene</h4>
-							<button onclick="changeFloatLeft()">
-								<img src="<c:url value="/resources/img/arrow_left.gif" />"
-									height="15px">
-							</button>
-							<img id="curFloat"
-								src="<c:url value="/resources/img/house1.png"/>" height="100px"
-								/ onclick="displayHouse(this)">
-							<button onclick="changeFloatRight()">
-								<img src="<c:url value="/resources/img/arrow_right.gif" />"
-									height="15px">
-							</button>
-						</div>
-
-						<div id="characterArea" ondragover="event.preventDefault();">
-							<h4>Character</h4>
-							<button onclick="changeCharacterLeft()">
-								<img src="<c:url value="/resources/img/arrow_left.gif" />"
-									height="15px">
-							</button>
-							<img id="curCharacter"
-								src="<c:url value="/resources/img/char1.png" />" height="100px"
-								draggable="true" ondragstart="dragIt(event);" />
-							<button onclick="changeCharacterRight()">
-								<img src="<c:url value="/resources/img/arrow_right.gif" />"
-									height="15px">
-							</button>
-						</div>
-					</div>
-				</div>
+  				<div class= "transparent" id="musicList">
+ 	  			<form>
+    				<ul id="draggable">
+    				<li class="music1">Music1</li>
+       				<li class="music2">Music2</li>
+       				<li class="music3">Music3</li>
+       				<li class="music4">Music4</li>
+					</ul>
+	 		 	</form>
+    			</div>
+  				</div>
 
 
 
 			</div>
 		</div>
-
-
-
 	</div>
->>>>>>> dad23937356166eaddfbc2fd301c1598a9755f6f
+
 
 
 
