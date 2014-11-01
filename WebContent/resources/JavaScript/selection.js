@@ -3,6 +3,8 @@ var charactersSrc=[];
 var characters=[];
 var leftMargin=[];
 var topMargin=[];
+var leftMarginLimit = [];
+var topMarginLimit = [];
 var inputSequence = [];
 var inputValue = [];
 var timer;
@@ -116,17 +118,39 @@ function sety(index, posy) {
 function moveRight(index, steps){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '+='+(10*steps) + 'px';
-	console.log("move right");
-	$(id).animate({marginLeft: distance},'slow');
+	var length = 10 * steps;
+
+	if (leftMarginLimit[index] >= leftMargin[index] + length) {
+		var distance = '+='+ length + 'px';
+		console.log("move right");
+		$(id).animate({marginLeft: distance},'slow');
+	} else {
+		length = leftMarginLimit[index] - leftMargin[index];
+		var distance = '+='+ length + 'px';
+		console.log("right out of bound");
+		$(id).animate({marginLeft: distance},'slow');
+	}
+	leftMargin[index] += length;
+//	leftMarginLimit[index] -= length;
 }
 
 function moveLeft(index, steps){
 	imgObj = characters[index];
 	var id = '#'+imgObj.id;
-	var distance = '-='+(10*steps) + 'px';
-	console.log("move left");
-	$(id).animate({marginLeft: distance},'slow');
+	var length = 10 * steps;
+	if (leftMargin[index]-length >= 0) {
+		var distance = '-='+ length + 'px';
+		console.log("move left");
+		$(id).animate({marginLeft: distance},'slow');
+	} else {
+		length = leftMargin[index];
+		var distance = '-='+ length + 'px';
+		console.log("left out of bound");
+		$(id).animate({marginLeft: distance},'slow');
+	}
+	
+	leftMargin[index] -= length;
+//	leftMarginLimit[index] += length;
 }
 
 function moveDown(index, steps) {
@@ -181,8 +205,15 @@ function play(sequence,value) {
 		div.appendChild(newdiv);
 		characters.push(element);
 		
+		leftMargin.push(parseInt($(element).css('margin-left')));
+		topMargin.push(parseInt($(element).css('margin-top')));
+		leftMarginLimit.push($(newdiv).parent().width() - $(newdiv).width());
+		topMarginLimit.push($(newdiv).parent().height() - $(newdiv).height());
 	}
-	
+	console.log(leftMargin);
+	console.log(topMargin);
+	console.log(leftMarginLimit);
+	console.log(topMarginLimit);
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
 		var thisSequence = sequence[i];
