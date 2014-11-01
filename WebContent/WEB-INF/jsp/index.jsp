@@ -77,13 +77,6 @@
 				</select>
 				
 				
-				<select id="game-file-select" style="display:"
-					class="form-control form-control-inline btn-primary-customize"
-					onchange='changeFunc();'>
-					<option><textarea>hello</textarea></option>
-										<option><textarea>hello</textarea></option>
-					
-				</select>
 
 				<button type="button" id="loading-btn" style="display:"
 					data-loading-text="Loading..."

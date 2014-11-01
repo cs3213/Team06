@@ -68,7 +68,7 @@ function keyboardRight(index, steps){
 	var length = 10 * steps;
 
 	if (leftMarginLimit[index] < leftMargin[index] + length) {
-		console.log("keyboard right out of bound");
+		Popup.show("keyboard right out of bound");
 		length = leftMarginLimit[index] - leftMargin[index];
 	}
 	
@@ -83,7 +83,7 @@ function keyboardLeft(index, steps){
 	var id = '#'+imgObj.id;
 	var length = 10 * steps;
 	if (leftMargin[index]-length < 0) {
-		console.log("keyboard left out of bound");
+		Popup.show("keyboard left out of bound");
 		length = leftMargin[index];
 	}
 	
@@ -98,7 +98,7 @@ function keyboardDown(index, steps) {
 	var id = '#'+imgObj.id;
 	var length = 10 * steps;
 	if (topMarginLimit[index] < topMargin[index] + length ) {
-		console.log("keyboard down out of bound");
+		Popup.show("keyboard down out of bound");
 		length = topMarginLimit[index] - topMargin[index];
 	}
 	
@@ -113,7 +113,7 @@ function keyboardUp(index, steps) {
 	var id = '#'+imgObj.id;
 	var length = 10 * steps;
 	if (topMargin[index] - length < 0) {
-		console.log("keyboard up out of bound");
+		Popup.show("keyboard up out of bound");
 		length = topMargin[index];
 	}
 	
@@ -128,9 +128,14 @@ function setx(index, posx) {
 	var id = '#'+imgObj.id;
 	console.log("set x");
 	
-	$(id).animate({
-		marginLeft: posx + 'px'
-	}, 'fast');
+	if (posx >= 0 && posx <= leftMarginLimit[index]) {
+		$(id).animate({
+			marginLeft: posx + 'px'
+		}, 'fast');
+		leftMargin[index] = posx;
+	} else {
+		Popup.show("set x out of bound");
+	}
 }
 
 function sety(index, posy) {
@@ -138,9 +143,14 @@ function sety(index, posy) {
 	var id = '#'+imgObj.id;
 	console.log("set y");
 
-	$(id).animate({
-		marginTop: posy+'px'
-	}, 'fast');
+	if (posy >= 0 && posy <= topMarginLimit[index]) {
+		$(id).animate({
+			marginTop: posy + 'px'
+		}, 'fast');
+		topMargin[index] = posy;
+	} else {
+		Popup.show("set y out of bound");
+	}
 }
 
 function moveRight(index, steps){
@@ -149,7 +159,7 @@ function moveRight(index, steps){
 	var length = 10 * steps;
 
 	if (leftMarginLimit[index] < leftMargin[index] + length) {
-		console.log("right out of bound");
+		Popup.show("right out of bound");
 		length = leftMarginLimit[index] - leftMargin[index];
 	}
 	
@@ -164,7 +174,7 @@ function moveLeft(index, steps){
 	var id = '#'+imgObj.id;
 	var length = 10 * steps;
 	if (leftMargin[index]-length < 0) {
-		console.log("left out of bound");
+		Popup.show("left out of bound");
 		length = leftMargin[index];
 	}
 	
@@ -179,7 +189,7 @@ function moveDown(index, steps) {
 	var id = '#'+imgObj.id;
 	var length = 10 * steps;
 	if (topMarginLimit[index] < topMargin[index] + length ) {
-		console.log("down out of bound");
+		Popup.show("down out of bound");
 		length = topMarginLimit[index] - topMargin[index];
 	}
 	
@@ -194,7 +204,7 @@ function moveUp(index, steps) {
 	var id = '#'+imgObj.id;
 	var length = 10 * steps;
 	if (topMargin[index] - length < 0) {
-		console.log("up out of bound");
+		Popup.show("up out of bound");
 		length = topMargin[index];
 	}
 	
@@ -470,14 +480,16 @@ function dropIt(theEvent) {
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
 	var div = document.createElement("div");
-	div.style.cssText = "height: 230px; width: 28%; float: left";
+	div.style.cssText = "height: 110px; width: 28%; float: left";
 	div.id = "div" + countElement.toString();
 	var element = document.createElement("img");
 	element.id = "element" + countElement.toString();
 	element.setAttribute('src', eleSrc);
 	element.setAttribute('height', '80px');
 	element.setAttribute('width','100px');
-	element.setAttribute('dragable', 'false');
+	element.setAttribute('draggable', 'false');
+	element.setAttribute('droppable', 'false');
+	element.setAttribute('sortable', 'false');
 	div.appendChild(element);
 	//add it to the drop element
 	theEvent.target.appendChild(div);
@@ -550,7 +562,7 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 230px; width: 72%; float: right; border: dotted; overflow: scroll; ";
+	element.style.cssText = "height: 110px; width: 72%; float: left; border: dotted; overflow: scroll; ";
 	
 	document.getElementById('divtest').appendChild(element);
 	
