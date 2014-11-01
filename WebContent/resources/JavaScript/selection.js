@@ -585,6 +585,20 @@ function changeConnect(el) {
     });
 }
 
+function selectCustomer(el) {
+	//var selectBox = $(el);
+	var selectId = $(el).attr('id').substring(6);
+	var value = el.options[el.selectedIndex].value;
+	
+	if(value == "customer") {
+		var inputId = "input" + selectId;
+		document.getElementById(inputId).style.display = "";
+	} else {
+		var inputId = "input" + selectId;
+		document.getElementById(inputId).style.display = "none";
+	}
+}
+
 function displayHouse(el) {
 	var src = $(el).attr('src');
 	var index = src.indexOf("house") + 5;//5=length of house

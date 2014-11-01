@@ -77,6 +77,33 @@ body {
 .command_background {
 	background-color: rgb(8,42,71);
 }
+.addOperation {
+	background-color: rgb(135,10,8);
+}
+.substractOperation {
+	background-color: rgb(175,33,12);
+}
+.multiplyOperation {
+	background-color: rgb(222,148,41);
+}
+.divideOperation {
+	background-color: rgb(207,185,28);
+}
+.modOperation {
+	background-color: rgb(124,180,28);
+}
+.equalOperation {
+	background-color: rgb(96,127,15);
+}
+.greaterThanOperation {
+	background-color: rgb(104,153,199);
+}
+.lessThanOperation {
+	background-color: rgb(51,118,150);
+}
+.selectItem {
+	color: black;
+}
 #divName {
 	border-radius: 10px;
 	border: none;
