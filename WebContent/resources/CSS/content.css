@@ -62,7 +62,7 @@ body {
 .command_y {
 	background-color: rgb(96,127,15);
 }
-.command_repeat, .command_end_repeat {
+.command_repeat, .command_forever_loop, .command_end_repeat {
 	background-color: rgb(104,153,199);
 }
 .command_show {

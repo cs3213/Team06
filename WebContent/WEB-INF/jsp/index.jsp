@@ -172,6 +172,7 @@
       		<li class="command_x">Set X <input type="text" name="x_pos" size="2" class="input-word" onchange="checkXValue(this);">px</li>
        		<li class="command_y">Set Y <input type="text" name="y_pos" size="2" class="input-word" onchange="checkYValue(this);">px</li>   
        		<li class='command_repeat'>Repeat <input type="text" name="repeat" size="2" class="input-word"> </li>
+       		<li class='command_forever_loop'>Forever Loop </li>
        		<li class='command_end_repeat'>End_Repeat </li>
        		<li class='command_show'>Show </li>
        		<li class='command_hide'>Hide </li>
@@ -190,9 +191,7 @@
  	<div class="container content-div">
 
 
- 	<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style="">
-
- 	</div>
+ 	<!--<div id="divtest-player" class="scene_play" onmouseover="displayCoord" style=""></div>-->
  	</div>
  	
  	<div id="control-panel" class = "container content-div">
@@ -217,14 +216,11 @@
      <button type="button" class="btn btn-warning" onClick="submit()"> Play</button>
     </div>
  </div>
-
-
-
-
 </div>
-
-
-
+<audio controls autoplay>
+    <source src="<c:url value="/resources/music/Mydestiny.mp3" />" type="audio/mp3" />
+    <source src="<c:url value="/resources/music/Mydestiny.ogg" />" type="audio/ogg" />
+</audio>
 
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
