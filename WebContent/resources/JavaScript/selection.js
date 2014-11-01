@@ -37,17 +37,23 @@ function displayCoord(e) {
 	return true;
 }*/
 
-function myFunction() {
-    var x, text;
-    // Get the value of input field with id="numb"
-    x = document.getElementById("numb").value;
-    // If x is Not a Number or less than one or greater than 10
-    if (isNaN(x) || x < 1 || x > 10) {
-        text = "Input not valid";
-    } else {
-        text = "Input OK";
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+    switch (e.keyCode) {
+    	case 37:
+    		alert('left');
+    		break;
+    	case 38:
+    		alert('up');
+    		break;
+    	case 39:
+    		alert('right');
+    		break;
+    	case 40:
+    		alert('down');
+    		break;
     }
-    document.getElementById("demo").innerHTML = text;
 }
 
 function setx(index, posx) {
