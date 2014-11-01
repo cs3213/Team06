@@ -42,165 +42,269 @@
 
 <body class="">
 
-	<div id="wrapper">
-
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper">
-			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> Menu </a></li>
-				<li><a href id="Google-Login-Button" class="overlay-trigger"
-					data-overlay="Google-Login" style="display:">Google Login</a></li>
-				<div id="Google-Login" class="overlay" style="">
-					<div class="overlay-inner">
-						<button class="g-signin"
-							data-scope="https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
-							data-clientid="264511181674-td4u09us0emielom73ogag8usopl7e90.apps.googleusercontent.com"
-							data-callback="onSignInCallback" data-theme="dark"
-							data-cookiepolicy="single_host_origin"></button>
-
-					</div>
-				</div>
+	<p id="demo"></p>
 
 
-				<li><a href="#">Player</a></li>
-				<li><a href="#">Editor</a></li>
-				<Li><a hred="#">Load</a></Li>
-
-
-			</ul>
-		</div>
-		<!-- /#sidebar-wrapper -->
-
-		<!-- Page Content -->
-		<div id="page-content-wrapper">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle
-							Menu</a>
-
-
-						<div class="transparent editor-panel" id="editor">
-
-							<div id="divName" class="container inner-container">
-								<h4>Editor</h4>
-							</div>
-							<!-- <div class="container inner-container"> -->
-							<div id="divtest" class="scene-inner-container"
-								ondrop="dropIt(event); dropOver();"
-								ondragover="event.preventDefault();"></div>
-
-							<div id="loading-bar" class="progress progress-inner"
-								style="display: none">
-								<div id="loading-bar-content"
-									class="progress-bar progress-bar-striped active"
-									role="progressbar" aria-valuenow="0" aria-valuemin="0"
-									aria-valuemax="100" style="width: 45%">
-									<span id="loading-bar-indicator">0% Complete</span>
-								</div>
-							</div>
-
-
-						</div>
-
-						<div class="tab-panel">
-							<div class="inner-tab">
-								<ul class="nav nav-tabs inner-tab" role="tablist">
-									<li class="active"><a href="#source-pane" role="tab"
-										data-toggle="tab"><h4>Characters</h4></a></li>
-									<li><a href="#coordEditor-pane" role="tab"
-										data-toggle="tab"><h4>Actions</h4></a></li>
-
-								</ul>
-							</div>
-							<div class="tab-content container tab-content-container">
-
-								<div class="tab-pane active select-pane" id="source-pane">
-									<div class=transparent id="source">
-										<div id="floatArea">
-											<h4>Scene</h4>
-											<button onclick="changeFloatLeft()">
-												<img src="<c:url value="/resources/img/arrow_left.gif" />"
-													height="15px">
-											</button>
-											<img id="curFloat"
-												src="<c:url value="/resources/img/house1.png"/>"
-												height="100px" / onclick="displayHouse(this)">
-											<button onclick="changeFloatRight()">
-												<img src="<c:url value="/resources/img/arrow_right.gif" />"
-													height="15px">
-											</button>
-										</div>
-
-										<div id="characterArea" ondragover="event.preventDefault();">
-											<h4>Character</h4>
-											<button onclick="changeCharacterLeft()">
-												<img src="<c:url value="/resources/img/arrow_left.gif" />"
-													height="15px">
-											</button>
-											<img id="curCharacter"
-												src="<c:url value="/resources/img/char1.png" />"
-												height="100px" draggable="true" ondragstart="dragIt(event);" />
-											<button onclick="changeCharacterRight()">
-												<img src="<c:url value="/resources/img/arrow_right.gif" />"
-													height="15px">
-											</button>
-										</div>
-									</div>
-								</div>
-
-								<div class="tab-pane select-pane" id="coordEditor-pane">
-									<div class="transparent" id="coordEditor">
-										<div id="divName" class="container">
-											<h4>Setting</h4>
-										</div>
-										<form>
-											<ul id="draggable" class="two-col-special">
-												<li id="right">Move Right <input type="text"
-													name="right" size="2" class="input-word">steps
-												</li>
-												<li id="left">Move Left <input type="text" name="left"
-													size="2" class="input-word">steps
-												</li>
-												<li id="up">Move Up <input type="text" name="right"
-													size="2" class="input-word">steps
-												</li>
-												<li id="down">Move Down <input type="text" name="left"
-													size="2" class="input-word">steps
-												</li>
-												<li id="x">Set X <input type="text" name="x_pos"
-													size="2" class="input-word" onchange="checkXValue(this);">px
-												</li>
-												<li id="y">Set Y <input type="text" name="y_pos"
-													size="2" class="input-word" onchange="checkYValue(this);">px
-												</li>
-												<li id='repeat'>Repeat <input type="text" name="repeat"
-													size="2" class="input-word">
-												</li>
-												<li id='end_repeat'>End_Repeat</li>
-												<li id='show'>Show</li>
-												<li id='hide'>Hide</li>
-												<li id='costume'>Change Constume</li>
-												<li id='background'>Change Background</li>
-											</ul>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /#page-content-wrapper -->
+	<div id="message" class="bb-alert alert alert-info"
+		style="display: none;">
+		<span>Hello world callback</span>
 
 	</div>
-	<!-- /#wrapper -->
+
+	<div class="transparent" id="">
+
+
+		<div class="row">
+
+
+			<!-- 			<div class="overlay-word" id="header-words">
+				<label id="Welcome-Word" style="display: none; float: centre;"><h3>CS3216
+						Animation Player</h3> </label> <label id="User-Name" style="float: right;"></label>
+			</div> -->
+
+
+			<div>
+				<a href id="Google-Login-Button" class="overlay-trigger"
+					data-overlay="Google-Login" style="display: none">Google Login</a>
+
+				<button id="Drop-boxLogin" class="overlay-trigger"
+					onclick="dropboxLogin()" style="display:">Load Program</button>
+
+				<select id="game-file-select" style="display:"
+					class="form-control form-control-inline btn-primary-customize"
+					onchange='changeFunc();'>
+
+				</select>
+
+				<button type="button" id="loading-btn" style="display:"
+					data-loading-text="Loading..."
+					class="btn btn-primary btn-primary-customize">Load</button>
+
+				<button type="button" id="deleting-btn" style="display:"
+					data-loading-text="Deleting..."
+					class="btn btn-primary btn-primary-customize">Delete</button>
+
+
+
+			</div>
+
+		</div>
+
+
+
+
+
+	</div>
+
+
+
+	<div id="Google-Login" class="overlay" style="">
+		<div class="overlay-inner">
+
+
+			<button class="g-signin"
+				data-scope="https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
+				data-clientid="264511181674-td4u09us0emielom73ogag8usopl7e90.apps.googleusercontent.com"
+				data-callback="onSignInCallback" data-theme="dark"
+				data-cookiepolicy="single_host_origin"></button>
+
+		</div>
+	</div>
+
+
+
+	<div id="Main-Panel">
+	   		<div class="transparent" id="player">
+			<div id="divName" class="container content-div">
+				<h4>Player</h4>
+			</div>
+
+			<div class="container content-div">
+
+
+				<div id="divtest-player" class="scene_play"
+					onmouseover="displayCoord" style=""></div>
+			</div>
+
+			<div id="control-panel" class="container content-div">
+				<button type="button" id="reset-background-btn"
+					class="btn btn-primary">Reset Background</button>
+				<button type="button" id="reset-character-btn"
+					class="btn btn-success">Reset Character</button>
+
+				<button type="button" id="save-trigger" class="btn btn-info">
+					Save</button>
+				<div id="game-name-input" class="overlay" style="">
+					<div class="overlay-inner">
+
+						<input type="input" class="form-control" id="user-file-name"
+							placeholder="File Name">
+
+						<button id="save-btn" class="btn btn-primary">Confirm</button>
+
+						<button id="cancel-btn" class="btn btn-primary">Cancel</button>
+
+					</div>
+				</div>
+
+				<button type="button" class="btn btn-warning" onClick="submit()">
+					Play</button>
+			</div>
+		</div>
+
+
+		<div class="transparent editor-panel" id="editor">
+
+			<div id="divName" class="container inner-container">
+				<h4>Editor</h4>
+			</div>
+			<!-- <div class="container inner-container"> -->
+			<div id="divtest" class="scene-inner-container"
+				ondrop="dropIt(event); dropOver();"
+				ondragover="event.preventDefault();"></div>
+
+			<div id="loading-bar" class="progress progress-inner"
+				style="display: none">
+				<div id="loading-bar-content"
+					class="progress-bar progress-bar-striped active" role="progressbar"
+					aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+					style="width: 45%">
+					<span id="loading-bar-indicator">0% Complete</span>
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+		<!-- Nav tabs -->
+
+		<div class="tab-panel">
+			<div class="inner-tab">
+				<ul class="nav nav-tabs inner-tab" role="tablist">
+					<li class="active"><a href="#source-pane" role="tab"
+						data-toggle="tab"><h5>Characters</h5></a></li>
+					<li><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h5>Actions</h5></a></li>
+					<li><a href="#music-pane" role="tab" data-toggle="tab"><h5>Music</h5></a></li>
+				</ul>
+			</div>
+			<div class="tab-content container tab-content-container">
+
+				<div class="tab-pane active select-pane" id="source-pane">
+					<div class=transparent id="source">
+						<div id="floatArea">
+							<h4>Scene</h4>
+							<button onclick="changeFloatLeft()">
+								<img src="<c:url value="/resources/img/arrow_left.gif" />"
+									height="15px">
+							</button>
+							<img id="curFloat"
+								src="<c:url value="/resources/img/house1.png"/>" height="100px"
+								/ onclick="displayHouse(this)">
+							<button onclick="changeFloatRight()">
+								<img src="<c:url value="/resources/img/arrow_right.gif" />"
+									height="15px">
+							</button>
+						</div>
+
+						<div id="characterArea" ondragover="event.preventDefault();">
+							<h4>Character</h4>
+							<button onclick="changeCharacterLeft()">
+								<img src="<c:url value="/resources/img/arrow_left.gif" />"
+									height="15px">
+							</button>
+							<img id="curCharacter"
+								src="<c:url value="/resources/img/char1.png" />" height="100px"
+								draggable="true" ondragstart="dragIt(event);" />
+							<button onclick="changeCharacterRight()">
+								<img src="<c:url value="/resources/img/arrow_right.gif" />"
+									height="15px">
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane select-pane" id="coordEditor-pane">
+					<div class="transparent" id="coordEditor">
+						<div id="divName" class="container">
+							<h4>Setting</h4>
+						</div>
+						<form>
+							<ul id="draggable" class="two-col-special">
+								<li id="right">Move Right <input type="text" name="right"
+									size="2" class="input-word">steps
+								</li>
+								<li id="left">Move Left <input type="text" name="left"
+									size="2" class="input-word">steps
+								</li>
+								<li id="up">Move Up <input type="text" name="right"
+									size="2" class="input-word">steps
+								</li>
+								<li id="down">Move Down <input type="text" name="left"
+									size="2" class="input-word">steps
+								</li>
+								<li id="x">Set X <input type="text" name="x_pos" size="2"
+									class="input-word" onchange="checkXValue(this);">px
+								</li>
+								<li id="y">Set Y <input type="text" name="y_pos" size="2"
+									class="input-word" onchange="checkYValue(this);">px
+								</li>
+								<li id='repeat'>Repeat <input type="text" name="repeat"
+									size="2" class="input-word">
+								</li>
+								<li id='end_repeat'>End_Repeat</li>
+								<li id='show'>Show</li>
+								<li id='hide'>Hide</li>
+								<li id='costume'>Change Constume</li>
+								<li id='background'>Change Background</li>
+							</ul>
+						</form>
+					</div>
+				</div>
+
+				<div class="tab-pane select-pane" id="music-pane">
+					<div class=transparent id="source">
+						<div id="floatArea">
+							<h4>Scene</h4>
+							<button onclick="changeFloatLeft()">
+								<img src="<c:url value="/resources/img/arrow_left.gif" />"
+									height="15px">
+							</button>
+							<img id="curFloat"
+								src="<c:url value="/resources/img/house1.png"/>" height="100px"
+								/ onclick="displayHouse(this)">
+							<button onclick="changeFloatRight()">
+								<img src="<c:url value="/resources/img/arrow_right.gif" />"
+									height="15px">
+							</button>
+						</div>
+
+						<div id="characterArea" ondragover="event.preventDefault();">
+							<h4>Character</h4>
+							<button onclick="changeCharacterLeft()">
+								<img src="<c:url value="/resources/img/arrow_left.gif" />"
+									height="15px">
+							</button>
+							<img id="curCharacter"
+								src="<c:url value="/resources/img/char1.png" />" height="100px"
+								draggable="true" ondragstart="dragIt(event);" />
+							<button onclick="changeCharacterRight()">
+								<img src="<c:url value="/resources/img/arrow_right.gif" />"
+									height="15px">
+							</button>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+
+
+	</div>
 
 
 
