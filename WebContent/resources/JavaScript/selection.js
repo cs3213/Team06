@@ -480,7 +480,7 @@ function dropIt(theEvent) {
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
 	var div = document.createElement("div");
-	div.style.cssText = "height: 110px; width: 28%; float: left";
+	div.style.cssText = "height: 100px; width: 28%; float: left";
 	div.id = "div" + countElement.toString();
 	var element = document.createElement("img");
 	element.id = "element" + countElement.toString();
@@ -488,11 +488,14 @@ function dropIt(theEvent) {
 	element.setAttribute('height', '80px');
 	element.setAttribute('width','100px');
 	element.setAttribute('draggable', 'false');
-	element.setAttribute('droppable', 'false');
-	element.setAttribute('sortable', 'false');
 	div.appendChild(element);
 	//add it to the drop element
-	theEvent.target.appendChild(div);
+	var parent = theEvent.target;
+    while (parent && parent.id !== 'divtest') {
+        parent = parent.parentElement;
+    }
+	parent.appendChild(div);
+
 	//instruct the browser to allow the drop
 	theEvent.preventDefault();
 	$(div).append('<span class="removeImgButton">X</span>');
@@ -562,8 +565,8 @@ function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
 	element.class ="scene";
-	element.style.cssText = "height: 110px; width: 72%; float: left; border: dotted; overflow: scroll; ";
-	
+	element.style.cssText = "height: 100px; width: 72%; float: left; border: dotted; overflow: scroll; ";
+
 	document.getElementById('divtest').appendChild(element);
 	
 	
