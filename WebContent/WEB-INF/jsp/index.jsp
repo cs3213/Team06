@@ -73,7 +73,15 @@
 				<select id="game-file-select" style="display:"
 					class="form-control form-control-inline btn-primary-customize"
 					onchange='changeFunc();'>
-
+				</select>
+				
+				
+				<select id="game-file-select" style="display:"
+					class="form-control form-control-inline btn-primary-customize"
+					onchange='changeFunc();'>
+					<option><textarea>hello</textarea></option>
+					<option><textarea>hello1</textarea></option>
+					
 				</select>
 
 				<button type="button" id="loading-btn" style="display:"
@@ -190,7 +198,7 @@
 			<div class="tab-content container tab-content-container">
 
 				<div class="tab-pane active select-pane" id="source-pane">
-					<div class=transparent id="source">
+					<div class=transparent-inner id="source">
 						<div id="floatArea">
 							<h4>Scene</h4>
 							<button onclick="changeFloatLeft()">

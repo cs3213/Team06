@@ -24,7 +24,7 @@ body {
 
 #source {
 	height: 506px;
-	width: 100%;
+	width: 105%;
 	padding: 5px;
 	float: left;
 }
@@ -288,4 +288,10 @@ padding: 2px 2px;
   text-decoration: none;
   transition: all 200ms linear; 
   float:left;
+}
+.transparent-inner{
+	border: none;
+    border-radius: 10px;
+    background-color: rgba(190, 190, 190, 0.83);
+    margin-top:5px;
 }
