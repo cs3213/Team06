@@ -32,7 +32,8 @@ function play(sequence,value,charactersSrc) {
 	}
 
 	setKeyboardAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit);
-	setcommandAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit, timer);
+	setcommandAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit);
+	setRepeatTimer(timer);
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
 		var thisSequence = sequence[i];

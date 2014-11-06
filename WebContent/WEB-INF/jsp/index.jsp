@@ -30,6 +30,7 @@
 <script
 	src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>

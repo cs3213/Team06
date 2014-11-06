@@ -150,14 +150,6 @@ function changeConnect(el) {
     });
 }
 
-function getCountElement() {
-	return countElement;
-}
-
-function setCountElement(number) {
-	countElement = number;
-}
-
 function new_variable(){
 	var variable = prompt("Please enter the name of new variable");
 	var div = document.getElementById("variable");
@@ -179,4 +171,10 @@ function new_variable(){
 	}
 }
 	
-	
+function getCountElement() {
+	return countElement;
+}
+
+function setCountElement(number) {
+	countElement = number;
+}

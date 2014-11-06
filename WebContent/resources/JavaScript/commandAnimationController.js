@@ -3,15 +3,13 @@ var leftMargin=[];
 var topMargin=[];
 var leftMarginLimit = [];
 var topMarginLimit = [];
-var timer;
 
-function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit, tMarginLimit, t) {
+function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit, tMarginLimit) {
 	characters = char;
 	leftMargin = lMargin;
 	topMargin = tMargin;
 	leftMarginLimit = lMarginLimit;
 	topMarginLimit = tMarginLimit;
-	timer = t;
 }
 
 function setx(index, posx) {
@@ -181,68 +179,4 @@ function changeBackground() {
 	$(player).animate({opacity: 1}, 'slow', function() {
         $(this).css({'background-image': 'url('+path+')','background-size': '100% 100%'})
     });
-}
-
-function repeat(index, sequence, value) {
-	console.log("repeat");
-	var arrayLength = sequence.length;
-	console.log(sequence);
-	console.log(value);
-	// execute command
-	for (var i = 0; i < arrayLength; i++) {
-		if (sequence[i].indexOf("Set X") > -1) {
-			setx(index, value[i]);
-		} else if (sequence[i].indexOf("Set Y") > -1) {
-			sety(index, value[i]);
-		} else if (sequence[i].indexOf("Move Right") > -1) {
-			moveRight(index, value[i]);
-		} else if (sequence[i].indexOf("Move Left") > -1) {
-			moveLeft(index, value[i]);
-		} else if (sequence[i].indexOf("Move Up") > -1) {
-			moveUp(index, value[i]);
-		} else if (sequence[i].indexOf("Move Down") > -1) {
-			moveDown(index, value[i]);
-		} else if (sequence[i].indexOf("Show") > -1) {
-			show(index);
-		} else if (sequence[i].indexOf("Hide") > -1) {
-			hide(index);
-		} else if (sequence[i].indexOf("Costume") > -1) {
-			changeCostume(index);
-		} else if (sequence[i].indexOf("Background") > -1) {
-			changeBackground();
-		} else if ((sequence[i].indexOf("Repeat") > -1 
-				|| sequence[i].indexOf("Forever Loop") > -1)
-				&& sequence[i].indexOf("End_Repeat") == -1) {
-			
-			var command = sequence[i];
-			var repeatSequence = [];
-			var repeatValue = [];
-			var repeatTimes = value[i];
-			//get repeat sequence
-			for (i=i+1; i< arrayLength; i++) {
-				if (sequence[i].indexOf("End_Repeat") > -1) {
-					break;
-				}
-				repeatSequence.push(sequence[i]);
-				repeatValue.push(value[i]);
-			}
-			console.log("repeat");
-			console.log(repeatSequence);
-			console.log(repeatValue);
-			
-			//run repeat sequence
-			if (command.indexOf("Repeat") > -1) {
-				for (var k=0; k<repeatTimes; k++) {
-					repeat(index, repeatSequence, repeatValue);
-				}
-			} else {
-				clearTimeout(timer);
-				timer = setInterval(
-						function(){
-							repeat(index, repeatSequence, repeatValue);
-						}, 1000);
-				return;
-			}
-		}
-	}
 }
