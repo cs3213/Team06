@@ -1,38 +1,40 @@
 var timer;
 
-function play(sequence,value,charactersSrc) {
+function play(sequence, value, charactersSrc) {
 	var arrayLength = sequence.length;
-	var characters=[];
-	var leftMargin=[];
-	var topMargin=[];
+	var characters = [];
+	var leftMargin = [];
+	var topMargin = [];
 	var leftMarginLimit = [];
 	var topMarginLimit = [];
 	// put images in player
 	var div = document.getElementById("divtest-player");
 	div.innerHTML = '';
-	
-	for (var i=0; i<arrayLength; i++) {
+
+	for (var i = 0; i < arrayLength; i++) {
 		eleSrc = charactersSrc[i];
 		var newdiv = document.createElement("div");
 		newdiv.style.cssText = "height: 100px; width: 100px; position:absolute";
-		newdiv.id = "img_div" + (i+1);
-		
+		newdiv.id = "img_div" + (i + 1);
+
 		var element = document.createElement("img");
-		element.id = "image" + (i+1);
+		element.id = "image" + (i + 1);
 		element.setAttribute('src', eleSrc);
 		element.setAttribute('height', '100px');
 		newdiv.appendChild(element);
 		div.appendChild(newdiv);
 		characters.push(element);
-		
+
 		leftMargin.push(parseInt($(element).css('margin-left')));
 		topMargin.push(parseInt($(element).css('margin-top')));
 		leftMarginLimit.push($(newdiv).parent().width() - $(element).width());
 		topMarginLimit.push($(newdiv).parent().height() - $(element).height());
 	}
 
-	setKeyboardAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit);
-	setcommandAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit);
+	setKeyboardAnimationParams(characters, leftMargin, topMargin,
+			leftMarginLimit, topMarginLimit);
+	setcommandAnimationParams(characters, leftMargin, topMargin,
+			leftMarginLimit, topMarginLimit);
 	setRepeatTimer(timer);
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
@@ -60,33 +62,32 @@ function play(sequence,value,charactersSrc) {
 				changeCostume(i);
 			} else if (thisSequence[j].indexOf("Background") > -1) {
 				changeBackground(i);
-			} else if ((thisSequence[j].indexOf("Repeat") > -1 
-					|| thisSequence[j].indexOf("Forever Loop") > -1) 
+			} else if ((thisSequence[j].indexOf("Repeat") > -1 || thisSequence[j]
+					.indexOf("Forever Loop") > -1)
 					&& thisSequence[j].indexOf("End_Repeat") == -1) {
 				var command = thisSequence[j];
 				var repeatSequence = [];
 				var repeatValue = [];
 				var repeatTimes = thisValue[j];
-				//get repeat sequence
-				for (j=j+1; j< sequenceLength; j++) {
+				// get repeat sequence
+				for (j = j + 1; j < sequenceLength; j++) {
 					if (thisSequence[j].indexOf("End_Repeat") > -1) {
 						break;
 					}
 					repeatSequence.push(thisSequence[j]);
 					repeatValue.push(thisValue[j]);
 				}
-				
-				//run repeat sequence
+
+				// run repeat sequence
 				if (command.indexOf("Repeat") > -1) {
-					for (var k=0; k<repeatTimes; k++) {
+					for (var k = 0; k < repeatTimes; k++) {
 						repeat(i, repeatSequence, repeatValue);
 					}
 				} else {
 					clearTimeout(timer);
-					timer = setInterval(
-							function(){
-								repeat(i, repeatSequence, repeatValue);
-							}, 1000);
+					timer = setInterval(function() {
+						repeat(i, repeatSequence, repeatValue);
+					}, 1000);
 					return;
 				}
 			}
@@ -94,23 +95,23 @@ function play(sequence,value,charactersSrc) {
 	}
 }
 
-function submit(){
+function submit() {
 	clearTimeout(timer);
 	var inputSequence = [];
 	var inputValue = [];
 	var charactersSrc = [];
 	var countElement = getCountElement();
-	
-	console.log("count element "+countElement);
-	
-	for (var i = 0; i<countElement; i++) {
-		inputSequence[i]=[];
-		inputValue[i]=[];
-		var sortable = "#sortable"+(i+1).toString()+" li";
-		var div = "#div"+(i+1).toString();
+
+	console.log("count element " + countElement);
+
+	for (var i = 0; i < countElement; i++) {
+		inputSequence[i] = [];
+		inputValue[i] = [];
+		var sortable = "#sortable" + (i + 1).toString() + " li";
+		var div = "#div" + (i + 1).toString();
 
 		if ($(sortable) && $(div)) {
-			$(sortable).each(function(){
+			$(sortable).each(function() {
 				var command = $(this).text();
 				inputSequence[i].push(command);
 				var input = $(this).find('input').val();
@@ -120,14 +121,12 @@ function submit(){
 					inputValue[i].push(0);
 				}
 			});
-			
-			charactersSrc.push(
-				$(div).children('img').map(function(){
-					return $(this).attr('src')
-				}).get()
-			);
+
+			charactersSrc.push($(div).children('img').map(function() {
+				return $(this).attr('src')
+			}).get());
 		}
 	}
 
-	play(inputSequence,inputValue, charactersSrc);
+	play(inputSequence, inputValue, charactersSrc);
 }

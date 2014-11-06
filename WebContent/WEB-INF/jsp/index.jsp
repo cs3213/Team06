@@ -29,12 +29,18 @@
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script
 	src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
-<script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/dragAndDropController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -81,8 +87,8 @@
 					onchange='changeFunc();'>
 
 				</select>
-				
-				
+
+
 
 				<button type="button" id="loading-btn" style="display:"
 					data-loading-text="Loading..."
@@ -277,38 +283,32 @@
 								</form>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Data">
-							<div class="create_variable">
-							<button type="button" class="btn btn-danger" onClick="new_variable()">
-					        New a variable</button>
-					        </div>
-					        <div id="variable">
-							<ul id="draggable" class="two-col-special">
-										<li class='command_repeat'> Sprite postion
-										</li>
-										<li class='command_repeat'> Mouse postion
-										</li>
-										<li class='command_repeat'> Canvas left
-										</li>
-										<li class='command_repeat'> Canvas right
-										</li>
-										<li class='command_repeat'> Canvas top
-										</li>
-										<li class='command_repeat'> Canvas bottom
-										</li>
-										<li class='command_repeat'> Width
-										</li>
-										<li class='command_repeat'> Height
-										</li>
-									</ul>
-									</div>
+								<div class="create_variable">
+									<button type="button" class="btn btn-danger"
+										onClick="new_variable()">New a variable</button>
+								</div>
+								<div id="variable">
 									<ul id="draggable" class="two-col-special">
-									<li class='command_repeat'>Set <select class="selectItem" id = "selectSet"><option>--Select--</option>
-  											</select> to <input type="text"
-											name="setVariable" size="2" class="input-word"></li>
-  											<li class='command_repeat'>Change <select class="selectItem" id = "selectChange"><option>--Select--</option>
-  											</select> by <input type="text"
-											name="changeVariable" size="2" class="input-word"></li>
-  											</ul>
+										<li class='command_repeat'>Sprite postion</li>
+										<li class='command_repeat'>Mouse postion</li>
+										<li class='command_repeat'>Canvas left</li>
+										<li class='command_repeat'>Canvas right</li>
+										<li class='command_repeat'>Canvas top</li>
+										<li class='command_repeat'>Canvas bottom</li>
+										<li class='command_repeat'>Width</li>
+										<li class='command_repeat'>Height</li>
+									</ul>
+								</div>
+								<ul id="draggable" class="two-col-special">
+									<li class='command_repeat'>Set <select class="selectItem"
+										id="selectSet"><option>--Select--</option>
+									</select> to <input type="text" name="setVariable" size="2"
+										class="input-word"></li>
+									<li class='command_repeat'>Change <select
+										class="selectItem" id="selectChange"><option>--Select--</option>
+									</select> by <input type="text" name="changeVariable" size="2"
+										class="input-word"></li>
+								</ul>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
@@ -326,94 +326,112 @@
 								</form>
 							</div>
 							<div class="tab-pane select-pane" id="Operator">
-									<ul id="draggable" style = "text-align: left">
-										<li class='addOperation'>
-											<input id="input1" type="text" name="input" size="2" style = "display: none">
-											<select id="select1" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> + 
-  											<input id="input2" type="text" name="input" size="2" style = "display: none">
-  											<select id="select2" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='substractOperation'>
-  											<input id="input3" type="text" name="input" size="2" style = "display: none">
-											<select id="select3" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> - 
-  											<input id="input4" type="text" name="input" size="2" style = "display: none">
-  											<select id="select4" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='multiplyOperation'>
-  											<input id="input5" type="text" name="input" size="2" style = "display: none">
-											<select id="select5" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> * 
-  											<input id="input6" type="text" name="input" size="2" style = "display: none">
-  											<select id="select6" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='divideOperation'>
-  											<input id="input7" type="text" name="input" size="2" style = "display: none">
-											<select id="select7" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> / 
-  											<input id="input8" type="text" name="input" size="2" style = "display: none">
-  											<select id="select8" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='modOperation'>
-  											<input id="input9" type="text" name="input" size="2" style = "display: none">
-											<select id="select9" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> mod 
-  											<input id="input10" type="text" name="input" size="2" style = "display: none">
-  											<select id="select10" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='equalOperation'>
-  											<input id="input11" type="text" name="input" size="2" style = "display: none">
-											<select id="select11" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> = 
-  											<input id="input12" type="text" name="input" size="2" style = "display: none">
-  											<select id="select12" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='greaterThanOperation'>
-  											<input id="input13" type="text" name="input" size="2" style = "display: none">
-											<select id="select13" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> >= 
-  											<input id="input14" type="text" name="input" size="2" style = "display: none">
-  											<select id="select14" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-  										<li class='lessThanOperation'>
-  											<input id="input15" type="text" name="input" size="2" style = "display: none">
-											<select id="select15" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <= 
-  											<input id="input16" type="text" name="input" size="2" style = "display: none">
-  											<select id="select16" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
-  										</li>
-									</ul>
+								<ul id="draggable" style="text-align: left">
+									<li class='addOperation'><input id="input1" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select1" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> + <input id="input2"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select2" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='substractOperation'><input id="input3"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select3" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> - <input id="input4"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select4" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='multiplyOperation'><input id="input5"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select5" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> * <input id="input6"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select6" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='divideOperation'><input id="input7" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select7" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> / <input id="input8"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select8" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='modOperation'><input id="input9" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select9" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> mod <input
+										id="input10" type="text" name="input" size="2"
+										style="display: none"> <select id="select10"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='equalOperation'><input id="input11" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select11" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> = <input id="input12"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select12" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='greaterThanOperation'><input id="input13"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select13" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> >= <input
+										id="input14" type="text" name="input" size="2"
+										style="display: none"> <select id="select14"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='lessThanOperation'><input id="input15"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select15" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> <= <input
+										id="input16" type="text" name="input" size="2"
+										style="display: none"> <select id="select16"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+								</ul>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Sensing">
-							<ul id="draggable" class="two-col-special">
-										<li class='command_repeat'> Touch edge?
-										</li>
-									</ul>
+								<ul id="draggable" class="two-col-special">
+									<li class='command_repeat'>Touch edge?</li>
+								</ul>
 							</div>
 						</div>
 					</div>

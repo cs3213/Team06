@@ -34,13 +34,13 @@ function repeat(index, sequence, value) {
 		} else if ((sequence[i].indexOf("Repeat") > -1 
 				|| sequence[i].indexOf("Forever Loop") > -1)
 				&& sequence[i].indexOf("End_Repeat") == -1) {
-			
+
 			var command = sequence[i];
 			var repeatSequence = [];
 			var repeatValue = [];
 			var repeatTimes = value[i];
-			//get repeat sequence
-			for (i=i+1; i< arrayLength; i++) {
+			// get repeat sequence
+			for (i = i + 1; i < arrayLength; i++) {
 				if (sequence[i].indexOf("End_Repeat") > -1) {
 					break;
 				}
@@ -50,18 +50,17 @@ function repeat(index, sequence, value) {
 			console.log("repeat");
 			console.log(repeatSequence);
 			console.log(repeatValue);
-			
-			//run repeat sequence
+
+			// run repeat sequence
 			if (command.indexOf("Repeat") > -1) {
-				for (var k=0; k<repeatTimes; k++) {
+				for (var k = 0; k < repeatTimes; k++) {
 					repeat(index, repeatSequence, repeatValue);
 				}
 			} else {
 				clearTimeout(timer);
-				timer = setInterval(
-						function(){
-							repeat(index, repeatSequence, repeatValue);
-						}, 1000);
+				timer = setInterval(function() {
+					repeat(index, repeatSequence, repeatValue);
+				}, 1000);
 				return;
 			}
 		}
