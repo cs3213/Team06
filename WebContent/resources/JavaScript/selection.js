@@ -63,12 +63,7 @@ function play(sequence,value,charactersSrc) {
 		leftMarginLimit.push($(newdiv).parent().width() - $(element).width());
 		topMarginLimit.push($(newdiv).parent().height() - $(element).height());
 	}
-	
-	console.log(leftMargin);
-	console.log(topMargin);
-	console.log(leftMarginLimit);
-	console.log(topMarginLimit);
-	
+
 	setKeyboardAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit);
 	setcommandAnimationParams(characters, leftMargin, topMargin, leftMarginLimit, topMarginLimit, timer);
 	// execute command
@@ -112,9 +107,6 @@ function play(sequence,value,charactersSrc) {
 					repeatSequence.push(thisSequence[j]);
 					repeatValue.push(thisValue[j]);
 				}
-				console.log("repeat");
-				console.log(repeatSequence);
-				console.log(repeatValue);
 				
 				//run repeat sequence
 				if (command.indexOf("Repeat") > -1) {

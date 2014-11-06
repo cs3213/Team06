@@ -184,8 +184,10 @@ function changeBackground() {
 }
 
 function repeat(index, sequence, value) {
+	console.log("repeat");
 	var arrayLength = sequence.length;
-	
+	console.log(sequence);
+	console.log(value);
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
 		if (sequence[i].indexOf("Set X") > -1) {

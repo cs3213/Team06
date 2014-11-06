@@ -316,7 +316,7 @@
 										<li class='command_end_repeat'>End_Repeat</li>
 										<li class='command_show'>Show</li>
 										<li class='command_hide'>Hide</li>
-										<li class='command_costume'>Change Constume</li>
+										<li class='command_costume'>Change Costume</li>
 										<li class='command_background'>Change Background</li>
 									</ul>
 								</form>
