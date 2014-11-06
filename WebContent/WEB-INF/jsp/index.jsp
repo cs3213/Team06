@@ -30,8 +30,9 @@
 <script
 	src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 <script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/keyboardAnimation.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/commandAnimation.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/changeFloatAndCharacterController.js" />"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script

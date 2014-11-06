@@ -202,59 +202,6 @@ function dropIt(theEvent) {
     });
 }
 
-function changeFloatLeft() {
-	var curFloat = document.getElementById("curFloat").src;
-	var indexOfDot = curFloat.indexOf(".");
-	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
-	indexOfFloat--;
-	if(indexOfFloat == 0) {
-		indexOfFloat = 6;//= total number of float
-	}
-	indexOfFloat = indexOfFloat % 7;//= total number of float + 1
-	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".png";
-	document.getElementById("curFloat").src = nextFloat;	
-}
-
-function changeFloatRight() {
-	var curFloat = document.getElementById("curFloat").src;
-	var indexOfDot = curFloat.indexOf(".");
-	var indexOfFloat = parseInt(curFloat.substring(indexOfDot - 1, indexOfDot));
-	indexOfFloat++;
-	indexOfFloat = indexOfFloat % 7;
-	if(indexOfFloat == 0) {
-		indexOfFloat++;
-	}
-	var nextFloat = "resources/img/house"+indexOfFloat.toString()+".png";
-		
-	document.getElementById("curFloat").src = nextFloat;
-}
-
-function changeCharacterLeft() {
-	var curCharacter = document.getElementById("curCharacter").src;
-	var indexOfDot = curCharacter.indexOf(".");
-	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
-	indexOfCharacter--;
-	if(indexOfCharacter == 0) {
-		indexOfCharacter = 6;
-	}
-	indexOfCharacter = indexOfCharacter % 7;
-	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".png";
-	document.getElementById("curCharacter").src = nextCharacter;
-}
-
-function changeCharacterRight() {
-	var curCharacter = document.getElementById("curCharacter").src;
-	var indexOfDot = curCharacter.indexOf(".");
-	var indexOfCharacter = parseInt(curCharacter.substring(indexOfDot - 1, indexOfDot));
-	indexOfCharacter++;
-	indexOfCharacter = indexOfCharacter % 7;
-	if(indexOfCharacter == 0) {
-		indexOfCharacter++;
-	}
-	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".png";
-	document.getElementById("curCharacter").src = nextCharacter;
-}
-
 function dropOver() {
 	var element = document.createElement("div");
 	element.id = "sortable" + countElement.toString();
@@ -365,7 +312,6 @@ function changeConnect(el) {
 }
 
 function selectCustomer(el) {
-	//var selectBox = $(el);
 	var selectId = $(el).attr('id').substring(6);
 	var value = el.options[el.selectedIndex].value;
 	
@@ -416,26 +362,7 @@ function new_variable(){
 			element1.innerHTML = variable;
 			newdiv.appendChild(element1);
 			div.appendChild(newdiv);
-	/*		var element2 = document.createElement("li");
-			element2.className = "command_repeat";
-			element2.innerHTML = "Set " + variable + " to ";
-			var inputText = document.createElement("input");
-			inputText.setAttribute('name', variable + 'setVariable');
-			inputText.setAttribute('size', 2);
-			inputText.className = "input-word";
-			element2.appendChild(inputText);
-			newdiv.appendChild(element2);
-			var element3 = document.createElement("li");
-			element3.className = "command_repeat";
-			element3.innerHTML = "Change " + variable + " by ";
-			var inputText2 = document.createElement("input");
-			inputText2.setAttribute('name', variable + 'changeVariable');
-			inputText2.setAttribute('size', 2);
-			inputText2.className = "input-word";
-			element3.appendChild(inputText2);
-			newdiv.appendChild(element3);
-			div.appendChild(newdiv);
-		*/
+
 			var select1 = document.getElementById("selectSet");
 			select1.options.add(new Option(variable, variable));
 			var select2 = document.getElementById("selectChange");
