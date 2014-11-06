@@ -50,3 +50,33 @@ function changeCharacterRight() {
 	var nextCharacter = "resources/img/char" + indexOfCharacter.toString() + ".png";
 	document.getElementById("curCharacter").src = nextCharacter;
 }
+
+function selectCustomer(el) {
+	var selectId = $(el).attr('id').substring(6);
+	var value = el.options[el.selectedIndex].value;
+	
+	if(value == "customer") {
+		var inputId = "input" + selectId;
+		document.getElementById(inputId).style.display = "";
+	} else {
+		var inputId = "input" + selectId;
+		document.getElementById(inputId).style.display = "none";
+	}
+}
+
+function displayHouse(el) {
+	var src = $(el).attr('src');
+	var index = src.indexOf("house") + 5;//5=length of house
+	var houseId = src.substring(index, index+1);
+	
+	var newId = "house" + houseId + "_1.png";
+	var path = "resources/img/" + newId;
+
+	var image = document.createElement("img");
+	image.setAttribute("src", path);
+	var player = document.getElementById("divtest-player");
+	var newStyle = "background-image:url("+path+");" + "background-size: 100% 100%";
+	
+	player.setAttribute("style", newStyle);
+
+}
