@@ -251,19 +251,27 @@
 							</div>
 
 							<div role="tabpanel" class="tab-pane" id="Customized-Variable">
+							<div class="create_variable">
+									<button type="button" class="btn btn-danger"
+										onClick="new_variable()">New a variable</button>
+								</div>
 								<ul id="variable-list" class="variable-list"
 									style="text-align: left">
 
 								</ul>
+								<ul id="draggable" class="two-col-special">
+									<li class='command_repeat'>Set <select class="selectItem"
+										id="selectSet"><option>--Select--</option>
+									</select> to <input type="text" name="setVariable" size="2"
+										class="input-word"></li>
+									<li class='command_repeat'>Change <select
+										class="selectItem" id="selectChange"><option>--Select--</option>
+									</select> by <input type="text" name="changeVariable" size="2"
+										class="input-word"></li>
+								</ul>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Data">
 
-
-
-								<div class="create_variable">
-									<button type="button" class="btn btn-danger"
-										onClick="new_variable()">New a variable</button>
-								</div>
 								<div id="variable">
 									<ul id="draggable" class="two-col-special">
 										<li class='command_repeat'>Sprite postion</li>
@@ -276,16 +284,6 @@
 										<li class='command_repeat'>Height</li>
 									</ul>
 								</div>
-								<ul id="draggable" class="two-col-special">
-									<li class='command_repeat'>Set <select class="selectItem"
-										id="selectSet"><option>--Select--</option>
-									</select> to <input type="text" name="setVariable" size="2"
-										class="input-word"></li>
-									<li class='command_repeat'>Change <select
-										class="selectItem" id="selectChange"><option>--Select--</option>
-									</select> by <input type="text" name="changeVariable" size="2"
-										class="input-word"></li>
-								</ul>
 							</div>
 
 

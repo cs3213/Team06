@@ -327,6 +327,10 @@ padding: 2px 2px;
 	list-style-type: none;
 }
 
+.create_variable {
+	text-align: center;
+}
+
 .variable-list li
 {
     border-radius: 10px;
