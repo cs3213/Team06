@@ -214,11 +214,11 @@
 								</li>
 								<li><a href="#Operator" role="tab" data-toggle="tab">Operator</a>
 								</li>
-<<<<<<< HEAD
-								<li><a href="#Customized-Variable" role="tab" data-toggle="tab">Customized Variable</a>
-=======
+
+                                <li><a href="#Customized-Variable" role="tab" data-toggle="tab">Customized Variable</a>
+
 								<li><a href="#Sensing" role="tab" data-toggle="tab">Sensing</a>
->>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
+
 								</li>
 							</ul>
 						</div>
@@ -249,7 +249,7 @@
 									</ul>
 								</form>
 							</div>
-<<<<<<< HEAD
+
 							<div role="tabpanel" class="tab-pane" id="Data"></div>
 							<div role="tabpanel" class="tab-pane" id="Customized-Variable">
 							
@@ -257,7 +257,6 @@
 							
 							</ul>
 							
-=======
 							<div role="tabpanel" class="tab-pane" id="Data">
 								<div class="create_variable">
 									<button type="button" class="btn btn-danger"
@@ -285,7 +284,7 @@
 									</select> by <input type="text" name="changeVariable" size="2"
 										class="input-word"></li>
 								</ul>
->>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
+
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
@@ -303,7 +302,7 @@
 								</form>
 							</div>
 							<div class="tab-pane select-pane" id="Operator">
-<<<<<<< HEAD
+
 									<ul id="draggable" style = "text-align: left">
 										<li class='addOperation'>
 											<input id="input1" type="text" class="selectItem" name="input" size="2" style = "display: none">
@@ -386,7 +385,7 @@
   											<option value="customer">Input</option></select> <button id="lessThan-ops">New</button>
   										</li>
 									</ul>
-=======
+
 								<ul id="draggable" style="text-align: left">
 									<li class='addOperation'><input id="input1" type="text"
 										name="input" size="2" style="display: none"> <select
@@ -493,7 +492,7 @@
 								<ul id="draggable" class="two-col-special">
 									<li class='command_repeat'>Touch edge?</li>
 								</ul>
->>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
+
 							</div>
 							
 						  
@@ -513,15 +512,7 @@
 						</form>
 					</div>
 				</div>
-<<<<<<< HEAD
-				
-				
-				
 
-
-
-=======
->>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
 			</div>
 		</div>
 	</div>
