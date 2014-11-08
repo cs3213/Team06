@@ -3,6 +3,10 @@ var leftMargin = [];
 var topMargin = [];
 var leftMarginLimit = [];
 var topMarginLimit = [];
+var touchesRight = false;
+var touchesLeft = false;
+var touchesTop = false;
+var touchesBottom = false;
 
 function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit,
 		tMarginLimit) {
@@ -49,9 +53,13 @@ function moveRight(index, steps) {
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
+	touchesLeft = false;
 	if (leftMarginLimit[index] < leftMargin[index] + length) {
 		out = true;
 		length = leftMarginLimit[index] - leftMargin[index];
+		setTouchesEdge(true);
+	} else {
+		setTouchesEdge(touchesRight || touchesLeft || touchesTop || touchesBottom);
 	}
 
 	var distance = '+=' + length + 'px';
@@ -71,9 +79,13 @@ function moveLeft(index, steps) {
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
+	touchesRight = false;
 	if (leftMargin[index] - length < 0) {
 		out = true;
 		length = leftMargin[index];
+		setTouchesEdge(true);
+	} else {
+		setTouchesEdge(touchesRight || touchesLeft || touchesTop || touchesBottom);
 	}
 
 	var distance = '-=' + length + 'px';
@@ -93,9 +105,13 @@ function moveDown(index, steps) {
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
+	touchesTop = false;
 	if (topMarginLimit[index] < topMargin[index] + length) {
 		out = true;
 		length = topMarginLimit[index] - topMargin[index];
+		setTouchesEdge(true);
+	} else {
+		setTouchesEdge(touchesRight || touchesLeft || touchesTop || touchesBottom);
 	}
 
 	var distance = '+=' + length + 'px';
@@ -115,9 +131,13 @@ function moveUp(index, steps) {
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
+	var touchesBottom = false;
 	if (topMargin[index] - length < 0) {
 		out = true;
 		length = topMargin[index];
+		setTouchesEdge(true);
+	} else {
+		setTouchesEdge(touchesRight || touchesLeft || touchesTop || touchesBottom);
 	}
 
 	var distance = '-=' + length + 'px';
@@ -205,12 +225,4 @@ function changeBackground() {
 			'background-size' : '100% 100%'
 		});
 	});
-}
-
-function getCoordinatesAndLimit(index) {
-	var result = [];
-	result['x'] = leftMargin[index];
-	result['y'] = topMargin[index];
-	result['xlimit'] = leftMarginLimit[index];
-	result['ylimit'] = topMarginLimit[index];
 }

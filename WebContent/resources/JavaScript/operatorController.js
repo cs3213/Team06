@@ -1,3 +1,4 @@
+var touchesEdge = false;
 
 function checkForCondition(index, condition, customizedVariable) {
 	var index = -1;
@@ -31,7 +32,11 @@ function checkForCondition(index, condition, customizedVariable) {
 		if (op == ">=" && customizedVariable[leftop] >= customizedVariable[rightop]) return true;
 		return false;
 	} else if (condition == "Touch edge") {
-		return false;
+		if (touchesEdge) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	return false;
 }
@@ -78,4 +83,8 @@ function getValueFromExpression(expression, variable) {
 	}
 	
 	return 0;
+}
+
+function setTouchesEdge(touches) {
+	touchesEdge = touches;
 }
