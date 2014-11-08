@@ -4,9 +4,8 @@ function setRepeatTimer(t) {
 	timer = t;
 }
 
-function repeat(index, sequence, value, select) {
+function repeat(index, sequence, value, select, customizedVariable) {
 	console.log("repeat");
-	var customizedVariable = getCustomizedVariables();
 	var arrayLength = sequence.length;
 
 	// execute command
@@ -37,7 +36,7 @@ function repeat(index, sequence, value, select) {
 			changeBackground();
 		} else if ((sequence[i].indexOf("Repeat") > -1 
 				|| sequence[i].indexOf("Forever Loop") > -1)
-				&& sequence[i].indexOf("End_Repeat") == -1) {
+				&& sequence[i].indexOf("End Repeat") == -1) {
 
 			var command = sequence[i];
 			var repeatSequence = [];
@@ -47,7 +46,7 @@ function repeat(index, sequence, value, select) {
 			
 			// get repeat sequence
 			for (i = i + 1; i < arrayLength; i++) {
-				if (sequence[i].indexOf("End_Repeat") > -1) {
+				if (sequence[i].indexOf("End Repeat") > -1) {
 					break;
 				}
 				repeatSequence.push(sequence[i]);
@@ -58,12 +57,12 @@ function repeat(index, sequence, value, select) {
 			// run repeat sequence
 			if (command.indexOf("Repeat") > -1) {
 				for (var k = 0; k < repeatTimes; k++) {
-					repeat(index, repeatSequence, repeatValue, repeatSelect);
+					repeat(index, repeatSequence, repeatValue, repeatSelect, customizedVariable);
 				}
 			} else {
 				clearTimeout(timer);
 				timer = setInterval(function() {
-					repeat(index, repeatSequence, repeatValue, repeatSelect);
+					repeat(index, repeatSequence, repeatValue, repeatSelect, customizedVariable);
 				}, 1000);
 				return;
 			}
@@ -72,6 +71,26 @@ function repeat(index, sequence, value, select) {
 			console.log("come in set to ");
 			if (!(select[i].indexOf("--Select--") > -1)) {
 				customizedVariable[select[i]] = value[i];
+			}
+		} else if (sequence[i].indexOf("If") > -1
+				&& sequence[i].indexOf("then") > -1) {
+			var result = checkForCondition(select[i], customizedVariable);
+			if (result) {
+				var ifSequence = [];
+				var ifValue = [];
+				var ifSelect = [];
+
+				// get repeat sequence
+				for (i = i + 1; i < arrayLength; i++) {
+					if (sequence[i].indexOf("End if") > -1) {
+						break;
+					}
+					ifSequence.push(sequence[i]);
+					ifValue.push(value[i]);
+					ifSelect.push(select[i]);
+				}
+				
+				repeat(index, ifSequence, ifValue, ifSelect, customizedVariable);
 			}
 		}
 	}
