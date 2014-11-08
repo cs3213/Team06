@@ -51,16 +51,22 @@ function addNewoption(option, num1, num2, op){
 	
 	var variable_list = document.getElementById('variable-list');
 
-	if (chosenValue1 == "input")
+	if (chosenValue1 == "customer")
 		chosenValue1 = document.getElementById(input1).value;
-	
-	if (chosenValue2 == "input")
+    console.log(chosenValue2);
+    
+	if (chosenValue2 == "customer")
 		chosenValue2 = document.getElementById(input2).value;
 
 	console.log(chosenValue1);
 	console.log(chosenValue2);
     var element = document.createElement("li");
-    element.innerHTML = chosenValue1 + " " + op + " " + chosenValue2; 
+    var content = chosenValue1 + " " + op + " " + chosenValue2;
+    element.innerHTML = content;
+    if (op == "=" || op=="<=" || op ==">=") {
+    var select1 = document.getElementById("IfCondition");
+	select1.options.add(new Option(content, content));
+    }
     element.className = "command_right";
     variable_list.appendChild(element);
 }

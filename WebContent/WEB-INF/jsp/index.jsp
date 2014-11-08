@@ -301,14 +301,7 @@
 									</ul>
 								</div>
 							</div>
-
-
-
-
-
-
-
-
+							
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
 									<ul id="draggable" class="two-col-special">
@@ -321,6 +314,10 @@
 										<li class='command_hide'>Hide</li>
 										<li class='command_costume'>Change Costume</li>
 										<li class='command_background'>Change Background</li>
+										<li class='command_repeat'>If <select class="selectItem"
+										id="IfCondition"><option>--Select--</option><option>Touch edge</option>
+									</select> then</li>
+										<li class='command_background'>End if</li>
 									</ul>
 								</form>
 							</div>
