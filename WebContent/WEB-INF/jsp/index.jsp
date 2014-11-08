@@ -300,14 +300,7 @@
 									</ul>
 								</div>
 							</div>
-
-
-
-
-
-
-
-
+							
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
 									<ul id="draggable" class="two-col-special">
@@ -320,6 +313,10 @@
 										<li class='command_hide'>Hide</li>
 										<li class='command_costume'>Change Costume</li>
 										<li class='command_background'>Change Background</li>
+										<li class='command_repeat'>If <select class="selectItem"
+										id="IfCondition"><option>--Select--</option><option>Touch edge</option>
+									</select> then</li>
+										<li class='command_background'>End if</li>
 									</ul>
 								</form>
 							</div>
@@ -459,10 +456,12 @@
 					<div class="transparent" id="musicList">
 						<form>
 							<ul id="draggable">
-								<li class="music1">Music1</li>
-								<li class="music2">Music2</li>
-								<li class="music3">Music3</li>
-								<li class="music4">Music4</li>
+								<li class="music">Music: <select class="selectItem"><option>--Select--</option>
+									<option>Music1</option><option>Music2</option><option>Music3</option><option>Music4</option>
+									</select></li>
+								<li class="background">Background: <select class="selectItem"><option>--Select--</option>
+									<option>Background1</option><option>Background2</option><option>Background3</option><option>Background4</option>
+									</select></li>
 							</ul>
 						</form>
 					</div>

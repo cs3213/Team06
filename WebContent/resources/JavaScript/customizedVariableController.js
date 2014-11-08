@@ -25,6 +25,10 @@ function new_variable() {
 			select1 = document.getElementById("mselect" + i);
 			select1.options.add(new Option(variable, variable));
 		}
+		for (var i = 1; i <= 16; i ++) {
+			select1 = document.getElementById("select" + i);
+			select1.options.add(new Option(variable, variable));
+		}
 	}
 }
 
