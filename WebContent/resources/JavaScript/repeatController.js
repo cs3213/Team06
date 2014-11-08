@@ -11,7 +11,7 @@ function repeat(index, sequence, value, select, customizedVariable) {
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
 		if (isNaN(value[i])) {
-			value[i] = customizedVariable[select[i]];
+			value[i] = getValueFromExpression(select[i], customizedVariable);
 		}
 		
 		if (sequence[i].indexOf("Set X") > -1) {

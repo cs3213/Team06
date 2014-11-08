@@ -45,7 +45,8 @@ function play(sequence, value, select, charactersSrc) {
 		var sequenceLength = thisSequence.length;
 		for (var j = 0; j < sequenceLength; j++) {
 			if (isNaN(thisValue[j])) {
-				thisValue[j] = customizedVariable[thisSelect[j]];
+				thisValue[j] = getValueFromExpression(thisSelect[j], customizedVariable);
+				console.log("this value is "+thisValue[j]);
 			}
 			
 			if (thisSequence[j].indexOf("Set X") > -1) {
@@ -179,4 +180,48 @@ function submit() {
 
 function animationStopTimer() {
 	clearTimeout(timer);
+}
+
+function getValueFromExpression(expression, variable) {
+	console.log(expression in variable);
+	var leftop;
+	var rightop;
+	var index = -1;
+	var op;
+	
+	if (expression in variable) {
+		return variable[expression];
+	} else if (expression.indexOf("+") > -1) {
+		index = expression.indexOf("+");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return variable[leftop] + variable[rightop];
+	} else if (expression.indexOf("-") > -1) {
+		index = expression.indexOf("-");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return variable[leftop] - variable[rightop];
+	} else if (expression.indexOf("*") > -1) {
+		index = expression.indexOf("*");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return variable[leftop] * variable[rightop];
+	} else if (expression.indexOf("/") > -1) {
+		index = expression.indexOf("/");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return variable[leftop] / variable[rightop];
+	} else if (expression.indexOf("%") > -1) {
+		index = expression.indexOf("%");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return variable[leftop] % variable[rightop];
+	}
+	
+	return 0;
 }
