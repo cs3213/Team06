@@ -70,7 +70,7 @@ function play(sequence, value, select, charactersSrc) {
 				changeBackground(i);
 			} else if ((thisSequence[j].indexOf("Repeat") > -1 || thisSequence[j]
 					.indexOf("Forever Loop") > -1)
-					&& thisSequence[j].indexOf("End_Repeat") == -1) {
+					&& thisSequence[j].indexOf("End Repeat") == -1) {
 				var command = thisSequence[j];
 				var repeatSequence = [];
 				var repeatValue = [];
@@ -78,7 +78,7 @@ function play(sequence, value, select, charactersSrc) {
 				var repeatTimes = thisValue[j];
 				// get repeat sequence
 				for (j = j + 1; j < sequenceLength; j++) {
-					if (thisSequence[j].indexOf("End_Repeat") > -1) {
+					if (thisSequence[j].indexOf("End Repeat") > -1) {
 						break;
 					}
 					repeatSequence.push(thisSequence[j]);
@@ -89,20 +89,39 @@ function play(sequence, value, select, charactersSrc) {
 				// run repeat sequence
 				if (command.indexOf("Repeat") > -1) {
 					for (var k = 0; k < repeatTimes; k++) {
-						repeat(i, repeatSequence, repeatValue, repeatSelect);
+						repeat(i, repeatSequence, repeatValue, repeatSelect, customizedVariable);
 					}
 				} else {
 					clearTimeout(timer);
 					timer = setInterval(function() {
-						repeat(i, repeatSequence, repeatValue, repeatSelect);
+						repeat(i, repeatSequence, repeatValue, repeatSelect, customizedVariable);
 					}, 1000);
 					return;
 				}
 			} else if (thisSequence[j].indexOf("Set") > -1
 					&& thisSequence[j].indexOf("to") > -1) {
-				console.log("come in set to ");
 				if (!(thisSelect[j].indexOf("--Select--") > -1)) {
 					customizedVariable[thisSelect[j]] = thisValue[j];
+				}
+			} else if (thisSequence[j].indexOf("If") > -1
+					&& thisSequece[j].indexOf("then") > -1) {
+				var result = checkForCondition(thisSelect[j], customizedVariable);
+				if (result) {
+					var ifSequence = [];
+					var ifValue = [];
+					var ifSelect = [];
+
+					// get repeat sequence
+					for (j = j + 1; j < sequenceLength; j++) {
+						if (thisSequence[j].indexOf("End if") > -1) {
+							break;
+						}
+						ifSequence.push(thisSequence[j]);
+						ifValue.push(thisValue[j]);
+						ifSelect.push(thisSelect[j]);
+					}
+					
+					repeat(i, ifSequence, ifValue, ifSelect, customizedVariable);
 				}
 			}
 		}
@@ -152,6 +171,9 @@ function submit() {
 		}
 	}
 	
+	console.log(inputSequence);
+	console.log(inputValue);
+	console.log(inputSelect);
 	play(inputSequence, inputValue, inputSelect, charactersSrc);
 }
 
