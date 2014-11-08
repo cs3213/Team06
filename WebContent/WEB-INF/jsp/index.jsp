@@ -326,7 +326,7 @@
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="add-ops">New</button></li>
+										<button id="add-ops" onclick="addNewoption(this, '1', '2')">New</button></li>
 									<li class='substractOperation'><input id="input3"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none"> <select id="select3"
