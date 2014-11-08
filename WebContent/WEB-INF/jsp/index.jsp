@@ -33,8 +33,6 @@
 <script
 	src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>
 <script
-	src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
-<script
 	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
@@ -463,6 +461,8 @@
 	<script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/newOperation.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
+	<script
+	src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
 	<script
 		src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 	<script
