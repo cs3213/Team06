@@ -4,13 +4,17 @@ function setRepeatTimer(t) {
 	timer = t;
 }
 
-function repeat(index, sequence, value) {
+function repeat(index, sequence, value, select) {
 	console.log("repeat");
+	var customizedVariable = getCustomizedVariables();
 	var arrayLength = sequence.length;
-	console.log(sequence);
-	console.log(value);
+
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
+		if (isNaN(value[i])) {
+			value[i] = customizedVariable[select[i]];
+		}
+		
 		if (sequence[i].indexOf("Set X") > -1) {
 			setx(index, value[i]);
 		} else if (sequence[i].indexOf("Set Y") > -1) {
@@ -38,7 +42,9 @@ function repeat(index, sequence, value) {
 			var command = sequence[i];
 			var repeatSequence = [];
 			var repeatValue = [];
+			var repeatSelect = [];
 			var repeatTimes = value[i];
+			
 			// get repeat sequence
 			for (i = i + 1; i < arrayLength; i++) {
 				if (sequence[i].indexOf("End_Repeat") > -1) {
@@ -46,22 +52,26 @@ function repeat(index, sequence, value) {
 				}
 				repeatSequence.push(sequence[i]);
 				repeatValue.push(value[i]);
+				repeatSelect.push(select[i]);
 			}
-			console.log("repeat");
-			console.log(repeatSequence);
-			console.log(repeatValue);
 
 			// run repeat sequence
 			if (command.indexOf("Repeat") > -1) {
 				for (var k = 0; k < repeatTimes; k++) {
-					repeat(index, repeatSequence, repeatValue);
+					repeat(index, repeatSequence, repeatValue, repeatSelect);
 				}
 			} else {
 				clearTimeout(timer);
 				timer = setInterval(function() {
-					repeat(index, repeatSequence, repeatValue);
+					repeat(index, repeatSequence, repeatValue, repeatSelect);
 				}, 1000);
 				return;
+			}
+		} else if (sequence[i].indexOf("Set") > -1
+				&& sequence[i].indexOf("to") > -1) {
+			console.log("come in set to ");
+			if (!(select[i].indexOf("--Select--") > -1)) {
+				customizedVariable[select[i]] = value[i];
 			}
 		}
 	}
