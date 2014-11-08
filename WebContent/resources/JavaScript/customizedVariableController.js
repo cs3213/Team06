@@ -17,7 +17,14 @@ function new_variable() {
 		element1.innerHTML = variable;
 		div.appendChild(element1);
 
-		var select1 = document.getElementById("selectSet");
+		var select = document.getElementsByTagName('select');
+	    for (var i = 0; i < select.length; i++) {
+	    	if (select[i].id.indexOf("selectSet") > -1 || select[i].id.indexOf("selectChange") > -1 
+	    			|| select[i].id.indexOf("mselect") > -1 || select[i].id.indexOf("oselect") > -1) {
+	    			select[i].options.add(new Option(variable,variable));
+	    		}
+	    	}
+	/*	var select1 = document.getElementById("selectSet");
 		select1.options.add(new Option(variable, variable));
 		var select2 = document.getElementById("selectChange");
 		select2.options.add(new Option(variable, variable));
@@ -28,7 +35,7 @@ function new_variable() {
 		for (var i = 1; i <= 16; i ++) {
 			select1 = document.getElementById("select" + i);
 			select1.options.add(new Option(variable, variable));
-		}
+		} */
 	}
 }
 

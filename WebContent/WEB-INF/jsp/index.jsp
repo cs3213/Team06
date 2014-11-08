@@ -388,14 +388,14 @@
 								<ul id="draggable" style="text-align: left">
 									<li class='addOperation'><input id="input1" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="select1"
+										onchange="checkType(this)"> <select id="oselect1"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> + <input id="input2"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select2" class="selectItem"
+										id="oselect2" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -404,13 +404,13 @@
 									<li class='substractOperation'><input id="input3"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select3" class="selectItem"
+										id="oselect3" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> - <input id="input4"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select4" class="selectItem"
+										id="oselect4" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -419,13 +419,13 @@
 									<li class='multiplyOperation'><input id="input5"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select5" class="selectItem"
+										id="oselect5" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> * <input id="input6"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select6" class="selectItem"
+										id="oselect6" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -433,14 +433,14 @@
 											onclick="addNewoption(this, '5', '6', '*')">New</button></li>
 									<li class='divideOperation'><input id="input7" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="select7"
+										onchange="checkType(this)"> <select id="oselect7"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> / <input id="input8"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select8" class="selectItem"
+										id="oselect8" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -448,14 +448,14 @@
 											onclick="addNewoption(this, '7', '8', '/')">New</button></li>
 									<li class='modOperation'><input id="input9" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="select9"
+										onchange="checkType(this)"> <select id="oselect9"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> % <input id="input10"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select10" class="selectItem"
+										id="oselect10" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -463,14 +463,14 @@
 											onclick="addNewoption(this, '9', '10', '%')">New</button></li>
 									<li class='equalOperation'><input id="input11" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="select11"
+										onchange="checkType(this)"> <select id="oselect11"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> = <input id="input12"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select12" class="selectItem"
+										id="oselect12" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -479,13 +479,13 @@
 									<li class='greaterThanOperation'><input id="input13"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select13" class="selectItem"
+										id="oselect13" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> >= <input
 										id="input14" type="text" class="selectItem" name="input"
 										size="2" style="display: none" onchange="checkType(this)">
-										<select id="select14" class="selectItem"
+										<select id="oselect14" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -494,13 +494,13 @@
 									<li class='lessThanOperation'><input id="input15"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="select15" class="selectItem"
+										id="oselect15" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> <= <input
 										id="input16" type="text" class="selectItem" name="input"
 										size="2" style="display: none" onchange="checkType(this)">
-										<select id="select16" class="selectItem"
+										<select id="oselect16" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
