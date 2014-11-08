@@ -154,3 +154,7 @@ function submit() {
 	
 	play(inputSequence, inputValue, inputSelect, charactersSrc);
 }
+
+function animationStopTimer() {
+	clearTimeout(timer);
+}
