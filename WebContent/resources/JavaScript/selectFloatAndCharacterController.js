@@ -64,6 +64,19 @@ function selectCustomer(el) {
 	}
 }
 
+function selectForMove(el) {
+	var selectId = $(el).attr('id').substring(7);
+	var value = el.options[el.selectedIndex].value;
+	
+	if(value == "userInput") {
+		var inputId = "userInput" + selectId;
+		document.getElementById(inputId).style.display = "";
+	} else {
+		var inputId = "userInput" + selectId;
+		document.getElementById(inputId).style.display = "none";
+	}
+}
+
 function displayHouse(el) {
 	var src = $(el).attr('src');
 	var index = src.indexOf("house") + 5;//5=length of house
