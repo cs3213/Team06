@@ -458,7 +458,7 @@ function submit(){
 			
 			charactersSrc.push(
 				$(div).children('img').map(function(){
-					return $(this).attr('src')
+					return $(this).attr('src');
 				}).get()
 			);
 		}

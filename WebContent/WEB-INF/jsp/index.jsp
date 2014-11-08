@@ -38,6 +38,7 @@
 <script src="<c:url value="/resources/JavaScript/bootbox.min.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/bootbox.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
+
 </head>
 
 <body class="">
@@ -187,6 +188,7 @@
 						data-toggle="tab"><h5>Characters</h5></a></li>
 					<li><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h5>Actions</h5></a></li>
 					<li><a href="#music-pane" role="tab" data-toggle="tab"><h5>Music</h5></a></li>
+					
 				</ul>
 			</div>
 			<div class="tab-content container tab-content-container">
@@ -239,6 +241,8 @@
 								</li>
 								<li><a href="#Operator" role="tab" data-toggle="tab">Operator</a>
 								</li>
+								<li><a href="#Customized-Variable" role="tab" data-toggle="tab">Customized Variable</a>
+								</li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -269,6 +273,13 @@
 								</form>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Data"></div>
+							<div role="tabpanel" class="tab-pane" id="Customized-Variable">
+							
+							<ul id="variable-list"  class= "variable-list" style = "text-align: left">
+							
+							</ul>
+							
+							</div>
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
 									<ul id="draggable" class="two-col-special">
@@ -287,87 +298,90 @@
 							<div class="tab-pane select-pane" id="Operator">
 									<ul id="draggable" style = "text-align: left">
 										<li class='addOperation'>
-											<input id="input1" type="text" name="input" size="2" style = "display: none">
+											<input id="input1" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select1" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
   											<option value="customer">Input</option></select> + 
-  											<input id="input2" type="text" name="input" size="2" style = "display: none">
+  											<input id="input2" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select2" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="add-ops">New</button>
   										</li>
   										<li class='substractOperation'>
-  											<input id="input3" type="text" name="input" size="2" style = "display: none">
+  											<input id="input3" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select3" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
   											<option value="customer">Input</option></select> - 
-  											<input id="input4" type="text" name="input" size="2" style = "display: none">
+  											<input id="input4" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select4" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="substract-ops">New</button>
   										</li>
   										<li class='multiplyOperation'>
-  											<input id="input5" type="text" name="input" size="2" style = "display: none">
+  											<input id="input5" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select5" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
   											<option value="customer">Input</option></select> * 
-  											<input id="input6" type="text" name="input" size="2" style = "display: none">
+  											<input id="input6" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select6" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="mutiply-ops">New</button>
   										</li>
   										<li class='divideOperation'>
-  											<input id="input7" type="text" name="input" size="2" style = "display: none">
+  											<input id="input7" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select7" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
   											<option value="customer">Input</option></select> / 
-  											<input id="input8" type="text" name="input" size="2" style = "display: none">
+  											<input id="input8" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select8" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="divide-ops">New</button>
   										</li>
   										<li class='modOperation'>
-  											<input id="input9" type="text" name="input" size="2" style = "display: none">
+  											<input id="input9" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select9" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> mod 
-  											<input id="input10" type="text" name="input" size="2" style = "display: none">
+  											<option value="customer">Input</option></select> % 
+  											<input id="input10" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select10" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="mod-ops">New</button>
   										</li>
   										<li class='equalOperation'>
-  											<input id="input11" type="text" name="input" size="2" style = "display: none">
+  											<input id="input11" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select11" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
   											<option value="customer">Input</option></select> = 
-  											<input id="input12" type="text" name="input" size="2" style = "display: none">
+  											<input id="input12" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select12" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="equal-ops">New</button>
   										</li>
   										<li class='greaterThanOperation'>
-  											<input id="input13" type="text" name="input" size="2" style = "display: none">
+  											<input id="input13" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select13" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
   											<option value="customer">Input</option></select> >= 
-  											<input id="input14" type="text" name="input" size="2" style = "display: none">
+  											<input id="input14" type="text" class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select14" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="greaterThan-ops">New</button>
   										</li>
   										<li class='lessThanOperation'>
-  											<input id="input15" type="text" name="input" size="2" style = "display: none">
+  											<input id="input15" type="text" class="selectItem" name="input" size="2" style = "display: none">
 											<select id="select15" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <= 
-  											<input id="input16" type="text" name="input" size="2" style = "display: none">
+  											<option value="customer">Input</option></select> <=
+  											<input id="input16" type="text"  class="selectItem" name="input" size="2" style = "display: none">
   											<select id="select16" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
   											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button>New</button>
+  											<option value="customer">Input</option></select> <button id="lessThan-ops">New</button>
   										</li>
 									</ul>
 							</div>
+							
+						  
+							
 						</div>
 					</div>
 				</div>
@@ -383,6 +397,9 @@
 						</form>
 					</div>
 				</div>
+				
+				
+				
 
 
 
@@ -397,6 +414,7 @@
 
 	<script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
+	<script src="<c:url value="/resources/JavaScript/newOperation.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
 	<script
 		src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
