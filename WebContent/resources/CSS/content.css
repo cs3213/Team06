@@ -349,3 +349,14 @@ padding: 2px 2px;
 .coordDisplay{
 	text-align: right;
 }
+#sortable-background {
+	height: 300px; 
+	width: 72%; 
+	float: left; 
+	border: dotted; 
+	overflow: scroll;
+}
+#sortable {
+	height:400px;
+	border: none;
+}
