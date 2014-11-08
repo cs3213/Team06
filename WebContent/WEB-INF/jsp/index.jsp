@@ -57,7 +57,7 @@
 	</div>
 
 	<div class="transparent" id="">
-		<div class="row">
+		<div class="row" style="width:100%">
 			<div>
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
