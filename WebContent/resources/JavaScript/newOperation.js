@@ -38,7 +38,7 @@
 //
 //});
 
-function addNewoption(option, num1,num2){
+function addNewoption(option, num1, num2, op){
 	alert("add");
 	var id1 = 'select'+ num1;
 	var id2 = 'select'+ num2;
@@ -73,7 +73,7 @@ function addNewoption(option, num1,num2){
 		createValue2 = document.getElementById(input).value;
 	}
     var element = document.createElement("li");
-    element.innerHTML = createValue1 + "+" + createValue2; 
+    element.innerHTML = createValue1 + " " + op + " " + createValue2; 
     element.className = "command_right";
     variable_list.appendChild(element);
 }

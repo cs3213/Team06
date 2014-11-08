@@ -80,3 +80,12 @@ function displayHouse(el) {
 	player.setAttribute("style", newStyle);
 
 }
+
+function checkType(evt) {
+	var input = parseInt(evt.value);
+	
+	if(isNaN(input)) {
+		Popup.show("Value can only be integer.");
+		evt.value = "";
+	}
+}

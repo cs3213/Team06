@@ -315,113 +315,113 @@
 
 								<ul id="draggable" style="text-align: left">
 									<li class='addOperation'><input id="input1" type="text"
-										class="selectItem" name="input" size="2" style="display: none">
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
 										<select id="select1" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> + <input id="input2"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select2"
+										style="display: none" onchange="checkType(this)"> <select id="select2"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="add-ops" onclick="addNewoption(this, '1', '2')">New</button></li>
+										<button id="add-ops" onclick="addNewoption(this, '1', '2', '+')">New</button></li>
 									<li class='substractOperation'><input id="input3"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select3"
+										style="display: none" onchange="checkType(this)"> <select id="select3"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> - <input id="input4"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select4"
+										style="display: none" onchange="checkType(this)"> <select id="select4"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="substract-ops">New</button></li>
+										<button id="substract-ops" onclick="addNewoption(this, '3', '4', '-')">New</button></li>
 									<li class='multiplyOperation'><input id="input5"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select5"
+										style="display: none" onchange="checkType(this)"> <select id="select5"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> * <input id="input6"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select6"
+										style="display: none" onchange="checkType(this)"> <select id="select6"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="mutiply-ops">New</button></li>
+										<button id="mutiply-ops" onclick="addNewoption(this, '5', '6', '*')">New</button></li>
 									<li class='divideOperation'><input id="input7" type="text"
-										class="selectItem" name="input" size="2" style="display: none">
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
 										<select id="select7" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> / <input id="input8"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select8"
+										style="display: none" onchange="checkType(this)"> <select id="select8"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="divide-ops">New</button></li>
+										<button id="divide-ops" onclick="addNewoption(this, '7', '8', '/')">New</button></li>
 									<li class='modOperation'><input id="input9" type="text"
-										class="selectItem" name="input" size="2" style="display: none">
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
 										<select id="select9" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> % <input id="input10"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select10"
+										style="display: none" onchange="checkType(this)"> <select id="select10"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="mod-ops">New</button></li>
+										<button id="mod-ops" onclick="addNewoption(this, '9', '10', '%')">New</button></li>
 									<li class='equalOperation'><input id="input11" type="text"
-										class="selectItem" name="input" size="2" style="display: none">
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
 										<select id="select11" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> = <input id="input12"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select12"
+										style="display: none" onchange="checkType(this)"> <select id="select12"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="equal-ops">New</button></li>
+										<button id="equal-ops" onclick="addNewoption(this, '11', '12', '=')">New</button></li>
 									<li class='greaterThanOperation'><input id="input13"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select13"
+										style="display: none" onchange="checkType(this)"> <select id="select13"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> >= <input
 										id="input14" type="text" class="selectItem" name="input"
-										size="2" style="display: none"> <select id="select14"
+										size="2" style="display: none" onchange="checkType(this)"> <select id="select14"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="greaterThan-ops">New</button></li>
+										<button id="greaterThan-ops" onclick="addNewoption(this, '13', '14', '>=')">New</button></li>
 									<li class='lessThanOperation'><input id="input15"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none"> <select id="select15"
+										style="display: none" onchange="checkType(this)"> <select id="select15"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> <= <input
 										id="input16" type="text" class="selectItem" name="input"
-										size="2" style="display: none"> <select id="select16"
+										size="2" style="display: none" onchange="checkType(this)"> <select id="select16"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="lessThan-ops">New</button></li>
+										<button id="lessThan-ops" onclick="addNewoption(this, '15', '16', '<=')">New</button></li>
 								</ul>
 
 
