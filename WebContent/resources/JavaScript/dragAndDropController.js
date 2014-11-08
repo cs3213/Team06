@@ -101,29 +101,8 @@ function dropOver() {
 
 
 function dropOver1() {
-	var element = document.createElement("div");
-	element.id = "sortable" + countElement.toString();
-	element.class = "scene";
-	element.style.cssText = "height: 100px; width: 72%; float: left; border: dotted; overflow: scroll; ";
-
-	document.getElementById('divtest1').appendChild(element);
-
-	var editButton = document.createElement("input");
-	editButton.type = "button";
-	editButton.value = "Edit";
-	editButton.id = "edit" + countElement.toString();
-	editButton.setAttribute("class", "btn btn-primary onbtn");
-	var i = 1;
-	for (i = 1; i < countElement; i++) {
-		var object = document.getElementById("edit" + i.toString());
-		if (object) {
-			object.setAttribute("class", "btn onbtn");
-		}
-	}
-	editButton.setAttribute("onclick", "changeConnect(this)");
-	document.getElementById(element.id).appendChild(editButton);
-
-	var sortNode = "#" + element.id;
+	alert("change");
+	var sortNode = "#" + "sortable-background";
 
 	$("#draggable li").draggable({
 		connectToSortable : sortNode,
@@ -148,13 +127,8 @@ function dropOver1() {
 
 				ui.item.append('<span class="closeButton">X</span>');
 
-				document.getElementById("demo").innerHTML = ui.item.context.id;
 			}
 		}
-	});
-
-	$(element).delegate(".closeButton", "click", function() {
-		$(this).parent().remove();
 	});
 }
 

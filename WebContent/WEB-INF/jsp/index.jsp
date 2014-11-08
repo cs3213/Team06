@@ -170,13 +170,15 @@
 				<div class="tab-pane select-pane" id="background-editor-pane">
 					<div class=transparent-inner id="background-editor">
 
-						<div id="divtest1" class="scene-inner-container"
-							
-							ondragover="event.preventDefault();">
-							
-							
-							<button onclick="dropOver1();">test</button>
-														</div>
+						<div id="sortable" class="scene-inner-container"
+							ondrop="dropIt(event);" ondragover="event.preventDefault();">
+
+							<button onclick="dropOver1();">Edit</button>
+							<div id="sortable-background" class="ui-sortable"
+								style="height: 300px; width: 72%; float: left; border: dotted; overflow: scroll;">
+								
+							</div>
+						</div>
 
 					</div>
 				</div>
@@ -352,7 +354,7 @@
 									</ul>
 								</div>
 							</div>
-							
+
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
 									<ul id="draggable" class="two-col-special">
@@ -366,8 +368,10 @@
 										<li class='command_costume'>Change Costume</li>
 										<li class='command_background'>Change Background</li>
 										<li class='command_repeat'>If <select class="selectItem"
-										id="IfCondition"><option>--Select--</option><option>Touch edge</option>
-									</select> then</li>
+											id="IfCondition"><option>--Select--</option>
+												<option>Touch edge</option>
+										</select> then
+										</li>
 										<li class='command_background'>End if</li>
 									</ul>
 								</form>
