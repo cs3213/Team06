@@ -128,7 +128,7 @@ function play(sequence, value, select, charactersSrc) {
 	}
 }
 
-function submit() {
+function charactersInput() {
 	clearTimeout(timer);
 	var inputSequence = [];
 	var inputValue = [];
@@ -175,6 +175,21 @@ function submit() {
 	console.log(inputValue);
 	console.log(inputSelect);
 	play(inputSequence, inputValue, inputSelect, charactersSrc);
+}
+
+function musicInput() {
+	$('#sortable-background li').each(function() {
+		var command = $(this).text();
+		var index = command.substring(5, 6);
+		var input = $(this).find('input').val();
+		
+		playTimeSound(index, input);
+	})
+}
+
+function submit() {
+	charactersInput();
+	musicInput();
 }
 
 function animationStopTimer() {

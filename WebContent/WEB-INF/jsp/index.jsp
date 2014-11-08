@@ -38,8 +38,7 @@
 	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
-<script
-	src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
@@ -180,10 +179,10 @@
 							<button onclick="dropOver1();">Edit</button>
 							<button onclick="playTimeSound()">Play</button>
 							<div id="soundPlayer"></div>
-							
+
 							<div id="sortable-background" class="ui-sortable"
 								style="height: 300px; width: 72%; float: left; border: dotted; overflow: scroll;">
-								
+
 							</div>
 						</div>
 
@@ -340,8 +339,8 @@
 										id="selectSet"><option>--Select--</option>
 									</select> to <input type="text" name="setVariable" size="2"
 										class="input-word"></li>
-									<li class='command_e'>Change <select
-										class="selectItem" id="selectChange"><option>--Select--</option>
+									<li class='command_e'>Change <select class="selectItem"
+										id="selectChange"><option>--Select--</option>
 									</select> by <input type="text" name="changeVariable" size="2"
 										class="input-word"></li>
 								</ul>
@@ -531,10 +530,18 @@
 					<div class="" id="musicList">
 						<form>
 							<ul id="draggable">
-								<li class="music1">Music1</li>
-								<li class="music2">Music2</li>
-								<li class="music3">Music3</li>
-								<li class="music4">Music4</li>
+								<li class="music1">Music1 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+								<li class="music2">Music2 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+								<li class="music3">Music3 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+								<li class="music4">Music4 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
 							</ul>
 						</form>
 					</div>
