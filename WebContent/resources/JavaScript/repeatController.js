@@ -74,7 +74,7 @@ function repeat(index, sequence, value, select, customizedVariable) {
 			}
 		} else if (sequence[i].indexOf("If") > -1
 				&& sequence[i].indexOf("then") > -1) {
-			var result = checkForCondition(select[i], customizedVariable);
+			var result = checkForCondition(index, select[i], customizedVariable);
 			var ifSequence = [];
 			var ifValue = [];
 			var ifSelect = [];
