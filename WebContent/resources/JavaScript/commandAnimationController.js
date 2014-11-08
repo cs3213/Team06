@@ -14,7 +14,7 @@ function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit,
 }
 
 function setx(index, posx) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	console.log("set x");
 
@@ -29,7 +29,7 @@ function setx(index, posx) {
 }
 
 function sety(index, posy) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	console.log("set y");
 
@@ -44,7 +44,7 @@ function sety(index, posy) {
 }
 
 function moveRight(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
@@ -66,7 +66,7 @@ function moveRight(index, steps) {
 }
 
 function moveLeft(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
@@ -88,7 +88,7 @@ function moveLeft(index, steps) {
 }
 
 function moveDown(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false
@@ -110,7 +110,7 @@ function moveDown(index, steps) {
 }
 
 function moveUp(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
@@ -132,7 +132,7 @@ function moveUp(index, steps) {
 }
 
 function show(index) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	console.log("show");
 	$(id).animate({
@@ -141,7 +141,7 @@ function show(index) {
 }
 
 function hide(index) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	console.log("hide");
 	$(id).animate({
@@ -151,7 +151,7 @@ function hide(index) {
 
 function changeCostume(index) {
 	console.log("change costume");
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 
 	$(id).animate(
