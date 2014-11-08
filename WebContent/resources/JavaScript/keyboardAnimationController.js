@@ -35,7 +35,7 @@ function checkKey(e) {
 }
 
 function keyboardRight(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
@@ -57,7 +57,7 @@ function keyboardRight(index, steps) {
 }
 
 function keyboardLeft(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
@@ -79,7 +79,7 @@ function keyboardLeft(index, steps) {
 }
 
 function keyboardDown(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
@@ -101,7 +101,7 @@ function keyboardDown(index, steps) {
 }
 
 function keyboardUp(index, steps) {
-	imgObj = characters[index];
+	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
 	var out = false;
