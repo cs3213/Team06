@@ -31,8 +31,6 @@ function stopSound(){
 }
 
 function playTimeSound(soundIndex, time){
-	alert("play");
-	playSound(1);
 	var mp3snd = "resources/music/" + soundIndex + ".mp3";
 	var bkcolor = "000000";
 
