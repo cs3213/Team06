@@ -1,5 +1,5 @@
 
-function checkForCondition(condition, customizedVariable) {
+function checkForCondition(index, condition, customizedVariable) {
 	var index = -1;
 	var leftop;
 	var rightop;

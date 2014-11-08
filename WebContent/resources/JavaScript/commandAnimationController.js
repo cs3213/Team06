@@ -206,3 +206,11 @@ function changeBackground() {
 		});
 	});
 }
+
+function getCoordinatesAndLimit(index) {
+	var result = [];
+	result['x'] = leftMargin[index];
+	result['y'] = topMargin[index];
+	result['xlimit'] = leftMarginLimit[index];
+	result['ylimit'] = topMarginLimit[index];
+}

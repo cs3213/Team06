@@ -331,11 +331,11 @@
 
 								</ul>
 								<ul id="draggable" class="two-col-special">
-									<li class='command_repeat'>Set <select class="selectItem"
+									<li class='command_e'>Set <select class="selectItem"
 										id="selectSet"><option>--Select--</option>
 									</select> to <input type="text" name="setVariable" size="2"
 										class="input-word"></li>
-									<li class='command_repeat'>Change <select
+									<li class='command_e'>Change <select
 										class="selectItem" id="selectChange"><option>--Select--</option>
 									</select> by <input type="text" name="changeVariable" size="2"
 										class="input-word"></li>
@@ -345,14 +345,14 @@
 
 								<div id="variable">
 									<ul id="draggable" class="two-col-special">
-										<li class='command_repeat'>Sprite postion</li>
-										<li class='command_repeat'>Mouse postion</li>
-										<li class='command_repeat'>Canvas left</li>
-										<li class='command_repeat'>Canvas right</li>
-										<li class='command_repeat'>Canvas top</li>
-										<li class='command_repeat'>Canvas bottom</li>
-										<li class='command_repeat'>Width</li>
-										<li class='command_repeat'>Height</li>
+										<li class='command_r'>Sprite postion</li>
+										<li class='command_r'>Mouse postion</li>
+										<li class='command_r'>Canvas left</li>
+										<li class='command_r'>Canvas right</li>
+										<li class='command_r'>Canvas top</li>
+										<li class='command_r'>Canvas bottom</li>
+										<li class='command_r'>Width</li>
+										<li class='command_r'>Height</li>
 									</ul>
 								</div>
 							</div>
@@ -509,7 +509,7 @@
 
 							<div role="tabpanel" class="tab-pane" id="Sensing">
 								<ul id="draggable" class="two-col-special">
-									<li class='command_repeat'>Touch edge?</li>
+									<li class='command_p'>Touch edge?</li>
 								</ul>
 
 							</div>

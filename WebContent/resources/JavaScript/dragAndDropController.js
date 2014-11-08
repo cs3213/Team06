@@ -13,10 +13,12 @@ function dropIt(theEvent) {
 	var theDraggedElement = document.getElementById(theData);
 	var eleSrc = theDraggedElement.getAttribute("src");
 	var div = document.createElement("div");
+	div.class = "dropDiv";
 	div.style.cssText = "height: 100px; width: 28%; float: left";
 	div.id = "div" + countElement.toString();
 	var element = document.createElement("img");
 	element.id = "element" + countElement.toString();
+	element.class = "element";
 	element.setAttribute('src', eleSrc);
 	element.setAttribute('height', '80px');
 	element.setAttribute('width', '100px');
