@@ -200,7 +200,7 @@
 				<div class="tab-pane select-pane" id="coordEditor-pane">
 
 					<div class="transparent" id="coordEditor">
-						<div id="divName" class="container">
+						<div id="divName" class="container inner-container">
 							<h4>Setting</h4>
 						</div>
 						<div>
