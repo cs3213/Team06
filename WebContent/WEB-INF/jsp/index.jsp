@@ -127,6 +127,7 @@
 
 				<button type="button" class="btn btn-warning" onClick="submit()">
 					Play</button>
+				<div id="Coord" class = "coordDisplay"> </div>
 			</div>
 		</div>
 
