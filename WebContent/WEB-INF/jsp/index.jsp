@@ -39,7 +39,8 @@
 <script
 	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/customizedVariableController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/customizedVariableController.js" />"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script
@@ -58,7 +59,7 @@
 	</div>
 
 	<div class="transparent" id="">
-		<div class="row" style="width:100%">
+		<div class="row" style="width: 100%">
 			<div>
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
@@ -127,31 +128,62 @@
 
 				<button type="button" class="btn btn-warning" onClick="submit()">
 					Play</button>
+				<div id="Coord" class="coordDisplay"></div>
 			</div>
 		</div>
 
-		<div class="transparent editor-panel" id="editor">
+		<!-- 		<div class="transparent editor-panel" id="editor">
 			<div id="divName" class="container inner-container">
 				<h4>Editor</h4>
 			</div>
-			<!-- <div class="container inner-container"> -->
+			<div class="container inner-container">
 			<div id="divtest" class="scene-inner-container"
 				ondrop="dropIt(event); dropOver();"
 				ondragover="event.preventDefault();"></div>
+		</div> -->
 
-			<div id="loading-bar" class="progress progress-inner"
-				style="display: none">
-				<div id="loading-bar-content"
-					class="progress-bar progress-bar-striped active" role="progressbar"
-					aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-					style="width: 45%">
-					<span id="loading-bar-indicator">0% Complete</span>
+
+
+		<div class="transparent tab-editor-panel ">
+			<div class="inner-tab">
+				<ul class="nav nav-tabs inner-tab" role="tablist">
+					<li class="active"><a href="#character-editor-pane" role="tab"
+						data-toggle="tab"><h5>Character Editor</h5></a></li>
+					<li><a href="#background-editor-pane" role="tab"
+						data-toggle="tab"><h5>Background Editor</h5></a></li>
+
+				</ul>
+			</div>
+
+
+			<div class="tab-content container tab-content-container">
+				<div class="tab-pane active select-pane" id="character-editor-pane">
+					<div class=transparent-inner id="character-editor">
+						<div id="divtest" class="scene-inner-container"
+							ondrop="dropIt(event); dropOver();"
+							ondragover="event.preventDefault();"></div>
+					</div>
 				</div>
+
+
+
+				<div class="tab-pane select-pane" id="background-editor-pane">
+					<div class=transparent-inner id="background-editor">
+
+						<div id="divtest" class="scene-inner-container"
+							ondrop="dropIt(event); dropOver();"
+							ondragover="event.preventDefault();"></div>
+
+					</div>
+				</div>
+
 			</div>
 		</div>
 
+
+
 		<!-- Nav tabs -->
-		<div class="tab-panel">
+		<div class="transparent tab-panel">
 			<div class="inner-tab">
 				<ul class="nav nav-tabs inner-tab" role="tablist">
 					<li class="active"><a href="#source-pane" role="tab"
@@ -165,7 +197,7 @@
 
 			<div class="tab-content container tab-content-container">
 				<div class="tab-pane active select-pane" id="source-pane">
-					<div class=transparent-inner id="source">
+					<div class="" id="source">
 						<div id="floatArea">
 							<h4>Scene</h4>
 							<button onclick="changeFloatLeft()">
@@ -200,10 +232,8 @@
 
 				<div class="tab-pane select-pane" id="coordEditor-pane">
 
-					<div class="transparent" id="coordEditor">
-						<div id="divName" class="container inner-container">
-							<h4>Setting</h4>
-						</div>
+					<div class="" id="coordEditor">
+
 						<div>
 							<ul class="nav nav-tabs inner-tab" role="tablist">
 								<li class="active"><a href="#Motion" role="tab"
@@ -225,48 +255,66 @@
 							<div role="tabpanel" class="tab-pane active" id="Motion">
 								<form>
 									<ul id="draggable" class="two-col-special">
-										<li class="command_right">Move Right <input id="userInput1" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-											<select id="mselect1" class="selectItem" onchange="selectForMove(this)">
-											<option value="variable">Variable</option>
-											<option value="userInput">Input</option></select>steps
+										<li class="command_right">Move Right <input
+											id="userInput1" type="text" class="selectItem" name="input"
+											size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect1" class="selectItem"
+											onchange="selectForMove(this)">
+												<option value="variable">Variable</option>
+												<option value="userInput">Input</option>
+										</select>steps
 										</li>
-										<li class="command_left">Move Left <input id="userInput2" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-											<select id="mselect2" class="selectItem" onchange="selectForMove(this)">
-											<option value="variable">Variable</option>
-											<option value="userInput">Input</option></select>steps
+										<li class="command_left">Move Left <input id="userInput2"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none" onchange="checkType(this)"> <select
+											id="mselect2" class="selectItem"
+											onchange="selectForMove(this)">
+												<option value="variable">Variable</option>
+												<option value="userInput">Input</option>
+										</select>steps
 										</li>
-										<li class="command_up">Move Up <input id="userInput3" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-											<select id="mselect3" class="selectItem" onchange="selectForMove(this)">
-											<option value="variable">Variable</option>
-											<option value="userInput">Input</option></select>steps
+										<li class="command_up">Move Up <input id="userInput3"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none" onchange="checkType(this)"> <select
+											id="mselect3" class="selectItem"
+											onchange="selectForMove(this)">
+												<option value="variable">Variable</option>
+												<option value="userInput">Input</option>
+										</select>steps
 										</li>
-										<li class="command_down">Move Down <input id="userInput4" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-											<select id="mselect4" class="selectItem" onchange="selectForMove(this)">
-											<option value="variable">Variable</option>
-											<option value="userInput">Input</option></select>steps
+										<li class="command_down">Move Down <input id="userInput4"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none" onchange="checkType(this)"> <select
+											id="mselect4" class="selectItem"
+											onchange="selectForMove(this)">
+												<option value="variable">Variable</option>
+												<option value="userInput">Input</option>
+										</select>steps
 										</li>
-										<li class="command_x">Set X <input id="userInput5" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-											<select id="mselect5" class="selectItem" onchange="selectForMove(this)">
-											<option value="variable">Variable</option>
-											<option value="userInput">Input</option></select>px
+										<li class="command_x">Set X <input id="userInput5"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none" onchange="checkType(this)"> <select
+											id="mselect5" class="selectItem"
+											onchange="selectForMove(this)">
+												<option value="variable">Variable</option>
+												<option value="userInput">Input</option>
+										</select>px
 										</li>
-										<li class="command_y">Set Y <input id="userInput6" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-											<select id="mselect6" class="selectItem" onchange="selectForMove(this)">
-											<option value="variable">Variable</option>
-											<option value="userInput">Input</option></select>px
+										<li class="command_y">Set Y <input id="userInput6"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none" onchange="checkType(this)"> <select
+											id="mselect6" class="selectItem"
+											onchange="selectForMove(this)">
+												<option value="variable">Variable</option>
+												<option value="userInput">Input</option>
+										</select>px
 										</li>
 									</ul>
 								</form>
 							</div>
 
 							<div role="tabpanel" class="tab-pane" id="Customized-Variable">
-							<div class="create_variable">
+								<div class="create_variable">
 									<button type="button" class="btn btn-danger"
 										onClick="new_variable()">New a variable</button>
 								</div>
@@ -328,113 +376,125 @@
 
 								<ul id="draggable" style="text-align: left">
 									<li class='addOperation'><input id="input1" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-										<select id="select1" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
+										class="selectItem" name="input" size="2" style="display: none"
+										onchange="checkType(this)"> <select id="select1"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> + <input id="input2"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select2"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select2" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="add-ops" onclick="addNewoption(this, '1', '2', '+')">New</button></li>
+										<button id="add-ops"
+											onclick="addNewoption(this, '1', '2', '+')">New</button></li>
 									<li class='substractOperation'><input id="input3"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select3"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select3" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> - <input id="input4"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select4"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select4" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="substract-ops" onclick="addNewoption(this, '3', '4', '-')">New</button></li>
+										<button id="substract-ops"
+											onclick="addNewoption(this, '3', '4', '-')">New</button></li>
 									<li class='multiplyOperation'><input id="input5"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select5"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select5" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> * <input id="input6"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select6"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select6" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="mutiply-ops" onclick="addNewoption(this, '5', '6', '*')">New</button></li>
+										<button id="mutiply-ops"
+											onclick="addNewoption(this, '5', '6', '*')">New</button></li>
 									<li class='divideOperation'><input id="input7" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-										<select id="select7" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
+										class="selectItem" name="input" size="2" style="display: none"
+										onchange="checkType(this)"> <select id="select7"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> / <input id="input8"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select8"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select8" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="divide-ops" onclick="addNewoption(this, '7', '8', '/')">New</button></li>
+										<button id="divide-ops"
+											onclick="addNewoption(this, '7', '8', '/')">New</button></li>
 									<li class='modOperation'><input id="input9" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-										<select id="select9" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
+										class="selectItem" name="input" size="2" style="display: none"
+										onchange="checkType(this)"> <select id="select9"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> % <input id="input10"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select10"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select10" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="mod-ops" onclick="addNewoption(this, '9', '10', '%')">New</button></li>
+										<button id="mod-ops"
+											onclick="addNewoption(this, '9', '10', '%')">New</button></li>
 									<li class='equalOperation'><input id="input11" type="text"
-										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
-										<select id="select11" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
+										class="selectItem" name="input" size="2" style="display: none"
+										onchange="checkType(this)"> <select id="select11"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> = <input id="input12"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select12"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select12" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="equal-ops" onclick="addNewoption(this, '11', '12', '=')">New</button></li>
+										<button id="equal-ops"
+											onclick="addNewoption(this, '11', '12', '=')">New</button></li>
 									<li class='greaterThanOperation'><input id="input13"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select13"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select13" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> >= <input
 										id="input14" type="text" class="selectItem" name="input"
-										size="2" style="display: none" onchange="checkType(this)"> <select id="select14"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										size="2" style="display: none" onchange="checkType(this)">
+										<select id="select14" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="greaterThan-ops" onclick="addNewoption(this, '13', '14', '>=')">New</button></li>
+										<button id="greaterThan-ops"
+											onclick="addNewoption(this, '13', '14', '>=')">New</button></li>
 									<li class='lessThanOperation'><input id="input15"
 										type="text" class="selectItem" name="input" size="2"
-										style="display: none" onchange="checkType(this)"> <select id="select15"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										style="display: none" onchange="checkType(this)"> <select
+										id="select15" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> <= <input
 										id="input16" type="text" class="selectItem" name="input"
-										size="2" style="display: none" onchange="checkType(this)"> <select id="select16"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
+										size="2" style="display: none" onchange="checkType(this)">
+										<select id="select16" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
-										<button id="lessThan-ops" onclick="addNewoption(this, '15', '16', '<=')">New</button></li>
+										<button id="lessThan-ops"
+											onclick="addNewoption(this, '15', '16', '<=')">New</button></li>
 								</ul>
 
 
@@ -479,11 +539,10 @@
 	<script src="<c:url value="/resources/JavaScript/newOperation.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
 	<script
-	src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
+		src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
 	<script
 		src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 	<script
 		src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
-
 </body>
 </html>

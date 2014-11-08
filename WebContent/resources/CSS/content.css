@@ -341,3 +341,11 @@ padding: 2px 2px;
     width: 145px;
     text-align:center;
 }
+.tab-editor-panel{
+	width:30%;
+	height: 549px;
+    float: left;
+}
+.coordDisplay{
+	text-align: right;
+}

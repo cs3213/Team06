@@ -19,8 +19,8 @@ function displayCoord(e) {
 		tempX = event.clientX + document.body.scrollLeft - 41;
 		tempY = event.clientY + document.body.scrollTop - 146;
 	} else { // grab the x-y pos.s if browser is NS
-		tempX = e.pageX - 41;
-		tempY = e.pageY - 146;
+		tempX = e.pageX - 44;
+		tempY = e.pageY - 151;
 	}
 	// catch possible negative values in NS4
 	if (tempX < 0)
@@ -29,6 +29,10 @@ function displayCoord(e) {
 		tempY = 0;
 	// show the position values in the form named Show
 	// in the text fields named MouseX and MouseY
-	console.log("("+tempX+", "+tempY+")");
+	var coor = "X: " +tempX+" Y: "+tempY;
+	//document.getElementById("CoordX").innerHTML = tempX;
+	//document.getElementById("CoordY").innerHTML = tempY;
+	document.getElementById("Coord").innerHTML = coor;
+	console.log(coor);
 	return true;
 }
