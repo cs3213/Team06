@@ -99,6 +99,65 @@ function dropOver() {
 	});
 }
 
+
+function dropOver1() {
+	var element = document.createElement("div");
+	element.id = "sortable" + countElement.toString();
+	element.class = "scene";
+	element.style.cssText = "height: 100px; width: 72%; float: left; border: dotted; overflow: scroll; ";
+
+	document.getElementById('divtest1').appendChild(element);
+
+	var editButton = document.createElement("input");
+	editButton.type = "button";
+	editButton.value = "Edit";
+	editButton.id = "edit" + countElement.toString();
+	editButton.setAttribute("class", "btn btn-primary onbtn");
+	var i = 1;
+	for (i = 1; i < countElement; i++) {
+		var object = document.getElementById("edit" + i.toString());
+		if (object) {
+			object.setAttribute("class", "btn onbtn");
+		}
+	}
+	editButton.setAttribute("onclick", "changeConnect(this)");
+	document.getElementById(element.id).appendChild(editButton);
+
+	var sortNode = "#" + element.id;
+
+	$("#draggable li").draggable({
+		connectToSortable : sortNode,
+		helper : "clone",
+		revert : "invalid",
+	});
+
+	$(sortNode).sortable({
+		revert : true,
+		stop : function(event, ui) {
+			var html = ui.item.html();
+
+			if (html.indexOf("span") == -1) {
+				ui.item.css("border-radius", "10px");
+				ui.item.css("margin", "3px 3px 3px 3px");
+				ui.item.css("padding", "3px 3px");
+				ui.item.css("font-size", "0.8em");
+				ui.item.css("color", "white");
+				ui.item.css("width", "200px");
+				ui.item.css("text-align", "center");
+				ui.item.css("list-style-type", "none");
+
+				ui.item.append('<span class="closeButton">X</span>');
+
+				document.getElementById("demo").innerHTML = ui.item.context.id;
+			}
+		}
+	});
+
+	$(element).delegate(".closeButton", "click", function() {
+		$(this).parent().remove();
+	});
+}
+
 function changeConnect(el) {
 	var thisID = $(el).attr('id');
 	el.setAttribute("class", "btn btn-primary onbtn");
