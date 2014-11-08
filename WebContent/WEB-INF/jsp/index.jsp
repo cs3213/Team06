@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -29,7 +28,19 @@
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script
 	src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
-<script src="<c:url value="/resources/JavaScript/selection.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/dragAndDropController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script
@@ -42,28 +53,15 @@
 </head>
 
 <body class="">
-
 	<p id="demo"></p>
-
 
 	<div id="message" class="bb-alert alert alert-info"
 		style="display: none;">
 		<span>Hello world callback</span>
-
 	</div>
 
 	<div class="transparent" id="">
-
-
 		<div class="row">
-
-
-			<!-- 			<div class="overlay-word" id="header-words">
-				<label id="Welcome-Word" style="display: none; float: centre;"><h3>CS3216
-						Animation Player</h3> </label> <label id="User-Name" style="float: right;"></label>
-			</div> -->
-
-
 			<div>
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
@@ -76,8 +74,6 @@
 					onchange='changeFunc();'>
 
 				</select>
-				
-				
 
 				<button type="button" id="loading-btn" style="display:"
 					data-loading-text="Loading..."
@@ -86,31 +82,17 @@
 				<button type="button" id="deleting-btn" style="display:"
 					data-loading-text="Deleting..."
 					class="btn btn-primary btn-primary-customize">Delete</button>
-
-
-
 			</div>
-
 		</div>
-
-
-
-
-
 	</div>
-
-
 
 	<div id="Google-Login" class="overlay" style="">
 		<div class="overlay-inner">
-
-
 			<button class="g-signin"
 				data-scope="https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
 				data-clientid="264511181674-td4u09us0emielom73ogag8usopl7e90.apps.googleusercontent.com"
 				data-callback="onSignInCallback" data-theme="dark"
 				data-cookiepolicy="single_host_origin"></button>
-
 		</div>
 	</div>
 
@@ -121,8 +103,6 @@
 			</div>
 
 			<div class="container content-div">
-
-
 				<div id="divtest-player" class="scene_play"
 					onmouseover="displayCoord" style=""></div>
 			</div>
@@ -153,9 +133,7 @@
 			</div>
 		</div>
 
-
 		<div class="transparent editor-panel" id="editor">
-
 			<div id="divName" class="container inner-container">
 				<h4>Editor</h4>
 			</div>
@@ -173,14 +151,9 @@
 					<span id="loading-bar-indicator">0% Complete</span>
 				</div>
 			</div>
-
-
 		</div>
 
-
-
 		<!-- Nav tabs -->
-
 		<div class="tab-panel">
 			<div class="inner-tab">
 				<ul class="nav nav-tabs inner-tab" role="tablist">
@@ -236,12 +209,16 @@
 							<ul class="nav nav-tabs inner-tab" role="tablist">
 								<li class="active"><a href="#Motion" role="tab"
 									data-toggle="tab">Motion</a></li>
-								<li><a href="#Data" role="tab" data-toggle="tab">Data</a></li>
+								<li><a href="#Data" role="tab" data-toggle="tab">Variable</a></li>
 								<li><a href="#Control" role="tab" data-toggle="tab">Control</a>
 								</li>
 								<li><a href="#Operator" role="tab" data-toggle="tab">Operator</a>
 								</li>
+<<<<<<< HEAD
 								<li><a href="#Customized-Variable" role="tab" data-toggle="tab">Customized Variable</a>
+=======
+								<li><a href="#Sensing" role="tab" data-toggle="tab">Sensing</a>
+>>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
 								</li>
 							</ul>
 						</div>
@@ -272,6 +249,7 @@
 									</ul>
 								</form>
 							</div>
+<<<<<<< HEAD
 							<div role="tabpanel" class="tab-pane" id="Data"></div>
 							<div role="tabpanel" class="tab-pane" id="Customized-Variable">
 							
@@ -279,6 +257,35 @@
 							
 							</ul>
 							
+=======
+							<div role="tabpanel" class="tab-pane" id="Data">
+								<div class="create_variable">
+									<button type="button" class="btn btn-danger"
+										onClick="new_variable()">New a variable</button>
+								</div>
+								<div id="variable">
+									<ul id="draggable" class="two-col-special">
+										<li class='command_repeat'>Sprite postion</li>
+										<li class='command_repeat'>Mouse postion</li>
+										<li class='command_repeat'>Canvas left</li>
+										<li class='command_repeat'>Canvas right</li>
+										<li class='command_repeat'>Canvas top</li>
+										<li class='command_repeat'>Canvas bottom</li>
+										<li class='command_repeat'>Width</li>
+										<li class='command_repeat'>Height</li>
+									</ul>
+								</div>
+								<ul id="draggable" class="two-col-special">
+									<li class='command_repeat'>Set <select class="selectItem"
+										id="selectSet"><option>--Select--</option>
+									</select> to <input type="text" name="setVariable" size="2"
+										class="input-word"></li>
+									<li class='command_repeat'>Change <select
+										class="selectItem" id="selectChange"><option>--Select--</option>
+									</select> by <input type="text" name="changeVariable" size="2"
+										class="input-word"></li>
+								</ul>
+>>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
 							</div>
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
@@ -290,12 +297,13 @@
 										<li class='command_end_repeat'>End_Repeat</li>
 										<li class='command_show'>Show</li>
 										<li class='command_hide'>Hide</li>
-										<li class='command_costume'>Change Constume</li>
+										<li class='command_costume'>Change Costume</li>
 										<li class='command_background'>Change Background</li>
 									</ul>
 								</form>
 							</div>
 							<div class="tab-pane select-pane" id="Operator">
+<<<<<<< HEAD
 									<ul id="draggable" style = "text-align: left">
 										<li class='addOperation'>
 											<input id="input1" type="text" class="selectItem" name="input" size="2" style = "display: none">
@@ -378,6 +386,114 @@
   											<option value="customer">Input</option></select> <button id="lessThan-ops">New</button>
   										</li>
 									</ul>
+=======
+								<ul id="draggable" style="text-align: left">
+									<li class='addOperation'><input id="input1" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select1" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> + <input id="input2"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select2" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='substractOperation'><input id="input3"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select3" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> - <input id="input4"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select4" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='multiplyOperation'><input id="input5"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select5" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> * <input id="input6"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select6" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='divideOperation'><input id="input7" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select7" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> / <input id="input8"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select8" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='modOperation'><input id="input9" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select9" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> mod <input
+										id="input10" type="text" name="input" size="2"
+										style="display: none"> <select id="select10"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='equalOperation'><input id="input11" type="text"
+										name="input" size="2" style="display: none"> <select
+										id="select11" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> = <input id="input12"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select12" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='greaterThanOperation'><input id="input13"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select13" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> >= <input
+										id="input14" type="text" name="input" size="2"
+										style="display: none"> <select id="select14"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+									<li class='lessThanOperation'><input id="input15"
+										type="text" name="input" size="2" style="display: none">
+										<select id="select15" class="selectItem"
+										onchange="selectCustomer(this)"><option value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select> <= <input
+										id="input16" type="text" name="input" size="2"
+										style="display: none"> <select id="select16"
+										class="selectItem" onchange="selectCustomer(this)"><option
+												value="X">X</option>
+											<option value="Y">Y</option>
+											<option value="customer">Input</option></select>
+										<button>New</button></li>
+								</ul>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="Sensing">
+								<ul id="draggable" class="two-col-special">
+									<li class='command_repeat'>Touch edge?</li>
+								</ul>
+>>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
 							</div>
 							
 						  
@@ -397,20 +513,18 @@
 						</form>
 					</div>
 				</div>
+<<<<<<< HEAD
 				
 				
 				
 
 
 
+=======
+>>>>>>> c7a799fdda45ae316bd36a59807eac2a4a614251
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 
 	<script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
@@ -420,8 +534,6 @@
 		src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
 	<script
 		src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
-
-
 
 </body>
 </html>
