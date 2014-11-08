@@ -39,6 +39,8 @@
 <script
 	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
 <script
+	src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
+<script
 	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
 <script
@@ -176,6 +178,9 @@
 							ondrop="dropIt(event);" ondragover="event.preventDefault();">
 
 							<button onclick="dropOver1();">Edit</button>
+							<button onclick="playTimeSound()">Play</button>
+							<div id="soundPlayer"></div>
+							
 							<div id="sortable-background" class="ui-sortable"
 								style="height: 300px; width: 72%; float: left; border: dotted; overflow: scroll;">
 								
