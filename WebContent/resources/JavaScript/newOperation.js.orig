@@ -38,7 +38,7 @@
 //
 //});
 
-function addNewoption(option, num1, num2, op){
+function addNewoption(option,num1,num2){
 	alert("add");
 	var id1 = 'select'+ num1;
 	var id2 = 'select'+ num2;
@@ -52,6 +52,30 @@ function addNewoption(option, num1, num2, op){
 	var createValue1;
 	var createValue2;
 	var variable_list = document.getElementById('variable-list');
+<<<<<<< HEAD
+	
+	if(chosenValue1 == "X"){
+		createValue1 = "X";
+	}
+	else if(chosenValue1 =="Y"){
+		createValue1 = "Y";
+	}
+	else{
+		createValue1 = document.getElementById(input1).value;
+	}
+	
+	if(chosenValue2 == "X"){
+		createValue2 = "X";
+	}
+	else if(chosenValue2 =="Y"){
+		createValue2 = "Y";
+	}
+	else{
+		createValue2 = document.getElementById(input).value;
+	}
+    var element = document.createElement("li");
+    element.innerHTML = createValue1 + "+" + createValue2; 
+=======
 
 	if (chosenValue1 == "customer")
 		chosenValue1 = document.getElementById(input1).value;
@@ -69,6 +93,7 @@ function addNewoption(option, num1, num2, op){
     var select1 = document.getElementById("IfCondition");
 	select1.options.add(new Option(content, content));
     }
+>>>>>>> 556104f9a2075c7871f0d8ebec725006589a1128
     element.className = "command_right";
     variable_list.appendChild(element);
 }

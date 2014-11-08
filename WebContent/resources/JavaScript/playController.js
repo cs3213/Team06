@@ -1,12 +1,13 @@
 var timer;
 
-function play(sequence, value, charactersSrc) {
+function play(sequence, value, select, charactersSrc) {
 	var arrayLength = sequence.length;
 	var characters = [];
 	var leftMargin = [];
 	var topMargin = [];
 	var leftMarginLimit = [];
 	var topMarginLimit = [];
+	var customizedVariable = getCustomizedVariables();
 	// put images in player
 	var div = document.getElementById("divtest-player");
 	div.innerHTML = '';
@@ -40,8 +41,13 @@ function play(sequence, value, charactersSrc) {
 	for (var i = 0; i < arrayLength; i++) {
 		var thisSequence = sequence[i];
 		var thisValue = value[i];
+		var thisSelect = select[i];
 		var sequenceLength = thisSequence.length;
 		for (var j = 0; j < sequenceLength; j++) {
+			if (isNaN(thisValue[j])) {
+				thisValue[j] = customizedVariable[thisSelect[j]];
+			}
+			
 			if (thisSequence[j].indexOf("Set X") > -1) {
 				setx(i, thisValue[j]);
 			} else if (thisSequence[j].indexOf("Set Y") > -1) {
@@ -68,6 +74,7 @@ function play(sequence, value, charactersSrc) {
 				var command = thisSequence[j];
 				var repeatSequence = [];
 				var repeatValue = [];
+				var repeatSelect = [];
 				var repeatTimes = thisValue[j];
 				// get repeat sequence
 				for (j = j + 1; j < sequenceLength; j++) {
@@ -76,19 +83,26 @@ function play(sequence, value, charactersSrc) {
 					}
 					repeatSequence.push(thisSequence[j]);
 					repeatValue.push(thisValue[j]);
+					repeatSelect.push(thisSelect[j]);
 				}
 
 				// run repeat sequence
 				if (command.indexOf("Repeat") > -1) {
 					for (var k = 0; k < repeatTimes; k++) {
-						repeat(i, repeatSequence, repeatValue);
+						repeat(i, repeatSequence, repeatValue, repeatSelect);
 					}
 				} else {
 					clearTimeout(timer);
 					timer = setInterval(function() {
-						repeat(i, repeatSequence, repeatValue);
+						repeat(i, repeatSequence, repeatValue, repeatSelect);
 					}, 1000);
 					return;
+				}
+			} else if (thisSequence[j].indexOf("Set") > -1
+					&& thisSequence[j].indexOf("to") > -1) {
+				console.log("come in set to ");
+				if (!(thisSelect[j].indexOf("--Select--") > -1)) {
+					customizedVariable[thisSelect[j]] = thisValue[j];
 				}
 			}
 		}
@@ -99,6 +113,7 @@ function submit() {
 	clearTimeout(timer);
 	var inputSequence = [];
 	var inputValue = [];
+	var inputSelect = [];
 	var charactersSrc = [];
 	var countElement = getCountElement();
 
@@ -107,6 +122,7 @@ function submit() {
 	for (var i = 0; i < countElement; i++) {
 		inputSequence[i] = [];
 		inputValue[i] = [];
+		inputSelect[i] = [];
 		var sortable = "#sortable" + (i + 1).toString() + " li";
 		var div = "#div" + (i + 1).toString();
 
@@ -115,10 +131,18 @@ function submit() {
 				var command = $(this).text();
 				inputSequence[i].push(command);
 				var input = $(this).find('input').val();
+				var select = $(this).find('select').val();
+
 				if (input) {
 					inputValue[i].push(input);
 				} else {
-					inputValue[i].push(0);
+					inputValue[i].push(parseInt(select));
+				}
+				
+				if (select) {
+					inputSelect[i].push(select);
+				} else {
+					inputSelect[i].push("");
 				}
 			});
 
@@ -127,6 +151,10 @@ function submit() {
 			}).get());
 		}
 	}
+	
+	play(inputSequence, inputValue, inputSelect, charactersSrc);
+}
 
-	play(inputSequence, inputValue, charactersSrc);
+function animationStopTimer() {
+	clearTimeout(timer);
 }

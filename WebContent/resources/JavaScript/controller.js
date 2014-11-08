@@ -336,6 +336,7 @@ $('#deleting-btn').click(function () {
   });
 
 $('#reset-background-btn').click(function(){
+	animationStopTimer();
 	bootbox.confirm("Are you sure to reset the background?", function(result) {
 		if(!result){
 		  Popup.show("Cancel Reset Background!");
