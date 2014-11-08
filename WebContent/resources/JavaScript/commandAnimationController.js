@@ -92,7 +92,7 @@ function moveDown(index, steps) {
 	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
 	var length = 10 * steps;
-	var out = false
+	var out = false;
 	if (topMarginLimit[index] < topMargin[index] + length) {
 		out = true;
 		length = topMarginLimit[index] - topMargin[index];
@@ -203,6 +203,6 @@ function changeBackground() {
 		$(this).css({
 			'background-image' : 'url(' + path + ')',
 			'background-size' : '100% 100%'
-		})
+		});
 	});
 }

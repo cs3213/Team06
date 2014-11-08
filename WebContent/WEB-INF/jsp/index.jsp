@@ -362,7 +362,7 @@
 											name="repeat" size="2" class="input-word">
 										</li>
 										<li class='command_forever_loop'>Forever Loop</li>
-										<li class='command_end_repeat'>End_Repeat</li>
+										<li class='command_end_repeat'>End Repeat</li>
 										<li class='command_show'>Show</li>
 										<li class='command_hide'>Hide</li>
 										<li class='command_costume'>Change Costume</li>
