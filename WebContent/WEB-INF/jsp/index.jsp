@@ -224,25 +224,41 @@
 							<div role="tabpanel" class="tab-pane active" id="Motion">
 								<form>
 									<ul id="draggable" class="two-col-special">
-										<li class="command_right">Move Right <input type="text"
-											name="right" size="2" class="input-word">steps
+										<li class="command_right">Move Right <input id="userInput1" type="text"
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect1" class="selectItem" onchange="selectForMove(this)">
+											<option value="variable">Variable</option>
+											<option value="userInput">Input</option></select>steps
 										</li>
-										<li class="command_left">Move Left <input type="text"
-											name="left" size="2" class="input-word">steps
+										<li class="command_left">Move Left <input id="userInput2" type="text"
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect2" class="selectItem" onchange="selectForMove(this)">
+											<option value="variable">Variable</option>
+											<option value="userInput">Input</option></select>steps
 										</li>
-										<li class="command_up">Move Up <input type="text"
-											name="right" size="2" class="input-word">steps
+										<li class="command_up">Move Up <input id="userInput3" type="text"
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect3" class="selectItem" onchange="selectForMove(this)">
+											<option value="variable">Variable</option>
+											<option value="userInput">Input</option></select>steps
 										</li>
-										<li class="command_down">Move Down <input type="text"
-											name="left" size="2" class="input-word">steps
+										<li class="command_down">Move Down <input id="userInput4" type="text"
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect4" class="selectItem" onchange="selectForMove(this)">
+											<option value="variable">Variable</option>
+											<option value="userInput">Input</option></select>steps
 										</li>
-										<li class="command_x">Set X <input type="text"
-											name="x_pos" size="2" class="input-word"
-											onchange="checkXValue(this);">px
+										<li class="command_x">Set X <input id="userInput5" type="text"
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect5" class="selectItem" onchange="selectForMove(this)">
+											<option value="variable">Variable</option>
+											<option value="userInput">Input</option></select>px
 										</li>
-										<li class="command_y">Set Y <input type="text"
-											name="y_pos" size="2" class="input-word"
-											onchange="checkYValue(this);">px
+										<li class="command_y">Set Y <input id="userInput6" type="text"
+										class="selectItem" name="input" size="2" style="display: none" onchange="checkType(this)">
+											<select id="mselect6" class="selectItem" onchange="selectForMove(this)">
+											<option value="variable">Variable</option>
+											<option value="userInput">Input</option></select>px
 										</li>
 									</ul>
 								</form>
