@@ -346,3 +346,6 @@ padding: 2px 2px;
 	height: 549px;
     float: left;
 }
+.coordDisplay{
+	text-align: right;
+}

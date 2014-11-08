@@ -128,7 +128,7 @@
 
 				<button type="button" class="btn btn-warning" onClick="submit()">
 					Play</button>
-				<div id="Coord" class = "coordDisplay"> </div>
+				<div id="Coord" class="coordDisplay"></div>
 			</div>
 		</div>
 
@@ -168,7 +168,13 @@
 
 
 				<div class="tab-pane select-pane" id="background-editor-pane">
-					<div class=transparent-inner id="background-editor">hellp</div>
+					<div class=transparent-inner id="background-editor">
+
+						<div id="divtest" class="scene-inner-container"
+							ondrop="dropIt(event); dropOver();"
+							ondragover="event.preventDefault();"></div>
+
+					</div>
 				</div>
 
 			</div>
