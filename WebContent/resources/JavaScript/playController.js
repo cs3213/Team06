@@ -104,7 +104,7 @@ function play(sequence, value, select, charactersSrc) {
 					customizedVariable[thisSelect[j]] = thisValue[j];
 				}
 			} else if (thisSequence[j].indexOf("If") > -1
-					&& thisSequece[j].indexOf("then") > -1) {
+					&& thisSequence[j].indexOf("then") > -1) {
 				var result = checkForCondition(thisSelect[j], customizedVariable);
 				if (result) {
 					var ifSequence = [];

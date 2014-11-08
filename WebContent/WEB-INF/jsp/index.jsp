@@ -31,6 +31,8 @@
 <script
 	src="<c:url value="/resources/JavaScript/dragAndDropController.js" />"></script>
 <script
+	src="<c:url value="/resources/JavaScript/operatorController.js" />"></script>
+<script
 	src="<c:url value="/resources/JavaScript/commandAnimationController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>

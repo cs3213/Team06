@@ -62,6 +62,7 @@ function addNewoption(option, num1, num2, op){
 
 	console.log(chosenValue1);
 	console.log(chosenValue2);
+	console.log(op);
     var element = document.createElement("li");
     var content = chosenValue1 + " " + op + " " + chosenValue2;
     element.innerHTML = content;
