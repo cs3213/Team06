@@ -45,7 +45,8 @@ function play(sequence, value, select, charactersSrc) {
 		var sequenceLength = thisSequence.length;
 		for (var j = 0; j < sequenceLength; j++) {
 			if (isNaN(thisValue[j])) {
-				thisValue[j] = customizedVariable[thisSelect[j]];
+				thisValue[j] = getValueFromExpression(thisSelect[j], customizedVariable);
+				console.log("this value is "+thisValue[j]);
 			}
 			
 			if (thisSequence[j].indexOf("Set X") > -1) {
@@ -104,23 +105,22 @@ function play(sequence, value, select, charactersSrc) {
 					customizedVariable[thisSelect[j]] = thisValue[j];
 				}
 			} else if (thisSequence[j].indexOf("If") > -1
-					&& thisSequece[j].indexOf("then") > -1) {
+					&& thisSequence[j].indexOf("then") > -1) {
 				var result = checkForCondition(thisSelect[j], customizedVariable);
-				if (result) {
-					var ifSequence = [];
-					var ifValue = [];
-					var ifSelect = [];
+				var ifSequence = [];
+				var ifValue = [];
+				var ifSelect = [];
 
-					// get repeat sequence
-					for (j = j + 1; j < sequenceLength; j++) {
-						if (thisSequence[j].indexOf("End if") > -1) {
-							break;
-						}
-						ifSequence.push(thisSequence[j]);
-						ifValue.push(thisValue[j]);
-						ifSelect.push(thisSelect[j]);
+				// get repeat sequence
+				for (j = j + 1; j < sequenceLength; j++) {
+					if (thisSequence[j].indexOf("End if") > -1) {
+						break;
 					}
-					
+					ifSequence.push(thisSequence[j]);
+					ifValue.push(thisValue[j]);
+					ifSelect.push(thisSelect[j]);
+				}
+				if (result) {
 					repeat(i, ifSequence, ifValue, ifSelect, customizedVariable);
 				}
 			}

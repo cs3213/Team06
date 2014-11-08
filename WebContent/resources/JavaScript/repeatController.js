@@ -11,7 +11,7 @@ function repeat(index, sequence, value, select, customizedVariable) {
 	// execute command
 	for (var i = 0; i < arrayLength; i++) {
 		if (isNaN(value[i])) {
-			value[i] = customizedVariable[select[i]];
+			value[i] = getValueFromExpression(select[i], customizedVariable);
 		}
 		
 		if (sequence[i].indexOf("Set X") > -1) {
@@ -75,21 +75,20 @@ function repeat(index, sequence, value, select, customizedVariable) {
 		} else if (sequence[i].indexOf("If") > -1
 				&& sequence[i].indexOf("then") > -1) {
 			var result = checkForCondition(select[i], customizedVariable);
-			if (result) {
-				var ifSequence = [];
-				var ifValue = [];
-				var ifSelect = [];
+			var ifSequence = [];
+			var ifValue = [];
+			var ifSelect = [];
 
-				// get repeat sequence
-				for (i = i + 1; i < arrayLength; i++) {
-					if (sequence[i].indexOf("End if") > -1) {
-						break;
-					}
-					ifSequence.push(sequence[i]);
-					ifValue.push(value[i]);
-					ifSelect.push(select[i]);
+			// get repeat sequence
+			for (i = i + 1; i < arrayLength; i++) {
+				if (sequence[i].indexOf("End if") > -1) {
+					break;
 				}
-				
+				ifSequence.push(sequence[i]);
+				ifValue.push(value[i]);
+				ifSelect.push(select[i]);
+			}
+			if (result) {
 				repeat(index, ifSequence, ifValue, ifSelect, customizedVariable);
 			}
 		}
