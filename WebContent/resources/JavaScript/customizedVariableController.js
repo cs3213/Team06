@@ -31,3 +31,7 @@ function new_variable() {
 function getCustomizedVariables() {
 	return customizedVariable;
 }
+
+function addCustomizedOperation(operation, value) {
+	customizedVariable[operation] = value;
+}

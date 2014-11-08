@@ -3,9 +3,12 @@ var leftMargin = [];
 var topMargin = [];
 var leftMarginLimit = [];
 var topMarginLimit = [];
+var customizedVariable = [];
 
 function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit,
 		tMarginLimit) {
+	customizedVariable = getCustomizedVariables();
+	console.log(customizedVariable);
 	characters = char;
 	leftMargin = lMargin;
 	topMargin = tMargin;
