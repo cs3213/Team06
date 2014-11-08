@@ -107,21 +107,20 @@ function play(sequence, value, select, charactersSrc) {
 			} else if (thisSequence[j].indexOf("If") > -1
 					&& thisSequence[j].indexOf("then") > -1) {
 				var result = checkForCondition(thisSelect[j], customizedVariable);
-				if (result) {
-					var ifSequence = [];
-					var ifValue = [];
-					var ifSelect = [];
+				var ifSequence = [];
+				var ifValue = [];
+				var ifSelect = [];
 
-					// get repeat sequence
-					for (j = j + 1; j < sequenceLength; j++) {
-						if (thisSequence[j].indexOf("End if") > -1) {
-							break;
-						}
-						ifSequence.push(thisSequence[j]);
-						ifValue.push(thisValue[j]);
-						ifSelect.push(thisSelect[j]);
+				// get repeat sequence
+				for (j = j + 1; j < sequenceLength; j++) {
+					if (thisSequence[j].indexOf("End if") > -1) {
+						break;
 					}
-					
+					ifSequence.push(thisSequence[j]);
+					ifValue.push(thisValue[j]);
+					ifSelect.push(thisSelect[j]);
+				}
+				if (result) {
 					repeat(i, ifSequence, ifValue, ifSelect, customizedVariable);
 				}
 			}
@@ -180,48 +179,4 @@ function submit() {
 
 function animationStopTimer() {
 	clearTimeout(timer);
-}
-
-function getValueFromExpression(expression, variable) {
-	console.log(expression in variable);
-	var leftop;
-	var rightop;
-	var index = -1;
-	var op;
-	
-	if (expression in variable) {
-		return variable[expression];
-	} else if (expression.indexOf("+") > -1) {
-		index = expression.indexOf("+");
-		leftop = expression.substring(0, index).trim();
-		rightop = expression.substring(index+1).trim();
-		
-		return variable[leftop] + variable[rightop];
-	} else if (expression.indexOf("-") > -1) {
-		index = expression.indexOf("-");
-		leftop = expression.substring(0, index).trim();
-		rightop = expression.substring(index+1).trim();
-		
-		return variable[leftop] - variable[rightop];
-	} else if (expression.indexOf("*") > -1) {
-		index = expression.indexOf("*");
-		leftop = expression.substring(0, index).trim();
-		rightop = expression.substring(index+1).trim();
-		
-		return variable[leftop] * variable[rightop];
-	} else if (expression.indexOf("/") > -1) {
-		index = expression.indexOf("/");
-		leftop = expression.substring(0, index).trim();
-		rightop = expression.substring(index+1).trim();
-		
-		return variable[leftop] / variable[rightop];
-	} else if (expression.indexOf("%") > -1) {
-		index = expression.indexOf("%");
-		leftop = expression.substring(0, index).trim();
-		rightop = expression.substring(index+1).trim();
-		
-		return variable[leftop] % variable[rightop];
-	}
-	
-	return 0;
 }

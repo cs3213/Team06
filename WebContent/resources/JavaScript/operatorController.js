@@ -35,3 +35,47 @@ function checkForCondition(condition, customizedVariable) {
 	}
 	return false;
 }
+
+function getValueFromExpression(expression, variable) {
+	console.log(expression in variable);
+	var leftop;
+	var rightop;
+	var index = -1;
+	var op;
+	
+	if (expression in variable) {
+		return variable[expression];
+	} else if (expression.indexOf("+") > -1) {
+		index = expression.indexOf("+");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return parseInt(variable[leftop]) + parseInt(variable[rightop]);
+	} else if (expression.indexOf("-") > -1) {
+		index = expression.indexOf("-");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return parseInt(variable[leftop]) - parseInt(variable[rightop]);
+	} else if (expression.indexOf("*") > -1) {
+		index = expression.indexOf("*");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return parseInt(variable[leftop]) * parseInt(variable[rightop]);
+	} else if (expression.indexOf("/") > -1) {
+		index = expression.indexOf("/");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return parseInt(variable[leftop]) / parseInt(variable[rightop]);
+	} else if (expression.indexOf("%") > -1) {
+		index = expression.indexOf("%");
+		leftop = expression.substring(0, index).trim();
+		rightop = expression.substring(index+1).trim();
+		
+		return parseInt(variable[leftop]) % parseInt(variable[rightop]);
+	}
+	
+	return 0;
+}
