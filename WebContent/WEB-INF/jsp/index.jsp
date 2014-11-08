@@ -53,8 +53,6 @@
 </head>
 
 <body class="">
-	<p id="demo"></p>
-
 	<div id="message" class="bb-alert alert alert-info"
 		style="display: none;">
 		<span>Hello world callback</span>
@@ -161,11 +159,12 @@
 						data-toggle="tab"><h5>Characters</h5></a></li>
 					<li><a href="#coordEditor-pane" role="tab" data-toggle="tab"><h5>Actions</h5></a></li>
 					<li><a href="#music-pane" role="tab" data-toggle="tab"><h5>Music</h5></a></li>
-					
+
 				</ul>
 			</div>
+		
+			
 			<div class="tab-content container tab-content-container">
-
 				<div class="tab-pane active select-pane" id="source-pane">
 					<div class=transparent-inner id="source">
 						<div id="floatArea">
@@ -176,7 +175,7 @@
 							</button>
 							<img id="curFloat"
 								src="<c:url value="/resources/img/house1.png"/>" height="100px"
-								/ onclick="displayHouse(this)">
+								onclick="displayHouse(this)">
 							<button onclick="changeFloatRight()">
 								<img src="<c:url value="/resources/img/arrow_right.gif" />"
 									height="15px">
@@ -201,6 +200,7 @@
 				</div>
 
 				<div class="tab-pane select-pane" id="coordEditor-pane">
+					
 					<div class="transparent" id="coordEditor">
 						<div id="divName" class="container">
 							<h4>Setting</h4>
@@ -215,8 +215,8 @@
 								<li><a href="#Operator" role="tab" data-toggle="tab">Operator</a>
 								</li>
 
-                                <li><a href="#Customized-Variable" role="tab" data-toggle="tab">Customized Variable</a>
-
+								<li><a href="#Customized-Variable" role="tab"
+									data-toggle="tab">Customized Variable</a>
 								<li><a href="#Sensing" role="tab" data-toggle="tab">Sensing</a>
 
 								</li>
@@ -252,267 +252,213 @@
 
 							<div role="tabpanel" class="tab-pane" id="Data"></div>
 							<div role="tabpanel" class="tab-pane" id="Customized-Variable">
-							
-							<ul id="variable-list"  class= "variable-list" style = "text-align: left">
-							
-							</ul>
-							
-							<div role="tabpanel" class="tab-pane" id="Data">
-								<div class="create_variable">
-									<button type="button" class="btn btn-danger"
-										onClick="new_variable()">New a variable</button>
-								</div>
-								<div id="variable">
+
+								<ul id="variable-list" class="variable-list"
+									style="text-align: left">
+
+								</ul>
+
+
+								<div role="tabpanel" class="tab-pane" id="Data">
+									<div class="create_variable">
+										<button type="button" class="btn btn-danger"
+											onClick="new_variable()">New a variable</button>
+									</div>
+									<div id="variable">
+										<ul id="draggable" class="two-col-special">
+											<li class='command_repeat'>Sprite postion</li>
+											<li class='command_repeat'>Mouse postion</li>
+											<li class='command_repeat'>Canvas left</li>
+											<li class='command_repeat'>Canvas right</li>
+											<li class='command_repeat'>Canvas top</li>
+											<li class='command_repeat'>Canvas bottom</li>
+											<li class='command_repeat'>Width</li>
+											<li class='command_repeat'>Height</li>
+										</ul>
+									</div>
 									<ul id="draggable" class="two-col-special">
-										<li class='command_repeat'>Sprite postion</li>
-										<li class='command_repeat'>Mouse postion</li>
-										<li class='command_repeat'>Canvas left</li>
-										<li class='command_repeat'>Canvas right</li>
-										<li class='command_repeat'>Canvas top</li>
-										<li class='command_repeat'>Canvas bottom</li>
-										<li class='command_repeat'>Width</li>
-										<li class='command_repeat'>Height</li>
+										<li class='command_repeat'>Set <select class="selectItem"
+											id="selectSet"><option>--Select--</option>
+										</select> to <input type="text" name="setVariable" size="2"
+											class="input-word"></li>
+										<li class='command_repeat'>Change <select
+											class="selectItem" id="selectChange"><option>--Select--</option>
+										</select> by <input type="text" name="changeVariable" size="2"
+											class="input-word"></li>
 									</ul>
 								</div>
-								<ul id="draggable" class="two-col-special">
-									<li class='command_repeat'>Set <select class="selectItem"
-										id="selectSet"><option>--Select--</option>
-									</select> to <input type="text" name="setVariable" size="2"
-										class="input-word"></li>
-									<li class='command_repeat'>Change <select
-										class="selectItem" id="selectChange"><option>--Select--</option>
-									</select> by <input type="text" name="changeVariable" size="2"
-										class="input-word"></li>
-								</ul>
+
+								
+
+
 
 							</div>
-							<div role="tabpanel" class="tab-pane" id="Control">
-								<form>
+						
+						
+						<div role="tabpanel" class="tab-pane" id="Control">
+									<form>
+										<ul id="draggable" class="two-col-special">
+											<li class='command_repeat'>Repeat <input type="text"
+												name="repeat" size="2" class="input-word">
+											</li>
+											<li class='command_forever_loop'>Forever Loop</li>
+											<li class='command_end_repeat'>End_Repeat</li>
+											<li class='command_show'>Show</li>
+											<li class='command_hide'>Hide</li>
+											<li class='command_costume'>Change Costume</li>
+											<li class='command_background'>Change Background</li>
+										</ul>
+									</form>
+								</div>
+
+								<div class="tab-pane select-pane" id="Operator">
+
+									<ul id="draggable" style="text-align: left">
+										<li class='addOperation'><input id="input1" type="text"
+											class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select1"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> + <input id="input2"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select2"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="add-ops">New</button></li>
+										<li class='substractOperation'><input id="input3"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select3"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> - <input id="input4"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select4"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="substract-ops">New</button></li>
+										<li class='multiplyOperation'><input id="input5"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select5"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> * <input id="input6"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select6"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="mutiply-ops">New</button></li>
+										<li class='divideOperation'><input id="input7"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select7"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> / <input id="input8"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select8"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="divide-ops">New</button></li>
+										<li class='modOperation'><input id="input9" type="text"
+											class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select9"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> % <input
+											id="input10" type="text" class="selectItem" name="input"
+											size="2" style="display: none"> <select id="select10"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="mod-ops">New</button></li>
+										<li class='equalOperation'><input id="input11"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select11"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> = <input
+											id="input12" type="text" class="selectItem" name="input"
+											size="2" style="display: none"> <select id="select12"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="equal-ops">New</button></li>
+										<li class='greaterThanOperation'><input id="input13"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select13"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> >= <input
+											id="input14" type="text" class="selectItem" name="input"
+											size="2" style="display: none"> <select id="select14"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="greaterThan-ops">New</button></li>
+										<li class='lessThanOperation'><input id="input15"
+											type="text" class="selectItem" name="input" size="2"
+											style="display: none"> <select id="select15"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select> <= <input
+											id="input16" type="text" class="selectItem" name="input"
+											size="2" style="display: none"> <select id="select16"
+											class="selectItem" onchange="selectCustomer(this)"><option
+													value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="customer">Input</option></select>
+											<button id="lessThan-ops">New</button></li>
+									</ul>
+
+
+								</div>
+
+								<div role="tabpanel" class="tab-pane" id="Sensing">
 									<ul id="draggable" class="two-col-special">
-										<li class='command_repeat'>Repeat <input type="text"
-											name="repeat" size="2" class="input-word">
-										</li>
-										<li class='command_forever_loop'>Forever Loop</li>
-										<li class='command_end_repeat'>End_Repeat</li>
-										<li class='command_show'>Show</li>
-										<li class='command_hide'>Hide</li>
-										<li class='command_costume'>Change Costume</li>
-										<li class='command_background'>Change Background</li>
-									</ul>
-								</form>
-							</div>
-							<div class="tab-pane select-pane" id="Operator">
-
-									<ul id="draggable" style = "text-align: left">
-										<li class='addOperation'>
-											<input id="input1" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select1" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> + 
-  											<input id="input2" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select2" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="add-ops">New</button>
-  										</li>
-  										<li class='substractOperation'>
-  											<input id="input3" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select3" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> - 
-  											<input id="input4" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select4" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="substract-ops">New</button>
-  										</li>
-  										<li class='multiplyOperation'>
-  											<input id="input5" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select5" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> * 
-  											<input id="input6" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select6" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="mutiply-ops">New</button>
-  										</li>
-  										<li class='divideOperation'>
-  											<input id="input7" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select7" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> / 
-  											<input id="input8" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select8" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="divide-ops">New</button>
-  										</li>
-  										<li class='modOperation'>
-  											<input id="input9" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select9" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> % 
-  											<input id="input10" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select10" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="mod-ops">New</button>
-  										</li>
-  										<li class='equalOperation'>
-  											<input id="input11" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select11" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> = 
-  											<input id="input12" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select12" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="equal-ops">New</button>
-  										</li>
-  										<li class='greaterThanOperation'>
-  											<input id="input13" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select13" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> >= 
-  											<input id="input14" type="text" class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select14" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="greaterThan-ops">New</button>
-  										</li>
-  										<li class='lessThanOperation'>
-  											<input id="input15" type="text" class="selectItem" name="input" size="2" style = "display: none">
-											<select id="select15" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <=
-  											<input id="input16" type="text"  class="selectItem" name="input" size="2" style = "display: none">
-  											<select id="select16" class="selectItem" onchange="selectCustomer(this)"><option value="X">X</option>
-  											<option value="Y">Y</option>
-  											<option value="customer">Input</option></select> <button id="lessThan-ops">New</button>
-  										</li>
+										<li class='command_repeat'>Touch edge?</li>
 									</ul>
 
-								<ul id="draggable" style="text-align: left">
-									<li class='addOperation'><input id="input1" type="text"
-										name="input" size="2" style="display: none"> <select
-										id="select1" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> + <input id="input2"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select2" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='substractOperation'><input id="input3"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select3" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> - <input id="input4"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select4" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='multiplyOperation'><input id="input5"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select5" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> * <input id="input6"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select6" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='divideOperation'><input id="input7" type="text"
-										name="input" size="2" style="display: none"> <select
-										id="select7" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> / <input id="input8"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select8" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='modOperation'><input id="input9" type="text"
-										name="input" size="2" style="display: none"> <select
-										id="select9" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> mod <input
-										id="input10" type="text" name="input" size="2"
-										style="display: none"> <select id="select10"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='equalOperation'><input id="input11" type="text"
-										name="input" size="2" style="display: none"> <select
-										id="select11" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> = <input id="input12"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select12" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='greaterThanOperation'><input id="input13"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select13" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> >= <input
-										id="input14" type="text" name="input" size="2"
-										style="display: none"> <select id="select14"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-									<li class='lessThanOperation'><input id="input15"
-										type="text" name="input" size="2" style="display: none">
-										<select id="select15" class="selectItem"
-										onchange="selectCustomer(this)"><option value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> <= <input
-										id="input16" type="text" name="input" size="2"
-										style="display: none"> <select id="select16"
-										class="selectItem" onchange="selectCustomer(this)"><option
-												value="X">X</option>
-											<option value="Y">Y</option>
-											<option value="customer">Input</option></select>
-										<button>New</button></li>
-								</ul>
-							</div>
-							<div role="tabpanel" class="tab-pane" id="Sensing">
-								<ul id="draggable" class="two-col-special">
-									<li class='command_repeat'>Touch edge?</li>
-								</ul>
-
-							</div>
-							
-						  
-							
+								</div>
+						
 						</div>
 					</div>
-				</div>
-				<div class="tab-pane select-pane" id="music-pane">
-					<div class="transparent" id="musicList">
-						<form>
-							<ul id="draggable">
-								<li class="music1">Music1</li>
-								<li class="music2">Music2</li>
-								<li class="music3">Music3</li>
-								<li class="music4">Music4</li>
-							</ul>
-						</form>
-					</div>
-				</div>
+					
 
+
+				</div>
+				
+				
+				<div class="tab-pane select-pane" id="music-pane">
+						<div class="transparent" id="musicList">
+							<form>
+								<ul id="draggable">
+									<li class="music1">Music1</li>
+									<li class="music2">Music2</li>
+									<li class="music3">Music3</li>
+									<li class="music4">Music4</li>
+								</ul>
+							</form>
+						</div>
+					</div>
+				
 			</div>
 		</div>
 	</div>
