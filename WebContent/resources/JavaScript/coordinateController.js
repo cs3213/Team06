@@ -33,6 +33,6 @@ function displayCoord(e) {
 	//document.getElementById("CoordX").innerHTML = tempX;
 	//document.getElementById("CoordY").innerHTML = tempY;
 	document.getElementById("Coord").innerHTML = coor;
-	console.log(coor);
+	//console.log(coor);
 	return true;
 }

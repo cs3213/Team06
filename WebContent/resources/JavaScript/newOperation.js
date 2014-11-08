@@ -66,14 +66,18 @@ function addNewoption(option, num1, num2, op){
     var element = document.createElement("li");
     var content = chosenValue1 + " " + op + " " + chosenValue2;
     element.innerHTML = content;
-    var select1;
+    var select = document.getElementsByTagName('select');
     if (op == "=" || op=="<=" || op ==">=") {
-    select1 = document.getElementById("IfCondition");
-	select1.options.add(new Option(content, content));
+    	for (var i = 0; i < select.length; i++) {
+    		if (select[i].id.indexOf("IfCondition") > -1) {
+    			select[i].options.add(new Option(content, content));
+    		}
+    	}
     } else {
-    	for (var i = 1; i <= 6; i ++) {
-			select1 = document.getElementById("mselect" + i);
-			select1.options.add(new Option(content, content));
+    	for (var i = 0; i < select.length; i++) {
+    		if (select[i].id.indexOf("mselect") > -1) { 
+    			select[i].options.add(new Option(content, content));
+    		}
     	}
     }
     element.className = "command_right";
