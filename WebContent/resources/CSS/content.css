@@ -56,10 +56,10 @@ body {
 .command_down {
 	background-color: rgb(207,185,28);
 }
-.command_x {
+.command_x, .music{
 	background-color: rgb(124,180,28);
 }
-.command_y {
+.command_y, .background{
 	background-color: rgb(96,127,15);
 }
 .command_repeat, .command_forever_loop, .command_end_repeat {
