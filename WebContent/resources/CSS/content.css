@@ -81,11 +81,13 @@ body {
 }
 .command_costume {
 	background-color: rgb(62,69,127);
-	/*background-color: rgb(62,69,127);*/
 }
 .command_background {
 	background-color: rgb(62,69,127);
 	/*background-color: rgb(8,42,71);*/
+}
+.command_music {
+	background-color: rgb(124,180,28);;
 }
 .command_r {
 	background-color: rgb(104,153,199);
