@@ -101,7 +101,7 @@ function dropOver() {
 		$(this).parent().remove();
 	});
 	
-	indexForPlay = element.id - 1;
+	indexForPlay = parseInt(element.id) - 1;
 }
 
 
