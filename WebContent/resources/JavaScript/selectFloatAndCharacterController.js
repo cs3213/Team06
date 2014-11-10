@@ -65,15 +65,13 @@ function selectCustomer(el) {
 }
 
 function selectForMove(el) {
-	var selectId = $(el).attr('id').substring(7);
+	var input = $(el).parent().find('input');
 	var value = el.options[el.selectedIndex].value;
 	
 	if(value == "userInput") {
-		var inputId = "userInput" + selectId;
-		document.getElementById(inputId).style.display = "";
+		input[0].style.display = "";
 	} else {
-		var inputId = "userInput" + selectId;
-		document.getElementById(inputId).style.display = "none";
+		input[0].style.display = "none";
 	}
 }
 
