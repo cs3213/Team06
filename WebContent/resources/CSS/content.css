@@ -54,42 +54,33 @@ body {
 }
 .command_left {
 	background-color: rgb(135,10,8);
-	/*background-color: rgb(175,33,12);*/
 }
 .command_up {
 	background-color: rgb(135,10,8);
-	/*background-color: rgb(222,148,41);*/
 }
 .command_down {
 	background-color: rgb(135,10,8);
-	/*background-color: rgb(207,185,28);*/
 }
 .command_x, .music{
 	background-color: rgb(135,10,8);
-	/*background-color: rgb(124,180,28);*/
 }
 .command_y, .background{
 	background-color: rgb(135,10,8);
-	/*background-color: rgb(96,127,15);*/
 }
 .command_repeat, .command_forever_loop, .command_end_repeat {
 	background-color: rgb(62,69,127);
-	/*background-color: rgb(104,153,199);*/
 }
 .command_show {
 	background-color: rgb(62,69,127);
-	/*background-color: rgb(51,118,150);*/
 }
 .command_hide {
 	background-color: rgb(62,69,127);
-	/*background-color: rgb(93,71,139);*/
 }
 .command_costume {
 	background-color: rgb(62,69,127);
 }
 .command_background {
 	background-color: rgb(62,69,127);
-	/*background-color: rgb(8,42,71);*/
 }
 .command_music {
 	background-color: rgb(124,180,28);;
@@ -105,34 +96,27 @@ body {
 }
 .addOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(135,10,8);*/
 }
 .substractOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(175,33,12);*/
 }
 .multiplyOperation {
 	background-color: rgb(222,148,41);
 }
 .divideOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(207,185,28);*/
 }
 .modOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(124,180,28);*/
 }
 .equalOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(96,127,15);*/
 }
 .greaterThanOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(104,153,199);*/
 }
 .lessThanOperation {
 	background-color: rgb(222,148,41);
-	/*background-color: rgb(51,118,150);*/
 }
 .selectItem {
 	color: black;
