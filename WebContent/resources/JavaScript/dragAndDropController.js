@@ -1,4 +1,5 @@
 var countElement = 0;
+var indexForPlay = 0;
 
 function dragIt(theEvent) {
 	// tell the browser what to drag
@@ -149,6 +150,8 @@ function changeConnect(el) {
 			}
 		}
 	}
+	
+	indexForPlay = Integer.valueOf(indexOfEdit);
 
 	var sortNodeID = "#sortable" + indexOfEdit.toString();
 	$("#draggable li").draggable({
@@ -182,6 +185,10 @@ function changeConnect(el) {
 	$(sortNodeID).delegate(".closeButton", "click", function() {
 		$(this).parent().remove();
 	});
+}
+
+function getIndexForPlay() {
+	return indexForPlay;
 }
 
 function getCountElement() {
