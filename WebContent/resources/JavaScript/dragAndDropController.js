@@ -104,7 +104,7 @@ function dropOver() {
 
 
 function dropOver1() {
-	alert("change");
+
 	var sortNode = "#" + "sortable-background";
 
 	$("#draggable li").draggable({

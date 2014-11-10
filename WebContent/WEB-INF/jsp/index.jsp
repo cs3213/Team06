@@ -70,7 +70,7 @@
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
 				
-				<div id="User-Name" style="float:right">left</div>
+				<div id="User-Name" style="float:right"></div>
 
 				<button id="Drop-boxLogin" class="overlay-trigger"
 					onclick="dropboxLogin()" style="display:">Load Program</button>
@@ -158,7 +158,7 @@
 					<li class="active"><a href="#character-editor-pane" role="tab"
 						data-toggle="tab"><h5>Character Editor</h5></a></li>
 					<li><a href="#background-editor-pane" role="tab"
-						data-toggle="tab"><h5>Background Editor</h5></a></li>
+						data-toggle="tab" onclick="dropOver1();"><h5>Background Editor</h5></a></li>
 
 				</ul>
 			</div>
@@ -181,8 +181,8 @@
 						<div id="sortable" class="scene-inner-container"
 							ondrop="dropIt(event);" ondragover="event.preventDefault();">
 
-							<button onclick="dropOver1();">Edit</button>
-							<button onclick="playTimeSound();">Play</button>
+<!-- 							<button onclick="dropOver1();">Edit</button>
+							<button onclick="playTimeSound();">Play</button> -->
 							<div id="soundPlayer"></div>
 							
 							<div id="sortable-background" class="ui-sortable"
