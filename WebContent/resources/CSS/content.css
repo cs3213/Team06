@@ -82,7 +82,7 @@ body {
 .command_background {
 	background-color: rgb(62,69,127);
 }
-.command_music {
+.command_music, .command_music ui-draggable {
 	background-color: rgb(124,180,28);;
 }
 .command_r {
