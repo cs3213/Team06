@@ -97,11 +97,11 @@ function dropOver() {
 		}
 	});
 
-	$(element).delegate(".closeButton", "click", function() {
+	$(sortNode).delegate(".closeButton", "click", function() {
 		$(this).parent().remove();
 	});
 	
-	indexForPlay = parseInt(element.id) - 1;
+	indexForPlay = countElement - 1;
 }
 
 
@@ -109,16 +109,7 @@ function dropOver1() {
 
 	var sortNode = "#" + "sortable-background";
 	
-	for (i = 1; i <= countElement; i++) {
-		
-			var ID = "edit" + i.toString();
-			var object = document.getElementById(ID);
-			if (object) {
-				object.setAttribute("class", "btn onbtn");
-			}
-	}
-
-	$("#draggable li").draggable({
+	$("#music li").draggable({
 		connectToSortable : sortNode,
 		helper : "clone",
 		revert : "invalid",
@@ -143,6 +134,10 @@ function dropOver1() {
 
 			}
 		}
+	});
+	
+	$(sortNode).delegate(".closeButton", "click", function() {
+		$(this).parent().remove();
 	});
 }
 
