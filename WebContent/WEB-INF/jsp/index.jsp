@@ -53,6 +53,8 @@
 <script src="<c:url value="/resources/JavaScript/bootbox.min.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/bootbox.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
+<script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
 
 </head>
 
@@ -67,6 +69,8 @@
 			<div>
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
+				
+				<div id="User-Name" style="float:right">left</div>
 
 				<button id="Drop-boxLogin" class="overlay-trigger"
 					onclick="dropboxLogin()" style="display:">Load Program</button>
@@ -523,12 +527,11 @@
 	<script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/newOperation.js" />"></script>
-	<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
+
 	<script
 		src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
 	<script
 		src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
-	<script
-		src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
+
 </body>
 </html>

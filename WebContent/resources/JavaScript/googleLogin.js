@@ -15,32 +15,28 @@
 //}
 
 function onSignInCallback(authResult) {
+	console.log("check login");
     console.log(authResult);
+    
 	if (authResult['status']['signed_in']) {
 		
 		
 	    document.getElementById('Google-Login-Button').setAttribute('style', 'display: none');
-
-		
-
 	    
+		
 	    gapi.client.load('oauth2', 'v2', function() {
             gapi.client.oauth2.userinfo.get().execute(function(resp){
                 var email = resp.email; //get user email
                 var given_name = resp.given_name; //get user email
                 var family_name = resp.family_name;
                 var id=resp.id;
-                document.getElementById('Welcome-Word').setAttribute('style', 'display: block');
+                //document.getElementById('Welcome-Word').setAttribute('style', 'display: block');
                 document.getElementById('Google-Login').setAttribute('style', 'display: none');
                 document.getElementById('User-Name').innerHTML = "<h4> Welcome, "+given_name+"</h4>";
                 console.log(email);
                 Popup.show("Welcome Back! Dear, " + given_name );
                 console.log(given_name);
-                
-                
-               
-                
-                
+
             });
         });	    
 	    
