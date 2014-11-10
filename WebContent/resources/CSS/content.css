@@ -147,6 +147,11 @@ body {
     width: 145px;
     text-align:center;
 }
+
+#music
+{
+	list-style-type: none;
+}
     
 #notdraggable li
 {
