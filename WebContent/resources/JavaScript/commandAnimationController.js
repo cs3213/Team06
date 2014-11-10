@@ -10,7 +10,6 @@ var touchesBottom = false;
 
 function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit,
 		tMarginLimit) {
-	console.log(customizedVariable);
 	characters = char;
 	leftMargin = lMargin;
 	topMargin = tMargin;
@@ -21,13 +20,13 @@ function setcommandAnimationParams(char, lMargin, tMargin, lMarginLimit,
 function setx(index, posx) {
 	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
-	console.log("set x");
+	console.log("set x "+posx);
 
 	if (posx >= 0 && posx <= leftMarginLimit[index]) {
 		$(id).animate({
 			marginLeft : posx + 'px'
 		}, 'fast');
-		leftMargin[index] = posx;
+		leftMargin[index] = parseInt(posx);
 	} else {
 		Popup.show("set x out of bound");
 	}
@@ -36,13 +35,13 @@ function setx(index, posx) {
 function sety(index, posy) {
 	var imgObj = characters[index];
 	var id = '#' + imgObj.id;
-	console.log("set y");
+	console.log("set y " + posy);
 
 	if (posy >= 0 && posy <= topMarginLimit[index]) {
 		$(id).animate({
 			marginTop : posy + 'px'
 		}, 'fast');
-		topMargin[index] = posy;
+		topMargin[index] = parseInt(posy);
 	} else {
 		Popup.show("set y out of bound");
 	}
@@ -56,6 +55,7 @@ function moveRight(index, steps) {
 	touchesLeft = false;
 	if (leftMarginLimit[index] < leftMargin[index] + length) {
 		out = true;
+		console.log("come in");
 		length = leftMarginLimit[index] - leftMargin[index];
 		setTouchesEdge(true);
 	} else {
@@ -63,7 +63,7 @@ function moveRight(index, steps) {
 	}
 
 	var distance = '+=' + length + 'px';
-	console.log("move right");
+	console.log("move right "+length);
 	$(id).animate({
 		marginLeft : distance
 	}, 'slow', function() {
@@ -71,7 +71,7 @@ function moveRight(index, steps) {
 			Popup.show("right out of bound");
 		}
 	});
-	leftMargin[index] += length;
+	leftMargin[index] += parseInt(length);
 }
 
 function moveLeft(index, steps) {
@@ -89,7 +89,7 @@ function moveLeft(index, steps) {
 	}
 
 	var distance = '-=' + length + 'px';
-	console.log("move left");
+	console.log("move left "+length);
 	$(id).animate({
 		marginLeft : distance
 	}, 'slow', function() {
@@ -97,7 +97,7 @@ function moveLeft(index, steps) {
 			Popup.show("left out of bound");
 		}
 	});
-	leftMargin[index] -= length;
+	leftMargin[index] -= parseInt(length);
 }
 
 function moveDown(index, steps) {
@@ -115,7 +115,7 @@ function moveDown(index, steps) {
 	}
 
 	var distance = '+=' + length + 'px';
-	console.log("move down");
+	console.log("move down "+length);
 	$(id).animate({
 		marginTop : distance
 	}, 'slow', function() {
@@ -123,7 +123,7 @@ function moveDown(index, steps) {
 			Popup.show("down out of bound");
 		}
 	});
-	topMargin[index] += length;
+	topMargin[index] += parseInt(length);
 }
 
 function moveUp(index, steps) {
@@ -141,7 +141,7 @@ function moveUp(index, steps) {
 	}
 
 	var distance = '-=' + length + 'px';
-	console.log("move up");
+	console.log("move up "+length);
 	$(id).animate({
 		marginTop : distance
 	}, 'slow', function() {
@@ -149,7 +149,7 @@ function moveUp(index, steps) {
 			Popup.show("up out of bound");
 		}
 	});
-	topMargin[index] -= length;
+	topMargin[index] -= parseInt(length);
 }
 
 function show(index) {
