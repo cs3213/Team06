@@ -251,7 +251,6 @@
 							<ul class="nav nav-tabs inner-tab" role="tablist">
 								<li class="active"><a href="#Motion" role="tab"
 									data-toggle="tab">Motion</a></li>
-								<li><a href="#Data" role="tab" data-toggle="tab">Variable</a></li>
 								<li><a href="#Control" role="tab" data-toggle="tab">Control</a>
 								</li>
 								<li><a href="#Operator" role="tab" data-toggle="tab">Operator</a>
@@ -259,7 +258,6 @@
 
 								<li><a href="#Customized-Variable" role="tab"
 									data-toggle="tab">Customized Variable</a>
-								<li><a href="#Sensing" role="tab" data-toggle="tab">Sensing</a>
 
 								</li>
 							</ul>
@@ -346,21 +344,6 @@
 										class="input-word"></li>
 								</ul>
 							</div>
-							<div role="tabpanel" class="tab-pane" id="Data">
-
-								<div id="variable">
-									<ul id="draggable" class="two-col-special">
-										<li class='command_r'>Sprite postion</li>
-										<li class='command_r'>Mouse postion</li>
-										<li class='command_r'>Canvas left</li>
-										<li class='command_r'>Canvas right</li>
-										<li class='command_r'>Canvas top</li>
-										<li class='command_r'>Canvas bottom</li>
-										<li class='command_r'>Width</li>
-										<li class='command_r'>Height</li>
-									</ul>
-								</div>
-							</div>
 
 							<div role="tabpanel" class="tab-pane" id="Control">
 								<form>
@@ -386,7 +369,7 @@
 
 							<div class="tab-pane select-pane" id="Operator">
 
-								<ul id="draggable" style="text-align: left">
+								<ul id="notdraggable" style="text-align: left">
 									<li class='addOperation'><input id="input1" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
 										onchange="checkType(this)"> <select id="select1"
@@ -509,13 +492,6 @@
 											onclick="addNewoption(this, '15', '16', '<=')">New</button></li>
 								</ul>
 
-
-							</div>
-
-							<div role="tabpanel" class="tab-pane" id="Sensing">
-								<ul id="draggable" class="two-col-special">
-									<li class='command_p'>Touch edge?</li>
-								</ul>
 
 							</div>
 

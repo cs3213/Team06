@@ -178,13 +178,19 @@ function charactersInput() {
 }
 
 function musicInput() {
+	var duration = 0;
 	$('#sortable-background li').each(function() {
 		var command = $(this).text();
 		var index = command.substring(5, 6);
-		var input = $(this).find('input').val();
-		
-		playTimeSound(index, input);
-	})
+		var time = parseInt($(this).find('input').val());
+		setTimeout(function(){
+			playTimeSound(index, time);
+			console.log("play "+index+" duration ", time);
+		},duration*1000);
+		console.log("music "+index+" "+time);
+		duration += time + 1;
+		console.log(duration);
+	});
 }
 
 function submit() {
