@@ -16,22 +16,23 @@ function setKeyboardAnimationParams(char, lMargin, tMargin, lMarginLimit,
 }
 
 function checkKey(e) {
-	if (characters[0]) {
+	for (var i=0; i<characters.length; i++) {
 		switch (e.keyCode) {
-		case 37:
-			keyboardLeft(0, 1);// left
-			break;
-		case 38:
-			keyboardUp(0, 1);// up
-			break;
-		case 39:
-			keyboardRight(0, 1);// right
-			break;
-		case 40:
-			keyboardDown(0, 1);// down
-			break;
+			case 37:
+				keyboardLeft(i, 1);// left
+				break;
+			case 38:
+				keyboardUp(i, 1);// up
+				break;
+			case 39:
+				keyboardRight(i, 1);// right
+				break;
+			case 40:
+				keyboardDown(i, 1);// down
+				break;
 		}
 	}
+
 }
 
 function keyboardRight(index, steps) {

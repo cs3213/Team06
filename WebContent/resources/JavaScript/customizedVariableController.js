@@ -13,7 +13,7 @@ function new_variable() {
 		VariableSet[variable] = true;
 		customizedVariable[variable] = 0;
 		var element1 = document.createElement("li");
-		element1.className = "command_repeat";
+		element1.className = "command_e";
 		element1.innerHTML = variable;
 		div.appendChild(element1);
 

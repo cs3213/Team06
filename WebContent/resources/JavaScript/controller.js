@@ -285,26 +285,6 @@ $( '#save-trigger' ).on( 'click', function( event ) {
 	}
 });
 
-$('#loading-btn').click(function () {
-//    var btn = $(this);
-//    btn.button('loading');
-//    
-//    
-//    setTimeout(function (){
-//    	//alert("called");
-//    	var btn = $('#loading-btn');    	
-//        btn.button('reset');
-//        setTimeout(function(){document.getElementById('load-file-btn').click();
-//},1000);
-//        
-//    },1500);
-    
-    
-	document.getElementById('load-file-btn').click();
-    
-  });
-
-
 function update(){
 	//alert("called");
 	var btn = $('#loading-btn');

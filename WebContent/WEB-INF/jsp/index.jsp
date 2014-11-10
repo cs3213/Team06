@@ -38,7 +38,8 @@
 	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
-<script src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
+<script
+	src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
@@ -52,6 +53,8 @@
 <script src="<c:url value="/resources/JavaScript/bootbox.min.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/bootbox.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
+<script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
 
 </head>
 
@@ -66,6 +69,8 @@
 			<div>
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
+				
+				<div id="User-Name" style="float:right">left</div>
 
 				<button id="Drop-boxLogin" class="overlay-trigger"
 					onclick="dropboxLogin()" style="display:">Load Program</button>
@@ -177,12 +182,12 @@
 							ondrop="dropIt(event);" ondragover="event.preventDefault();">
 
 							<button onclick="dropOver1();">Edit</button>
-							<button onclick="playTimeSound()">Play</button>
+							<button onclick="playTimeSound();">Play</button>
 							<div id="soundPlayer"></div>
-
+							
 							<div id="sortable-background" class="ui-sortable"
 								style="height: 300px; width: 72%; float: left; border: dotted; overflow: scroll;">
-
+								
 							</div>
 						</div>
 
@@ -337,8 +342,8 @@
 										id="selectSet"><option>--Select--</option>
 									</select> to <input type="text" name="setVariable" size="2"
 										class="input-word"></li>
-									<li class='command_e'>Change <select class="selectItem"
-										id="selectChange"><option>--Select--</option>
+									<li class='command_e'>Change <select
+										class="selectItem" id="selectChange"><option>--Select--</option>
 									</select> by <input type="text" name="changeVariable" size="2"
 										class="input-word"></li>
 								</ul>
@@ -371,14 +376,14 @@
 								<ul id="notdraggable" style="text-align: left">
 									<li class='addOperation'><input id="input1" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="oselect1"
+										onchange="checkType(this)"> <select id="select1"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> + <input id="input2"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect2" class="selectItem"
+										id="select2" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -387,13 +392,13 @@
 									<li class='substractOperation'><input id="input3"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect3" class="selectItem"
+										id="select3" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> - <input id="input4"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect4" class="selectItem"
+										id="select4" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -402,13 +407,13 @@
 									<li class='multiplyOperation'><input id="input5"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect5" class="selectItem"
+										id="select5" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> * <input id="input6"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect6" class="selectItem"
+										id="select6" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -416,14 +421,14 @@
 											onclick="addNewoption(this, '5', '6', '*')">New</button></li>
 									<li class='divideOperation'><input id="input7" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="oselect7"
+										onchange="checkType(this)"> <select id="select7"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> / <input id="input8"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect8" class="selectItem"
+										id="select8" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -431,14 +436,14 @@
 											onclick="addNewoption(this, '7', '8', '/')">New</button></li>
 									<li class='modOperation'><input id="input9" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="oselect9"
+										onchange="checkType(this)"> <select id="select9"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> % <input id="input10"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect10" class="selectItem"
+										id="select10" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -446,14 +451,14 @@
 											onclick="addNewoption(this, '9', '10', '%')">New</button></li>
 									<li class='equalOperation'><input id="input11" type="text"
 										class="selectItem" name="input" size="2" style="display: none"
-										onchange="checkType(this)"> <select id="oselect11"
+										onchange="checkType(this)"> <select id="select11"
 										class="selectItem" onchange="selectCustomer(this)"><option
 												value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> = <input id="input12"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect12" class="selectItem"
+										id="select12" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -462,13 +467,13 @@
 									<li class='greaterThanOperation'><input id="input13"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect13" class="selectItem"
+										id="select13" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> >= <input
 										id="input14" type="text" class="selectItem" name="input"
 										size="2" style="display: none" onchange="checkType(this)">
-										<select id="oselect14" class="selectItem"
+										<select id="select14" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -477,13 +482,13 @@
 									<li class='lessThanOperation'><input id="input15"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
-										id="oselect15" class="selectItem"
+										id="select15" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select> <= <input
 										id="input16" type="text" class="selectItem" name="input"
 										size="2" style="display: none" onchange="checkType(this)">
-										<select id="oselect16" class="selectItem"
+										<select id="select16" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
@@ -506,18 +511,20 @@
 					<div class="" id="musicList">
 						<form>
 							<ul id="draggable">
-								<li class="music1">Music1 <input type="text"
+
+								<li class="command_music" class="music1">Music1 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
 								</li>
-								<li class="music2">Music2 <input type="text"
+								<li class="command_music" class="music2">Music2 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
 								</li>
-								<li class="music3">Music3 <input type="text"
+								<li class="command_music" class="music3">Music3 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
 								</li>
-								<li class="music4">Music4 <input type="text"
+								<li class="command_music" class="music4">Music4 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
 								</li>
+
 							</ul>
 						</form>
 					</div>
@@ -530,12 +537,11 @@
 	<script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/controller.js" />"></script>
 	<script src="<c:url value="/resources/JavaScript/newOperation.js" />"></script>
-	<script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
+
 	<script
 		src="<c:url value="/resources/JavaScript/coordinateController.js" />"></script>
 	<script
 		src="<c:url value="/resources/JavaScript/dropboxController.js" />"></script>
-	<script
-		src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
+
 </body>
 </html>
