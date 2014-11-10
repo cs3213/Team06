@@ -508,10 +508,9 @@
 
 
 				<div class="tab-pane select-pane" id="music-pane">
-					<div class="" id="musicList">
+					<div id="musicList">
 						<form>
 							<ul id="music" class="two-col-special">
-
 								<li class="command_music" class="music1">Music1 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
 								</li>
