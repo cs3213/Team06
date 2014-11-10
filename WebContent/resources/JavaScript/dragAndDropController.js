@@ -105,6 +105,15 @@ function dropOver() {
 function dropOver1() {
 
 	var sortNode = "#" + "sortable-background";
+	
+	for (i = 1; i <= countElement; i++) {
+		
+			var ID = "edit" + i.toString();
+			var object = document.getElementById(ID);
+			if (object) {
+				object.setAttribute("class", "btn onbtn");
+			}
+	}
 
 	$("#draggable li").draggable({
 		connectToSortable : sortNode,
