@@ -34,7 +34,7 @@ body {
 	float: left;
 }
 #editor {
-	height: 549px; 
+	height: 563px; 
 	width: 32%;
 	float: left;
 }
@@ -302,7 +302,7 @@ button {
 }
 .tab-panel{
 	width: 20%;
-	height: 549px;
+	height: 563px;
     float: left;
 }
 .dropbox-btn{
@@ -380,7 +380,7 @@ padding: 2px 2px;
 }
 .tab-editor-panel{
 	width:30%;
-	height: 549px;
+	height: 563px;
     float: left;
 }
 .coordDisplay{

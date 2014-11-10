@@ -43,7 +43,7 @@ function onSignInCallback(authResult) {
 	  } else {
 		 document.getElementById('Google-Login-Button').setAttribute('style', 'display: block');
 //         document.getElementById('Google-Logout-Button').setAttribute('style', 'display: none');
-         document.getElementById('Welcome-Word').setAttribute('style', 'display: none');
+       //  document.getElementById('Welcome-Word').setAttribute('style', 'display: none');
 	     console.log('Sign-in state: ' + authResult['error']);
 	  }
     
