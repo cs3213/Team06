@@ -27,6 +27,7 @@ function setx(index, posx) {
 			marginLeft : posx + 'px'
 		}, 'fast');
 		leftMargin[index] = parseInt(posx);
+		addCustomizedOperation('X', leftMargin[index]);
 	} else {
 		Popup.show("set x out of bound");
 	}
@@ -42,6 +43,7 @@ function sety(index, posy) {
 			marginTop : posy + 'px'
 		}, 'fast');
 		topMargin[index] = parseInt(posy);
+		addCustomizedOperation('Y', topMargin[index]);
 	} else {
 		Popup.show("set y out of bound");
 	}
@@ -72,6 +74,7 @@ function moveRight(index, steps) {
 		}
 	});
 	leftMargin[index] += parseInt(length);
+	addCustomizedOperation('X', leftMargin[index]);
 }
 
 function moveLeft(index, steps) {
@@ -98,6 +101,7 @@ function moveLeft(index, steps) {
 		}
 	});
 	leftMargin[index] -= parseInt(length);
+	addCustomizedOperation('X', leftMargin[index]);
 }
 
 function moveDown(index, steps) {
@@ -124,6 +128,7 @@ function moveDown(index, steps) {
 		}
 	});
 	topMargin[index] += parseInt(length);
+	addCustomizedOperation('Y', topMargin[index]);
 }
 
 function moveUp(index, steps) {
@@ -150,6 +155,7 @@ function moveUp(index, steps) {
 		}
 	});
 	topMargin[index] -= parseInt(length);
+	addCustomizedOperation('Y', topMargin[index]);
 }
 
 function show(index) {
