@@ -70,7 +70,7 @@
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
 				
-				<div id="User-Name" style="float:right">left</div>
+				<div id="User-Name" style="float:right"></div>
 
 				<button id="Drop-boxLogin" class="overlay-trigger"
 					onclick="dropboxLogin()" style="display:">Load Program</button>
