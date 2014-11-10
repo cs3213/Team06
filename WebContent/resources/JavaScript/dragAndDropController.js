@@ -159,8 +159,6 @@ function changeConnect(el) {
 			}
 		}
 	}
-	
-	indexForPlay = Integer.valueOf(indexOfEdit);
 
 	var sortNodeID = "#sortable" + indexOfEdit.toString();
 	$("#draggable li").draggable({
@@ -190,10 +188,12 @@ function changeConnect(el) {
 			}
 		}
 	});
-
+	
 	$(sortNodeID).delegate(".closeButton", "click", function() {
 		$(this).parent().remove();
 	});
+
+	indexForPlay = parseInt(indexOfEdit);
 }
 
 function getIndexForPlay() {
