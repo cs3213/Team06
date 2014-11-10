@@ -100,6 +100,8 @@ function dropOver() {
 	$(element).delegate(".closeButton", "click", function() {
 		$(this).parent().remove();
 	});
+	
+	indexForPlay = element.id - 1;
 }
 
 
@@ -193,7 +195,7 @@ function changeConnect(el) {
 		$(this).parent().remove();
 	});
 
-	indexForPlay = parseInt(indexOfEdit);
+	indexForPlay = parseInt(indexOfEdit) - 1;
 }
 
 function getIndexForPlay() {
