@@ -511,10 +511,20 @@
 					<div class="" id="musicList">
 						<form>
 							<ul id="draggable">
-								<li class="music1">Music1</li>
-								<li class="music2">Music2</li>
-								<li class="music3">Music3</li>
-								<li class="music4">Music4</li>
+
+								<li class="command_music" class="music1">Music1 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+								<li class="command_music" class="music2">Music2 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+								<li class="command_music" class="music3">Music3 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+								<li class="command_music" class="music4">Music4 <input type="text"
+									class="selectItem" name="input" size="2"></input> seconds
+								</li>
+
 							</ul>
 						</form>
 					</div>
