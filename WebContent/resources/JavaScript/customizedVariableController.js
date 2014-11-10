@@ -1,6 +1,9 @@
 var VariableSet = {};
 var customizedVariable = [];
 
+customizedVariable['X'] = 0;
+customizedVariable['Y'] = 0;
+
 function new_variable() {
 	var variable = prompt("Please enter the name of new variable");
 	while (!isNaN(parseFloat(variable)) && variable != null) 

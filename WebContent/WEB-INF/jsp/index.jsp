@@ -470,7 +470,7 @@
 										id="select13" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> >= <input
+											<option value="customer">Input</option></select> > <input
 										id="input14" type="text" class="selectItem" name="input"
 										size="2" style="display: none" onchange="checkType(this)">
 										<select id="select14" class="selectItem"
@@ -478,14 +478,14 @@
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
 										<button id="greaterThan-ops"
-											onclick="addNewoption(this, '13', '14', '>=')">New</button></li>
+											onclick="addNewoption(this, '13', '14', '>')">New</button></li>
 									<li class='lessThanOperation'><input id="input15"
 										type="text" class="selectItem" name="input" size="2"
 										style="display: none" onchange="checkType(this)"> <select
 										id="select15" class="selectItem"
 										onchange="selectCustomer(this)"><option value="X">X</option>
 											<option value="Y">Y</option>
-											<option value="customer">Input</option></select> <= <input
+											<option value="customer">Input</option></select> < <input
 										id="input16" type="text" class="selectItem" name="input"
 										size="2" style="display: none" onchange="checkType(this)">
 										<select id="select16" class="selectItem"
@@ -493,7 +493,7 @@
 											<option value="Y">Y</option>
 											<option value="customer">Input</option></select>
 										<button id="lessThan-ops"
-											onclick="addNewoption(this, '15', '16', '<=')">New</button></li>
+											onclick="addNewoption(this, '15', '16', '<')">New</button></li>
 								</ul>
 
 
@@ -508,10 +508,9 @@
 
 
 				<div class="tab-pane select-pane" id="music-pane">
-					<div class="" id="musicList">
+					<div id="musicList">
 						<form>
-							<ul id="draggable">
-
+							<ul id="music" class="two-col-special">
 								<li class="command_music" class="music1">Music1 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
 								</li>

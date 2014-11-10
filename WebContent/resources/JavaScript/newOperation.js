@@ -67,7 +67,7 @@ function addNewoption(option, num1, num2, op){
     var content = chosenValue1 + " " + op + " " + chosenValue2;
     element.innerHTML = content;
     var select = document.getElementsByTagName('select');
-    if (op == "=" || op=="<=" || op ==">=") {
+    if (op == "=" || op=="<" || op ==">") {
     	for (var i = 0; i < select.length; i++) {
     		if (select[i].id.indexOf("IfCondition") > -1) {
     			select[i].options.add(new Option(content, content));
