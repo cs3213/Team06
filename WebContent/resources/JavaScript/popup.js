@@ -21,7 +21,7 @@ var Popup = (function() {
         clearTimeout(hideHandler);
 
         elem.find("span").html(text);
-        elem.delay(100).fadeIn().delay(100).fadeOut();
+        elem.delay(100).fadeIn().delay(300).fadeOut();
     };
 
     return that;

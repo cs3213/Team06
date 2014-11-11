@@ -86,7 +86,7 @@ function dropOver() {
 				ui.item.css("padding", "3px 3px");
 				ui.item.css("font-size", "0.8em");
 				ui.item.css("color", "white");
-				ui.item.css("width", "200px");
+				ui.item.css("width", "150px");
 				ui.item.css("text-align", "center");
 				ui.item.css("list-style-type", "none");
 
@@ -126,7 +126,7 @@ function dropOver1() {
 				ui.item.css("padding", "3px 3px");
 				ui.item.css("font-size", "0.8em");
 				ui.item.css("color", "white");
-				ui.item.css("width", "200px");
+				ui.item.css("width", "150px");
 				ui.item.css("text-align", "center");
 				ui.item.css("list-style-type", "none");
 
@@ -175,7 +175,7 @@ function changeConnect(el) {
 				ui.item.css("padding", "3px 3px");
 				ui.item.css("font-size", "0.8em");
 				ui.item.css("color", "white");
-				ui.item.css("width", "200px");
+				ui.item.css("width", "150px");
 				ui.item.css("text-align", "center");
 				ui.item.css("list-style-type", "none");
 

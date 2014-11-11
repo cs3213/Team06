@@ -28,6 +28,7 @@
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script
 	src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
+
 <script
 	src="<c:url value="/resources/JavaScript/dragAndDropController.js" />"></script>
 <script
@@ -38,8 +39,7 @@
 	src="<c:url value="/resources/JavaScript/keyboardAnimationController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/repeatController.js" />"></script>
-<script
-	src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
+<script src="<c:url value="/resources/JavaScript/soundController.js" />"></script>
 <script
 	src="<c:url value="/resources/JavaScript/selectFloatAndCharacterController.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/playController.js" />"></script>
@@ -54,7 +54,9 @@
 <script src="<c:url value="/resources/JavaScript/bootbox.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/popup.js" />"></script>
 <script src="<c:url value="/resources/JavaScript/googleLogin.js" />"></script>
-<script src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
+<script
+	src="https://www.google.com/jsapi?key=AIzaSyBoyxG4q9onZh6oXyF1jPsnbuCxeqj8O_M"></script>
+
 
 </head>
 
@@ -69,8 +71,8 @@
 			<div>
 				<a href id="Google-Login-Button" class="overlay-trigger"
 					data-overlay="Google-Login" style="display: none">Google Login</a>
-				
-				<div id="User-Name" style="float:right"></div>
+
+				<div id="User-Name" style="float: right"></div>
 
 				<button id="Drop-boxLogin" class="overlay-trigger"
 					onclick="dropboxLogin()" style="display:">Load Program</button>
@@ -109,8 +111,11 @@
 			</div>
 
 			<div class="container content-div">
+			
 				<div id="divtest-player" class="scene_play"
-					onmouseover="displayCoord" style=""></div>
+						onmouseover="displayCoord" style=""></div>
+					
+				
 			</div>
 
 			<div id="control-panel" class="container content-div">
@@ -158,7 +163,8 @@
 					<li class="active"><a href="#character-editor-pane" role="tab"
 						data-toggle="tab"><h5>Character Editor</h5></a></li>
 					<li><a href="#background-editor-pane" role="tab"
-						data-toggle="tab" onclick="dropOver1();"><h5>Background Editor</h5></a></li>
+						data-toggle="tab" onclick="dropOver1();"><h5>Background
+								Editor</h5></a></li>
 
 				</ul>
 			</div>
@@ -181,13 +187,13 @@
 						<div id="sortable" class="scene-inner-container"
 							ondrop="dropIt(event);" ondragover="event.preventDefault();">
 
-<!-- 							<button onclick="dropOver1();">Edit</button>
+							<!-- 							<button onclick="dropOver1();">Edit</button>
 							<button onclick="playTimeSound();">Play</button> -->
 							<div id="soundPlayer"></div>
-							
+
 							<div id="sortable-background" class="ui-sortable"
 								style="height: 300px; width: 72%; float: left; border: dotted; overflow: scroll;">
-								
+
 							</div>
 						</div>
 
@@ -261,9 +267,7 @@
 								</li>
 
 								<li><a href="#Customized-Variable" role="tab"
-									data-toggle="tab">Customized Variable</a>
-
-								</li>
+									data-toggle="tab">Customized Variable</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -342,8 +346,8 @@
 										id="selectSet"><option>--Select--</option>
 									</select> to <input type="text" name="setVariable" size="2"
 										class="input-word"></li>
-									<li class='command_e'>Change <select
-										class="selectItem" id="selectChange"><option>--Select--</option>
+									<li class='command_e'>Change <select class="selectItem"
+										id="selectChange"><option>--Select--</option>
 									</select> by <input type="text" name="changeVariable" size="2"
 										class="input-word"></li>
 								</ul>
@@ -510,18 +514,23 @@
 				<div class="tab-pane select-pane" id="music-pane">
 					<div id="musicList">
 						<form>
+
 							<ul id="music" class="two-col-special">
 								<li class="command_music" class="music1">Music1 <input type="text"
 									class="selectItem" name="input" size="2"></input> seconds
+
 								</li>
-								<li class="command_music" class="music2">Music2 <input type="text"
-									class="selectItem" name="input" size="2"></input> seconds
+								<li class="command_music" class="music2">Music2 <input
+									type="text" class="selectItem" name="input" size="2"></input>
+									seconds
 								</li>
-								<li class="command_music" class="music3">Music3 <input type="text"
-									class="selectItem" name="input" size="2"></input> seconds
+								<li class="command_music" class="music3">Music3 <input
+									type="text" class="selectItem" name="input" size="2"></input>
+									seconds
 								</li>
-								<li class="command_music" class="music4">Music4 <input type="text"
-									class="selectItem" name="input" size="2"></input> seconds
+								<li class="command_music" class="music4">Music4 <input
+									type="text" class="selectItem" name="input" size="2"></input>
+									seconds
 								</li>
 
 							</ul>
