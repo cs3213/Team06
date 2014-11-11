@@ -39,7 +39,6 @@
 //});
 
 function addNewoption(option, num1, num2, op){
-	alert("add");
 	var id1 = 'select'+ num1;
 	var id2 = 'select'+ num2;
 	var input1 = 'input' +num1;
@@ -82,4 +81,5 @@ function addNewoption(option, num1, num2, op){
     }
     element.className = "command_right";
     variable_list.appendChild(element);
+    Popup.show("Save new operation " + content + " Successfully");
 }

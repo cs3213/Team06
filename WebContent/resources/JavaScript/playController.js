@@ -126,7 +126,6 @@ function play(sequence, value, select, charactersSrc) {
 			}
 		}
 	}
-	render;
 }
 
 function charactersInput() {
@@ -202,12 +201,12 @@ function submit() {
 function animationStopTimer() {
 	clearTimeout(timer);
 }
-function render(){
-	var encoder = new GIFEncoder();
-	 encoder.setRepeat(0); //auto-loop
-	  encoder.setDelay(500);
-	  console.log(encoder.start());
-	  encoder.addFrame(context);
-	  encoder.finish();
-	  document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
-}
+//function render(){
+//	var encoder = new GIFEncoder();
+//	 encoder.setRepeat(0); //auto-loop
+//	  encoder.setDelay(500);
+//	  console.log(encoder.start());
+//	  encoder.addFrame(context);
+//	  encoder.finish();
+//	  document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+//}

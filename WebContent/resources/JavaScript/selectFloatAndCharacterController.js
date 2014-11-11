@@ -65,15 +65,18 @@ function selectCustomer(el) {
 }
 
 function selectForMove(el) {
+	alert(el);
 	var selectId = $(el).attr('id').substring(7);
 	var value = el.options[el.selectedIndex].value;
 	
 	if(value == "userInput") {
 		var inputId = "userInput" + selectId;
 		document.getElementById(inputId).style.display = "";
+		//el.style.display="";
 	} else {
 		var inputId = "userInput" + selectId;
 		document.getElementById(inputId).style.display = "none";
+		//el.style.display="";
 	}
 }
 
