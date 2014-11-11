@@ -1,6 +1,9 @@
 var VariableSet = {};
 var customizedVariable = [];
 
+customizedVariable['X'] = 0;
+customizedVariable['Y'] = 0;
+
 function new_variable() {
 	var variable = prompt("Please enter the name of new variable");
 	while (!isNaN(parseFloat(variable)) && variable != null) 
@@ -19,8 +22,7 @@ function new_variable() {
 
 		var select = document.getElementsByTagName('select');
 	    for (var i = 0; i < select.length; i++) {
-	    	if (select[i].id.indexOf("selectSet") > -1 || select[i].id.indexOf("selectChange") > -1 
-	    			|| select[i].id.indexOf("mselect") > -1 || select[i].id.indexOf("oselect") > -1) {
+	    	if (select[i].id.indexOf("select") > -1) {
 	    			select[i].options.add(new Option(variable,variable));
 	    		}
 	    	}

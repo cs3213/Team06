@@ -194,6 +194,8 @@ function musicInput() {
 }
 
 function submit() {
+	addCustomizedOperation('X', 0);
+	addCustomizedOperation('Y', 0);
 	charactersInput();
 	musicInput();
 }
