@@ -22,8 +22,7 @@ function new_variable() {
 
 		var select = document.getElementsByTagName('select');
 	    for (var i = 0; i < select.length; i++) {
-	    	if (select[i].id.indexOf("selectSet") > -1 || select[i].id.indexOf("selectChange") > -1 
-	    			|| select[i].id.indexOf("mselect") > -1 || select[i].id.indexOf("oselect") > -1) {
+	    	if (select[i].id.indexOf("select") > -1) {
 	    			select[i].options.add(new Option(variable,variable));
 	    		}
 	    	}
