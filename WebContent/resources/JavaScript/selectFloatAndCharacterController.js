@@ -65,7 +65,6 @@ function selectCustomer(el) {
 }
 
 function selectForMove(el) {
-<<<<<<< HEAD
 	alert(el);
 	var selectId = $(el).attr('id').substring(7);
 	var value = el.options[el.selectedIndex].value;
@@ -78,7 +77,6 @@ function selectForMove(el) {
 		var inputId = "userInput" + selectId;
 		document.getElementById(inputId).style.display = "none";
 		//el.style.display="";
-=======
 	var input = $(el).parent().find('input');
 	var value = el.options[el.selectedIndex].value;
 	
@@ -86,8 +84,8 @@ function selectForMove(el) {
 		input[0].style.display = "";
 	} else {
 		input[0].style.display = "none";
->>>>>>> e3199dd2a087bd879d7de7ed1b07f793355dce7e
 	}
+}
 }
 
 function displayHouse(el) {
