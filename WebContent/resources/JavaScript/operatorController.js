@@ -67,32 +67,72 @@ function getValueFromExpression(expression, variable) {
 		index = expression.indexOf("+");
 		leftop = expression.substring(0, index).trim();
 		rightop = expression.substring(index+1).trim();
+		var leftValue = parseInt(leftop);
+		var rightValue = parseInt(rightop);
+		if (isNaN(leftValue)) {
+			leftValue = customizedVariable[leftop];
+		}
 		
-		return parseInt(variable[leftop]) + parseInt(variable[rightop]);
+		if (isNaN(rightValue)) {
+			rightValue = customizedVariable[rightop];
+		}
+		return leftValue + rightValue;
 	} else if (expression.indexOf("-") > -1) {
 		index = expression.indexOf("-");
 		leftop = expression.substring(0, index).trim();
 		rightop = expression.substring(index+1).trim();
+		var leftValue = parseInt(leftop);
+		var rightValue = parseInt(rightop);
+		if (isNaN(leftValue)) {
+			leftValue = customizedVariable[leftop];
+		}
 		
-		return parseInt(variable[leftop]) - parseInt(variable[rightop]);
+		if (isNaN(rightValue)) {
+			rightValue = customizedVariable[rightop];
+		}
+		return leftValue - rightValue;
 	} else if (expression.indexOf("*") > -1) {
 		index = expression.indexOf("*");
 		leftop = expression.substring(0, index).trim();
 		rightop = expression.substring(index+1).trim();
+		var leftValue = parseInt(leftop);
+		var rightValue = parseInt(rightop);
+		if (isNaN(leftValue)) {
+			leftValue = customizedVariable[leftop];
+		}
 		
-		return parseInt(variable[leftop]) * parseInt(variable[rightop]);
+		if (isNaN(rightValue)) {
+			rightValue = customizedVariable[rightop];
+		}
+		return leftValue * rightValue;
 	} else if (expression.indexOf("/") > -1) {
 		index = expression.indexOf("/");
 		leftop = expression.substring(0, index).trim();
 		rightop = expression.substring(index+1).trim();
+		var leftValue = parseInt(leftop);
+		var rightValue = parseInt(rightop);
+		if (isNaN(leftValue)) {
+			leftValue = customizedVariable[leftop];
+		}
 		
-		return parseInt(variable[leftop]) / parseInt(variable[rightop]);
+		if (isNaN(rightValue)) {
+			rightValue = customizedVariable[rightop];
+		}
+		return leftValue / rightValue;
 	} else if (expression.indexOf("%") > -1) {
 		index = expression.indexOf("%");
 		leftop = expression.substring(0, index).trim();
 		rightop = expression.substring(index+1).trim();
+		var leftValue = parseInt(leftop);
+		var rightValue = parseInt(rightop);
+		if (isNaN(leftValue)) {
+			leftValue = customizedVariable[leftop];
+		}
 		
-		return parseInt(variable[leftop]) % parseInt(variable[rightop]);
+		if (isNaN(rightValue)) {
+			rightValue = customizedVariable[rightop];
+		}
+		return leftValue % rightValue;
 	}
 	
 	return 0;
